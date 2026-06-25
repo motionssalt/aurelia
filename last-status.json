@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-25T07:13:23.281Z",
-  "balance": 9924.86,
+  "last_cycle": "2026-06-25T08:36:19.205Z",
+  "balance": 9932.43,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -655,6 +655,51 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3197143879
+      }
+    },
+    {
+      "ts": "2026-06-25T08:35:09.717Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T08:35:09.717Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T08:35:09.719Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T08:35:10.301Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uC5RShwd"
+      }
+    },
+    {
+      "ts": "2026-06-25T08:35:10.661Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T08:36:19.205Z",
+      "level": "info",
+      "msg": "AI decision via key \"GEMINI_KEY_BACKUP\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-06-25T08:36:19.205Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "All strong trends are currently in overbought or oversold conditions across multiple timeframes, indicating a high risk of imminent pullback or consolidation. No high-confidence continuation setups found."
       }
     }
   ],
