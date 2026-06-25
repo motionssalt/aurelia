@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:54:08.284Z",
+  "last_cycle": "2026-06-25T05:59:38.261Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -330,6 +330,42 @@
       "meta": {
         "error": "WS not open (state=3)",
         "stack": "Error: WS not open (state=3)\n    at /home/runner/work/aurelia/aurelia/deriv.js:188:27\n    at new Promise (<anonymous>)\n    at request (/home/runner/work/aurelia/aurelia/deriv.js:186:12)\n    at Object.placeTrade (/home/runner/work/aurelia/aurelia/deriv.js:328:29)\n    at placeAndSettle (/home/runner/work/aurelia/aurelia/runner.js:115:34)\n    at runManual (/home/runner/work/aurelia/aurelia/runner.js:457:30)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:523:13)"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:59:29.835Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:59:29.835Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:59:29.836Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:59:30.415Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FaIj8Lhf"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:59:30.781Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:59:37.752Z",
+      "level": "error",
+      "msg": "Manual AI decision failed",
+      "meta": {
+        "error": "No Gemini keys registered. Add a secret + key_registry entry via Termux."
       }
     }
   ]
