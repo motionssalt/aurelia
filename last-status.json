@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:10:33.056Z",
+  "last_cycle": "2026-06-25T05:13:56.349Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -119,6 +119,51 @@
       "msg": "AI declined manual trade",
       "meta": {
         "rationale": "Cannot place a trade as remaining session capital is 0."
+      }
+    },
+    {
+      "ts": "2026-06-25T05:13:44.821Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:13:44.821Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:13:44.822Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:13:45.112Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NAQZSrZt"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:13:45.842Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:13:55.990Z",
+      "level": "info",
+      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-06-25T05:13:55.990Z",
+      "level": "info",
+      "msg": "AI declined manual trade",
+      "meta": {
+        "rationale": "Session is not active or capital remaining is zero, cannot place a trade."
       }
     }
   ]
