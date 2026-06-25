@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T11:30:18.571Z",
+  "last_cycle": "2026-06-25T11:35:17.747Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,44 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T08:41:23.814Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPUSD PUT",
-      "meta": {
-        "stake": 5,
-        "price": 5,
-        "payout": 8.65,
-        "spot": 1.31945
-      }
-    },
-    {
-      "ts": "2026-06-25T08:41:23.955Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3204032459",
-      "meta": {
-        "transaction_id": 6314090719,
-        "longcode": "Win payout if GBP/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-25T08:41:24.336Z",
-      "level": "info",
-      "msg": "[chart] fetching 80 candles for frxGBPUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:41:24.421Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:41:26.336Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T08:42:14.665Z",
       "level": "warn",
@@ -1485,6 +1447,40 @@
       "ts": "2026-06-25T11:30:18.570Z",
       "level": "info",
       "msg": "settle_only — done",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:35:16.978Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T11:35:16.977Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:35:16.979Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:35:17.440Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=caNQv0Po"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:35:17.674Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:35:17.746Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
     }
   ],
