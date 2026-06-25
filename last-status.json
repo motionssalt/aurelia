@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T10:55:23.008Z",
+  "last_cycle": "2026-06-25T11:00:25.354Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,39 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T06:18:37.730Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3193674199",
-      "meta": {
-        "transaction_id": 6294307959,
-        "longcode": "Win payout if USD/JPY is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-25T06:18:38.043Z",
-      "level": "info",
-      "msg": "[chart] fetching 80 candles for frxUSDJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T06:18:38.116Z",
-      "level": "info",
-      "msg": "[chart] no cached Chromium found - installing now (first chart request)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T06:18:41.528Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T06:18:43.207Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T06:19:32.226Z",
       "level": "warn",
@@ -1503,6 +1470,40 @@
       "ts": "2026-06-25T10:55:23.007Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:00:24.500Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T11:00:24.500Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:00:24.502Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:00:24.882Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UU3tHCnr"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:00:25.215Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:00:25.354Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
