@@ -4,12 +4,12 @@
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
-    "active": false,
-    "started_at": null,
-    "capital_start": 0,
-    "capital_remaining": 0,
-    "take_profit": 0,
-    "stop_loss": 0,
+    "active": true,
+    "started_at": "2026-06-25T06:17:43.002Z",
+    "capital_start": 1000,
+    "capital_remaining": 1000,
+    "take_profit": 20,
+    "stop_loss": 20,
     "trades": 0,
     "wins": 0,
     "losses": 0,
@@ -60,7 +60,7 @@
     {
       "ts": "2026-06-25T05:03:53.386Z",
       "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed Ã¢ÂÂ benching 120m",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed ÃÂ¢ÃÂÃÂ benching 120m",
       "meta": {
         "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
       }
@@ -200,7 +200,7 @@
     {
       "ts": "2026-06-25T05:17:33.329Z",
       "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed â benching 120m",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed Ã¢ÂÂ benching 120m",
       "meta": {
         "error": "This operation was aborted"
       }
@@ -244,7 +244,7 @@
     {
       "ts": "2026-06-25T05:39:01.572Z",
       "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_BACKUP\" failed — benching 120m",
+      "msg": "Gemini key \"GEMINI_KEY_BACKUP\" failed â benching 120m",
       "meta": {
         "error": "This operation was aborted"
       }
@@ -252,7 +252,7 @@
     {
       "ts": "2026-06-25T05:39:31.573Z",
       "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_THIRD\" failed — benching 120m",
+      "msg": "Gemini key \"GEMINI_KEY_THIRD\" failed â benching 120m",
       "meta": {
         "error": "This operation was aborted"
       }
@@ -266,7 +266,7 @@
     {
       "ts": "2026-06-25T05:40:01.573Z",
       "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed — benching 120m",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed â benching 120m",
       "meta": {
         "error": "This operation was aborted"
       }
