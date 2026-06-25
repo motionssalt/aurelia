@@ -1,0 +1,17 @@
+{
+  "name": "aurelia-worker",
+  "version": "1.0.0",
+  "description": "AURELIA Cloudflare Worker — Telegram webhook + GitHub Actions control plane.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev":    "wrangler dev"
+  },
+  "dependencies": {
+    "tweetsodium": "0.0.5"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

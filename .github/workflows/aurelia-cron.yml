@@ -1,0 +1,103 @@
+name: AURELIA — tick
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Task: cycle | manual | settle_only'
+        required: false
+        default: 'cycle'
+      payload:
+        description: 'JSON payload forwarded as INPUT_PAYLOAD (manual actions)'
+        required: false
+        default: ''
+  schedule:
+    # Safety-net tick every 10 min. Used as a `settle_only` heartbeat so
+    # any pending contract is reconciled even if the worker is silent.
+    # The real cycle ticks are triggered by the Cloudflare Worker via
+    # workflow_dispatch when the state machine is eligible.
+    - cron: '*/10 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aurelia-tick
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Cache Puppeteer Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm ci --omit=dev || npm install --omit=dev
+
+      - name: Run AURELIA tick
+        env:
+          # Deriv
+          DERIV_BEARER_TOKEN: ${{ secrets.DERIV_BEARER_TOKEN }}
+          DERIV_APP_ID:       ${{ secrets.DERIV_APP_ID }}
+          DERIV_REAL_ID:      ${{ secrets.DERIV_REAL_ID }}
+          DERIV_DEMO_ID:      ${{ secrets.DERIV_DEMO_ID }}
+          # Telegram
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          # GitHub (for worker-side; runner does not write secrets itself)
+          GITHUB_PAT:         ${{ secrets.PAT_TOKEN }}
+          # Task routing
+          INPUT_TASK:         ${{ github.event.inputs.task || (github.event_name == 'schedule' && 'settle_only' || 'cycle') }}
+          INPUT_PAYLOAD:      ${{ github.event.inputs.payload }}
+          # All repo/org secrets dumped as JSON. Runner parses out keys whose
+          # name starts with GEMINI_KEY_ and exposes them in process.env so
+          # ai-client.js can look them up by registry name. This is the
+          # standard idiom for "arbitrary number of secrets" in Actions.
+          ALL_SECRETS_JSON:   ${{ toJSON(secrets) }}
+        run: |
+          # Expand GEMINI_KEY_* entries from ALL_SECRETS_JSON into the
+          # current shell env so node sees them as process.env[NAME].
+          node -e "
+            const all = JSON.parse(process.env.ALL_SECRETS_JSON || '{}');
+            const lines = [];
+            for (const [k, v] of Object.entries(all)) {
+              if (k.startsWith('GEMINI_KEY_')) lines.push(k + '=' + v);
+            }
+            require('fs').writeFileSync('.gemini.env', lines.join('\n'));
+          "
+          set -a; [ -f .gemini.env ] && . ./.gemini.env; set +a
+          rm -f .gemini.env
+          node runner.js
+
+      - name: Commit updated state
+        if: always()
+        run: |
+          git config user.name  "aurelia-bot"
+          git config user.email "bot@aurelia"
+          git add last-status.json config.json || true
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "chore(state): tick $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+            git push || (git pull --rebase --autostash && git push) || \
+              (echo "Push failed — retrying once more" && sleep 3 && git pull --rebase --autostash && git push)
+          fi

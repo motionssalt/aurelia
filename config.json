@@ -1,0 +1,66 @@
+{
+  "enabled": true,
+  "account": {
+    "mode": "demo",
+    "real_id": "",
+    "demo_id": ""
+  },
+  "symbols": {
+    "forex": {
+      "frxEURUSD": true,
+      "frxGBPUSD": true,
+      "frxUSDJPY": true,
+      "frxAUDUSD": true,
+      "frxUSDCAD": true,
+      "frxUSDCHF": true,
+      "frxNZDUSD": true,
+      "frxEURJPY": true,
+      "frxEURGBP": true,
+      "frxGBPJPY": true,
+      "frxAUDJPY": true,
+      "frxEURAUD": true,
+      "frxEURCAD": true,
+      "frxEURCHF": true
+    },
+    "synthetics": {
+      "R_10":    false,
+      "R_25":    false,
+      "R_50":    false,
+      "R_75":    false,
+      "R_100":   false,
+      "1HZ10V":  false,
+      "1HZ25V":  false,
+      "1HZ50V":  false,
+      "1HZ75V":  false,
+      "1HZ100V": false
+    }
+  },
+  "syn_enabled": false,
+  "cycle": {
+    "running": false,
+    "interval_seconds": 60,
+    "session": {
+      "capital":     100,
+      "take_profit":  20,
+      "stop_loss":    20
+    }
+  },
+  "ai": {
+    "model": "gemini-2.5-flash",
+    "max_history_entries": 12,
+    "key_registry": [],
+    "bench_minutes": 120,
+    "min_confidence": 0.55
+  },
+  "stake": {
+    "absolute_min": 0.35,
+    "absolute_max": 10000
+  },
+  "expiry": {
+    "min_seconds": 900
+  },
+  "telegram": {
+    "timezone": "UTC",
+    "log_page_size": 10
+  }
+}

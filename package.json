@@ -1,0 +1,19 @@
+{
+  "name": "aurelia",
+  "version": "1.0.0",
+  "description": "AURELIA — AI-driven Deriv binary-options trading bot. Gemini decides; deterministic code executes. Built on the motionsalt-headless serverless foundation (GitHub Actions cron + Cloudflare Worker + Telegram).",
+  "main": "runner.js",
+  "type": "commonjs",
+  "scripts": {
+    "start":  "node runner.js",
+    "cycle":  "node runner.js",
+    "manual": "INPUT_TASK=manual node runner.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "technicalindicators": "^3.1.0",
+    "ws": "^8.18.0",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^22.0.0"
+  }
+}
