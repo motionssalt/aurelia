@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-25T10:05:14.562Z",
-  "balance": 9955.66,
+  "last_cycle": "2026-06-25T10:10:23.836Z",
+  "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -101,43 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T05:10:23.442Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Lgg73A0M"
-      }
-    },
-    {
-      "ts": "2026-06-25T05:10:23.546Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T05:10:26.261Z",
-      "level": "warn",
-      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_PRIMARY\" anyway",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T05:10:32.724Z",
-      "level": "info",
-      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-06-25T05:10:32.725Z",
-      "level": "info",
-      "msg": "AI declined manual trade",
-      "meta": {
-        "rationale": "Cannot place a trade as remaining session capital is 0."
-      }
-    },
     {
       "ts": "2026-06-25T05:13:44.821Z",
       "level": "info",
@@ -1538,6 +1501,40 @@
       "ts": "2026-06-25T10:05:14.561Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:10:22.673Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T10:10:22.673Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:10:22.675Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:10:23.339Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IykmR7VN"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:10:23.656Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:10:23.835Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
