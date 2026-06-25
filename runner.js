@@ -1,12 +1,13 @@
 /* =====================================================================
    AURELIA — runner.js
    ─────────────────────────────────────────────────────────────────────
-   One serverless invocation = one tick of work. Two independent paths,
+   One serverless invocation = one tick of work. Four task modes,
    selected by INPUT_TASK (see .github/workflows/aurelia-cron.yml):
 
-     • task=cycle  (default) → tick the AI cycle state machine
-     • task=manual           → fire one immediate AI trade outside the cycle
-     • task=settle_only      → just settle any pending contracts (cheap)
+     • task=cycle         (default) → tick the AI cycle state machine
+     • task=manual                  → fire one immediate AI trade outside the cycle
+     • task=settle_only             → just settle any pending contracts (cheap)
+     • task=daily_summary           → emit today's stats + reset daily_stats
 
    Cycle state machine (REBUILD_PROMPT §2A):
      1. Load config + last-status
@@ -16,7 +17,8 @@
      5. If session.halted → skip
      6. If now < next_cycle_eligible_at (post-settlement cooldown) → skip
      7. Build AI payload, ask Gemini for decision
-     8. Validate, clamp (stake + expiry), place trade
+     8. Validate, clamp (stake + expiry), per-symbol enable check,
+        payout-threshold check, then place trade
      9. Record as cycle trade; set next_cycle_eligible_at after settlement
 
    Session TP/SL is enforced HERE, in code, not by the AI.
@@ -26,6 +28,12 @@
      • Ignores cycle_open_position lock
      • Does NOT touch cycle_session counters
      • Logged into trade_history_manual
+
+   Daily summary (NEW):
+     • cron-job.org POSTs {task:"daily_summary"} at 00:00 UTC
+     • Reads state.daily_stats (accumulated by applyDailyStat() on every
+       settled trade), emits the Telegram dailySummary message,
+       optionally resets the counter to a fresh day.
    ===================================================================== */
 
 'use strict';
@@ -63,6 +71,106 @@ function detectTask() {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   Symbol helpers — handle the {forex:{...}, synthetics:{...}} schema
+   ───────────────────────────────────────────────────────────────── */
+function isSyntheticSymbol(sym) {
+    return /^R_\d+$|^1HZ\d+V$|^BOOM|^CRASH|^JD\d+$|^stpRNG/.test(sym);
+}
+function isSymbolEnabled(sym, config) {
+    if (!sym || !config || !config.symbols) return false;
+    const fx  = config.symbols.forex      || {};
+    const syn = config.symbols.synthetics || {};
+    if (isSyntheticSymbol(sym)) {
+        if (!config.syn_enabled) return false;
+        return !!syn[sym];
+    }
+    return !!fx[sym];
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Payout filter — fetch a Deriv proposal for the chosen contract and
+   reject it if the implied payout ratio is below threshold.
+   Threshold resolution order:
+       config.payout.per_symbol[symbol]  →  config.payout.min_threshold
+   Set config.payout.enabled = false to bypass entirely.
+   ───────────────────────────────────────────────────────────────── */
+function resolvePayoutThreshold(sym, config) {
+    const p = (config && config.payout) || {};
+    if (p.per_symbol && Number.isFinite(Number(p.per_symbol[sym]))) {
+        return Number(p.per_symbol[sym]);
+    }
+    return Number.isFinite(Number(p.min_threshold)) ? Number(p.min_threshold) : 0.80;
+}
+async function checkPayoutThreshold(ws, norm, config) {
+    const p = (config && config.payout) || {};
+    if (p.enabled === false) return { ok: true, ratio: null, threshold: null };
+    const threshold = resolvePayoutThreshold(norm.symbol, config);
+    try {
+        const minutes = Risk.expirySecondsToMinutes(norm.expirySec);
+        const reply = await Deriv.request(ws, {
+            proposal: 1,
+            amount: norm.stake,
+            basis: 'stake',
+            contract_type: norm.direction === 'call' ? 'CALL' : 'PUT',
+            currency: 'USD',
+            duration: minutes,
+            duration_unit: 'm',
+            symbol: norm.symbol,
+        }, 10000);
+        const prop = reply && reply.proposal;
+        if (!prop) return { ok: true, ratio: null, threshold, soft: 'no_proposal' };
+        const ask    = Number(prop.ask_price)   || Number(norm.stake);
+        const payout = Number(prop.payout)      || 0;
+        const ratio  = ask > 0 ? (payout / ask - 1) : 0;
+        return {
+            ok:        ratio >= threshold,
+            ratio,
+            threshold,
+            payout,
+            ask,
+        };
+    } catch (e) {
+        Logger.warn('payout proposal failed; allowing trade', { error: e.message });
+        return { ok: true, ratio: null, threshold, soft: 'proposal_error' };
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Daily stats — cumulative counter for the rolling UTC day. Reset by
+   the daily_summary task. Independent of cycle_session.
+   ───────────────────────────────────────────────────────────────── */
+function todayUTC() {
+    return new Date().toISOString().slice(0, 10);
+}
+function ensureDailyStats(state) {
+    if (!state.daily_stats || state.daily_stats.date !== todayUTC()) {
+        state.daily_stats = {
+            date:    todayUTC(),
+            trades:  0,
+            wins:    0,
+            losses:  0,
+            pnl:     0,
+            by_symbol: {},
+        };
+    }
+    return state.daily_stats;
+}
+function applyDailyStat(state, record) {
+    const ds = ensureDailyStats(state);
+    ds.trades += 1;
+    const pnl = Number(record.pnl || 0);
+    ds.pnl = Number((ds.pnl + pnl).toFixed(2));
+    if (record.outcome === 'win')  ds.wins   += 1;
+    if (record.outcome === 'loss') ds.losses += 1;
+    const bs = ds.by_symbol[record.symbol] || { trades: 0, wins: 0, losses: 0, pnl: 0 };
+    bs.trades += 1;
+    bs.pnl     = Number((bs.pnl + pnl).toFixed(2));
+    if (record.outcome === 'win')  bs.wins   += 1;
+    if (record.outcome === 'loss') bs.losses += 1;
+    ds.by_symbol[record.symbol] = bs;
+}
+
+/* ─────────────────────────────────────────────────────────────────
    Validate AI decision (defence in depth, even though prompt says ≥900s)
    ───────────────────────────────────────────────────────────────── */
 function validateDecision(d, config, state, opts) {
@@ -79,6 +187,10 @@ function validateDecision(d, config, state, opts) {
     const minConf = (config.ai && config.ai.min_confidence) || 0;
     if (Number(d.confidence) < minConf) {
         return { ok: true, skip: true, reason: `confidence ${d.confidence} < ${minConf}` };
+    }
+
+    if (!isSymbolEnabled(d.symbol, config)) {
+        return { ok: true, skip: true, reason: `symbol ${d.symbol} disabled in config` };
     }
 
     const stakeOpts = opts && opts.cycle
@@ -274,6 +386,7 @@ async function settleAllPending(ws, config, state) {
             rec.exit    = r.exit;
             newlySettled.push({ rec, path: p.path });
             if (p.path === 'cycle') applyCycleSettlement(state, rec);
+            applyDailyStat(state, rec);
             // Clear cycle position lock if this was the open cycle position
             if (p.path === 'cycle' && state.cycle_open_position &&
                 state.cycle_open_position.contract_id === p.contract_id) {
@@ -382,6 +495,17 @@ async function runCycle(ws, config, state, connOpts) {
         return;
     }
 
+    // Payout-threshold filter (defensive — applies AFTER AI decision)
+    const pay = await checkPayoutThreshold(ws, v.normalised, config);
+    if (!pay.ok) {
+        const msg = `payout ${(pay.ratio * 100).toFixed(1)}% < threshold ${(pay.threshold * 100).toFixed(0)}%`;
+        Logger.info('Cycle trade blocked by payout filter', { symbol: v.normalised.symbol, ratio: pay.ratio, threshold: pay.threshold });
+        try {
+            await Telegram.send(`🛑 <b>AURELIA</b> — trade skipped (<code>${v.normalised.symbol}</code>): ${msg}`);
+        } catch (_) {}
+        return;
+    }
+
     // Place and (try to) settle in-cycle
     const { record, contract, ws: freshWs } = await placeAndSettle(
         ws, v.normalised, config, state, { cycle: true, connOpts });
@@ -391,6 +515,7 @@ async function runCycle(ws, config, state, connOpts) {
 
     if (record.settled) {
         applyCycleSettlement(state, record);
+        applyDailyStat(state, record);
         state.next_cycle_eligible_at =
             Date.now() + 1000 * (config.cycle.interval_seconds || 60);
     } else if (record.contract_id) {
@@ -460,7 +585,16 @@ async function runManual(ws, config, state, connOpts) {
     }
     if (v.skip) {
         Logger.info('AI declined manual trade', { rationale: decision.rationale });
-        await Telegram.send(`🤖 AI declined: <i>${(decision.rationale || 'no high-confidence setup').slice(0,200)}</i>`);
+        await Telegram.send(`🤖 AI declined: <i>${(decision.rationale || v.reason || 'no high-confidence setup').slice(0,200)}</i>`);
+        return;
+    }
+
+    // Payout-threshold filter (manual trades are also subject to it)
+    const pay = await checkPayoutThreshold(ws, v.normalised, config);
+    if (!pay.ok) {
+        const msg = `payout ${(pay.ratio * 100).toFixed(1)}% < threshold ${(pay.threshold * 100).toFixed(0)}%`;
+        Logger.info('Manual trade blocked by payout filter', { symbol: v.normalised.symbol, ratio: pay.ratio, threshold: pay.threshold });
+        await Telegram.send(`🛑 Manual trade skipped (<code>${v.normalised.symbol}</code>): ${msg}`);
         return;
     }
 
@@ -470,7 +604,9 @@ async function runManual(ws, config, state, connOpts) {
     state.trade_history_manual = state.trade_history_manual || [];
     state.trade_history_manual.push(record);
 
-    if (!record.settled && record.contract_id) {
+    if (record.settled) {
+        applyDailyStat(state, record);
+    } else if (record.contract_id) {
         state.pending_contracts.push({
             contract_id: record.contract_id,
             path: 'manual',
@@ -480,6 +616,63 @@ async function runManual(ws, config, state, connOpts) {
         });
     }
     return ws;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   DAILY SUMMARY PATH
+   ─────────────────────────────────────────────────────────────────
+   cron-job.org dispatches this with {"task":"daily_summary"} once per
+   day. We:
+     1. Settle any pending contracts first (so the day's books close
+        properly even if a contract crossed midnight UTC).
+     2. Emit the dailySummary Telegram message for state.daily_stats.
+     3. Archive the snapshot into state.daily_history (last 60 days).
+     4. Reset state.daily_stats to today's empty counter.
+   ───────────────────────────────────────────────────────────────── */
+async function runDailySummary(ws, config, state) {
+    const ds = ensureDailyStats(state);
+    const reportDate = ds.date;
+
+    try {
+        await Telegram.send(Telegram.templates.dailySummary({
+            date:   reportDate,
+            mode:   state.account_mode || (config.account && config.account.mode) || 'demo',
+            trades: ds.trades,
+            wins:   ds.wins,
+            losses: ds.losses,
+            pnl:    ds.pnl,
+        }));
+    } catch (e) {
+        Logger.warn('dailySummary send failed', { error: e.message });
+    }
+
+    // Archive
+    state.daily_history = Array.isArray(state.daily_history) ? state.daily_history : [];
+    state.daily_history.push({
+        date:   ds.date,
+        trades: ds.trades,
+        wins:   ds.wins,
+        losses: ds.losses,
+        pnl:    ds.pnl,
+        by_symbol: ds.by_symbol || {},
+    });
+    if (state.daily_history.length > 60) {
+        state.daily_history = state.daily_history.slice(-60);
+    }
+
+    // Reset (unless config disables it)
+    const resetOn = !config.daily_summary || config.daily_summary.reset_on_send !== false;
+    if (resetOn) {
+        state.daily_stats = {
+            date:    todayUTC(),
+            trades:  0,
+            wins:    0,
+            losses:  0,
+            pnl:     0,
+            by_symbol: {},
+        };
+        Logger.info('daily_stats reset for new UTC day', { date: state.daily_stats.date });
+    }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -498,6 +691,7 @@ async function main() {
     state.trade_history_cycle = state.trade_history_cycle || [];
     state.trade_history_manual= state.trade_history_manual|| [];
     state.ai_keys_bench       = state.ai_keys_bench       || {};
+    ensureDailyStats(state);
 
     if (config.enabled === false) {
         Logger.info('Bot disabled');
@@ -537,6 +731,8 @@ async function main() {
             ws = await runManual(ws, config, state, connOpts) || ws;
         } else if (task === 'settle_only') {
             Logger.info('settle_only — done');
+        } else if (task === 'daily_summary') {
+            await runDailySummary(ws, config, state);
         }
     } catch (e) {
         Logger.error('Tick failed', { error: e.message, stack: e.stack });

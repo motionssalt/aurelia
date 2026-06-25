@@ -63,6 +63,15 @@
   "expiry": {
     "min_seconds": 900
   },
+  "payout": {
+    "enabled": true,
+    "min_threshold": 0.80,
+    "per_symbol": {}
+  },
+  "daily_summary": {
+    "enabled": true,
+    "reset_on_send": true
+  },
   "telegram": {
     "timezone": "UTC",
     "log_page_size": 10

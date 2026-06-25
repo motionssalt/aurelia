@@ -1,22 +1,27 @@
 name: AURELIA — tick
 
+# ─────────────────────────────────────────────────────────────────────
+# AURELIA is driven by an EXTERNAL cron-job.org schedule, not by GitHub
+# Actions' built-in `schedule:` block. The native scheduler is unreliable
+# (5–30 min jitter, silent drops during high load), which is unacceptable
+# for a 15s interval trading cycle.
+#
+# cron-job.org POSTs to this workflow's `dispatches` endpoint every 5 min
+# (cycle) and at 00:00 UTC daily (daily_summary). See SETUP.md §9 for the
+# exact request bodies.
+# ─────────────────────────────────────────────────────────────────────
+
 on:
   workflow_dispatch:
     inputs:
       task:
-        description: 'Task: cycle | manual | settle_only'
+        description: 'Task: cycle | manual | settle_only | daily_summary'
         required: false
         default: 'cycle'
       payload:
         description: 'JSON payload forwarded as INPUT_PAYLOAD (manual actions)'
         required: false
         default: ''
-  schedule:
-    # Safety-net tick every 10 min. Used as a `settle_only` heartbeat so
-    # any pending contract is reconciled even if the worker is silent.
-    # The real cycle ticks are triggered by the Cloudflare Worker via
-    # workflow_dispatch when the state machine is eligible.
-    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
@@ -65,8 +70,8 @@ jobs:
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
           # GitHub (for worker-side; runner does not write secrets itself)
           GITHUB_PAT:         ${{ secrets.PAT_TOKEN }}
-          # Task routing
-          INPUT_TASK:         ${{ github.event.inputs.task || (github.event_name == 'schedule' && 'settle_only' || 'cycle') }}
+          # Task routing — defaults to 'cycle' when cron-job.org omits inputs
+          INPUT_TASK:         ${{ github.event.inputs.task || 'cycle' }}
           INPUT_PAYLOAD:      ${{ github.event.inputs.payload }}
           # All repo/org secrets dumped as JSON. Runner parses out keys whose
           # name starts with GEMINI_KEY_ and exposes them in process.env so

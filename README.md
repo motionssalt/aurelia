@@ -2,8 +2,20 @@
 
 AI-driven Deriv binary-options trading bot. **Gemini decides; deterministic
 code executes.** Built on the `motionsalt-headless` serverless foundation
-(GitHub Actions cron + Cloudflare Worker + Telegram) — same proven
-infrastructure, very different brain.
+(**cron-job.org** + GitHub Actions `workflow_dispatch` + Cloudflare Worker
++ Telegram) — same proven infrastructure, very different brain.
+
+## Feature status (v2)
+
+| Feature                                  | Status              |
+|------------------------------------------|---------------------|
+| External cron-job.org scheduling         | ✅                   |
+| Symbol add / delete / enable / disable   | ✅ (forex + syn)     |
+| Full Settings panel in Telegram          | ✅                   |
+| Global symbol payout-threshold filter    | ✅ (+ per-symbol)    |
+| Daily summary + stat reset (UTC)         | ✅                   |
+| Heartbeat “BOT SILENT” alert             | ✅                   |
+| Multi-key Gemini failover + key benching | ✅                   |
 
 ---
 
@@ -14,16 +26,16 @@ infrastructure, very different brain.
 │  You (Telegram chat) │ ◀──────────────▶ │  Cloudflare Worker   │
 └──────────────────────┘                  │  (control plane)     │
                                           └──────────┬───────────┘
-                          workflow_dispatch          │  config.json
-                                                     ▼  edits via API
-                                          ┌──────────────────────┐
-                                          │   GitHub Actions      │
-                                          │   runs runner.js      │
-                                          │   on every tick       │
-                                          └──────────┬────────────┘
-                                                     │
-                       ┌─────────────────────────────┴──────────────────────────┐
-                       ▼                                                        ▼
+                                                     │ config.json edits + workflow_dispatch
+                                                     ▼
+┌──────────────────────┐   POST dispatches    ┌──────────────────────┐
+│   cron-job.org        │ ───────────────────▶ │   GitHub Actions     │
+│   every 5min: cycle   │                      │   runs runner.js     │
+│   daily 00:00 UTC →   │                      │   on every tick      │
+│   daily_summary       │                      └──────────┬───────────┘
+└──────────────────────┘                                  │
+                       ┌──────────────────────────────────┴────────────────────────────┐
+                       ▼                                                               ▼
               ┌─────────────────┐                                       ┌────────────────┐
               │ payload-builder │  M5/M10/M15 candles + indicators      │   Gemini API   │
               │ (deterministic) │ ──────────────────────────────────▶   │ (decides only) │
@@ -36,8 +48,9 @@ infrastructure, very different brain.
                                                                                  │
                                                                                  ▼
                                                                         ┌────────────────┐
-                                                                        │   risk.js      │
-                                                                        │   clamps it    │
+                                                                        │   risk.js +    │
+                                                                        │   payout       │
+                                                                        │   filter       │
                                                                         └────────┬───────┘
                                                                                  ▼
                                                                         ┌────────────────┐
@@ -50,21 +63,35 @@ The AI **never** sees raw chart images, **never** calls the Deriv API
 directly, and **never** enforces session limits. It only consumes a
 structured payload and returns a structured decision. Everything else —
 indicator computation, expiry clamping (≥ 15 min for forex intraday),
-stake clamping, TP/SL enforcement, GitHub state persistence — happens in
-deterministic code that you can audit line by line.
+stake clamping, **per-symbol enable check, payout-threshold check**,
+TP/SL enforcement, GitHub state persistence — happens in deterministic
+code that you can audit line by line.
+
+### Why cron-job.org and not GitHub Actions' built-in `schedule:` ?
+
+GitHub's native cron is **unreliable**: it jitters 5–30 min and silently
+drops runs at peak load. That's tolerable for a daily-report bot. It is
+**not** tolerable for a 15-second-interval trading cycle. AURELIA's
+workflow file ships with the `schedule:` block deliberately removed; an
+external **cron-job.org** account fires `POST /dispatches` every 5
+minutes for the cycle and once a day for the summary. See `SETUP.md` §5
+for the exact request bodies.
 
 ---
 
 ## Two independent trading paths
 
-| Path        | Trigger                                  | Position lock | TP/SL session | Recorded in              |
-|-------------|------------------------------------------|---------------|---------------|--------------------------|
-| **Cycle**   | Fires `interval_seconds` after the previous cycle trade *settles* | One open at a time | Yes — `cycle_session.capital/take_profit/stop_loss` | `trade_history_cycle` |
-| **Manual**  | `/scan` or 🤖 button — runs immediately  | None — can fire while a cycle trade is open | No — stateless w.r.t. cycle | `trade_history_manual` |
+| Path        | Trigger                                                              | Position lock | TP/SL session | Recorded in            |
+|-------------|----------------------------------------------------------------------|---------------|---------------|------------------------|
+| **Cycle**   | Fires `interval_seconds` after the previous cycle trade *settles*    | One open at a time | Yes — `cycle_session.capital/take_profit/stop_loss` | `trade_history_cycle`  |
+| **Manual**  | `/scan` or 🤖 button — runs immediately                              | None — can fire while a cycle trade is open | No — stateless w.r.t. cycle | `trade_history_manual` |
 
 A cycle session is defined by **capital / take-profit / stop-loss**, set
 in config or via Telegram. The instant `pnl >= take_profit` or
 `pnl <= -stop_loss`, the cycle halts. **The AI cannot override this.**
+
+Both paths feed `state.daily_stats` (calendar-day cumulative) so the
+daily summary covers the entire day's activity, not just one session.
 
 ---
 
@@ -92,12 +119,73 @@ decision, purely for your audit trail.
 
 ---
 
-## Synthetic indices (SYN toggle)
+## Symbol pools (forex / synthetic) + SYN gate
 
-Off by default. Toggle from Telegram (`/syn on`) or the menu button. When
-on, the synthetic pool (`R_10`, `R_25`, ..., `1HZ100V`) is added to the
-symbols the AI can pick from. Crypto symbols are intentionally left out —
-flip them on by editing `config.symbols` if you want them back.
+`config.symbols` is split into `forex` and `synthetics`, each a map of
+`{symbol: enabledFlag}`. Forex symbols default to enabled; synthetics
+default to disabled, gated additionally by `config.syn_enabled` (master
+switch). **Both layers must be ON** for a synthetic symbol to actually
+trade.
+
+Manage them entirely from Telegram:
+
+- **⚙️ Settings → 📡 Symbols → 💱 Forex** (or **🎲 Synthetic**)
+- Tap any symbol → toggles enabled state
+- **➕ Add** → picks from the worker-side catalog of available symbols
+- **🗑 Remove** → confirms then deletes the key from config entirely
+- **🎛 SYN gate** (main menu) → master flip for the synthetic pool
+
+Crypto symbols are intentionally left out of the catalog — add them by
+editing `config.symbols.forex` (or extending `SYMBOL_CATALOG_FOREX` in
+`worker/index.js`) if you want them back.
+
+The runner enforces `isSymbolEnabled()` on every AI decision as defence
+in depth — even if the AI somehow names a disabled symbol, the trade
+is skipped with a logged reason.
+
+---
+
+## Payout-threshold filter
+
+A defensive code-level filter that runs **after** the AI returns a trade
+decision. The runner fetches a Deriv `proposal` for the exact contract,
+computes the implied payout ratio (`payout / ask_price - 1`), and skips
+the trade if it falls below the active threshold (per-symbol override
+falls back to the global `payout.min_threshold`, default 80%).
+
+Manage from **⚙️ Settings → 💸 Payout filter**, or:
+
+```
+/setpayout 0.85                # global default → 85%
+/setpayout frxEURUSD 0.82      # override only EURUSD
+/setpayout clear frxEURUSD     # remove override
+```
+
+Fails open if Deriv's proposal endpoint times out — better to take a
+possibly-bad payout than to silently never trade.
+
+---
+
+## Daily summary + stat reset
+
+Two stat blocks live in `last-status.json`:
+
+- `cycle_session` — per-cycle counters, reset every `/startcycle`,
+  enforces TP/SL.
+- `daily_stats`   — calendar-day cumulative counters, updated on every
+  settlement (cycle **and** manual), reset by the `daily_summary` task.
+
+cron-job.org fires `{task:"daily_summary"}` at 00:00 UTC. AURELIA:
+
+1. Settles any pending contracts (so books close cleanly across midnight).
+2. Sends the `dailySummary` Telegram card.
+3. Archives a snapshot (incl. per-symbol breakdown) into
+   `state.daily_history` (capped at 60 days).
+4. Resets `state.daily_stats` for the new UTC day (skip with
+   `daily_summary.reset_on_send = false`).
+
+Manual trigger: `/summary` from Telegram, or **⚙️ Settings → 📊 Daily
+→ ▶️ Run summary now**.
 
 ---
 
@@ -119,15 +207,16 @@ Each key lives as a GitHub Actions secret (never readable back), and its
 **name** must appear in `config.ai.key_registry`. On every Gemini call the
 runner tries keys in order; a key that errors or hits quota is benched for
 2 hours (configurable via `config.ai.bench_minutes`). Bench state lives in
-`last-status.json -> ai_keys_bench` so it survives between ticks.
+`last-status.json → ai_keys_bench` so it survives between ticks.
 
 ---
 
 ## Demo first, real on purpose
 
 `config.account.mode = "demo"` by default. Switch to real explicitly via
-`/mode real` or the inline button. The badge in every Telegram message
-makes the active account unmistakable (🟡 DEMO / 🔴 REAL).
+`/mode real` or the inline button (which always asks for an inline
+confirmation). The badge in every Telegram message makes the active
+account unmistakable (🟡 DEMO / 🔴 REAL).
 
 ---
 
@@ -135,7 +224,7 @@ makes the active account unmistakable (🟡 DEMO / 🔴 REAL).
 
 ```
 aurelia/
-├── runner.js              # tick state machine (cycle / manual / settle_only)
+├── runner.js              # tick state machine (cycle / manual / settle_only / daily_summary)
 ├── ai-client.js           # Gemini wrapper + multi-key failover + benching
 ├── payload-builder.js     # builds the per-cycle AI payload
 ├── indicators.js          # RSI, EMA, MACD, BB, ATR, ADX, S/R, patterns…
@@ -144,14 +233,15 @@ aurelia/
 ├── telegram.js            # outbound TG client + templates (carried)
 ├── logger.js              # structured logger + ring buffer (carried)
 ├── risk.js                # stake/expiry sanity clamp (does NOT compute stake)
-├── config.json            # toggles, session params, key registry
+├── config.json            # toggles, session params, payout filter, key registry
 ├── last-status.json       # state file, committed by CI every tick
 ├── worker/
-│   ├── index.js           # Cloudflare Worker — Telegram webhook + GH API
+│   ├── index.js           # Cloudflare Worker — Telegram webhook + Settings UI + GH API
 │   ├── package.json
 │   └── wrangler.toml
 └── .github/workflows/
-    └── aurelia-cron.yml   # GH Actions cron + workflow_dispatch
+    └── aurelia-cron.yml   # GH Actions workflow_dispatch only (schedule is external)
 ```
 
-See [`SETUP.md`](./SETUP.md) for first-time deployment instructions.
+See [`SETUP.md`](./SETUP.md) for first-time deployment instructions
+(including the full cron-job.org wiring in §5).
