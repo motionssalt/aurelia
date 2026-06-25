@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T10:20:19.486Z",
+  "last_cycle": "2026-06-25T10:25:20.391Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,44 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T05:17:33.329Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed Ã¢ÂÂ benching 120m",
-      "meta": {
-        "error": "This operation was aborted"
-      }
-    },
-    {
-      "ts": "2026-06-25T05:17:33.329Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All Gemini keys failed; last error: This operation was aborted"
-      }
-    },
-    {
-      "ts": "2026-06-25T05:37:31.816Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-25T05:37:31.816Z"
-      }
-    },
-    {
-      "ts": "2026-06-25T05:37:31.818Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T05:37:32.276Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sPs1Twv6"
-      }
-    },
     {
       "ts": "2026-06-25T05:37:42.148Z",
       "level": "network",
@@ -1530,6 +1492,40 @@
       "ts": "2026-06-25T10:20:19.486Z",
       "level": "info",
       "msg": "settle_only — done",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:25:19.484Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T10:25:19.484Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:25:19.486Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:25:19.980Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KduRoOok"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:25:20.277Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:25:20.391Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
     }
   ],
