@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:17:33.626Z",
+  "last_cycle": "2026-06-25T05:40:01.949Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -25,7 +25,9 @@
   "trade_history_manual": [],
   "pending_contracts": [],
   "ai_keys_bench": {
-    "GEMINI_KEY_PRIMARY": 1782371823325
+    "GEMINI_KEY_PRIMARY": 1782373111568,
+    "GEMINI_KEY_BACKUP": 1782373111568,
+    "GEMINI_KEY_THIRD": 1782373111568
   },
   "logs": [
     {
@@ -206,6 +208,72 @@
     },
     {
       "ts": "2026-06-25T05:17:33.329Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All Gemini keys failed; last error: This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:37:31.816Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:37:31.816Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:37:31.818Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:37:32.276Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sPs1Twv6"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:37:42.148Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:39:01.572Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_BACKUP\" failed — benching 120m",
+      "meta": {
+        "error": "This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:39:31.573Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_THIRD\" failed — benching 120m",
+      "meta": {
+        "error": "This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:39:31.573Z",
+      "level": "warn",
+      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_PRIMARY\" anyway",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:40:01.573Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed — benching 120m",
+      "meta": {
+        "error": "This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:40:01.574Z",
       "level": "error",
       "msg": "AI decision failed",
       "meta": {
