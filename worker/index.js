@@ -2,21 +2,22 @@
    AURELIA — Cloudflare Worker (Telegram webhook → GitHub Actions)
    ─────────────────────────────────────────────────────────────────────
    The control plane. Receives Telegram updates, mutates config.json
-   in the repo, dispatches workflow runs, and manages Gemini API keys
-   as GitHub Actions secrets (libsodium sealed boxes).
+   in the repo, and dispatches workflow runs. No external npm
+   dependencies — paste directly into the Cloudflare dashboard editor.
 
    Environment variables (set in Cloudflare Worker settings):
      TELEGRAM_BOT_TOKEN   — from BotFather
      TELEGRAM_CHAT_ID     — owner's chat id (whitelist)
-     GITHUB_PAT           — PAT with `repo` + secrets:write
+     GITHUB_PAT           — PAT with `repo` scope
      GITHUB_OWNER         — repo owner
      GITHUB_REPO          — repo name
      GITHUB_WORKFLOW      — workflow filename, e.g. "aurelia-cron.yml"
      GITHUB_REF           — e.g. "main"
 
+   Gemini API keys are managed manually as GitHub Actions secrets
+   (e.g. from Termux: `gh secret set GEMINI_KEY_FOO --repo OWNER/REPO`),
+   then added to config.json's `ai.key_registry` array directly.
    ===================================================================== */
-
-import { seal as nacl_seal } from 'tweetsodium';
 
 const GH_API = 'https://api.github.com';
 
@@ -141,56 +142,6 @@ async function handleCommand(cmd, args, env, msg) {
             return tgSend(env, `✅ ${cmd} = ${v}`);
         }
 
-        case '/addkey': {
-            // /addkey <name> <value>
-            const name = (args[0] || '').trim();
-            const value = args.slice(1).join(' ').trim();
-            if (!name || !value) return tgSend(env, 'Usage: /addkey <NAME> <VALUE>');
-            const secretName = name.startsWith('GEMINI_KEY_') ? name : `GEMINI_KEY_${name.toUpperCase()}`;
-            try {
-                await ghPutSecret(env, secretName, value);
-                const cfg = await ghReadJSON(env, 'config.json');
-                cfg.ai = cfg.ai || {};
-                cfg.ai.key_registry = cfg.ai.key_registry || [];
-                if (!cfg.ai.key_registry.includes(secretName)) cfg.ai.key_registry.push(secretName);
-                await ghWriteJSON(env, 'config.json', cfg, `bot: register key ${secretName}`);
-                return tgSend(env, `🔑 Key <code>${escapeHtml(secretName)}</code> stored and registered.`);
-            } catch (e) {
-                return tgSend(env, `❌ addkey failed: <code>${escapeHtml(e.message)}</code>`);
-            }
-        }
-
-        case '/removekey': {
-            const name = (args[0] || '').trim();
-            if (!name) return tgSend(env, 'Usage: /removekey <NAME>');
-            const secretName = name.startsWith('GEMINI_KEY_') ? name : `GEMINI_KEY_${name.toUpperCase()}`;
-            try {
-                await ghDeleteSecret(env, secretName);
-                const cfg = await ghReadJSON(env, 'config.json');
-                cfg.ai.key_registry = (cfg.ai.key_registry || []).filter(k => k !== secretName);
-                await ghWriteJSON(env, 'config.json', cfg, `bot: deregister key ${secretName}`);
-                return tgSend(env, `🗑️ Key <code>${escapeHtml(secretName)}</code> removed.`);
-            } catch (e) {
-                return tgSend(env, `❌ removekey failed: <code>${escapeHtml(e.message)}</code>`);
-            }
-        }
-
-        case '/listkeys': {
-            const cfg = await ghReadJSON(env, 'config.json');
-            const st  = await ghReadJSON(env, 'last-status.json');
-            const list = cfg.ai.key_registry || [];
-            if (!list.length) return tgSend(env, 'No keys registered. Use /addkey.');
-            const now = Date.now();
-            const lines = list.map(k => {
-                const until = (st.ai_keys_bench || {})[k] || 0;
-                const benched = until > now;
-                return benched
-                    ? `🟠 ${escapeHtml(k)} — benched until ${new Date(until).toISOString()}`
-                    : `🟢 ${escapeHtml(k)}`;
-            });
-            return tgSend(env, `<b>Gemini keys</b>\n${lines.join('\n')}`);
-        }
-
         case '/logs': {
             const st = await ghReadJSON(env, 'last-status.json');
             return tgSend(env, renderLogs(st, 1, 'all'), { reply_markup: KB.logs(1, 'all') });
@@ -219,7 +170,6 @@ async function handleCommand(cmd, args, env, msg) {
                 '/startcycle /pausecycle\n' +
                 '/setcapital N /settp N /setsl N /setinterval N\n' +
                 '/syn on|off\n' +
-                '/addkey NAME VALUE  /removekey NAME  /listkeys\n' +
                 '/mode demo|real');
     }
 }
@@ -318,49 +268,6 @@ async function ghPutFile(env, path, content, message) {
 }
 async function ghWriteJSON(env, path, obj, message) {
     return ghPutFile(env, path, JSON.stringify(obj, null, 2) + '\n', message);
-}
-
-/* ─────────────────────────────────────────────────────────────────
-   GitHub Actions Secrets API — libsodium sealed-box encryption
-   ───────────────────────────────────────────────────────────────── */
-async function ghGetPublicKey(env) {
-    const url = `${GH_API}/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/actions/secrets/public-key`;
-    const r = await fetch(url, { headers: ghHeaders(env) });
-    if (!r.ok) throw new Error(`public-key: ${r.status}`);
-    return r.json();   // { key_id, key (base64) }
-}
-
-// libsodium sealed-box (X25519 + xsalsa20-poly1305) via `tweetsodium`.
-// Bundled at build time by wrangler — see worker/package.json.
-function sealedBoxEncrypt(publicKeyB64, plaintext) {
-    const recipientPk = Uint8Array.from(atob(publicKeyB64), c => c.charCodeAt(0));
-    const msg = new TextEncoder().encode(plaintext);
-    const sealed = nacl_seal(Buffer.from(msg), Buffer.from(recipientPk));
-    let bin = '';
-    for (const b of sealed) bin += String.fromCharCode(b);
-    return btoa(bin);
-}
-
-async function ghPutSecret(env, secretName, secretValue) {
-    if (!/^[A-Z_][A-Z0-9_]*$/.test(secretName)) {
-        throw new Error(`secret name "${secretName}" invalid (A-Z, 0-9, _ only)`);
-    }
-    const pub = await ghGetPublicKey(env);
-    const encrypted = sealedBoxEncrypt(pub.key, secretValue);
-    const url = `${GH_API}/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/actions/secrets/${encodeURIComponent(secretName)}`;
-    const r = await fetch(url, {
-        method: 'PUT',
-        headers: { ...ghHeaders(env), 'Content-Type': 'application/json' },
-        body: JSON.stringify({ encrypted_value: encrypted, key_id: pub.key_id }),
-    });
-    if (!r.ok && r.status !== 201 && r.status !== 204) {
-        throw new Error(`putSecret ${secretName}: ${r.status} ${(await r.text()).slice(0,200)}`);
-    }
-}
-async function ghDeleteSecret(env, secretName) {
-    const url = `${GH_API}/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/actions/secrets/${encodeURIComponent(secretName)}`;
-    const r = await fetch(url, { method: 'DELETE', headers: ghHeaders(env) });
-    if (!r.ok && r.status !== 204) throw new Error(`deleteSecret: ${r.status}`);
 }
 
 /* ─────────────────────────────────────────────────────────────────

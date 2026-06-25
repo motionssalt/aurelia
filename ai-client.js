@@ -120,7 +120,7 @@ async function askDecision({ payload, config, state, prompt, schemaHint }) {
     const benchMin = (config.ai && config.ai.bench_minutes) || DEFAULT_BENCH_MINUTES;
 
     if (!Array.isArray(registry) || registry.length === 0) {
-        throw new Error('No Gemini keys registered. Use /addkey in Telegram.');
+        throw new Error('No Gemini keys registered. Add a secret + key_registry entry via Termux.');
     }
 
     state.ai_keys_bench = state.ai_keys_bench || {};

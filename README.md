@@ -103,20 +103,22 @@ flip them on by editing `config.symbols` if you want them back.
 
 ## Multi-key Gemini failover
 
-You can register an arbitrary number of Gemini API keys via Telegram:
+Keys are managed from Termux now, not Telegram — the worker has no npm
+dependencies and no GitHub secrets-write code, so it can be pasted
+directly into the Cloudflare dashboard editor.
 
 ```
-/addkey alpha AIza...XYZ
-/addkey backup AIza...ABC
-/listkeys
-/removekey alpha
+# Termux: add a key as a GitHub Actions secret
+gh secret set GEMINI_KEY_ALPHA --repo OWNER/REPO
+
+# Then add "GEMINI_KEY_ALPHA" to config.ai.key_registry in config.json
+# (edit the file directly, or via the GitHub API/gh CLI)
 ```
 
-Each key is stored as a GitHub Actions secret (libsodium sealed-box
-encrypted, never readable back), and its **name** is appended to
-`config.ai.key_registry`. On every Gemini call the runner tries keys in
-order; a key that errors or hits quota is benched for 2 hours
-(configurable via `config.ai.bench_minutes`). Bench state lives in
+Each key lives as a GitHub Actions secret (never readable back), and its
+**name** must appear in `config.ai.key_registry`. On every Gemini call the
+runner tries keys in order; a key that errors or hits quota is benched for
+2 hours (configurable via `config.ai.bench_minutes`). Bench state lives in
 `last-status.json -> ai_keys_bench` so it survives between ticks.
 
 ---

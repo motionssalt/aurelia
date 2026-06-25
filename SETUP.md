@@ -62,16 +62,20 @@ in `config.json`:
 }
 ```
 
-(After that you can `/addkey` more from Telegram and it'll do this
-automatically.)
+(After that, add more keys the same way from Termux — `gh secret set` +
+a manual edit to `key_registry` — there's no Telegram command for this.)
 
 ---
 
 ## 3. Cloudflare Worker
 
+No npm dependencies — just paste `worker/index.js` directly into the
+Cloudflare dashboard's Quick Edit / Worker editor and save.
+
+If you'd rather deploy via wrangler from a dev machine instead:
+
 ```bash
 cd worker
-npm install
 npx wrangler login
 npx wrangler deploy
 ```
@@ -104,7 +108,6 @@ badge. Try:
 
 ```
 /status         ← state file readable?
-/listkeys       ← Gemini key registered?
 /scan           ← fire one manual AI trade (demo)
 ```
 
@@ -136,7 +139,8 @@ session envelope is enforced in code regardless of mode.
 
 ## 6. Troubleshooting
 
-- **"No Gemini keys registered"** — add one via `/addkey NAME VALUE`.
+- **"No Gemini keys registered"** — add one from Termux (`gh secret set`)
+  and append its name to `config.ai.key_registry` in `config.json`.
 - **All keys benched** — check `last-status.json → ai_keys_bench`; the
   runner will still try the least-recently-benched one as a last resort,
   but you may need to add a fresh key.
