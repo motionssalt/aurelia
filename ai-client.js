@@ -29,6 +29,8 @@ const Logger = require('./logger');
 
 const DEFAULT_MODEL = 'gemini-2.5-flash';
 const DEFAULT_BENCH_MINUTES = 120;
+const DEFAULT_GROQ_MODEL = 'llama-3.3-70b-versatile';
+const DEFAULT_TIMEOUT_MS = 180000; // 3 min per key — was 30s, too tight under Gemini load spikes
 
 async function _fetch() {
     if (typeof fetch === 'function') return fetch;
@@ -86,7 +88,7 @@ async function _callOnce({ keyValue, model, prompt, timeoutMs }) {
         },
     };
     const ctl = new AbortController();
-    const t = setTimeout(() => ctl.abort(), timeoutMs || 30000);
+    const t = setTimeout(() => ctl.abort(), timeoutMs || DEFAULT_TIMEOUT_MS);
     let res;
     try {
         res = await f(url, {
@@ -118,6 +120,7 @@ async function askDecision({ payload, config, state, prompt, schemaHint }) {
     const model    = (config.ai && config.ai.model) || DEFAULT_MODEL;
     const registry = (config.ai && config.ai.key_registry) || [];
     const benchMin = (config.ai && config.ai.bench_minutes) || DEFAULT_BENCH_MINUTES;
+    const timeoutMs = (config.ai && config.ai.timeout_ms) || DEFAULT_TIMEOUT_MS;
 
     if (!Array.isArray(registry) || registry.length === 0) {
         throw new Error('No Gemini keys registered. Add a secret + key_registry entry via Termux.');
@@ -140,7 +143,7 @@ async function askDecision({ payload, config, state, prompt, schemaHint }) {
             Logger.warn(`All keys benched; trying least-recently-benched "${row.name}" anyway`);
         }
         try {
-            const text = await _callOnce({ keyValue, model, prompt: fullPrompt });
+            const text = await _callOnce({ keyValue, model, prompt: fullPrompt, timeoutMs });
             const cleaned = _stripFences(text);
             let parsed;
             try { parsed = JSON.parse(cleaned); }
