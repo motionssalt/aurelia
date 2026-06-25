@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:03:53.727Z",
+  "last_cycle": "2026-06-25T05:10:33.056Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -24,9 +24,7 @@
   "trade_history_cycle": [],
   "trade_history_manual": [],
   "pending_contracts": [],
-  "ai_keys_bench": {
-    "GEMINI_KEY_PRIMARY": 1782371027669
-  },
+  "ai_keys_bench": {},
   "logs": [
     {
       "ts": "2026-06-25T05:03:44.350Z",
@@ -70,6 +68,57 @@
       "msg": "Manual AI decision failed",
       "meta": {
         "error": "All Gemini keys failed; last error: gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:10:23.101Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:10:23.100Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:10:23.102Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:10:23.442Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Lgg73A0M"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:10:23.546Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:10:26.261Z",
+      "level": "warn",
+      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_PRIMARY\" anyway",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:10:32.724Z",
+      "level": "info",
+      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-06-25T05:10:32.725Z",
+      "level": "info",
+      "msg": "AI declined manual trade",
+      "meta": {
+        "rationale": "Cannot place a trade as remaining session capital is 0."
       }
     }
   ]
