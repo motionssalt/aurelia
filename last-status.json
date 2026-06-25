@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T10:50:18.285Z",
+  "last_cycle": "2026-06-25T10:55:23.008Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,47 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T06:17:55.676Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T06:17:56.061Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=r8jhzx9S"
-      }
-    },
-    {
-      "ts": "2026-06-25T06:17:56.156Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T06:18:37.122Z",
-      "level": "info",
-      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-06-25T06:18:37.206Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDJPY CALL",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 17.44,
-        "spot": 161.825
-      }
-    },
     {
       "ts": "2026-06-25T06:18:37.730Z",
       "level": "trade",
@@ -1510,6 +1469,40 @@
       "ts": "2026-06-25T10:50:18.284Z",
       "level": "info",
       "msg": "settle_only — done",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:55:22.036Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T10:55:22.036Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:55:22.038Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:55:22.593Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qLBONBS2"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:55:22.901Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:55:23.007Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
     }
   ],
