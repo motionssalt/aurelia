@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T09:15:17.338Z",
+  "last_cycle": "2026-06-25T09:20:18.590Z",
   "balance": 9965.66,
   "currency": "USD",
   "account_mode": "demo",
@@ -1142,6 +1142,40 @@
       "ts": "2026-06-25T09:15:17.337Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T09:20:17.839Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T09:20:17.839Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T09:20:17.841Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T09:20:18.357Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OPAFNDPV"
+      }
+    },
+    {
+      "ts": "2026-06-25T09:20:18.529Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T09:20:18.590Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
