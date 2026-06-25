@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T13:00:30.912Z",
+  "last_cycle": "2026-06-25T13:05:27.732Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,46 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T09:52:12.865Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T09:52:23.208Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_BACKUP\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-06-25T09:52:26.518Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_THIRD\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-06-25T09:54:13.521Z",
-      "level": "info",
-      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURAUD",
-        "conf": 0.78
-      }
-    },
-    {
-      "ts": "2026-06-25T09:54:13.522Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
     {
       "ts": "2026-06-25T09:54:13.522Z",
       "level": "warn",
@@ -1469,6 +1429,40 @@
       "ts": "2026-06-25T13:00:30.911Z",
       "level": "info",
       "msg": "settle_only — done",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T13:05:26.734Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T13:05:26.734Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T13:05:26.736Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T13:05:27.331Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DBWvLh9h"
+      }
+    },
+    {
+      "ts": "2026-06-25T13:05:27.634Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T13:05:27.732Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
     }
   ],
