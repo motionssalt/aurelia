@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:40:01.949Z",
+  "last_cycle": "2026-06-25T05:54:08.284Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -21,11 +21,10 @@
   },
   "cycle_open_position": null,
   "next_cycle_eligible_at": 0,
-  "trade_history_cycle":  [],
+  "trade_history_cycle": [],
   "trade_history_manual": [],
   "pending_contracts": [],
   "ai_keys_bench": {
-    "GEMINI_KEY_PRIMARY": 1782373111568,
     "GEMINI_KEY_BACKUP": 1782373111568,
     "GEMINI_KEY_THIRD": 1782373111568
   },
@@ -278,6 +277,59 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All Gemini keys failed; last error: This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:52:55.388Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:52:55.387Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:52:55.389Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:52:55.821Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rlqPmcEP"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:52:55.929Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:52:58.952Z",
+      "level": "warn",
+      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_PRIMARY\" anyway",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:54:07.934Z",
+      "level": "info",
+      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURJPY",
+        "conf": 0.7
+      }
+    },
+    {
+      "ts": "2026-06-25T05:54:07.935Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "WS not open (state=3)",
+        "stack": "Error: WS not open (state=3)\n    at /home/runner/work/aurelia/aurelia/deriv.js:188:27\n    at new Promise (<anonymous>)\n    at request (/home/runner/work/aurelia/aurelia/deriv.js:186:12)\n    at Object.placeTrade (/home/runner/work/aurelia/aurelia/deriv.js:328:29)\n    at placeAndSettle (/home/runner/work/aurelia/aurelia/runner.js:115:34)\n    at runManual (/home/runner/work/aurelia/aurelia/runner.js:457:30)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:523:13)"
       }
     }
   ]
