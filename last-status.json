@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T11:45:19.307Z",
+  "last_cycle": "2026-06-25T11:50:21.241Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,44 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T08:46:31.633Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:46:32.158Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPJPY PUT",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 18.16,
-        "spot": 213.43
-      }
-    },
-    {
-      "ts": "2026-06-25T08:46:33.704Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3204470119",
-      "meta": {
-        "transaction_id": 6314907259,
-        "longcode": "Win payout if GBP/JPY is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-25T08:46:34.124Z",
-      "level": "info",
-      "msg": "[chart] fetching 80 candles for frxGBPJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:46:34.295Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T08:46:36.013Z",
       "level": "info",
@@ -1475,6 +1437,40 @@
       "ts": "2026-06-25T11:45:19.307Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:50:20.480Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T11:50:20.479Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:50:20.481Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:50:20.948Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=di0C4dFf"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:50:21.125Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:50:21.240Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
