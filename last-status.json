@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-25T09:55:08.701Z",
-  "balance": 9965.66,
+  "last_cycle": "2026-06-25T10:00:18.023Z",
+  "balance": 9955.66,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -101,28 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T05:03:44.350Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-25T05:03:44.350Z"
-      }
-    },
-    {
-      "ts": "2026-06-25T05:03:44.351Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T05:03:44.779Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kGzRs1fZ"
-      }
-    },
     {
       "ts": "2026-06-25T05:03:44.886Z",
       "level": "network",
@@ -1529,6 +1507,40 @@
       "meta": {
         "contract_id": 3210174619
       }
+    },
+    {
+      "ts": "2026-06-25T10:00:17.557Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T10:00:17.557Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:00:17.559Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:00:17.884Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wqdcznwD"
+      }
+    },
+    {
+      "ts": "2026-06-25T10:00:17.992Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T10:00:18.022Z",
+      "level": "info",
+      "msg": "settle_only — done",
+      "meta": {}
     }
   ],
   "daily_stats": {
