@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T17:55:32.115Z",
+  "last_cycle": "2026-06-25T18:00:29.759Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T14:30:23.110Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-25T14:30:23.110Z"
-      }
-    },
-    {
-      "ts": "2026-06-25T14:30:23.112Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T14:30:23.515Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2haCM1zA"
-      }
-    },
-    {
-      "ts": "2026-06-25T14:30:23.651Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T14:30:23.689Z",
-      "level": "info",
-      "msg": "settle_only — done",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T14:35:34.999Z",
       "level": "info",
@@ -1459,6 +1425,40 @@
       "ts": "2026-06-25T17:55:32.114Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T18:00:28.622Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T18:00:28.621Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T18:00:28.623Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T18:00:29.285Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=t4cqKZ2G"
+      }
+    },
+    {
+      "ts": "2026-06-25T18:00:29.658Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T18:00:29.759Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
