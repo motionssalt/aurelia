@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T11:10:24.643Z",
+  "last_cycle": "2026-06-25T11:15:25.015Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,46 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T07:12:30.093Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=REeq97xe"
-      }
-    },
-    {
-      "ts": "2026-06-25T07:12:30.368Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T07:12:30.920Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD PUT",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 17.57,
-        "spot": 1.13549
-      }
-    },
-    {
-      "ts": "2026-06-25T07:12:32.013Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3197143879",
-      "meta": {
-        "transaction_id": 6300968339,
-        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-25T07:12:32.462Z",
-      "level": "info",
-      "msg": "[chart] fetching 80 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T07:12:32.574Z",
       "level": "info",
@@ -1500,6 +1460,40 @@
       "ts": "2026-06-25T11:10:24.642Z",
       "level": "info",
       "msg": "settle_only — done",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:15:23.797Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T11:15:23.797Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:15:23.798Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:15:24.340Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jSJTvmjM"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:15:24.720Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:15:25.014Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
     }
   ],
