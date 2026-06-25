@@ -23,15 +23,15 @@
       "frxEURCHF": true
     },
     "synthetics": {
-      "R_10":    false,
-      "R_25":    false,
-      "R_50":    false,
-      "R_75":    false,
-      "R_100":   false,
-      "1HZ10V":  false,
-      "1HZ25V":  false,
-      "1HZ50V":  false,
-      "1HZ75V":  false,
+      "R_10": false,
+      "R_25": false,
+      "R_50": false,
+      "R_75": false,
+      "R_100": false,
+      "1HZ10V": false,
+      "1HZ25V": false,
+      "1HZ50V": false,
+      "1HZ75V": false,
       "1HZ100V": false
     }
   },
@@ -40,15 +40,17 @@
     "running": false,
     "interval_seconds": 60,
     "session": {
-      "capital":     100,
-      "take_profit":  20,
-      "stop_loss":    20
+      "capital": 100,
+      "take_profit": 20,
+      "stop_loss": 20
     }
   },
   "ai": {
     "model": "gemini-2.5-flash",
     "max_history_entries": 12,
-    "key_registry": ["GEMINI_KEY_PRIMARY"],
+    "key_registry": [
+      "GEMINI_KEY_PRIMARY"
+    ],
     "bench_minutes": 120,
     "min_confidence": 0.55
   },
