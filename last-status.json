@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T11:25:17.758Z",
+  "last_cycle": "2026-06-25T11:30:18.571Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,44 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T08:40:19.274Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:40:19.770Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WCorUaQX"
-      }
-    },
-    {
-      "ts": "2026-06-25T08:40:19.947Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T08:41:23.263Z",
-      "level": "info",
-      "msg": "AI decision via key \"GEMINI_KEY_BACKUP\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-06-25T08:41:23.302Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-06-25T08:41:23.814Z",
       "level": "trade",
@@ -1489,6 +1451,40 @@
       "ts": "2026-06-25T11:25:17.757Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:30:17.773Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T11:30:17.773Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:30:17.775Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:30:18.258Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PawJfn6E"
+      }
+    },
+    {
+      "ts": "2026-06-25T11:30:18.485Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T11:30:18.570Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
