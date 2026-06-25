@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:13:56.349Z",
+  "last_cycle": "2026-06-25T05:17:33.626Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -24,7 +24,9 @@
   "trade_history_cycle": [],
   "trade_history_manual": [],
   "pending_contracts": [],
-  "ai_keys_bench": {},
+  "ai_keys_bench": {
+    "GEMINI_KEY_PRIMARY": 1782371823325
+  },
   "logs": [
     {
       "ts": "2026-06-25T05:03:44.350Z",
@@ -164,6 +166,50 @@
       "msg": "AI declined manual trade",
       "meta": {
         "rationale": "Session is not active or capital remaining is zero, cannot place a trade."
+      }
+    },
+    {
+      "ts": "2026-06-25T05:16:59.856Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:16:59.856Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:16:59.858Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:17:00.190Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VgMHVZTm"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:17:00.286Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:17:33.329Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed — benching 120m",
+      "meta": {
+        "error": "This operation was aborted"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:17:33.329Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All Gemini keys failed; last error: This operation was aborted"
       }
     }
   ]
