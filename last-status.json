@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T05:59:38.261Z",
+  "last_cycle": "2026-06-25T06:15:44.138Z",
   "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
@@ -366,6 +366,51 @@
       "msg": "Manual AI decision failed",
       "meta": {
         "error": "No Gemini keys registered. Add a secret + key_registry entry via Termux."
+      }
+    },
+    {
+      "ts": "2026-06-25T06:14:51.324Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T06:14:51.323Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T06:14:51.325Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T06:14:51.857Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=w8AMDzZK"
+      }
+    },
+    {
+      "ts": "2026-06-25T06:14:52.197Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T06:15:43.572Z",
+      "level": "info",
+      "msg": "AI decision via key \"GEMINI_KEY_PRIMARY\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-06-25T06:15:43.572Z",
+      "level": "info",
+      "msg": "AI declined manual trade",
+      "meta": {
+        "rationale": "Cannot place a trade as remaining session capital is 0, which conflicts with the minimum stake of 0.35."
       }
     }
   ]
