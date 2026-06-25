@@ -241,6 +241,20 @@ async function connect({ bearer, appId, mode, realId, demoId }) {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   ensureOpen — re-issue a fresh OTP + WebSocket if the existing
+   connection has gone stale (Deriv OTP sessions appear to expire
+   quickly, independent of activity — closing the socket out from
+   under a long-running tick). Pass the SAME connOpts used for the
+   original connect() call. Returns the (possibly new) ws.
+   ───────────────────────────────────────────────────────────────── */
+async function ensureOpen(ws, connOpts) {
+    if (ws && ws.readyState === WebSocket.OPEN) return ws;
+    Logger.warn(`Deriv: socket not open (state=${ws ? ws.readyState : 'null'}) — reconnecting`);
+    const fresh = await connect(connOpts);
+    return fresh.ws;
+}
+
+/* ─────────────────────────────────────────────────────────────────
    ticksHistory — fetch OHLC candles (or raw ticks) for a symbol
    ───────────────────────────────────────────────────────────────── */
 async function ticksHistory(ws, symbol, granularity, count = 100) {
@@ -420,6 +434,7 @@ module.exports = {
     listAccounts,
     getOtpUrl,
     connect,
+    ensureOpen,
     request,
     ticksHistory,
     rawTicks,

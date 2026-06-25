@@ -109,6 +109,13 @@ async function placeAndSettle(ws, norm, config, state, opts) {
     const mode         = (config.account && config.account.mode) || 'demo';
     const isCycle      = !!(opts && opts.cycle);
 
+    // The Deriv socket may have gone stale while we waited on the AI
+    // decision (Gemini calls can now take up to a few minutes) — make
+    // sure we have a live connection right before placing the trade.
+    if (opts && opts.connOpts) {
+        ws = await Deriv.ensureOpen(ws, opts.connOpts);
+    }
+
     let placedNotified = false;
     let contractIdShown = null;
 
@@ -173,7 +180,7 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         ai_outcome_note: null,
     };
 
-    return { record, contract };
+    return { record, contract, ws };
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -321,7 +328,7 @@ async function settleAllPending(ws, config, state) {
 /* ─────────────────────────────────────────────────────────────────
    CYCLE PATH
    ───────────────────────────────────────────────────────────────── */
-async function runCycle(ws, config, state) {
+async function runCycle(ws, config, state, connOpts) {
     // Session gates (REBUILD_PROMPT §2A — code-enforced, AI cannot override)
     if (!config.cycle || !config.cycle.running) {
         Logger.info('Cycle not running (config.cycle.running=false)');
@@ -376,7 +383,9 @@ async function runCycle(ws, config, state) {
     }
 
     // Place and (try to) settle in-cycle
-    const { record, contract } = await placeAndSettle(ws, v.normalised, config, state, { cycle: true });
+    const { record, contract, ws: freshWs } = await placeAndSettle(
+        ws, v.normalised, config, state, { cycle: true, connOpts });
+    ws = freshWs || ws;
     state.trade_history_cycle = state.trade_history_cycle || [];
     state.trade_history_cycle.push(record);
 
@@ -399,12 +408,13 @@ async function runCycle(ws, config, state) {
             expiry_sec: record.expiry_sec,
         });
     }
+    return ws;
 }
 
 /* ─────────────────────────────────────────────────────────────────
    MANUAL PATH (stateless w.r.t. cycle session)
    ───────────────────────────────────────────────────────────────── */
-async function runManual(ws, config, state) {
+async function runManual(ws, config, state, connOpts) {
     let inputPayload = {};
     try { inputPayload = JSON.parse(process.env.INPUT_PAYLOAD || '{}'); }
     catch (e) { /* ignore */ }
@@ -454,7 +464,9 @@ async function runManual(ws, config, state) {
         return;
     }
 
-    const { record } = await placeAndSettle(ws, v.normalised, config, state, { cycle: false });
+    const { record, ws: freshWs } = await placeAndSettle(
+        ws, v.normalised, config, state, { cycle: false, connOpts });
+    ws = freshWs || ws;
     state.trade_history_manual = state.trade_history_manual || [];
     state.trade_history_manual.push(record);
 
@@ -467,6 +479,7 @@ async function runManual(ws, config, state) {
             expiry_sec: record.expiry_sec,
         });
     }
+    return ws;
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -495,15 +508,16 @@ async function main() {
     }
 
     const task = detectTask();
+    const connOpts = {
+        bearer: process.env.DERIV_BEARER_TOKEN,
+        appId:  process.env.DERIV_APP_ID,
+        mode:   config.account.mode,
+        realId: process.env.DERIV_REAL_ID || config.account.real_id,
+        demoId: process.env.DERIV_DEMO_ID || config.account.demo_id,
+    };
     let conn = null, ws = null;
     try {
-        conn = await Deriv.connect({
-            bearer: process.env.DERIV_BEARER_TOKEN,
-            appId:  process.env.DERIV_APP_ID,
-            mode:   config.account.mode,
-            realId: process.env.DERIV_REAL_ID || config.account.real_id,
-            demoId: process.env.DERIV_DEMO_ID || config.account.demo_id,
-        });
+        conn = await Deriv.connect(connOpts);
         ws = conn.ws;
 
         // Balance refresh
@@ -518,9 +532,9 @@ async function main() {
         await settleAllPending(ws, config, state);
 
         if (task === 'cycle') {
-            await runCycle(ws, config, state);
+            ws = await runCycle(ws, config, state, connOpts) || ws;
         } else if (task === 'manual') {
-            await runManual(ws, config, state);
+            ws = await runManual(ws, config, state, connOpts) || ws;
         } else if (task === 'settle_only') {
             Logger.info('settle_only — done');
         }
