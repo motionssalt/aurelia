@@ -1,6 +1,6 @@
 {
-  "last_cycle": null,
-  "balance": 0,
+  "last_cycle": "2026-06-25T05:03:53.727Z",
+  "balance": 9917.42,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -21,9 +21,56 @@
   },
   "cycle_open_position": null,
   "next_cycle_eligible_at": 0,
-  "trade_history_cycle":  [],
+  "trade_history_cycle": [],
   "trade_history_manual": [],
   "pending_contracts": [],
-  "ai_keys_bench": {},
-  "logs": []
+  "ai_keys_bench": {
+    "GEMINI_KEY_PRIMARY": 1782371027669
+  },
+  "logs": [
+    {
+      "ts": "2026-06-25T05:03:44.350Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-25T05:03:44.350Z"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:03:44.351Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:03:44.779Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kGzRs1fZ"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:03:44.886Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-25T05:03:53.386Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_PRIMARY\" failed — benching 120m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-25T05:03:53.387Z",
+      "level": "error",
+      "msg": "Manual AI decision failed",
+      "meta": {
+        "error": "All Gemini keys failed; last error: gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    }
+  ]
 }
