@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-26T09:45:23.120Z",
+  "last_cycle": "2026-06-26T09:50:17.929Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T06:30:20.338Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T06:30:20.338Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T06:30:20.340Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T06:30:20.977Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2izqpIzw"
-      }
-    },
-    {
-      "ts": "2026-06-26T06:30:21.391Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T06:30:21.491Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-26T06:35:16.916Z",
       "level": "info",
@@ -1459,6 +1425,40 @@
       "ts": "2026-06-26T09:45:23.119Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T09:50:16.966Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-26T09:50:16.966Z"
+      }
+    },
+    {
+      "ts": "2026-06-26T09:50:16.967Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T09:50:17.503Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zZUpmepL"
+      }
+    },
+    {
+      "ts": "2026-06-26T09:50:17.832Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T09:50:17.929Z",
+      "level": "info",
+      "msg": "settle_only — done",
       "meta": {}
     }
   ],
