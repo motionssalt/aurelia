@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-25T23:55:15.316Z",
+  "last_cycle": "2026-06-26T00:00:26.675Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-25T20:40:23.880Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-25T20:40:23.879Z"
-      }
-    },
-    {
-      "ts": "2026-06-25T20:40:23.881Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T20:40:24.401Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ilWRXHBl"
-      }
-    },
-    {
-      "ts": "2026-06-25T20:40:24.608Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-25T20:40:24.669Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-25T20:45:20.948Z",
       "level": "info",
@@ -1460,34 +1426,49 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-26T00:00:25.585Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-26T00:00:25.584Z"
+      }
+    },
+    {
+      "ts": "2026-06-26T00:00:25.587Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T00:00:26.105Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ovsUK96D"
+      }
+    },
+    {
+      "ts": "2026-06-26T00:00:26.562Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T00:00:26.675Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
-    "date": "2026-06-25",
-    "trades": 3,
+    "date": "2026-06-26",
+    "trades": 0,
     "wins": 0,
     "losses": 0,
     "pnl": 0,
-    "by_symbol": {
-      "frxGBPUSD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 0,
-        "pnl": 0
-      },
-      "frxGBPJPY": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 0,
-        "pnl": 0
-      },
-      "frxEURAUD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 0,
-        "pnl": 0
-      }
-    }
+    "by_symbol": {}
   },
   "daily_history": []
 }
