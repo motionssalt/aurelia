@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T00:35:18.951Z",
+  "last_cycle": "2026-06-27T00:36:23.220Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T21:20:14.659Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T21:20:14.659Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T21:20:14.660Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T21:20:15.054Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Xque8Gok"
-      }
-    },
-    {
-      "ts": "2026-06-26T21:20:15.184Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T21:20:15.223Z",
-      "level": "info",
-      "msg": "settle_only — done",
-      "meta": {}
-    },
     {
       "ts": "2026-06-26T21:25:15.476Z",
       "level": "info",
@@ -1460,6 +1426,42 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:36:22.198Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T00:36:22.198Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T00:36:22.200Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:36:22.744Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LLor28BQ"
+      }
+    },
+    {
+      "ts": "2026-06-27T00:36:22.856Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:36:23.219Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-06-27"
+      }
     }
   ],
   "daily_stats": {
@@ -1470,5 +1472,14 @@
     "pnl": 0,
     "by_symbol": {}
   },
-  "daily_history": []
+  "daily_history": [
+    {
+      "date": "2026-06-27",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
+    }
+  ]
 }
