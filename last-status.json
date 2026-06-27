@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T03:55:17.754Z",
+  "last_cycle": "2026-06-27T04:00:23.260Z",
   "balance": 9957.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 995,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "losses": 0,
-    "pnl": 0,
+    "losses": 1,
+    "pnl": -5,
     "win_streak": 0,
-    "loss_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3392066879,
-    "symbol": "1HZ10V",
-    "placed_at": "2026-06-27T03:43:41.670Z"
-  },
-  "next_cycle_eligible_at": 0,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782532879821,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -78,10 +74,11 @@
       "confidence": 0.8,
       "rationale": "Extremely oversold conditions across M5, M10, and M15 timeframes (RSI < 30, Stochastics < 15). Price is well below the lower Bollinger Bands. ADX indicates a very strong bearish trend, suggesting an exhaustion point and high probability of a short-term bullish bounce.",
       "contract_id": 3392066879,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -5,
+      "ai_outcome_note": null,
+      "entry": "9786.38"
     }
   ],
   "trade_history_manual": [
@@ -130,94 +127,15 @@
       "entry": "9797.55"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3392066879,
-      "path": "cycle",
-      "symbol": "1HZ10V",
-      "placed_at": "2026-06-27T03:43:41.670Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
-    "GEMINI_KEY_BACKUP": 1782390139617
+    "GEMINI_KEY_BACKUP": 1782390139617,
+    "GEMINI_KEY_1": 1782541820291,
+    "GEMINI_KEY_2": 1782541820291,
+    "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-26T22:50:17.535Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:50:17.608Z",
-      "level": "info",
-      "msg": "settle_only â done",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:55:13.035Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:55:13.035Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:55:13.036Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:55:13.339Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=H8xF85ws"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:55:13.442Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:55:13.474Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:00:18.746Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T23:00:18.746Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:00:18.748Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:00:19.238Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XGMliZdd"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:00:19.434Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-06-26T23:00:19.499Z",
       "level": "info",
@@ -1537,20 +1455,100 @@
         "symbol": "1HZ10V",
         "placed_at": "2026-06-27T03:43:41.670Z"
       }
+    },
+    {
+      "ts": "2026-06-27T04:00:19.242Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T04:00:19.242Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:19.244Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:00:19.586Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NU2hELEj"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:19.712Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:00:20.291Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:00:20.923Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:21.495Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:23.258Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:23.258Z",
+      "level": "warn",
+      "msg": "Provider \"openai\" key env \"OPENAI_KEY_1\" not set — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:00:23.259Z",
+      "level": "warn",
+      "msg": "Post-mortem AI call failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:00:23.259Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 56562
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-06-27",
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
-    "losses": 1,
-    "pnl": -10,
+    "losses": 2,
+    "pnl": -15,
     "by_symbol": {
       "1HZ10V": {
-        "trades": 1,
+        "trades": 2,
         "wins": 0,
-        "losses": 1,
-        "pnl": -10
+        "losses": 2,
+        "pnl": -15
       }
     }
   },
