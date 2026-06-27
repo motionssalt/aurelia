@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T07:40:18.427Z",
+  "last_cycle": "2026-06-27T07:45:19.270Z",
   "balance": 9930.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -184,21 +184,14 @@
       "confidence": 0.85,
       "rationale": "Deeply oversold RSI and Stochastics across M5, M10, and M15, with price well below lower Bollinger Bands. Very strong ADX indicates an exhausted bearish trend, suggesting a high probability of a bullish bounce.",
       "contract_id": 3403923499,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -10,
+      "ai_outcome_note": "Despite an initial rally, the price ultimately declined below the entry point of 264.13, resulting in a loss for the call option.",
+      "entry": "264.13"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3403923499,
-      "path": "manual",
-      "symbol": "R_100",
-      "placed_at": "2026-06-27T07:28:28.681Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -206,54 +199,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T04:55:17.480Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:55:17.480Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 56074
-      }
-    },
-    {
-      "ts": "2026-06-27T05:00:17.744Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T05:00:17.744Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T05:00:17.745Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T05:00:18.212Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HpC98GkV"
-      }
-    },
-    {
-      "ts": "2026-06-27T05:00:18.409Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T05:00:24.976Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
-      "meta": {}
-    },
     {
       "ts": "2026-06-27T05:00:56.402Z",
       "level": "info",
@@ -1607,14 +1552,60 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:45:15.319Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T07:45:15.318Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:45:15.320Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:45:15.708Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vuvmGLxo"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:45:15.924Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:45:16.429Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:45:19.269Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:45:19.269Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-27",
-    "trades": 5,
+    "trades": 6,
     "wins": 1,
-    "losses": 4,
-    "pnl": -31.85,
+    "losses": 5,
+    "pnl": -41.85,
     "by_symbol": {
       "1HZ10V": {
         "trades": 3,
@@ -1629,10 +1620,10 @@
         "pnl": 8.15
       },
       "R_100": {
-        "trades": 1,
+        "trades": 2,
         "wins": 0,
-        "losses": 1,
-        "pnl": -15
+        "losses": 2,
+        "pnl": -25
       }
     }
   },
@@ -1653,9 +1644,9 @@
     "capital_remaining": 180,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
-    "losses": 1,
-    "pnl": -10
+    "losses": 2,
+    "pnl": -20
   }
 }
