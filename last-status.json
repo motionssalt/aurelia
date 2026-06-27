@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T08:05:29.431Z",
+  "last_cycle": "2026-06-27T08:10:23.073Z",
   "balance": 9930.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -199,50 +199,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T05:15:35.185Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T05:16:26.508Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "R_100",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-06-27T05:16:26.601Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-06-27T05:16:26.729Z",
-      "level": "trade",
-      "msg": "Proposal accepted R_100 CALL",
-      "meta": {
-        "stake": 15,
-        "price": 15,
-        "payout": 27.33,
-        "spot": 266.05
-      }
-    },
-    {
-      "ts": "2026-06-27T05:16:26.920Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3396113639",
-      "meta": {
-        "transaction_id": 6680678679,
-        "longcode": "Win payout if Volatility 100 Index is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
     {
       "ts": "2026-06-27T05:16:27.446Z",
       "level": "info",
@@ -1581,6 +1537,40 @@
     },
     {
       "ts": "2026-06-27T08:05:29.430Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T08:10:22.137Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T08:10:22.137Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T08:10:22.139Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T08:10:22.657Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DblKW7EQ"
+      }
+    },
+    {
+      "ts": "2026-06-27T08:10:22.973Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T08:10:23.072Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
