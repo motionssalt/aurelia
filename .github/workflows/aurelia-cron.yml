@@ -68,6 +68,11 @@ jobs:
           # Telegram
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          # AI fallback providers (optional — only used when enabled in
+          # config.ai.providers and the corresponding secret is set)
+          OPENAI_API_KEY:     ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY:        ${{ secrets.XAI_API_KEY }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
           # GitHub (for worker-side; runner does not write secrets itself)
           GITHUB_PAT:         ${{ secrets.PAT_TOKEN }}
           # Task routing — defaults to 'cycle' when cron-job.org omits inputs

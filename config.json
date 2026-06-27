@@ -35,15 +35,21 @@
       "1HZ100V": false
     }
   },
+  "frx_enabled": true,
   "syn_enabled": false,
   "cycle": {
     "running": false,
-    "interval_seconds": 15,
+    "interval_seconds": 60,
     "session": {
       "capital": 1000,
       "take_profit": 20,
       "stop_loss": 20
     }
+  },
+  "manual": {
+    "capital": 200,
+    "take_profit": 20,
+    "stop_loss": 20
   },
   "ai": {
     "model": "gemini-2.5-flash",
@@ -51,6 +57,12 @@
       "GEMINI_KEY_PRIMARY",
       "GEMINI_KEY_BACKUP",
       "GEMINI_KEY_THIRD"
+    ],
+    "providers": [
+      { "name": "gemini",  "key_env": "GEMINI_KEY_PRIMARY",  "model": "gemini-2.5-flash",          "enabled": true  },
+      { "name": "openai",  "key_env": "OPENAI_API_KEY",      "model": "gpt-4o-mini",               "enabled": false },
+      { "name": "grok",    "key_env": "XAI_API_KEY",         "model": "grok-2-latest",             "enabled": false },
+      { "name": "claude",  "key_env": "ANTHROPIC_API_KEY",   "model": "claude-3-5-sonnet-latest",  "enabled": false }
     ],
     "max_history_entries": 12,
     "bench_minutes": 150,

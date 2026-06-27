@@ -134,17 +134,21 @@ async function buildDecisionPayload(ws, config, state) {
         slices.push(await buildSymbolSlice(ws, sym));
     }
 
+    // stake_ceiling is the ABSOLUTE per-trade cap, not the session
+    // budget. Session capital_remaining is tracked separately in the
+    // `session` block so the AI knows the envelope, but must NOT be
+    // treated as a single-trade ceiling — that caused stake-sizing
+    // bugs where the AI tried to bet the entire remaining envelope
+    // on one trade.
     return {
         meta: {
             generated_at: new Date().toISOString(),
             account_mode: state.account_mode || config.account.mode,
+            frx_enabled:  config.frx_enabled !== false,
             syn_enabled:  !!config.syn_enabled,
             min_expiry_seconds: (config.expiry && config.expiry.min_seconds) || 900,
-            stake_floor: (config.stake && config.stake.absolute_min) || 0.35,
-            stake_ceiling: Math.min(
-                (config.stake && config.stake.absolute_max) || 10000,
-                Number((state.cycle_session && state.cycle_session.capital_remaining) || 0) || 10000
-            ),
+            stake_floor:   (config.stake && config.stake.absolute_min) || 0.35,
+            stake_ceiling: (config.stake && config.stake.absolute_max) || 10000,
         },
         symbols: slices,
         session: buildSessionContext(state, config),

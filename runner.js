@@ -84,6 +84,8 @@ function isSymbolEnabled(sym, config) {
         if (!config.syn_enabled) return false;
         return !!syn[sym];
     }
+    // FRX (forex) master gate — defaults to true if not explicitly set
+    if (config.frx_enabled === false) return false;
     return !!fx[sym];
 }
 
@@ -193,9 +195,13 @@ function validateDecision(d, config, state, opts) {
         return { ok: true, skip: true, reason: `symbol ${d.symbol} disabled in config` };
     }
 
-    const stakeOpts = opts && opts.cycle
-        ? { cycleSessionRemaining: (state.cycle_session && state.cycle_session.capital_remaining) }
-        : {};
+    let stakeOpts = {};
+    if (opts && opts.cycle) {
+        stakeOpts = { cycleSessionRemaining: (state.cycle_session && state.cycle_session.capital_remaining) };
+    } else if (opts && opts.manual) {
+        // Manual trades clamp against the MANUAL session capital_remaining
+        stakeOpts = { cycleSessionRemaining: (state.manual_session && state.manual_session.capital_remaining) };
+    }
     const stake = Risk.clampStake(d.stake, config, stakeOpts);
 
     return {
@@ -242,6 +248,22 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         {
             onPlaced: async ({ proposal, buy }) => {
                 contractIdShown = buy.contract_id;
+                // -----------------------------------------------------
+                // Provisional capital HOLD — deduct stake from
+                // capital_remaining the moment the buy is accepted, so
+                // concurrent ticks can't overspend before settlement.
+                // applyCycleSettlement / applyManualSettlement add back
+                // `stake + pnl` on settle, leaving the math correct.
+                // -----------------------------------------------------
+                if (isCycle && state.cycle_session) {
+                    state.cycle_session.capital_remaining = Number(
+                        ((state.cycle_session.capital_remaining || 0) - norm.stake).toFixed(2)
+                    );
+                } else if (!isCycle && state.manual_session) {
+                    state.manual_session.capital_remaining = Number(
+                        ((state.manual_session.capital_remaining || 0) - norm.stake).toFixed(2)
+                    );
+                }
                 try {
                     await Telegram.send(Telegram.templates.tradePlaced({
                         symbol:       norm.symbol,
@@ -273,7 +295,29 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         }
     );
 
-    // Build a stable trade record regardless of in-cycle settlement.
+    // Build a stable trade record. CRITICAL: contract.settled is the
+    // proposal_open_contract snapshot returned by Deriv — it may be a
+    // terminal (is_sold/won/lost) snapshot OR a non-terminal "timeout"
+    // snapshot. We must inspect is_sold/status to decide.
+    const poc = (contract && contract.settled) || {};
+    const isTerminal =
+        !!poc.is_sold ||
+        poc.status === 'sold' ||
+        poc.status === 'won'  ||
+        poc.status === 'lost';
+
+    let outcome = 'pending';
+    let pnl     = 0;
+    let entry   = undefined;
+    let exit    = undefined;
+
+    if (isTerminal) {
+        pnl = Number(poc.profit || 0);
+        outcome = pnl > 0 ? 'win' : (pnl < 0 ? 'loss' : 'breakeven');
+        entry = poc.entry_spot;
+        exit  = poc.exit_tick || poc.sell_spot;
+    }
+
     const record = {
         ts:         new Date().toISOString(),
         path:       isCycle ? 'cycle' : 'manual',
@@ -284,15 +328,15 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         confidence: norm.confidence,
         rationale:  norm.rationale,
         contract_id: contract && contract.buy ? contract.buy.contract_id : contractIdShown,
-        settled:    !!(contract && contract.settled),
-        outcome:    contract && contract.settled ? contract.outcome : 'pending',
-        entry:      contract && contract.entry_spot,
-        exit:       contract && contract.exit_spot,
-        pnl:        contract && contract.profit != null ? Number(contract.profit) : 0,
+        settled:    isTerminal,
+        outcome,
+        entry,
+        exit,
+        pnl,
         ai_outcome_note: null,
     };
 
-    return { record, contract, ws };
+    return { record, contract, ws, isTerminal };
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -329,11 +373,21 @@ async function settlePending(ws, pending) {
    ───────────────────────────────────────────────────────────────── */
 function applyCycleSettlement(state, record) {
     const sess = state.cycle_session;
-    if (!sess || !sess.active) return;
+    if (!sess) return;
     sess.trades = (sess.trades || 0) + 1;
     const pnl = Number(record.pnl || 0);
     sess.pnl = Number(((sess.pnl || 0) + pnl).toFixed(2));
-    sess.capital_remaining = Number(((sess.capital_remaining || 0) + pnl).toFixed(2));
+    // At placement we deducted the stake as a provisional hold. The
+    // actual P&L delta (profit-or-loss above the stake) reconciles
+    // capital_remaining to the correct post-trade value:
+    //   loss:  hold = -stake; settle adds +(-stake)? NO — Deriv reports
+    //          profit as a signed delta from the stake (e.g. -10 on a
+    //          $10 loss, or +8.5 on a $10 win paying $18.5). So adding
+    //          `stake + profit` here correctly returns the returned
+    //          capital after a trade closes.
+    sess.capital_remaining = Number(
+        ((sess.capital_remaining || 0) + Number(record.stake || 0) + pnl).toFixed(2)
+    );
     if (record.outcome === 'win') {
         sess.wins = (sess.wins || 0) + 1;
         sess.win_streak = (sess.win_streak || 0) + 1;
@@ -362,6 +416,55 @@ function applyCycleSettlement(state, record) {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   Apply settlement to manual session counters (separate envelope).
+   Manual session resets daily via ensureManualSession() — no TP/SL
+   halt loop needed (manual is fire-and-forget), but we still track
+   capital_remaining and stop sizing when it drops to zero.
+   ───────────────────────────────────────────────────────────────── */
+function applyManualSettlement(state, record) {
+    const sess = state.manual_session;
+    if (!sess) return;
+    sess.trades = (sess.trades || 0) + 1;
+    const pnl = Number(record.pnl || 0);
+    sess.pnl = Number(((sess.pnl || 0) + pnl).toFixed(2));
+    sess.capital_remaining = Number(
+        ((sess.capital_remaining || 0) + Number(record.stake || 0) + pnl).toFixed(2)
+    );
+    if (record.outcome === 'win')  sess.wins   = (sess.wins   || 0) + 1;
+    if (record.outcome === 'loss') sess.losses = (sess.losses || 0) + 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Ensure a manual_session envelope exists, rolling daily. Capital,
+   TP and SL come from config.manual; the session resets to a fresh
+   envelope every UTC day.
+   ───────────────────────────────────────────────────────────────── */
+function ensureManualSession(state, config) {
+    const today = todayUTC();
+    const cfgManual = (config && config.manual) || {};
+    const cap = Number(cfgManual.capital || 0);
+    const tp  = Number(cfgManual.take_profit || 0);
+    const sl  = Number(cfgManual.stop_loss   || 0);
+    if (!state.manual_session || state.manual_session.date !== today) {
+        state.manual_session = {
+            date:              today,
+            active:            true,
+            capital_start:     cap,
+            capital_remaining: cap,
+            take_profit:       tp,
+            stop_loss:         sl,
+            trades: 0, wins: 0, losses: 0, pnl: 0,
+        };
+    } else {
+        // Keep envelope params live with current config (so editing
+        // config.manual takes effect immediately on the next trade).
+        state.manual_session.take_profit = tp;
+        state.manual_session.stop_loss   = sl;
+    }
+    return state.manual_session;
+}
+
+/* ─────────────────────────────────────────────────────────────────
    Settle ALL outstanding pending contracts (cycle + manual). For
    newly-terminal ones, optionally fire a post-mortem AI call to
    capture an `ai_outcome_note`.
@@ -385,7 +488,8 @@ async function settleAllPending(ws, config, state) {
             rec.entry   = r.entry;
             rec.exit    = r.exit;
             newlySettled.push({ rec, path: p.path });
-            if (p.path === 'cycle') applyCycleSettlement(state, rec);
+            if (p.path === 'cycle')  applyCycleSettlement(state, rec);
+            if (p.path === 'manual') applyManualSettlement(state, rec);
             applyDailyStat(state, rec);
             // Clear cycle position lock if this was the open cycle position
             if (p.path === 'cycle' && state.cycle_open_position &&
@@ -507,19 +611,23 @@ async function runCycle(ws, config, state, connOpts) {
     }
 
     // Place and (try to) settle in-cycle
-    const { record, contract, ws: freshWs } = await placeAndSettle(
+    const { record, ws: freshWs } = await placeAndSettle(
         ws, v.normalised, config, state, { cycle: true, connOpts });
     ws = freshWs || ws;
     state.trade_history_cycle = state.trade_history_cycle || [];
     state.trade_history_cycle.push(record);
 
     if (record.settled) {
+        // In-cycle terminal settlement: book it now and arm cooldown.
         applyCycleSettlement(state, record);
         applyDailyStat(state, record);
         state.next_cycle_eligible_at =
             Date.now() + 1000 * (config.cycle.interval_seconds || 60);
     } else if (record.contract_id) {
-        // Position will be settled on a later tick by settleAllPending
+        // Non-terminal — push to pending, set the cycle open-position
+        // lock so the next tick will not place a second trade until
+        // settleAllPending() resolves this one. Result notification
+        // fires from settleAllPending on the settling tick.
         state.cycle_open_position = {
             contract_id: record.contract_id,
             symbol:      record.symbol,
@@ -527,10 +635,10 @@ async function runCycle(ws, config, state, connOpts) {
         };
         state.pending_contracts.push({
             contract_id: record.contract_id,
-            path: 'cycle',
-            symbol: record.symbol,
-            placed_at: record.ts,
-            expiry_sec: record.expiry_sec,
+            path:        'cycle',
+            symbol:      record.symbol,
+            placed_at:   record.ts,
+            expiry_sec:  record.expiry_sec,
         });
     }
     return ws;
@@ -577,7 +685,7 @@ async function runManual(ws, config, state, connOpts) {
         return;
     }
 
-    const v = validateDecision(decision, config, state, { cycle: false });
+    const v = validateDecision(decision, config, state, { manual: true });
     if (!v.ok) {
         Logger.warn('Invalid manual decision', { errs: v.errs });
         await Telegram.send(`⚠️ Manual decision rejected: ${v.errs.join('; ')}`);
@@ -605,14 +713,15 @@ async function runManual(ws, config, state, connOpts) {
     state.trade_history_manual.push(record);
 
     if (record.settled) {
+        applyManualSettlement(state, record);
         applyDailyStat(state, record);
     } else if (record.contract_id) {
         state.pending_contracts.push({
             contract_id: record.contract_id,
-            path: 'manual',
-            symbol: record.symbol,
-            placed_at: record.ts,
-            expiry_sec: record.expiry_sec,
+            path:        'manual',
+            symbol:      record.symbol,
+            placed_at:   record.ts,
+            expiry_sec:  record.expiry_sec,
         });
     }
     return ws;
@@ -692,6 +801,7 @@ async function main() {
     state.trade_history_manual= state.trade_history_manual|| [];
     state.ai_keys_bench       = state.ai_keys_bench       || {};
     ensureDailyStats(state);
+    ensureManualSession(state, config);
 
     if (config.enabled === false) {
         Logger.info('Bot disabled');

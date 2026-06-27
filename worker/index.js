@@ -288,6 +288,8 @@ async function handleCallback(cb, env) {
         return tgEdit(env, cb, renderAccount(cfg),      KB.account(cfg));
     if (data === 'set:ai')
         return tgEdit(env, cb, renderAi(cfg),           KB.aiSettings(cfg));
+    if (data === 'set:ai:providers')
+        return tgEdit(env, cb, renderAiProviders(cfg),  KB.aiProviders(cfg));
     if (data === 'set:payout')
         return tgEdit(env, cb, renderPayout(cfg),       KB.payoutSettings(cfg));
     if (data === 'set:daily')
@@ -314,6 +316,13 @@ async function handleCallback(cb, env) {
         cfg.syn_enabled = !cfg.syn_enabled;
         await ghWriteJSON(env, 'config.json', cfg, `bot: SYN ${cfg.syn_enabled}`);
         return tgEdit(env, cb, `Synthetics: <b>${cfg.syn_enabled ? 'ON' : 'OFF'}</b>`, KB.mainMenu());
+    }
+    if (data === 'frx_toggle') {
+        // FRX master gate — mirrors syn_enabled. Default treats undefined
+        // as ON (backward compat with old configs).
+        cfg.frx_enabled = !(cfg.frx_enabled !== false);
+        await ghWriteJSON(env, 'config.json', cfg, `bot: FRX ${cfg.frx_enabled}`);
+        return tgEdit(env, cb, renderSymbolsHome(cfg), KB.symbolsHome(cfg));
     }
     if (data === 'mode_toggle') {
         // Defensive — go through the confirm flow if switching to real
@@ -342,10 +351,24 @@ async function handleCallback(cb, env) {
 
     /* ── Adjust AI params via +/- buttons ────────────────────── */
     if (data.startsWith('ai:')) {
-        const [, field, deltaStr] = data.split(':');
-        const delta = Number(deltaStr);
+        const parts = data.split(':');
+        const field = parts[1];
         const newCfg = await ghReadJSON(env, 'config.json');
         newCfg.ai = newCfg.ai || {};
+
+        // ai:prov:<name>  — toggle a provider's enabled flag
+        if (field === 'prov') {
+            const provName = parts.slice(2).join(':');
+            newCfg.ai.providers = Array.isArray(newCfg.ai.providers) ? newCfg.ai.providers : [];
+            const p = newCfg.ai.providers.find(x => x && x.name === provName);
+            if (p) {
+                p.enabled = !p.enabled;
+                await ghWriteJSON(env, 'config.json', newCfg, `bot: ai provider ${provName} enabled=${p.enabled}`);
+            }
+            return tgEdit(env, cb, renderAiProviders(newCfg), KB.aiProviders(newCfg));
+        }
+
+        const delta = Number(parts[2]);
         if (field === 'conf') newCfg.ai.min_confidence = Math.max(0, Math.min(1, Number(((newCfg.ai.min_confidence||0) + delta).toFixed(2))));
         if (field === 'hist') newCfg.ai.max_history_entries = Math.max(1, Math.floor((newCfg.ai.max_history_entries||0) + delta));
         if (field === 'bench')newCfg.ai.bench_minutes = Math.max(1, Math.floor((newCfg.ai.bench_minutes||0) + delta));
@@ -762,10 +785,12 @@ function renderCycle(cfg) {
 function renderSymbolsHome(cfg) {
     const [fxOn, fxTot]   = countEnabled(cfg.symbols && cfg.symbols.forex);
     const [synOn, synTot] = countEnabled(cfg.symbols && cfg.symbols.synthetics);
+    const frxOn = cfg.frx_enabled !== false;
     return [
         `📡 <b>Symbols</b>`, '',
         `Forex      : ${fxOn} / ${fxTot} enabled`,
         `Synthetic  : ${synOn} / ${synTot} enabled`,
+        `FRX gate   : ${frxOn ? '✅ ON' : '⛔ OFF'} (master switch — overrides individual forex toggles)`,
         `SYN gate   : ${cfg.syn_enabled ? '✅ ON' : '⛔ OFF'} (master switch — overrides individual synth toggles)`,
     ].join('\n');
 }
@@ -782,16 +807,34 @@ function renderAccount(cfg) {
 
 function renderAi(cfg) {
     const a = cfg.ai || {};
+    const providers = Array.isArray(a.providers) ? a.providers : [];
+    const provOn = providers.filter(p => p && p.enabled !== false).length;
     return [
         `🧠 <b>AI settings</b>`,
         '',
-        `Model            : <code>${escapeHtml(a.model || '—')}</code>`,
+        `Gemini model     : <code>${escapeHtml(a.model || '—')}</code>`,
         `Min confidence   : <b>${pct(a.min_confidence)}</b>`,
         `History entries  : <b>${a.max_history_entries || 0}</b>`,
         `Bench minutes    : <b>${a.bench_minutes || 0}</b>`,
-        `Keys registered  : <b>${(a.key_registry || []).length}</b>`,
+        `Gemini keys      : <b>${(a.key_registry || []).length}</b> registered`,
+        `Providers        : <b>${provOn}</b> / ${providers.length} enabled (fallback waterfall)`,
         '',
-        '<i>Keys themselves are managed as GitHub Actions secrets; edit <code>ai.key_registry</code> in config.json to register a new key name.</i>',
+        '<i>Keys are GitHub Actions secrets. Edit <code>ai.key_registry</code> for Gemini multi-key. Tap Providers to enable OpenAI / Grok / Claude fallback.</i>',
+    ].join('\n');
+}
+
+function renderAiProviders(cfg) {
+    const providers = (cfg.ai && Array.isArray(cfg.ai.providers)) ? cfg.ai.providers : [];
+    const lines = providers.map(p => {
+        const flag = p.enabled === false ? '⛔' : '✅';
+        return `${flag}  <b>${escapeHtml(p.name)}</b> — <code>${escapeHtml(p.model || '')}</code>  (env: <code>${escapeHtml(p.key_env || '')}</code>)`;
+    });
+    return [
+        `🧠 <b>AI Providers</b> (fallback waterfall)`,
+        '',
+        lines.length ? lines.join('\n') : '<i>(none configured — add entries to <code>config.ai.providers</code>)</i>',
+        '',
+        '<i>Tap a provider to toggle. When all Gemini keys are benched/failed, AURELIA waterfalls through enabled providers in the order shown. The corresponding env var (a GitHub Actions secret) must also exist.</i>',
     ].join('\n');
 }
 
@@ -932,8 +975,23 @@ const KB = {
             [{ text: '— Bench (min)',data: 'ai:bench:-15' },
              { text: `${a.bench_minutes || 0}m`, data: 'set:ai' },
              { text: '+ Bench (min)',data: 'ai:bench:15' }],
+            [{ text: '🔌 Providers', data: 'set:ai:providers' }],
             [{ text: '⬅️ Settings',  data: 'set:open' }],
         ]);
+    },
+
+    /* AI providers — toggle each provider's enabled flag */
+    aiProviders: (cfg) => {
+        const providers = (cfg.ai && Array.isArray(cfg.ai.providers)) ? cfg.ai.providers : [];
+        const rows = providers.map(p => [{
+            text: `${p.enabled === false ? '⛔' : '✅'} ${p.name}`,
+            data: `ai:prov:${p.name}`,
+        }]);
+        if (rows.length === 0) {
+            rows.push([{ text: '(no providers configured)', data: 'set:ai' }]);
+        }
+        rows.push([{ text: '⬅️ AI', data: 'set:ai' }]);
+        return kb(rows);
     },
 
     /* Payout adjuster */
@@ -1010,7 +1068,8 @@ const KB = {
     symbolsHome: (cfg) => kb([
         [{ text: '💱 Forex',         data: 'set:symbols:fx'  },
          { text: '🎲 Synthetic',     data: 'set:symbols:syn' }],
-        [{ text: cfg.syn_enabled ? '⛔ Disable SYN gate' : '✅ Enable SYN gate', data: 'syn_toggle' }],
+        [{ text: (cfg.frx_enabled !== false) ? '⛔ Disable FRX gate' : '✅ Enable FRX gate', data: 'frx_toggle' },
+         { text: cfg.syn_enabled ? '⛔ Disable SYN gate' : '✅ Enable SYN gate', data: 'syn_toggle' }],
         [{ text: '⬅️ Settings', data: 'set:open' }],
     ]),
 
