@@ -59,10 +59,33 @@
       "GEMINI_KEY_THIRD"
     ],
     "providers": [
-      { "name": "gemini",  "key_env": "GEMINI_KEY_PRIMARY",  "model": "gemini-2.5-flash",          "enabled": true  },
-      { "name": "openai",  "key_env": "OPENAI_API_KEY",      "model": "gpt-4o-mini",               "enabled": false },
-      { "name": "grok",    "key_env": "XAI_API_KEY",         "model": "grok-2-latest",             "enabled": false },
-      { "name": "claude",  "key_env": "ANTHROPIC_API_KEY",   "model": "claude-3-5-sonnet-latest",  "enabled": false }
+      {
+        "name": "gemini",
+        "key_env": "GEMINI_KEY_PRIMARY",
+        "model": "gemini-2.5-flash",
+        "enabled": true
+      },
+      {
+        "name": "openai",
+        "key_env": "OPENAI_API_KEY",
+        "model": "gpt-4o-mini",
+        "enabled": false,
+        "key_registry": []
+      },
+      {
+        "name": "grok",
+        "key_env": "XAI_API_KEY",
+        "model": "grok-2-latest",
+        "enabled": false,
+        "key_registry": []
+      },
+      {
+        "name": "claude",
+        "key_env": "ANTHROPIC_API_KEY",
+        "model": "claude-3-5-sonnet-latest",
+        "enabled": false,
+        "key_registry": []
+      }
     ],
     "max_history_entries": 12,
     "bench_minutes": 150,

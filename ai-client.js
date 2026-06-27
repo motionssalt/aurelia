@@ -264,37 +264,47 @@ async function askDecision({ payload, config, state, prompt, schemaHint }) {
     }
 
     // ---- Stage 2: fallback providers from config.ai.providers ----
+    // Each provider supports key_registry[] (multi-key rotation, same as Gemini)
+    // or a single key_env. key_registry takes precedence when present and non-empty.
     const providers = (config.ai && Array.isArray(config.ai.providers)) ? config.ai.providers : [];
     for (const p of providers) {
         if (!p || p.enabled === false) continue;
         const name = String(p.name || '').toLowerCase();
-        // Skip Gemini provider entries here — stage 1 already covered it
-        // (the providers[] entry exists mostly so the Settings panel can
-        // show/toggle Gemini as a provider).
+        // Skip Gemini — stage 1 already covered it.
         if (name === 'gemini') continue;
-        const benchKey = `provider:${name}`;
-        const benchUntil = Number(state.ai_keys_bench[benchKey] || 0);
-        const isBenched = benchUntil > now;
-        const keyValue = process.env[p.key_env];
-        if (!keyValue) {
-            Logger.warn(`Provider "${name}" enabled but env "${p.key_env}" not set — skipping`);
+
+        const provRegistry = Array.isArray(p.key_registry) && p.key_registry.length > 0
+            ? p.key_registry
+            : (p.key_env ? [p.key_env] : []);
+
+        if (!provRegistry.length) {
+            Logger.warn(`Provider "${name}" has no key_registry or key_env — skipping`);
             continue;
         }
-        if (isBenched) {
-            Logger.warn(`Provider "${name}" benched; trying anyway as fallback`);
-        }
-        try {
-            const text = await _callProvider(p, { keyValue, prompt: fullPrompt, timeoutMs });
-            const parsed = _parseJsonStrict(text);
-            if (state.ai_keys_bench[benchKey]) delete state.ai_keys_bench[benchKey];
-            Logger.info(`AI decision via fallback provider "${name}"`, {
-                action: parsed.action, symbol: parsed.symbol, conf: parsed.confidence,
-            });
-            return { decision: parsed, keyUsed: benchKey };
-        } catch (e) {
-            lastErr = e;
-            state.ai_keys_bench[benchKey] = now + benchMin * 60 * 1000;
-            Logger.warn(`Provider "${name}" failed — benching ${benchMin}m`, { error: e.message });
+
+        const ordered = _orderKeys(provRegistry, state.ai_keys_bench, now);
+        for (const row of ordered) {
+            const keyValue = process.env[row.name];
+            if (!keyValue) {
+                Logger.warn(`Provider "${name}" key env "${row.name}" not set — skipping`);
+                continue;
+            }
+            if (row.benched) {
+                Logger.warn(`Provider "${name}" key "${row.name}" benched; trying anyway as fallback`);
+            }
+            try {
+                const text = await _callProvider(p, { keyValue, prompt: fullPrompt, timeoutMs });
+                const parsed = _parseJsonStrict(text);
+                if (state.ai_keys_bench[row.name]) delete state.ai_keys_bench[row.name];
+                Logger.info(`AI decision via provider "${name}" key "${row.name}"`, {
+                    action: parsed.action, symbol: parsed.symbol, conf: parsed.confidence,
+                });
+                return { decision: parsed, keyUsed: row.name };
+            } catch (e) {
+                lastErr = e;
+                state.ai_keys_bench[row.name] = now + benchMin * 60 * 1000;
+                Logger.warn(`Provider "${name}" key "${row.name}" failed — benching ${benchMin}m`, { error: e.message });
+            }
         }
     }
 

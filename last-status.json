@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T02:35:23.204Z",
+  "last_cycle": "2026-06-27T00:45:19.308Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,6 +101,74 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
+    {
+      "ts": "2026-06-26T21:35:19.670Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-26T21:35:19.669Z"
+      }
+    },
+    {
+      "ts": "2026-06-26T21:35:19.671Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T21:35:20.189Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8d3JLcWl"
+      }
+    },
+    {
+      "ts": "2026-06-26T21:35:20.582Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T21:35:20.698Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T21:40:17.483Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-26T21:40:17.483Z"
+      }
+    },
+    {
+      "ts": "2026-06-26T21:40:17.485Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T21:40:17.922Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=393zzKfw"
+      }
+    },
+    {
+      "ts": "2026-06-26T21:40:18.031Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-26T21:40:18.083Z",
+      "level": "info",
+      "msg": "settle_only — done",
+      "meta": {}
+    },
     {
       "ts": "2026-06-26T21:45:13.873Z",
       "level": "info",
@@ -1394,74 +1462,6 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:30:16.748Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T02:30:16.748Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T02:30:16.750Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:30:17.246Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Z9sfvdFF"
-      }
-    },
-    {
-      "ts": "2026-06-27T02:30:17.508Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:30:17.578Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:35:22.250Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T02:35:22.250Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T02:35:22.251Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:35:22.758Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=j0l0CipI"
-      }
-    },
-    {
-      "ts": "2026-06-27T02:35:23.095Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T02:35:23.203Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
     }
   ],
   "daily_stats": {
@@ -1481,17 +1481,5 @@
       "pnl": 0,
       "by_symbol": {}
     }
-  ],
-  "manual_session": {
-    "date": "2026-06-27",
-    "active": true,
-    "capital_start": 200,
-    "capital_remaining": 200,
-    "take_profit": 20,
-    "stop_loss": 20,
-    "trades": 0,
-    "wins": 0,
-    "losses": 0,
-    "pnl": 0
-  }
+  ]
 }
