@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T01:20:21.099Z",
+  "last_cycle": "2026-06-27T01:25:16.452Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T22:10:20.878Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:10:20.878Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:10:20.879Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:10:21.421Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DfDyPGoj"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:10:21.604Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:10:21.656Z",
-      "level": "info",
-      "msg": "settle_only — done",
-      "meta": {}
-    },
     {
       "ts": "2026-06-26T22:15:14.574Z",
       "level": "info",
@@ -1459,6 +1425,40 @@
     },
     {
       "ts": "2026-06-27T01:20:21.099Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T01:25:15.959Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T01:25:15.959Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T01:25:15.961Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T01:25:16.316Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yfwPWkDM"
+      }
+    },
+    {
+      "ts": "2026-06-27T01:25:16.421Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T01:25:16.452Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
