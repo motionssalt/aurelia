@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T05:06:53.539Z",
+  "last_cycle": "2026-06-27T05:11:16.641Z",
   "balance": 9955.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -167,56 +167,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T00:36:22.200Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T00:36:22.744Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LLor28BQ"
-      }
-    },
-    {
-      "ts": "2026-06-27T00:36:22.856Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T00:36:23.219Z",
-      "level": "info",
-      "msg": "daily_stats reset for new UTC day",
-      "meta": {
-        "date": "2026-06-27"
-      }
-    },
-    {
-      "ts": "2026-06-27T00:40:20.941Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T00:40:20.941Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T00:40:20.942Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T00:40:21.413Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qqEYYvTE"
-      }
-    },
     {
       "ts": "2026-06-27T00:40:21.671Z",
       "level": "network",
@@ -1625,6 +1575,58 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURCHF disabled in config"
+      }
+    },
+    {
+      "ts": "2026-06-27T05:10:20.304Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T05:10:20.304Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T05:10:20.306Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:10:20.826Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=d3RzjV57"
+      }
+    },
+    {
+      "ts": "2026-06-27T05:10:21.112Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:10:30.384Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:11:16.640Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDCHF",
+        "conf": 0.85
+      }
+    },
+    {
+      "ts": "2026-06-27T05:11:16.640Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxUSDCHF disabled in config"
       }
     }
   ],
