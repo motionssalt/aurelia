@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-06-27T05:30:22.633Z",
+  "last_cycle": "2026-06-27T05:35:20.087Z",
   "balance": 9940.76,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
-    "active": true,
+    "active": false,
     "started_at": "2026-06-27T03:39:40.297Z",
     "capital_start": 1000,
     "capital_remaining": 978.15,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 3,
+    "trades": 4,
     "wins": 1,
-    "losses": 2,
-    "pnl": -6.85,
-    "win_streak": 1,
-    "loss_streak": 0,
-    "halted": false,
-    "halt_reason": null
+    "losses": 3,
+    "pnl": -21.85,
+    "win_streak": 0,
+    "loss_streak": 1,
+    "halted": true,
+    "halt_reason": "stop_loss reached (-21.85)"
   },
-  "cycle_open_position": {
-    "contract_id": 3396113639,
-    "symbol": "R_100",
-    "placed_at": "2026-06-27T05:17:18.396Z"
-  },
-  "next_cycle_eligible_at": 1782536173554,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782538573766,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -126,10 +122,11 @@
       "confidence": 0.85,
       "rationale": "Extremely oversold RSI and Stochastics, coupled with very high ADX indicating an exhausted strong bearish trend across M5, M10, and M15, suggests a high probability of a short-term bullish bounce. Price is at or below lower Bollinger Bands.",
       "contract_id": 3396113639,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -15,
+      "ai_outcome_note": "Despite an initial rally above the entry price, the asset failed to sustain gains and subsequently dipped below the entry, resulting in a loss.",
+      "entry": "265.99"
     }
   ],
   "trade_history_manual": [
@@ -178,15 +175,7 @@
       "entry": "9797.55"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3396113639,
-      "path": "cycle",
-      "symbol": "R_100",
-      "placed_at": "2026-06-27T05:17:18.396Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -194,60 +183,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T03:23:22.174Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-06-27T03:23:22.328Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ10V CALL",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 18.19,
-        "spot": 9797.43
-      }
-    },
-    {
-      "ts": "2026-06-27T03:23:22.472Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3391408719",
-      "meta": {
-        "transaction_id": 6671740259,
-        "longcode": "Win payout if Volatility 10 (1s) Index is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-27T03:23:22.872Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ10V @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T03:23:23.002Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T03:23:26.265Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T03:24:15.662Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out â returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3391408719
-      }
-    },
     {
       "ts": "2026-06-27T03:25:15.859Z",
       "level": "info",
@@ -1675,14 +1610,60 @@
         "symbol": "R_100",
         "placed_at": "2026-06-27T05:17:18.396Z"
       }
+    },
+    {
+      "ts": "2026-06-27T05:35:13.246Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T05:35:13.246Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T05:35:13.248Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:35:13.555Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=A8rFBCK3"
+      }
+    },
+    {
+      "ts": "2026-06-27T05:35:13.679Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:35:14.189Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:35:20.086Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T05:35:20.086Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-27",
-    "trades": 4,
+    "trades": 5,
     "wins": 1,
-    "losses": 3,
-    "pnl": -16.85,
+    "losses": 4,
+    "pnl": -31.85,
     "by_symbol": {
       "1HZ10V": {
         "trades": 3,
@@ -1695,6 +1676,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 8.15
+      },
+      "R_100": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -15
       }
     }
   },
