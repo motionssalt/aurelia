@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T07:25:22.973Z",
+  "last_cycle": "2026-06-27T07:28:28.681Z",
   "balance": 9940.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -173,9 +173,32 @@
       "pnl": -10,
       "ai_outcome_note": "Despite an initial small bounce, the price failed to sustain upward momentum, consistently falling below the entry point of 9797.55, leading to a loss for the call option.",
       "entry": "9797.55"
+    },
+    {
+      "ts": "2026-06-27T07:28:28.681Z",
+      "path": "manual",
+      "symbol": "R_100",
+      "direction": "call",
+      "stake": 10,
+      "expiry_sec": 900,
+      "confidence": 0.85,
+      "rationale": "Deeply oversold RSI and Stochastics across M5, M10, and M15, with price well below lower Bollinger Bands. Very strong ADX indicates an exhausted bearish trend, suggesting a high probability of a bullish bounce.",
+      "contract_id": 3403923499,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3403923499,
+      "path": "manual",
+      "symbol": "R_100",
+      "placed_at": "2026-06-27T07:28:28.681Z",
+      "expiry_sec": 900
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -183,134 +206,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T04:36:35.941Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "1HZ100V",
-        "conf": 0.7
-      }
-    },
-    {
-      "ts": "2026-06-27T04:36:35.942Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
-    {
-      "ts": "2026-06-27T04:36:35.942Z",
-      "level": "warn",
-      "msg": "Deriv: socket not open (state=3) — reconnecting",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:36:35.942Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:36:36.386Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0VBodzv1"
-      }
-    },
-    {
-      "ts": "2026-06-27T04:36:36.722Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:36:36.833Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ100V PUT",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 18.15,
-        "spot": 750.05
-      }
-    },
-    {
-      "ts": "2026-06-27T04:36:36.980Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3394379779",
-      "meta": {
-        "transaction_id": 6677399999,
-        "longcode": "Win payout if Volatility 100 (1s) Index is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-27T04:36:37.631Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ100V @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:36:37.776Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:36:40.995Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:37:30.426Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3394379779
-      }
-    },
-    {
-      "ts": "2026-06-27T04:40:13.819Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T04:40:13.818Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T04:40:13.820Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:40:14.109Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hDIOkrJA"
-      }
-    },
-    {
-      "ts": "2026-06-27T04:40:14.201Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:40:14.285Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3394379779,
-        "symbol": "1HZ100V",
-        "placed_at": "2026-06-27T04:37:30.427Z"
-      }
-    },
     {
       "ts": "2026-06-27T04:45:22.248Z",
       "level": "info",
@@ -1596,6 +1491,130 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:26:20.218Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T07:26:20.218Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:26:20.219Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:26:20.658Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Qqh5E1wm"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:26:20.870Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:26:28.212Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:35.866Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "R_100",
+        "conf": 0.85
+      }
+    },
+    {
+      "ts": "2026-06-27T07:27:35.867Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:27:35.867Z",
+      "level": "warn",
+      "msg": "Deriv: socket not open (state=3) — reconnecting",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:35.867Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:36.275Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=cu8Of423"
+      }
+    },
+    {
+      "ts": "2026-06-27T07:27:36.503Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:36.593Z",
+      "level": "trade",
+      "msg": "Proposal accepted R_100 CALL",
+      "meta": {
+        "stake": 10,
+        "price": 10,
+        "payout": 18.22,
+        "spot": 264.11
+      }
+    },
+    {
+      "ts": "2026-06-27T07:27:36.730Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3403923499",
+      "meta": {
+        "transaction_id": 6695643919,
+        "longcode": "Win payout if Volatility 100 Index is strictly higher than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-06-27T07:27:37.161Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for R_100 @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:37.280Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:27:39.281Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T07:28:28.680Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3403923499
+      }
     }
   ],
   "daily_stats": {
@@ -1639,7 +1658,7 @@
     "date": "2026-06-27",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 190,
+    "capital_remaining": 180,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 1,
