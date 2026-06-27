@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T04:25:21.229Z",
+  "last_cycle": "2026-06-27T04:31:02.542Z",
   "balance": 9947.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -151,54 +151,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-26T23:40:22.324Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:40:22.889Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rMcT4LpW"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:40:23.216Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:40:23.318Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:45:22.859Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T23:45:22.859Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:45:22.860Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:45:23.449Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MEnxxH3m"
-      }
-    },
     {
       "ts": "2026-06-26T23:45:23.782Z",
       "level": "network",
@@ -1575,6 +1527,58 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 52565
+      }
+    },
+    {
+      "ts": "2026-06-27T04:30:15.052Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T04:30:15.052Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:30:15.054Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:30:15.399Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jVGATQ5k"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:30:15.537Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:30:20.481Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:31:02.541Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDCHF",
+        "conf": 0.8
+      }
+    },
+    {
+      "ts": "2026-06-27T04:31:02.541Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxUSDCHF disabled in config"
       }
     }
   ],
