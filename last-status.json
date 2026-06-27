@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T06:45:22.967Z",
+  "last_cycle": "2026-06-27T06:50:18.737Z",
   "balance": 9940.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -183,45 +183,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T04:05:55.306Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3392968119",
-      "meta": {
-        "transaction_id": 6674770379,
-        "longcode": "Win payout if Volatility 10 (1s) Index is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-27T04:05:55.920Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ10V @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:05:56.066Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:05:58.176Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:05:58.836Z",
-      "level": "warn",
-      "msg": "Telegram sendPhoto failed",
-      "meta": {
-        "json": {
-          "ok": false,
-          "error_code": 400,
-          "description": "Bad Request: can't parse entities: Unsupported start tag \"\" at byte offset 74"
-        }
-      }
-    },
     {
       "ts": "2026-06-27T04:06:46.359Z",
       "level": "warn",
@@ -1616,6 +1577,40 @@
     },
     {
       "ts": "2026-06-27T06:45:22.966Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:50:18.047Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T06:50:18.047Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T06:50:18.049Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:50:18.501Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=h2tzQ98i"
+      }
+    },
+    {
+      "ts": "2026-06-27T06:50:18.685Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:50:18.736Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
