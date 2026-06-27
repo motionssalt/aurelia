@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T03:35:20.466Z",
+  "last_cycle": "2026-06-27T03:43:41.671Z",
   "balance": 9962.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-06-27T03:39:40.297Z",
     "capital_start": 1000,
-    "capital_remaining": 1000,
+    "capital_remaining": 995,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 0,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3392066879,
+    "symbol": "1HZ10V",
+    "placed_at": "2026-06-27T03:43:41.670Z"
+  },
   "next_cycle_eligible_at": 0,
   "trade_history_cycle": [
     {
@@ -63,6 +67,21 @@
       "settled": true,
       "pnl": 0,
       "ai_outcome_note": null
+    },
+    {
+      "ts": "2026-06-27T03:43:41.670Z",
+      "path": "cycle",
+      "symbol": "1HZ10V",
+      "direction": "call",
+      "stake": 5,
+      "expiry_sec": 900,
+      "confidence": 0.8,
+      "rationale": "Extremely oversold conditions across M5, M10, and M15 timeframes (RSI < 30, Stochastics < 15). Price is well below the lower Bollinger Bands. ADX indicates a very strong bearish trend, suggesting an exhaustion point and high probability of a short-term bullish bounce.",
+      "contract_id": 3392066879,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -104,18 +123,19 @@
       "confidence": 0.8,
       "rationale": "Deeply oversold RSI and Stochastics on M10/M15, price at lower Bollinger Band, and bullish reversal candle patterns (Morning Star on M5, Bullish Engulfing on M15) suggest a probable bounce.",
       "contract_id": 3391408719,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -10,
+      "ai_outcome_note": "Despite an initial small bounce, the price failed to sustain upward momentum, consistently falling below the entry point of 9797.55, leading to a loss for the call option.",
+      "entry": "9797.55"
     }
   ],
   "pending_contracts": [
     {
-      "contract_id": 3391408719,
-      "path": "manual",
+      "contract_id": 3392066879,
+      "path": "cycle",
       "symbol": "1HZ10V",
-      "placed_at": "2026-06-27T03:24:15.663Z",
+      "placed_at": "2026-06-27T03:43:41.670Z",
       "expiry_sec": 900
     }
   ],
@@ -124,142 +144,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T22:15:15.023Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:15:15.057Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:20:13.891Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:20:13.891Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:20:13.892Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:20:14.277Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4r1vXMJn"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:20:14.392Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:20:14.432Z",
-      "level": "info",
-      "msg": "settle_only â done",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:25:17.340Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:25:17.340Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:25:17.342Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:25:17.704Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0wPq8kvg"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:25:17.806Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:25:17.836Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:30:17.013Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:30:17.013Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:30:17.015Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:30:17.526Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XjM69IzO"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:30:17.737Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:30:17.789Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:35:18.673Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:35:18.673Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:35:18.675Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:35:19.056Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qhjyPYMd"
-      }
-    },
     {
       "ts": "2026-06-26T22:35:19.161Z",
       "level": "network",
@@ -1493,15 +1377,170 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:41:28.193Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T03:41:28.193Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:41:28.195Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:41:28.745Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OYTdrq65"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:41:28.954Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:41:29.600Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:41:32.971Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:41:40.073Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:49.963Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "1HZ10V",
+        "conf": 0.8
+      }
+    },
+    {
+      "ts": "2026-06-27T03:42:49.963Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:42:49.964Z",
+      "level": "warn",
+      "msg": "Deriv: socket not open (state=3) — reconnecting",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:49.964Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:50.341Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=7SIAMYcl"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:42:50.535Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:50.615Z",
+      "level": "trade",
+      "msg": "Proposal accepted 1HZ10V CALL",
+      "meta": {
+        "stake": 5,
+        "price": 5,
+        "payout": 9.09,
+        "spot": 9786.22
+      }
+    },
+    {
+      "ts": "2026-06-27T03:42:50.735Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3392066879",
+      "meta": {
+        "transaction_id": 6673034019,
+        "longcode": "Win payout if Volatility 10 (1s) Index is strictly higher than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-06-27T03:42:51.161Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for 1HZ10V @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:51.282Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:53.025Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:42:53.505Z",
+      "level": "warn",
+      "msg": "Telegram sendPhoto failed",
+      "meta": {
+        "json": {
+          "ok": false,
+          "error_code": 400,
+          "description": "Bad Request: can't parse entities: Unsupported start tag \"\" at byte offset 110"
+        }
+      }
+    },
+    {
+      "ts": "2026-06-27T03:43:41.670Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3392066879
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-06-27",
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "losses": 0,
-    "pnl": 0,
-    "by_symbol": {}
+    "losses": 1,
+    "pnl": -10,
+    "by_symbol": {
+      "1HZ10V": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -10
+      }
+    }
   },
   "daily_history": [
     {
@@ -1520,9 +1559,9 @@
     "capital_remaining": 190,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "losses": 0,
-    "pnl": 0
+    "losses": 1,
+    "pnl": -10
   }
 }
