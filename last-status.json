@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T17:40:22.437Z",
+  "last_cycle": "2026-06-27T17:45:19.587Z",
   "balance": 9920.98,
   "currency": "USD",
   "account_mode": "demo",
@@ -215,46 +215,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T14:31:13.444Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9WTCm6z4"
-      }
-    },
-    {
-      "ts": "2026-06-27T14:31:13.734Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T14:31:13.848Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ25V CALL",
-      "meta": {
-        "stake": 9.78,
-        "price": 9.78,
-        "payout": 17.79,
-        "spot": 833774.59
-      }
-    },
-    {
-      "ts": "2026-06-27T14:31:14.008Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3437696879",
-      "meta": {
-        "transaction_id": 6758145319,
-        "longcode": "Win payout if Volatility 25 (1s) Index is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-27T14:31:14.517Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ25V @ 5m",
-      "meta": {}
-    },
     {
       "ts": "2026-06-27T14:31:14.687Z",
       "level": "info",
@@ -1575,6 +1535,40 @@
     },
     {
       "ts": "2026-06-27T17:40:22.436Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T17:45:18.697Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T17:45:18.697Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T17:45:18.699Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T17:45:19.208Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uexsTE8A"
+      }
+    },
+    {
+      "ts": "2026-06-27T17:45:19.514Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T17:45:19.586Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
