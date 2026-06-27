@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T03:30:16.464Z",
+  "last_cycle": "2026-06-27T03:35:20.466Z",
   "balance": 9962.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -124,40 +124,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T22:10:21.604Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:10:21.656Z",
-      "level": "info",
-      "msg": "settle_only — done",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:15:14.574Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T22:15:14.573Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T22:15:14.575Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T22:15:14.919Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iftlbnsm"
-      }
-    },
     {
       "ts": "2026-06-26T22:15:15.023Z",
       "level": "network",
@@ -1490,6 +1456,40 @@
     },
     {
       "ts": "2026-06-27T03:30:16.463Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:35:19.286Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T03:35:19.285Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:35:19.287Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:35:19.840Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8uL6FlXj"
+      }
+    },
+    {
+      "ts": "2026-06-27T03:35:20.199Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T03:35:20.466Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
