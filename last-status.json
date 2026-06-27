@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T06:40:21.330Z",
+  "last_cycle": "2026-06-27T06:45:22.967Z",
   "balance": 9940.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -183,47 +183,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T04:05:31.851Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:05:31.851Z",
-      "level": "warn",
-      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_1\" anyway",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T04:05:54.921Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "1HZ10V",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-06-27T04:05:55.006Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-06-27T04:05:55.126Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ10V CALL",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 18.19,
-        "spot": 9786.06
-      }
-    },
     {
       "ts": "2026-06-27T04:05:55.306Z",
       "level": "trade",
@@ -1623,6 +1582,40 @@
     },
     {
       "ts": "2026-06-27T06:40:21.329Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:45:22.127Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T06:45:22.127Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T06:45:22.129Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:45:22.658Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RMpDeXe3"
+      }
+    },
+    {
+      "ts": "2026-06-27T06:45:22.896Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T06:45:22.966Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
