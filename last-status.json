@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T04:20:18.528Z",
+  "last_cycle": "2026-06-27T04:25:21.229Z",
   "balance": 9947.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 985,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
-    "losses": 1,
-    "pnl": -5,
+    "losses": 2,
+    "pnl": -15,
     "win_streak": 0,
-    "loss_streak": 1,
+    "loss_streak": 2,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3392968119,
-    "symbol": "1HZ10V",
-    "placed_at": "2026-06-27T04:06:46.359Z"
-  },
-  "next_cycle_eligible_at": 1782532879821,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782534373793,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -94,10 +90,11 @@
       "confidence": 0.9,
       "rationale": "Extreme oversold conditions (RSI < 30, Stochastics very low) in a strong downtrend (ADX high). Multiple bullish reversal candle patterns (M5 Hammer, M10/M15 Bullish Engulfing) indicate a high probability of a short-term bullish bounce.",
       "contract_id": 3392968119,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -10,
+      "ai_outcome_note": "Despite an initial bullish bounce, the price failed to sustain gains and ultimately reversed, falling below the entry point to result in a loss.",
+      "entry": "9785.96"
     }
   ],
   "trade_history_manual": [
@@ -146,15 +143,7 @@
       "entry": "9797.55"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3392968119,
-      "path": "cycle",
-      "symbol": "1HZ10V",
-      "placed_at": "2026-06-27T04:06:46.359Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -162,54 +151,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-26T23:30:15.871Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:35:15.986Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T23:35:15.986Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:35:15.987Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:35:16.378Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iT6p3cCi"
-      }
-    },
-    {
-      "ts": "2026-06-26T23:35:16.456Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:35:16.489Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T23:40:22.322Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T23:40:22.322Z"
-      }
-    },
     {
       "ts": "2026-06-26T23:40:22.324Z",
       "level": "network",
@@ -1587,20 +1528,68 @@
         "symbol": "1HZ10V",
         "placed_at": "2026-06-27T04:06:46.359Z"
       }
+    },
+    {
+      "ts": "2026-06-27T04:25:13.263Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T04:25:13.262Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:25:13.265Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:25:13.567Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WMz7qhyX"
+      }
+    },
+    {
+      "ts": "2026-06-27T04:25:13.705Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:25:14.208Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:25:21.228Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T04:25:21.228Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 52565
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-06-27",
-    "trades": 2,
+    "trades": 3,
     "wins": 0,
-    "losses": 2,
-    "pnl": -15,
+    "losses": 3,
+    "pnl": -25,
     "by_symbol": {
       "1HZ10V": {
-        "trades": 2,
+        "trades": 3,
         "wins": 0,
-        "losses": 2,
-        "pnl": -15
+        "losses": 3,
+        "pnl": -25
       }
     }
   },
