@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-26T23:55:14.919Z",
+  "last_cycle": "2026-06-27T00:00:22.358Z",
   "balance": 9972.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -101,40 +101,6 @@
     "GEMINI_KEY_BACKUP": 1782390139617
   },
   "logs": [
-    {
-      "ts": "2026-06-26T20:40:15.128Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-26T20:40:15.127Z"
-      }
-    },
-    {
-      "ts": "2026-06-26T20:40:15.129Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T20:40:15.651Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CLKk5Wpa"
-      }
-    },
-    {
-      "ts": "2026-06-26T20:40:15.880Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-26T20:40:15.928Z",
-      "level": "info",
-      "msg": "settle_only — done",
-      "meta": {}
-    },
     {
       "ts": "2026-06-26T20:45:19.461Z",
       "level": "info",
@@ -1460,10 +1426,44 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:00:21.216Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-27T00:00:21.215Z"
+      }
+    },
+    {
+      "ts": "2026-06-27T00:00:21.217Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:00:21.831Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DRmBc4UT"
+      }
+    },
+    {
+      "ts": "2026-06-27T00:00:22.246Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-27T00:00:22.357Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
-    "date": "2026-06-26",
+    "date": "2026-06-27",
     "trades": 0,
     "wins": 0,
     "losses": 0,
