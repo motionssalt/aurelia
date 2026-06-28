@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-28T04:00:23.176Z",
+  "last_cycle": "2026-06-28T04:05:19.349Z",
   "balance": 9933.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -231,38 +231,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-28T00:45:14.546Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HjZ0m3Eb"
-      }
-    },
-    {
-      "ts": "2026-06-28T00:45:14.668Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T00:45:15.296Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T00:45:19.056Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T00:45:19.056Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
     {
       "ts": "2026-06-28T00:50:23.207Z",
       "level": "info",
@@ -1585,6 +1553,40 @@
     },
     {
       "ts": "2026-06-28T04:00:23.175Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T04:05:18.330Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-28T04:05:18.329Z"
+      }
+    },
+    {
+      "ts": "2026-06-28T04:05:18.331Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T04:05:18.867Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OkAPqOKX"
+      }
+    },
+    {
+      "ts": "2026-06-28T04:05:19.251Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T04:05:19.349Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
