@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-28T00:14:25.060Z",
-  "balance": 9920.98,
+  "last_cycle": "2026-06-28T00:15:19.565Z",
+  "balance": 9905.98,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -238,40 +238,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T19:45:18.681Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T19:45:18.773Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T19:50:15.215Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T19:50:15.215Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T19:50:15.217Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T19:50:15.591Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=og4WSDU6"
-      }
-    },
     {
       "ts": "2026-06-27T19:50:15.703Z",
       "level": "network",
@@ -1607,6 +1573,40 @@
       "meta": {
         "contract_id": 3481594359
       }
+    },
+    {
+      "ts": "2026-06-28T00:15:18.708Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-28T00:15:18.708Z"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:15:18.710Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:15:19.189Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dyuPe3yC"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:15:19.405Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:15:19.565Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
