@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-28T00:40:16.538Z",
-  "balance": 9905.98,
+  "last_cycle": "2026-06-28T00:45:19.057Z",
+  "balance": 9933.27,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -216,21 +216,14 @@
       "confidence": 0.85,
       "rationale": "Strong bearish trend exhausted, with price at lower Bollinger Band and oversold RSI/Stochastics across all timeframes. Multiple bullish reversal candle patterns (Morning Star, Bullish Engulfing, Hammer) indicate a high probability of a bullish bounce.",
       "contract_id": 3481594359,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "win",
+      "pnl": 12.29,
+      "ai_outcome_note": "The price initially dipped below entry but then recovered and sustained an upward trend, validating the bullish call and resulting in a win.",
+      "entry": "825248.09"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3481594359,
-      "path": "manual",
-      "symbol": "1HZ25V",
-      "placed_at": "2026-06-28T00:14:25.060Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -238,52 +231,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T20:15:18.365Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:15:18.448Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:20:24.903Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T20:20:24.903Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T20:20:24.905Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:20:25.486Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3CkjCh8M"
-      }
-    },
-    {
-      "ts": "2026-06-27T20:20:25.790Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:20:25.882Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
     {
       "ts": "2026-06-27T20:25:18.890Z",
       "level": "info",
@@ -1607,15 +1554,68 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:45:14.193Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-28T00:45:14.193Z"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:45:14.195Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:45:14.546Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HjZ0m3Eb"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:45:14.668Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:45:15.296Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_7\" not present in env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:45:19.056Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:45:19.056Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-28",
-    "trades": 0,
-    "wins": 0,
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0,
-    "by_symbol": {}
+    "pnl": 12.29,
+    "by_symbol": {
+      "1HZ25V": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 12.29
+      }
+    }
   },
   "daily_history": [
     {
@@ -1631,13 +1631,13 @@
     "date": "2026-06-28",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 185,
+    "capital_remaining": 212.29,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
-    "wins": 0,
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0
+    "pnl": 12.29
   },
   "_notified_halt_reason": "stop_loss reached (-21.85)"
 }
