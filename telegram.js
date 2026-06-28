@@ -299,6 +299,35 @@ const templates = {
         return `⏸️ <b>HOLD</b> — ${_esc(symbol)}\n${_esc(reason)}`;
     },
 
+    /* Fires when the cycle session is halted because TP / SL / capital
+       was reached. Includes the running W/L + P/L so the user gets a
+       complete picture in one message. */
+    sessionHalted({ kind, reason, mode, session, balance, currency }) {
+        const badge = formatBadge(mode);
+        let head;
+        if (kind === 'take_profit') {
+            head = `🎯 <b>TAKE-PROFIT HIT</b> — session halted ${badge}`;
+        } else if (kind === 'stop_loss') {
+            head = `🚫 <b>STOP-LOSS HIT</b> — session halted ${badge}`;
+        } else if (kind === 'capital') {
+            head = `💥 <b>CAPITAL EXHAUSTED</b> — session halted ${badge}`;
+        } else {
+            head = `⏹️ <b>SESSION HALTED</b> ${badge}`;
+        }
+        const lines = [head];
+        if (reason) lines.push(`Reason  : <code>${_esc(reason)}</code>`);
+        const sess = _sessionLine(session);
+        if (sess) lines.push(sess);
+        if (session && Number.isFinite(Number(session.capital_remaining))) {
+            lines.push(`Capital : ${_money(session.capital_remaining)}`);
+        }
+        if (Number.isFinite(Number(balance))) {
+            lines.push(`Balance : ${_money(balance, currency || 'USD')}`);
+        }
+        lines.push('<i>Cycle will not place new trades until the session is restarted.</i>');
+        return lines.join('\n');
+    },
+
     dailySummary({ date, mode, trades, wins, losses, pnl }) {
         const badge   = formatBadge(mode);
         const winPct  = trades > 0 ? ((wins / trades) * 100).toFixed(1) + '%' : '—';

@@ -280,15 +280,26 @@ async function placeAndSettle(ws, norm, config, state, opts) {
                     Logger.warn('Telegram tradePlaced failed', { error: e.message });
                 }
                 // Best-effort chart attached to placement notification.
+                // chart.js already does one internal retry; we treat a
+                // missing chart as a recoverable signal-side issue and
+                // surface a small notice so the user knows the trade
+                // itself was placed even when the visual didn't make it.
                 try {
                     const buf = await Chart.generateChart(ws, norm.symbol, '5m');
-                    if (buf) {
+                    if (buf && buf.length > 1024) {
                         await Telegram.sendPhoto(buf,
                             `${norm.symbol} • ${contractType} • ${norm.stake} USD • ${minutes}m\n` +
                             `Why: ${norm.rationale}`);
+                    } else {
+                        Logger.warn('Chart generation returned no usable buffer', {
+                            symbol: norm.symbol,
+                            bytes: buf ? buf.length : 0,
+                        });
+                        await Telegram.send(`📉 <i>Chart unavailable for <code>${norm.symbol}</code> — trade placed without chart attachment.</i>`).catch(() => {});
                     }
                 } catch (e) {
                     Logger.warn('Chart generation failed (entry)', { error: e.message });
+                    await Telegram.send(`📉 <i>Chart render failed for <code>${norm.symbol}</code> (<code>${String(e.message).slice(0,120)}</code>) — trade placed without chart.</i>`).catch(() => {});
                 }
             },
             settleWaitMs: HARD_BUDGET_MS - 8000,
@@ -501,6 +512,41 @@ async function settleAllPending(ws, config, state) {
         }
     }
     state.pending_contracts = still;
+
+    // Detect cycle-session halt transitions caused by the settlements
+    // we just applied (TP / SL / capital exhaustion). We snapshot the
+    // halted flag BEFORE applyCycleSettlement runs and compare against
+    // the post-state here so we only notify on the actual transition.
+    if (state.cycle_session
+        && state.cycle_session.halted
+        && !state._notified_halt_reason) {
+        const reason = String(state.cycle_session.halt_reason || '');
+        let kind = 'other';
+        if (/take_profit/i.test(reason)) kind = 'take_profit';
+        else if (/stop_loss/i.test(reason)) kind = 'stop_loss';
+        else if (/capital/i.test(reason)) kind = 'capital';
+        try {
+            await Telegram.send(Telegram.templates.sessionHalted({
+                kind,
+                reason,
+                mode:     state.account_mode || (config.account && config.account.mode),
+                session:  {
+                    wins:              state.cycle_session.wins,
+                    losses:            state.cycle_session.losses,
+                    pnl:               state.cycle_session.pnl,
+                    trades:            state.cycle_session.trades,
+                    capital_remaining: state.cycle_session.capital_remaining,
+                },
+                balance:  state.balance,
+                currency: state.currency,
+            }));
+            // Latch so we don't re-notify on every subsequent tick while
+            // the session stays halted. Cleared in startCycleSession().
+            state._notified_halt_reason = reason;
+        } catch (e) {
+            Logger.warn('sessionHalted notification failed', { error: e.message });
+        }
+    }
 
     // Fire settled notifications + post-mortems
     for (const { rec } of newlySettled) {

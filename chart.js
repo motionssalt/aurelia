@@ -333,7 +333,78 @@ new Chart(sizeCanvas('chartMacd'), {
 
 /* ─────────────────────────────────────────────────────────────────
    Main export
+
+   Robustness notes (v3 — "chart missing on signal sometimes" fix):
+     • networkidle0 was flaky because the three Chart.js CDN scripts
+       sometimes keep keep-alive sockets open long enough to time out
+       page.setContent. We now wait on `domcontentloaded` and then
+       explicitly poll for window.Chart being defined.
+     • We also wait for the price canvas to actually have non-zero
+       drawn pixels before screenshotting — occasionally the layout
+       wasn't finished when the old 500ms timeout fired and the
+       resulting PNG was a blank panel that Telegram rejected.
+     • One automatic retry on transient failure (CDN blip, puppeteer
+       launch race) so callers don't have to wrap it themselves.
    ───────────────────────────────────────────────────────────────── */
+async function _renderOnce(html) {
+    const browser = await puppeteer.launch({
+        headless: 'new',
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+        ],
+    });
+    try {
+        const page = await browser.newPage();
+        await page.setViewport({ width: 900, height: 760, deviceScaleFactor: 2 });
+
+        // Use domcontentloaded instead of networkidle0 — CDN keep-alives
+        // can keep the network "busy" past the timeout.
+        await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 25000 });
+
+        // Explicit Chart.js readiness gate: wait until the library is
+        // loaded and the financial chart-type plugin has registered.
+        await page.waitForFunction(
+            () => typeof window.Chart !== 'undefined'
+               && window.Chart.registry
+               && !!window.Chart.registry.getController('candlestick'),
+            { timeout: 15000 }
+        );
+
+        // Wait for the price canvas to actually have drawn pixels —
+        // this is what catches the "blank chart" failure mode where
+        // setContent resolved but Chart.js hadn't painted yet.
+        await page.waitForFunction(() => {
+            const c = document.getElementById('chartPrice');
+            if (!c || !c.width || !c.height) return false;
+            try {
+                const ctx = c.getContext('2d');
+                // Sample the middle pixel — if it's still the default
+                // transparent black, the canvas hasn't drawn yet.
+                const px = ctx.getImageData(c.width / 2, c.height / 2, 1, 1).data;
+                return px[3] !== 0;
+            } catch (_) {
+                return false;
+            }
+        }, { timeout: 10000 });
+
+        // One animation-frame settle for the two sub-panels (RSI, MACD).
+        await page.evaluate(() => new Promise(r => requestAnimationFrame(() => setTimeout(r, 250))));
+
+        const buffer = await page.screenshot({ type: 'png', fullPage: false });
+        if (!buffer || buffer.length < 1024) {
+            // Defensive — a sub-1KB PNG is almost certainly a blank /
+            // transparent screenshot that Telegram would reject silently.
+            throw new Error(`screenshot suspiciously small (${buffer ? buffer.length : 0} bytes)`);
+        }
+        return buffer;
+    } finally {
+        await browser.close().catch(() => {});
+    }
+}
+
 async function generateChart(ws, symbol, tf = '1m') {
     const tfCfg = TF_MAP[tf] || TF_MAP['1m'];
     Logger.info(`[chart] fetching ${tfCfg.count} candles for ${symbol} @ ${tf}`);
@@ -349,29 +420,18 @@ async function generateChart(ws, symbol, tf = '1m') {
     ensureChromium();
 
     Logger.info('[chart] launching Puppeteer');
-    const browser = await puppeteer.launch({
-        headless: 'new',
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-gpu',
-        ],
-    });
-
     try {
-        const page = await browser.newPage();
-        await page.setViewport({ width: 900, height: 760, deviceScaleFactor: 2 });
-        await page.setContent(html, { waitUntil: 'networkidle0', timeout: 20000 });
-
-        /* Give Chart.js a tick to finish rendering */
-        await page.evaluate(() => new Promise(r => setTimeout(r, 500)));
-
-        const buffer = await page.screenshot({ type: 'png', fullPage: false });
-        Logger.info('[chart] screenshot captured');
-        return buffer;
-    } finally {
-        await browser.close();
+        const buf = await _renderOnce(html);
+        Logger.info('[chart] screenshot captured', { bytes: buf.length });
+        return buf;
+    } catch (e) {
+        Logger.warn('[chart] first render failed — retrying once', { error: e.message });
+        // Brief backoff before retry (CDN/network jitter usually clears
+        // within a couple of seconds).
+        await new Promise(r => setTimeout(r, 1500));
+        const buf = await _renderOnce(html);
+        Logger.info('[chart] screenshot captured on retry', { bytes: buf.length });
+        return buf;
     }
 }
 
