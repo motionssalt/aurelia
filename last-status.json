@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-27T23:55:20.534Z",
+  "last_cycle": "2026-06-28T00:00:25.411Z",
   "balance": 9920.98,
   "currency": "USD",
   "account_mode": "demo",
@@ -215,40 +215,6 @@
     "GEMINI_KEY_3": 1782541820291
   },
   "logs": [
-    {
-      "ts": "2026-06-27T20:40:17.072Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-27T20:40:17.071Z"
-      }
-    },
-    {
-      "ts": "2026-06-27T20:40:17.074Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:40:17.618Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=EGgvHdvI"
-      }
-    },
-    {
-      "ts": "2026-06-27T20:40:17.824Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-27T20:40:17.889Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
     {
       "ts": "2026-06-27T20:45:18.681Z",
       "level": "info",
@@ -1574,40 +1540,49 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:00:24.402Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-28T00:00:24.402Z"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:00:24.404Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:00:24.914Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QzUBnIRW"
+      }
+    },
+    {
+      "ts": "2026-06-28T00:00:25.302Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-28T00:00:25.411Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
-    "date": "2026-06-27",
-    "trades": 7,
-    "wins": 1,
-    "losses": 6,
-    "pnl": -51.63,
-    "by_symbol": {
-      "1HZ10V": {
-        "trades": 3,
-        "wins": 0,
-        "losses": 3,
-        "pnl": -25
-      },
-      "1HZ100V": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 8.15
-      },
-      "R_100": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -25
-      },
-      "1HZ25V": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -9.78
-      }
-    }
+    "date": "2026-06-28",
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "pnl": 0,
+    "by_symbol": {}
   },
   "daily_history": [
     {
@@ -1620,15 +1595,15 @@
     }
   ],
   "manual_session": {
-    "date": "2026-06-27",
+    "date": "2026-06-28",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 170.22,
+    "capital_remaining": 200,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 3,
+    "trades": 0,
     "wins": 0,
-    "losses": 3,
-    "pnl": -29.78
+    "losses": 0,
+    "pnl": 0
   }
 }
