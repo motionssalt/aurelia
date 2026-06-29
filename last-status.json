@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-29T14:55:21.427Z",
+  "last_cycle": "2026-06-29T14:15:26.113Z",
   "balance": 9970.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -248,14 +248,21 @@
       "confidence": 0.8,
       "rationale": "Extreme overbought conditions (RSI > 70, Stochastics > 95) and price significantly above upper Bollinger Band across multiple timeframes, indicating an overextended bullish trend ripe for a bearish pullback.",
       "contract_id": 3629319619,
-      "settled": true,
-      "outcome": "loss",
-      "pnl": -10,
-      "ai_outcome_note": "The price continued to trend upwards after entry, moving against the expected bearish \"put\" direction, resulting in a loss.",
-      "entry": "1.65541"
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3629319619,
+      "path": "manual",
+      "symbol": "frxEURAUD",
+      "placed_at": "2026-06-29T13:55:03.832Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -264,6 +271,284 @@
     "GEMINI_KEY_1": 1782707427218
   },
   "logs": [
+    {
+      "ts": "2026-06-29T00:20:20.822Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T00:20:21.211Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=I5LMCCFK"
+      }
+    },
+    {
+      "ts": "2026-06-29T00:20:21.405Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T00:20:21.453Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T00:55:16.150Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T00:55:16.150Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T00:55:16.151Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T00:55:16.655Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aOsVohil"
+      }
+    },
+    {
+      "ts": "2026-06-29T00:55:16.913Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T00:55:16.991Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:00:18.650Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:00:18.650Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:00:18.651Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:00:18.944Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1FEq2OqF"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:00:19.068Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:00:19.101Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:05:17.931Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:05:17.931Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:05:17.933Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:05:18.330Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g71G6oLy"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:05:18.434Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:05:18.461Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:10:18.411Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:10:18.410Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:10:18.412Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:10:18.783Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=K5lfg09i"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:10:18.893Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:10:18.923Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:15:18.243Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:15:18.243Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:15:18.245Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:15:18.642Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=EVPIIBAy"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:15:18.750Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:15:18.777Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:20:22.277Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:20:22.277Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:20:22.279Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:20:22.792Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GBL3N4Qz"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:20:23.138Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:20:23.254Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:25:17.323Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:25:17.323Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:25:17.325Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:25:17.662Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jaW7dkaC"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:25:17.776Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:25:17.804Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T01:30:24.019Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T01:30:24.019Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T01:30:24.021Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
     {
       "ts": "2026-06-29T01:30:24.648Z",
       "level": "network",
@@ -1371,292 +1656,14 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:20:17.229Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:20:17.229Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:20:17.231Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:20:17.914Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IMsVFwpd"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:20:18.116Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:20:18.743Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:25:28.642Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:25:28.641Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:25:28.643Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:25:29.137Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PlC74EL9"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:25:29.432Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:25:33.644Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:25:33.645Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:30:24.191Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:30:24.191Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:30:24.193Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:30:24.693Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hN6MbHNk"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:30:24.946Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:30:25.023Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:35:24.635Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:35:24.634Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:35:24.636Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:35:25.125Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TBDIWad2"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:35:25.434Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:35:25.536Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:40:19.788Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:40:19.788Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:40:19.790Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:40:20.310Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JW73gShd"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:40:20.544Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:40:20.620Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:45:15.507Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:45:15.507Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:45:15.508Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:45:16.001Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oJOYhZHS"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:45:16.131Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:45:16.158Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:50:19.705Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:50:19.704Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:50:19.706Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:50:20.141Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zktkCbb7"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:50:20.286Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:50:20.331Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:55:20.508Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T14:55:20.508Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:55:20.510Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:55:21.000Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FqM9NK2n"
-      }
-    },
-    {
-      "ts": "2026-06-29T14:55:21.328Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T14:55:21.426Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-29",
-    "trades": 3,
+    "trades": 2,
     "wins": 1,
-    "losses": 2,
-    "pnl": -11.87,
+    "losses": 1,
+    "pnl": -1.87,
     "by_symbol": {
       "1HZ10V": {
         "trades": 1,
@@ -1669,12 +1676,6 @@
         "wins": 1,
         "losses": 0,
         "pnl": 8.13
-      },
-      "frxEURAUD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -10
       }
     }
   },
@@ -1703,10 +1704,10 @@
     "capital_remaining": 188.13,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 3,
+    "trades": 2,
     "wins": 1,
-    "losses": 2,
-    "pnl": -11.87
+    "losses": 1,
+    "pnl": -1.87
   },
   "_notified_halt_reason": "stop_loss reached (-21.85)"
 }
