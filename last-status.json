@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-29T19:20:15.794Z",
+  "last_cycle": "2026-06-29T19:25:14.626Z",
   "balance": 9979.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -280,38 +280,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-29T16:10:18.471Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T16:10:23.516Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T16:10:23.517Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T16:15:16.832Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T16:15:16.832Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T16:15:16.834Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-29T16:15:17.314Z",
       "level": "network",
@@ -1632,6 +1600,40 @@
     },
     {
       "ts": "2026-06-29T19:20:15.793Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T19:25:14.083Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T19:25:14.083Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T19:25:14.084Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T19:25:14.459Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jlubyrZI"
+      }
+    },
+    {
+      "ts": "2026-06-29T19:25:14.581Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T19:25:14.625Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
