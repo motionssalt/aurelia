@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-29T14:15:26.113Z",
+  "last_cycle": "2026-06-29T15:00:28.523Z",
   "balance": 9970.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -248,21 +248,14 @@
       "confidence": 0.8,
       "rationale": "Extreme overbought conditions (RSI > 70, Stochastics > 95) and price significantly above upper Bollinger Band across multiple timeframes, indicating an overextended bullish trend ripe for a bearish pullback.",
       "contract_id": 3629319619,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -10,
+      "ai_outcome_note": "The price continued to trend upwards after entry, moving against the bearish \"put\" position and resulting in a loss as it closed significantly above the entry level.",
+      "entry": "1.65541"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3629319619,
-      "path": "manual",
-      "symbol": "frxEURAUD",
-      "placed_at": "2026-06-29T13:55:03.832Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -271,46 +264,6 @@
     "GEMINI_KEY_1": 1782707427218
   },
   "logs": [
-    {
-      "ts": "2026-06-29T00:20:20.822Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:20:21.211Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=I5LMCCFK"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:20:21.405Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:20:21.453Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:55:16.150Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T00:55:16.150Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:55:16.151Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-29T00:55:16.655Z",
       "level": "network",
@@ -1656,14 +1609,54 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:00:23.151Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T15:00:23.151Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T15:00:23.152Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:00:23.535Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Hw0UNnMI"
+      }
+    },
+    {
+      "ts": "2026-06-29T15:00:23.645Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:00:28.523Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:00:28.523Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-29",
-    "trades": 2,
+    "trades": 3,
     "wins": 1,
-    "losses": 1,
-    "pnl": -1.87,
+    "losses": 2,
+    "pnl": -11.87,
     "by_symbol": {
       "1HZ10V": {
         "trades": 1,
@@ -1676,6 +1669,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 8.13
+      },
+      "frxEURAUD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -10
       }
     }
   },
@@ -1704,10 +1703,10 @@
     "capital_remaining": 188.13,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 2,
+    "trades": 3,
     "wins": 1,
-    "losses": 1,
-    "pnl": -1.87
+    "losses": 2,
+    "pnl": -11.87
   },
   "_notified_halt_reason": "stop_loss reached (-21.85)"
 }
