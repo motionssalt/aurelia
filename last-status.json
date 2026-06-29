@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-29T15:30:23.976Z",
+  "last_cycle": "2026-06-29T15:31:23.145Z",
   "balance": 9955.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -287,58 +287,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-29T01:39:03.488Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T01:39:03.488Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T01:39:03.489Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T01:39:03.940Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8wsNvPqH"
-      }
-    },
-    {
-      "ts": "2026-06-29T01:39:04.140Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T01:40:19.884Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "1HZ10V",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-06-29T01:40:19.886Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
-    {
-      "ts": "2026-06-29T01:40:19.886Z",
-      "level": "warn",
-      "msg": "Deriv: socket not open (state=3) — reconnecting",
-      "meta": {}
-    },
     {
       "ts": "2026-06-29T01:40:19.886Z",
       "level": "network",
@@ -1683,6 +1631,52 @@
       "ts": "2026-06-29T15:30:23.976Z",
       "level": "info",
       "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:31:18.497Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T15:31:18.497Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T15:31:18.499Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:31:19.013Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=cIS3DwtX"
+      }
+    },
+    {
+      "ts": "2026-06-29T15:31:19.334Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:31:20.003Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCHF @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:31:20.155Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T15:31:21.941Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
       "meta": {}
     }
   ],
