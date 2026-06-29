@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-29T14:10:17.530Z",
-  "balance": 9952.34,
+  "last_cycle": "2026-06-29T14:15:26.113Z",
+  "balance": 9970.47,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -232,10 +232,11 @@
       "confidence": 0.88,
       "rationale": "Extreme overbought conditions across all timeframes (M15 RSI 75.68, M15 Stochastics 91.15) combined with very high ADX (M15 ADX 62.25) indicating an exhausted bullish trend, and price at upper Bollinger Bands. This suggests a high probability of a bearish pullback.",
       "contract_id": 3628250799,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "win",
+      "pnl": 8.13,
+      "ai_outcome_note": "The trade won as the price action confirmed the expected bearish pullback, with subsequent closes consistently below the entry price of 879.58.",
+      "entry": "879.58"
     },
     {
       "ts": "2026-06-29T13:55:03.832Z",
@@ -255,13 +256,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 3628250799,
-      "path": "manual",
-      "symbol": "1HZ100V",
-      "placed_at": "2026-06-29T13:43:12.380Z",
-      "expiry_sec": 1800
-    },
-    {
       "contract_id": 3629319619,
       "path": "manual",
       "symbol": "frxEURAUD",
@@ -277,48 +271,6 @@
     "GEMINI_KEY_1": 1782707427218
   },
   "logs": [
-    {
-      "ts": "2026-06-29T00:15:20.551Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T00:15:20.551Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:15:20.553Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:15:20.995Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3zfGNEqF"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:15:21.287Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:15:21.363Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:20:20.820Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T00:20:20.820Z"
-      }
-    },
     {
       "ts": "2026-06-29T00:20:20.822Z",
       "level": "network",
@@ -1664,20 +1616,66 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-29T14:15:19.291Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T14:15:19.290Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T14:15:19.292Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T14:15:19.637Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MHEHTLY4"
+      }
+    },
+    {
+      "ts": "2026-06-29T14:15:19.764Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T14:15:26.112Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T14:15:26.112Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-06-29",
-    "trades": 1,
-    "wins": 0,
+    "trades": 2,
+    "wins": 1,
     "losses": 1,
-    "pnl": -10,
+    "pnl": -1.87,
     "by_symbol": {
       "1HZ10V": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
         "pnl": -10
+      },
+      "1HZ100V": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 8.13
       }
     }
   },
@@ -1703,13 +1701,13 @@
     "date": "2026-06-29",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 170,
+    "capital_remaining": 188.13,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 1,
-    "wins": 0,
+    "trades": 2,
+    "wins": 1,
     "losses": 1,
-    "pnl": -10
+    "pnl": -1.87
   },
   "_notified_halt_reason": "stop_loss reached (-21.85)"
 }
