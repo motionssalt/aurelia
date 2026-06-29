@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-29T13:43:12.381Z",
-  "balance": 9972.34,
+  "last_cycle": "2026-06-29T13:45:18.357Z",
+  "balance": 9962.34,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -255,40 +255,6 @@
     "GEMINI_KEY_1": 1782707427218
   },
   "logs": [
-    {
-      "ts": "2026-06-28T23:45:49.022Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:45:49.093Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:45:49.242Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:45:51.678Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {
-        "bytes": 31514
-      }
-    },
-    {
-      "ts": "2026-06-28T23:49:10.317Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-28T23:49:10.316Z"
-      }
-    },
     {
       "ts": "2026-06-28T23:49:10.318Z",
       "level": "network",
@@ -1632,6 +1598,40 @@
       "meta": {
         "contract_id": 3628250799
       }
+    },
+    {
+      "ts": "2026-06-29T13:45:17.696Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T13:45:17.696Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:45:17.698Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:45:18.019Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iAioXuTJ"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:45:18.165Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:45:18.357Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
