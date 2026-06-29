@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-06-29T16:45:15.512Z",
-  "balance": 9976.13,
+  "last_cycle": "2026-06-29T16:50:15.096Z",
+  "balance": 9975.76,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -280,44 +280,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-29T13:41:07.916Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3IVw5547"
-      }
-    },
-    {
-      "ts": "2026-06-29T13:41:08.183Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T13:42:20.103Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "1HZ100V",
-        "conf": 0.88
-      }
-    },
-    {
-      "ts": "2026-06-29T13:42:20.104Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
-    {
-      "ts": "2026-06-29T13:42:20.104Z",
-      "level": "warn",
-      "msg": "Deriv: socket not open (state=3) — reconnecting",
-      "meta": {}
-    },
     {
       "ts": "2026-06-29T13:42:20.105Z",
       "level": "network",
@@ -1660,6 +1622,40 @@
     },
     {
       "ts": "2026-06-29T16:45:15.511Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T16:50:14.478Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T16:50:14.478Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T16:50:14.480Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T16:50:14.955Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=07iHi2dw"
+      }
+    },
+    {
+      "ts": "2026-06-29T16:50:15.061Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T16:50:15.095Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
