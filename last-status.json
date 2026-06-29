@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-29T13:50:21.187Z",
+  "last_cycle": "2026-06-29T13:55:03.833Z",
   "balance": 9962.34,
   "currency": "USD",
   "account_mode": "demo",
@@ -236,6 +236,21 @@
       "outcome": "pending",
       "pnl": 0,
       "ai_outcome_note": null
+    },
+    {
+      "ts": "2026-06-29T13:55:03.832Z",
+      "path": "manual",
+      "symbol": "frxEURAUD",
+      "direction": "put",
+      "stake": 10,
+      "expiry_sec": 1800,
+      "confidence": 0.8,
+      "rationale": "Extreme overbought conditions (RSI > 70, Stochastics > 95) and price significantly above upper Bollinger Band across multiple timeframes, indicating an overextended bullish trend ripe for a bearish pullback.",
+      "contract_id": 3629319619,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "pending_contracts": [
@@ -244,6 +259,13 @@
       "path": "manual",
       "symbol": "1HZ100V",
       "placed_at": "2026-06-29T13:43:12.380Z",
+      "expiry_sec": 1800
+    },
+    {
+      "contract_id": 3629319619,
+      "path": "manual",
+      "symbol": "frxEURAUD",
+      "placed_at": "2026-06-29T13:55:03.832Z",
       "expiry_sec": 1800
     }
   ],
@@ -255,114 +277,6 @@
     "GEMINI_KEY_1": 1782707427218
   },
   "logs": [
-    {
-      "ts": "2026-06-28T23:49:12.688Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:50:14.328Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-28T23:50:14.328Z"
-      }
-    },
-    {
-      "ts": "2026-06-28T23:50:14.330Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:50:14.712Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GfXeltxC"
-      }
-    },
-    {
-      "ts": "2026-06-28T23:50:14.823Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:50:14.849Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:55:20.693Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-28T23:55:20.693Z"
-      }
-    },
-    {
-      "ts": "2026-06-28T23:55:20.695Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:55:21.070Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vE81BeRH"
-      }
-    },
-    {
-      "ts": "2026-06-28T23:55:21.396Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-28T23:55:21.495Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:00:18.565Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-29T00:00:18.565Z"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:00:18.567Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:00:19.215Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AVqS2hLX"
-      }
-    },
-    {
-      "ts": "2026-06-29T00:00:19.395Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-29T00:00:19.425Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
     {
       "ts": "2026-06-29T00:01:03.907Z",
       "level": "info",
@@ -1634,6 +1548,124 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:52:49.452Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-29T13:52:49.451Z"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:52:49.453Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:52:49.822Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zsIQf7Uj"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:52:50.153Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:09.273Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURAUD",
+        "conf": 0.8
+      }
+    },
+    {
+      "ts": "2026-06-29T13:54:09.274Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:54:09.275Z",
+      "level": "warn",
+      "msg": "Deriv: socket not open (state=3) — reconnecting",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:09.275Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:09.787Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CVZf38As"
+      }
+    },
+    {
+      "ts": "2026-06-29T13:54:10.113Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:10.854Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURAUD PUT",
+      "meta": {
+        "stake": 10,
+        "price": 10,
+        "payout": 17.24,
+        "spot": 1.65539
+      }
+    },
+    {
+      "ts": "2026-06-29T13:54:11.815Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3629319619",
+      "meta": {
+        "transaction_id": 7122364799,
+        "longcode": "Win payout if EUR/AUD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-06-29T13:54:12.319Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURAUD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:12.482Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:54:15.641Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-29T13:55:03.831Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3629319619
+      }
     }
   ],
   "daily_stats": {
@@ -1673,7 +1705,7 @@
     "date": "2026-06-29",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 180,
+    "capital_remaining": 170,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 1,
