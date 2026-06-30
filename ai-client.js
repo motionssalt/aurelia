@@ -26,6 +26,28 @@ const DEFAULT_MODEL = 'gemini-2.5-flash';
 const DEFAULT_BENCH_MINUTES = 120;
 const DEFAULT_TIMEOUT_MS = 180000; // 3 min per key — Gemini load spikes
 
+/* OpenRouter-specific hard caps.
+   Reasoning models on OpenRouter (Nemotron 3 Ultra, DeepSeek R1, etc.)
+   can spend 5–10+ minutes on hidden chain-of-thought before emitting
+   their final JSON answer. By the time the response comes back, the
+   market data the signal was based on is already stale. We mitigate
+   with three knobs, all overridable via config:
+
+     • reasoning effort  → smallest tier the model supports ('low')
+     • max_tokens        → hard cap on TOTAL output (reasoning + content)
+     • timeout_ms        → dedicated, longer-but-bounded OpenRouter timeout
+
+   Overrides (provider-level wins over global ai.*):
+     config.ai.providers[].reasoning_effort
+     config.ai.providers[].timeout_ms
+     config.ai.providers[].max_tokens
+     config.ai.openrouter_reasoning_effort
+     config.ai.openrouter_timeout_ms
+     config.ai.openrouter_max_tokens                                    */
+const DEFAULT_OPENROUTER_TIMEOUT_MS       = 300000; // 5 min — bounded but generous
+const DEFAULT_OPENROUTER_MAX_TOKENS       = 4096;
+const DEFAULT_OPENROUTER_REASONING_EFFORT = 'low';  // 'low' | 'medium' | 'high' | 'none'
+
 async function _fetch() {
     if (typeof fetch === 'function') return fetch;
     const mod = await import('node-fetch');
@@ -170,15 +192,68 @@ async function _callOpenAICompat({ keyValue, model, prompt, endpoint, timeoutMs,
    the outer waterfall flags the key and falls through to the next
    provider — it does NOT halt the AI pipeline.
    ───────────────────────────────────────────────────────────────── */
-async function _callOpenRouter({ keyValue, model, prompt, timeoutMs }) {
+async function _callOpenRouter({ keyValue, model, prompt, timeoutMs, reasoningEffort, maxTokens }) {
+    // SAFETY GUARD — validate inputs before any network I/O.
+    // Prevents fall-through with a malformed request that would otherwise
+    // hit OpenRouter, fail slowly, and chew the per-key timeout budget.
+    if (!keyValue || typeof keyValue !== 'string') {
+        const err = new Error('openrouter: missing or invalid API key');
+        err.status = 0;
+        throw err;
+    }
+    if (!model || typeof model !== 'string') {
+        const err = new Error('openrouter: missing or invalid model id');
+        err.status = 0;
+        throw err;
+    }
+    if (!prompt || typeof prompt !== 'string') {
+        const err = new Error('openrouter: empty prompt');
+        err.status = 0;
+        throw err;
+    }
+
     const f = await _fetch();
+    const effort = String(reasoningEffort || DEFAULT_OPENROUTER_REASONING_EFFORT).toLowerCase();
+    const cappedMaxTokens = Number.isFinite(maxTokens) && maxTokens > 0
+        ? maxTokens
+        : DEFAULT_OPENROUTER_MAX_TOKENS;
+
     const body = {
         model,
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.4,
         // Strict JSON output — same as we already do for openai/grok/cloudflare.
         response_format: { type: 'json_object' },
+        // Hard cap on TOTAL output tokens (reasoning + visible content).
+        // Without this, reasoning models like Nemotron 3 Ultra / DeepSeek R1
+        // can run for 5–10 minutes generating internal chain-of-thought
+        // before emitting the JSON answer — by which time the market data
+        // the signal was based on is already stale.
+        max_tokens: cappedMaxTokens,
     };
+
+    // OpenRouter unified reasoning controls.
+    // https://openrouter.ai/docs/guides/best-practices/reasoning-tokens
+    //
+    //   • effort: 'low' | 'medium' | 'high' | 'minimal' | 'none'
+    //       Maps to provider-specific reasoning budgets. 'low' is
+    //       the smallest non-zero budget. 'none' is OpenAI-style
+    //       "reasoning off" — supported by models that have a
+    //       non-thinking mode (e.g. Nemotron 3 Ultra).
+    //   • enabled: false → belt-and-braces full disable on top of
+    //       effort:'none'. The OpenRouter docs accept both shapes;
+    //       sending both is safe and gives us the strictest possible
+    //       "do not think" signal for models that respect either flag
+    //       (and for models that respect neither, the field is silently
+    //       ignored upstream).
+    //   • exclude: true → do NOT return reasoning tokens in the response
+    //       (suppresses message.reasoning; saves bandwidth + parse time).
+    if (effort === 'none' || effort === 'off' || effort === 'disabled') {
+        body.reasoning = { enabled: false, exclude: true };
+    } else {
+        body.reasoning = { effort, exclude: true };
+    }
+
     // Optional attribution headers — recommended by OpenRouter for
     // usage tracking. Safe defaults; ignored upstream if unrecognised.
     const headers = {
@@ -187,8 +262,15 @@ async function _callOpenRouter({ keyValue, model, prompt, timeoutMs }) {
         'HTTP-Referer':  'https://github.com/motionssalt/Aurelia',
         'X-Title':       'AURELIA',
     };
+    // OpenRouter gets its own (longer) timeout because its reasoning
+    // models are the slowest provider in the pool. Caller passes the
+    // resolved value via timeoutMs; we floor it to a safe minimum.
+    const effectiveTimeout = Math.max(
+        5000,
+        timeoutMs || DEFAULT_OPENROUTER_TIMEOUT_MS,
+    );
     const ctl = new AbortController();
-    const t = setTimeout(() => ctl.abort(), timeoutMs || DEFAULT_TIMEOUT_MS);
+    const t = setTimeout(() => ctl.abort(), effectiveTimeout);
     let res;
     try {
         res = await f('https://openrouter.ai/api/v1/chat/completions', {
@@ -197,6 +279,15 @@ async function _callOpenRouter({ keyValue, model, prompt, timeoutMs }) {
             body: JSON.stringify(body),
             signal: ctl.signal,
         });
+    } catch (e) {
+        // Normalise AbortError → typed timeout so the waterfall in
+        // askDecision() flags the key consistently with other providers.
+        if (e && (e.name === 'AbortError' || /aborted/i.test(e.message || ''))) {
+            const err = new Error(`openrouter timeout after ${effectiveTimeout}ms (reasoning model too slow)`);
+            err.status = 408;
+            throw err;
+        }
+        throw e;
     } finally { clearTimeout(t); }
     if (!res.ok) {
         // 429 (rate limited) and 402 (insufficient credits) land here
@@ -285,7 +376,7 @@ function _resolveCloudflareAccountId(provider, keyName) {
    Generic provider dispatcher \u2014 routes by provider.name.
    Returns the raw text reply (JSON-as-string).
    ───────────────────────────────────────────────────────────────── */
-async function _callProvider(provider, { keyValue, keyName, prompt, timeoutMs }) {
+async function _callProvider(provider, { keyValue, keyName, prompt, timeoutMs, config }) {
     const model = provider.model;
     switch ((provider.name || '').toLowerCase()) {
         case 'gemini':
@@ -303,8 +394,50 @@ async function _callProvider(provider, { keyValue, keyName, prompt, timeoutMs })
                 endpoint: 'https://api.x.ai/v1/chat/completions',
                 providerName: 'grok',
             });
-        case 'openrouter':
-            return _callOpenRouter({ keyValue, model, prompt, timeoutMs });
+        case 'openrouter': {
+            // OpenRouter gets dedicated knobs because reasoning models on
+            // OpenRouter are by far the slowest tail in the provider pool.
+            // All three are config-driven so they can be tuned without
+            // shipping new code:
+            //
+            //   config.ai.openrouter_timeout_ms
+            //     Per-request abort timeout in ms.
+            //     Default 300 000 (5 min).
+            //
+            //   config.ai.openrouter_max_tokens
+            //     Hard cap on TOTAL output tokens (reasoning + content).
+            //     Default 4096.
+            //
+            //   config.ai.openrouter_reasoning_effort
+            //     'low' | 'medium' | 'high' | 'none'. Default 'low'.
+            //     'none' disables reasoning entirely on models that
+            //     support a non-thinking mode.
+            //
+            // Provider-level overrides on the openrouter provider block
+            // (provider.timeout_ms, provider.max_tokens, provider.reasoning_effort)
+            // win over the top-level ai.* defaults.
+            const aiCfg = (config && config.ai) || {};
+            const orTimeout =
+                provider.timeout_ms ||
+                aiCfg.openrouter_timeout_ms ||
+                DEFAULT_OPENROUTER_TIMEOUT_MS;
+            const orMaxTokens =
+                provider.max_tokens ||
+                aiCfg.openrouter_max_tokens ||
+                DEFAULT_OPENROUTER_MAX_TOKENS;
+            const orEffort =
+                provider.reasoning_effort ||
+                aiCfg.openrouter_reasoning_effort ||
+                DEFAULT_OPENROUTER_REASONING_EFFORT;
+            return _callOpenRouter({
+                keyValue,
+                model,
+                prompt,
+                timeoutMs: orTimeout,
+                reasoningEffort: orEffort,
+                maxTokens: orMaxTokens,
+            });
+        }
         case 'claude':
         case 'anthropic':
             return _callClaude({ keyValue, model, prompt, timeoutMs });
@@ -495,7 +628,7 @@ async function askDecision({ payload, config, state, prompt, schemaHint }) {
                 Logger.warn(`Provider "${name}" key "${row.name}" benched; trying anyway as fallback`);
             }
             try {
-                const text = await _callProvider(p, { keyValue, keyName: row.name, prompt: fullPrompt, timeoutMs });
+                const text = await _callProvider(p, { keyValue, keyName: row.name, prompt: fullPrompt, timeoutMs, config });
                 const parsed = _parseJsonStrict(text);
                 if (state.ai_keys_bench[row.name]) delete state.ai_keys_bench[row.name];
                 Logger.info(`AI decision via provider "${name}" key "${row.name}"`, {
