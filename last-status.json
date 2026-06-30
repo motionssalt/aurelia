@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T18:50:19.578Z",
+  "last_cycle": "2026-06-30T18:55:17.930Z",
   "balance": 9936.89,
   "currency": "USD",
   "account_mode": "demo",
@@ -296,38 +296,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T15:53:29.700Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T15:53:30.192Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=y7JleceE"
-      }
-    },
-    {
-      "ts": "2026-06-30T15:53:30.431Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T15:53:35.330Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T15:53:35.330Z",
-      "level": "warn",
-      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T15:56:11.054Z",
       "level": "warn",
@@ -1654,6 +1622,40 @@
     },
     {
       "ts": "2026-06-30T18:50:19.577Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T18:55:17.258Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T18:55:17.258Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T18:55:17.261Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T18:55:17.655Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8uAcrt35"
+      }
+    },
+    {
+      "ts": "2026-06-30T18:55:17.866Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T18:55:17.930Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
