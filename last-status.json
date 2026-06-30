@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T12:20:20.458Z",
+  "last_cycle": "2026-06-30T12:25:04.110Z",
   "balance": 9970.17,
   "currency": "USD",
   "account_mode": "demo",
@@ -280,60 +280,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T09:00:25.143Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:05:14.063Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T09:05:14.062Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T09:05:14.064Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:05:14.773Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6k7eknGL"
-      }
-    },
-    {
-      "ts": "2026-06-30T09:05:14.878Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:05:14.907Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:10:16.821Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T09:10:16.821Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T09:10:16.823Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T09:10:17.108Z",
       "level": "network",
@@ -1642,6 +1588,60 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:24:57.134Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T12:24:57.133Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T12:24:57.135Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:24:57.619Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rf2vBfg7"
+      }
+    },
+    {
+      "ts": "2026-06-30T12:24:57.858Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:25:03.507Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:25:03.507Z",
+      "level": "warn",
+      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:25:03.507Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key env \"OPENROUTER_KEY_1\" not set — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:25:03.508Z",
+      "level": "error",
+      "msg": "Manual AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: unknown"
+      }
     }
   ],
   "daily_stats": {
