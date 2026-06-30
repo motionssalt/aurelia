@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T15:45:17.046Z",
+  "last_cycle": "2026-06-30T15:50:20.756Z",
   "balance": 9937.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -296,44 +296,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T12:38:43.837Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:38:44.359Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURJPY PUT",
-      "meta": {
-        "stake": 10,
-        "price": 10,
-        "payout": 17.23,
-        "spot": 185.017
-      }
-    },
-    {
-      "ts": "2026-06-30T12:38:45.716Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3721896999",
-      "meta": {
-        "transaction_id": 7299954759,
-        "longcode": "Win payout if EUR/JPY is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-06-30T12:38:46.145Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:38:46.291Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T12:39:06.618Z",
       "level": "warn",
@@ -1656,6 +1618,40 @@
     },
     {
       "ts": "2026-06-30T15:45:17.046Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:50:19.958Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T15:50:19.958Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T15:50:19.960Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:50:20.429Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AJ7wi4OU"
+      }
+    },
+    {
+      "ts": "2026-06-30T15:50:20.686Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:50:20.755Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
