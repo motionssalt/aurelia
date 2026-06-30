@@ -94,6 +94,8 @@
         "name": "openrouter",
         "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
         "enabled": true,
+        "strict_json": false,
+        "reasoning_effort": "none",
         "keys": [],
         "key_registry": [
           "OPENROUTER_KEY_1"
@@ -102,7 +104,10 @@
     ],
     "max_history_entries": 12,
     "bench_minutes": 150,
-    "min_confidence": 0.55
+    "min_confidence": 0.55,
+    "openrouter_timeout_ms": 300000,
+    "openrouter_max_tokens": 4096,
+    "openrouter_reasoning_effort": "low"
   },
   "stake": {
     "absolute_min": 0.35,
