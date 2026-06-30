@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T15:50:20.756Z",
+  "last_cycle": "2026-06-30T15:56:11.462Z",
   "balance": 9937.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -293,67 +293,10 @@
     "GEMINI_KEY_BACKUP": 1782390139617,
     "GEMINI_KEY_2": 1782754465978,
     "GEMINI_KEY_1": 1782707427218,
-    "GEMINI_KEY_4": 1782754465978
+    "GEMINI_KEY_4": 1782754465978,
+    "OPENROUTER_KEY_1": 1782843815328
   },
   "logs": [
-    {
-      "ts": "2026-06-30T12:39:06.618Z",
-      "level": "warn",
-      "msg": "Chart generation failed (entry)",
-      "meta": {
-        "error": "Navigation timeout of 20000 ms exceeded"
-      }
-    },
-    {
-      "ts": "2026-06-30T12:39:55.606Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3721896999
-      }
-    },
-    {
-      "ts": "2026-06-30T12:40:29.385Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T12:40:29.385Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T12:40:29.386Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:40:29.819Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RGjMrUWE"
-      }
-    },
-    {
-      "ts": "2026-06-30T12:40:29.931Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:40:30.575Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:45:17.442Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T12:45:17.441Z"
-      }
-    },
     {
       "ts": "2026-06-30T12:45:17.443Z",
       "level": "network",
@@ -1655,6 +1598,62 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:53:29.699Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T15:53:29.698Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T15:53:29.700Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:53:30.192Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=y7JleceE"
+      }
+    },
+    {
+      "ts": "2026-06-30T15:53:30.431Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:53:35.330Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:53:35.330Z",
+      "level": "warn",
+      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T15:56:11.054Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "AI returned non-JSON: We are given a market snapshot for multiple symbols across M5, M10, M15 timeframes, plus session context.\n We need to pick AT MOST ONE best setup, or skip.\n Har"
+      }
+    },
+    {
+      "ts": "2026-06-30T15:56:11.054Z",
+      "level": "error",
+      "msg": "Manual AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: AI returned non-JSON: We are given a market snapshot for multiple symbols across M5, M10, M15 timeframes, plus session context.\n We need to pick AT MOST ONE best setup, or skip.\n Har"
+      }
     }
   ],
   "daily_stats": {
