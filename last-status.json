@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T15:56:11.462Z",
+  "last_cycle": "2026-06-30T16:00:27.697Z",
   "balance": 9937.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -297,40 +297,6 @@
     "OPENROUTER_KEY_1": 1782843815328
   },
   "logs": [
-    {
-      "ts": "2026-06-30T12:45:17.443Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:45:18.039Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=y7EnvaMx"
-      }
-    },
-    {
-      "ts": "2026-06-30T12:45:18.316Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:45:18.901Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T12:50:24.358Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T12:50:24.358Z"
-      }
-    },
     {
       "ts": "2026-06-30T12:50:24.360Z",
       "level": "network",
@@ -1654,6 +1620,40 @@
       "meta": {
         "error": "All AI providers/keys failed; last error: AI returned non-JSON: We are given a market snapshot for multiple symbols across M5, M10, M15 timeframes, plus session context.\n We need to pick AT MOST ONE best setup, or skip.\n Har"
       }
+    },
+    {
+      "ts": "2026-06-30T16:00:26.921Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T16:00:26.921Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:00:26.923Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:00:27.369Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VQbHS2r2"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:00:27.623Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:00:27.697Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
