@@ -228,10 +228,21 @@ async function placeAndSettle(ws, norm, config, state, opts) {
     const isCycle      = !!(opts && opts.cycle);
 
     // The Deriv socket may have gone stale while we waited on the AI
-    // decision (Gemini calls can now take up to a few minutes) — make
-    // sure we have a live connection right before placing the trade.
+    // decision — ANY slow AI provider can trigger this (Gemini long
+    // think-time, OpenRouter reasoning models like NVIDIA Nemotron that
+    // "think" before answering, etc.). We pass an explicit `context`
+    // so the recovery log line clearly identifies the stale-after-AI
+    // path, and a short timeout so a genuinely dead connection fails
+    // cleanly (logged exactly as it does today) instead of hanging.
+    // This check happens IMMEDIATELY before every trade placement
+    // call site, not just one — placeAndSettle is the single trade-
+    // placement path in this repo (both the cycle and manual /scan
+    // call sites funnel through here).
     if (opts && opts.connOpts) {
-        ws = await Deriv.ensureOpen(ws, opts.connOpts);
+        ws = await Deriv.ensureOpen(ws, opts.connOpts, {
+            context:   'trade placement',
+            timeoutMs: 8000,
+        });
     }
 
     let placedNotified = false;
