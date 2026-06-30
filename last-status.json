@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T16:23:32.151Z",
+  "last_cycle": "2026-06-30T16:25:18.175Z",
   "balance": 9936.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -297,40 +297,6 @@
     "OPENROUTER_KEY_1": 1782845609051
   },
   "logs": [
-    {
-      "ts": "2026-06-30T13:15:17.560Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=SJDTDh4X"
-      }
-    },
-    {
-      "ts": "2026-06-30T13:15:17.806Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:15:17.878Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:20:22.867Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T13:20:22.867Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T13:20:22.869Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T13:20:23.395Z",
       "level": "network",
@@ -1658,6 +1624,40 @@
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
       }
+    },
+    {
+      "ts": "2026-06-30T16:25:17.677Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T16:25:17.677Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:25:17.679Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:25:18.008Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VmElCnc7"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:25:18.142Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:25:18.174Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
