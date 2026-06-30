@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T16:20:23.316Z",
+  "last_cycle": "2026-06-30T16:23:32.151Z",
   "balance": 9936.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -294,67 +294,9 @@
     "GEMINI_KEY_2": 1782754465978,
     "GEMINI_KEY_1": 1782707427218,
     "GEMINI_KEY_4": 1782754465978,
-    "OPENROUTER_KEY_1": 1782843815328
+    "OPENROUTER_KEY_1": 1782845609051
   },
   "logs": [
-    {
-      "ts": "2026-06-30T13:10:22.337Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:10:22.851Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JztthOaz"
-      }
-    },
-    {
-      "ts": "2026-06-30T13:10:23.155Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:10:24.042Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:10:24.043Z",
-      "level": "warn",
-      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:11:04.729Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:11:04.729Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:15:17.086Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T13:15:17.086Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T13:15:17.089Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T13:15:17.560Z",
       "level": "network",
@@ -1654,6 +1596,68 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:21.646Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T16:23:21.646Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:23:21.648Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:22.209Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NUfGOgJI"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:23:22.565Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:29.054Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:29.054Z",
+      "level": "warn",
+      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:29.054Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:23:31.526Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:23:31.526Z",
+      "level": "error",
+      "msg": "Manual AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
+      }
     }
   ],
   "daily_stats": {
