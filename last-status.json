@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T19:40:21.308Z",
+  "last_cycle": "2026-06-30T19:45:15.901Z",
   "balance": 9936.89,
   "currency": "USD",
   "account_mode": "demo",
@@ -296,40 +296,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T16:27:29.380Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T16:27:29.380Z",
-      "level": "warn",
-      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T16:27:29.380Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T16:27:45.293Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-06-30T16:27:45.293Z",
-      "level": "info",
-      "msg": "AI declined manual trade",
-      "meta": {
-        "rationale": "No high-confidence setup found across all symbols. EURUSD shows mixed signals with RSI near 50 and MACD histogram negative on M5/M10 but positive on M15. GBPUSD has conflicting momentum with M5 RSI at 48 and M15 at 56. USDJPY is overbought (RSI 63-68, Stoch >80) with no clear reversal pattern. AUDUSD shows weakening momentum with M5 RSI at 50 and Stoch at 14. USDCAD is in a downtrend with ADX >34 and minusDI > plusDi. USDCHF is overbought on M5 (RSI 57, Stoch 89). NZDUSD has bearish ADX (minusDi > plusDi). EURJPY is overbought (RSI 56-68). EURGBP is range-bound with low ATR. GBPJPY is overbought (RSI 58-69). AUDJPY is strongly overbought (RSI 60-72, ADX >43). EURAUD is in a downtrend (ADX >43, minusDi > plusDi). EURCAD is flat with low ADX (14-17). EURCHF is overbought (RSI 58-60, Stoch >84). Session has 3 losses, 1 win, capital 978.15, but no setup meets high-confidence threshold for a trade."
-      }
-    },
     {
       "ts": "2026-06-30T16:30:25.280Z",
       "level": "info",
@@ -1652,6 +1618,40 @@
     },
     {
       "ts": "2026-06-30T19:40:21.307Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T19:45:15.354Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T19:45:15.353Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T19:45:15.355Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T19:45:15.725Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MClFIxyI"
+      }
+    },
+    {
+      "ts": "2026-06-30T19:45:15.808Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T19:45:15.901Z",
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
