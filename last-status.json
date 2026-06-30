@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T16:27:45.651Z",
+  "last_cycle": "2026-06-30T16:30:26.325Z",
   "balance": 9936.02,
   "currency": "USD",
   "account_mode": "demo",
@@ -296,40 +296,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T13:30:22.630Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:30:23.030Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wdSjDrjZ"
-      }
-    },
-    {
-      "ts": "2026-06-30T13:30:23.164Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:30:23.217Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T13:35:17.503Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T13:35:17.502Z"
-      }
-    },
     {
       "ts": "2026-06-30T13:35:17.504Z",
       "level": "network",
@@ -1657,6 +1623,40 @@
       "meta": {
         "rationale": "No high-confidence setup found across all symbols. EURUSD shows mixed signals with RSI near 50 and MACD histogram negative on M5/M10 but positive on M15. GBPUSD has conflicting momentum with M5 RSI at 48 and M15 at 56. USDJPY is overbought (RSI 63-68, Stoch >80) with no clear reversal pattern. AUDUSD shows weakening momentum with M5 RSI at 50 and Stoch at 14. USDCAD is in a downtrend with ADX >34 and minusDI > plusDi. USDCHF is overbought on M5 (RSI 57, Stoch 89). NZDUSD has bearish ADX (minusDi > plusDi). EURJPY is overbought (RSI 56-68). EURGBP is range-bound with low ATR. GBPJPY is overbought (RSI 58-69). AUDJPY is strongly overbought (RSI 60-72, ADX >43). EURAUD is in a downtrend (ADX >43, minusDi > plusDi). EURCAD is flat with low ADX (14-17). EURCHF is overbought (RSI 58-60, Stoch >84). Session has 3 losses, 1 win, capital 978.15, but no setup meets high-confidence threshold for a trade."
       }
+    },
+    {
+      "ts": "2026-06-30T16:30:25.280Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T16:30:25.280Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:30:25.282Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:30:25.800Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=tq2JobuI"
+      }
+    },
+    {
+      "ts": "2026-06-30T16:30:26.144Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T16:30:26.325Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
