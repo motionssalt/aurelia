@@ -146,6 +146,87 @@ async function _callOpenAICompat({ keyValue, model, prompt, endpoint, timeoutMs,
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   PROVIDER: OpenRouter (OpenAI-compatible aggregator)
+
+   OpenRouter exposes a unified OpenAI-compatible chat-completions
+   endpoint that fronts many upstream models (NVIDIA Nemotron, Llama,
+   Mistral, etc.). Free-tier models have an ID suffix ":free" (e.g.
+   "nvidia/nemotron-3-ultra-550b-a55b:free") and are rate-limited to
+   20 requests/minute and 50 requests/day (1000/day if the account has
+   $10+ in credits, lifetime). Both successful and FAILED requests
+   count against the daily quota.
+
+   We split this out from _callOpenAICompat for two reasons:
+     1. Optional HTTP-Referer / X-Title attribution headers — OpenRouter
+        uses these for usage tracking on its leaderboard.
+     2. Reasoning models like Nemotron 3 Ultra return a separate
+        `choices[0].message.reasoning` field alongside `.content`. The
+        final answer lives in .content; .reasoning is the model's
+        scratchpad and MUST NOT be parsed as the answer (it's not
+        guaranteed to be JSON). We explicitly ignore .reasoning here.
+
+   On HTTP errors (incl. 429 rate-limited / 402 insufficient credits)
+   we throw with err.status set, exactly like the other providers, so
+   the outer waterfall flags the key and falls through to the next
+   provider — it does NOT halt the AI pipeline.
+   ───────────────────────────────────────────────────────────────── */
+async function _callOpenRouter({ keyValue, model, prompt, timeoutMs }) {
+    const f = await _fetch();
+    const body = {
+        model,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.4,
+        // Strict JSON output — same as we already do for openai/grok/cloudflare.
+        response_format: { type: 'json_object' },
+    };
+    // Optional attribution headers — recommended by OpenRouter for
+    // usage tracking. Safe defaults; ignored upstream if unrecognised.
+    const headers = {
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${keyValue}`,
+        'HTTP-Referer':  'https://github.com/motionssalt/Aurelia',
+        'X-Title':       'AURELIA',
+    };
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), timeoutMs || DEFAULT_TIMEOUT_MS);
+    let res;
+    try {
+        res = await f('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body),
+            signal: ctl.signal,
+        });
+    } finally { clearTimeout(t); }
+    if (!res.ok) {
+        // 429 (rate limited) and 402 (insufficient credits) land here
+        // with err.status set — the outer loop flags the key and the
+        // next provider in config.ai.providers[] is tried.
+        const txt = await res.text().catch(() => '');
+        const err = new Error(`openrouter ${res.status}: ${txt.slice(0, 200)}`);
+        err.status = res.status;
+        throw err;
+    }
+    const json = await res.json();
+    const choice0 = ((json.choices || [])[0]) || {};
+    const msg     = choice0.message || {};
+    // IMPORTANT: only read .content. Reasoning models (e.g. Nemotron 3
+    // Ultra) also populate .reasoning with their hidden scratchpad —
+    // that field is NOT the answer and is not guaranteed to be JSON.
+    const text = msg.content || '';
+    if (!text) {
+        const finishReason = choice0.finish_reason || choice0.stop_reason || '';
+        const why = finishReason === 'length'
+            ? 'truncated (finish_reason=length)'
+            : (msg.reasoning
+                ? 'reasoning-only response with no content'
+                : 'no content returned');
+        throw new Error(`openrouter returned empty text: ${why}`);
+    }
+    return String(text).trim();
+}
+
+/* ─────────────────────────────────────────────────────────────────
    PROVIDER: Anthropic Claude (different request/response shape)
    ───────────────────────────────────────────────────────────────── */
 async function _callClaude({ keyValue, model, prompt, timeoutMs }) {
@@ -222,17 +303,113 @@ async function _callProvider(provider, { keyValue, keyName, prompt, timeoutMs })
                 endpoint: 'https://api.x.ai/v1/chat/completions',
                 providerName: 'grok',
             });
+        case 'openrouter':
+            return _callOpenRouter({ keyValue, model, prompt, timeoutMs });
         case 'claude':
         case 'anthropic':
             return _callClaude({ keyValue, model, prompt, timeoutMs });
         case 'cloudflare':
         case 'workers-ai': {
             const accountId = _resolveCloudflareAccountId(provider, keyName);
-            return _callOpenAICompat({
-                keyValue, model, prompt, timeoutMs,
-                endpoint: `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/v1/chat/completions`,
-                providerName: 'cloudflare',
-            });
+            // Use OpenAI-compat endpoint — model goes in the request body,
+            // NOT in the URL. The /ai/run/{model} native endpoint returns
+            // result.response which is empty for chat models.
+            //
+            // IMPORTANT for @cf/openai/gpt-oss-* (reasoning models):
+            //   • Without a generous max_tokens, the model spends ALL
+            //     output tokens on its hidden reasoning_content and
+            //     returns an EMPTY message.content — which then gets
+            //     mis-recovered by our reasoning_content fallback as
+            //     prose like "We need to analyze market indicators..."
+            //     and dies in _parseJsonStrict as "AI returned non-JSON".
+            //   • Setting reasoning.effort="low" keeps the chain-of-thought
+            //     short so the final JSON answer actually fits.
+            //   • response_format json_object forces strict JSON output.
+            const isGptOss = /^@cf\/openai\/gpt-oss/i.test(String(model || ''));
+            const cfBody = {
+                model,
+                messages: [{ role: 'user', content: prompt }],
+                // Strict JSON — same as we already do for openai/grok.
+                response_format: { type: 'json_object' },
+                // Reasoning models eat tokens fast; give them headroom.
+                max_tokens: isGptOss ? 8192 : 2048,
+            };
+            if (isGptOss) {
+                // gpt-oss accepts OpenAI Responses-API style reasoning hint.
+                // Keep effort low so reasoning_content stays small and the
+                // final answer lands in message.content.
+                cfBody.reasoning = { effort: 'low' };
+                cfBody.temperature = 0.4;
+            } else {
+                cfBody.temperature = 0.4;
+            }
+            const f = await _fetch();
+            const ctl = new AbortController();
+            const t = setTimeout(() => ctl.abort(), timeoutMs || DEFAULT_TIMEOUT_MS);
+            let res;
+            try {
+                res = await f(
+                    `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/v1/chat/completions`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type':  'application/json',
+                            'Authorization': `Bearer ${keyValue}`,
+                        },
+                        body: JSON.stringify(cfBody),
+                        signal: ctl.signal,
+                    }
+                );
+            } finally { clearTimeout(t); }
+            if (!res.ok) {
+                const txt = await res.text().catch(() => '');
+                const err = new Error(`cloudflare ${res.status}: ${txt.slice(0, 200)}`);
+                err.status = res.status;
+                throw err;
+            }
+            const json = await res.json();
+            // Cloudflare's /ai/v1/chat/completions wraps the OpenAI-compat
+            // payload inside `result` (i.e. json.result.choices[...]), while
+            // its native /ai/run/{model} endpoint returns json.result.response.
+            const result  = json.result || json;
+            const choice0 = ((result.choices || [])[0]) || {};
+            const msg     = choice0.message || {};
+            const finishReason = choice0.finish_reason || choice0.stop_reason || '';
+            let   text    = msg.content || result.response || '';
+
+            // Reasoning-model fallback: if content is empty but we got
+            // reasoning_content, try to extract a JSON object from the
+            // reasoning text. Crucially, we ONLY accept JSON — never
+            // raw prose — because the upstream caller will parse this
+            // with JSON.parse and would otherwise throw
+            // "AI returned non-JSON: We need to analyze market...".
+            if (!text && msg.reasoning_content) {
+                const rc = String(msg.reasoning_content);
+                // Greedy match: largest balanced-looking {...} block in the
+                // reasoning trace. gpt-oss usually "thinks aloud" then
+                // produces the final JSON near the end.
+                const matches = rc.match(/\{[\s\S]*\}/g);
+                if (matches && matches.length) {
+                    // Prefer the last JSON-looking block — that's normally
+                    // the model's final answer after its scratchpad.
+                    for (let i = matches.length - 1; i >= 0; i--) {
+                        try { JSON.parse(matches[i]); text = matches[i]; break; }
+                        catch (_) { /* try previous */ }
+                    }
+                }
+            }
+
+            if (!text) {
+                // Surface the real reason so the runner log is actionable
+                // instead of just "cloudflare returned empty text".
+                const why = finishReason === 'length'
+                    ? 'truncated (finish_reason=length) — raise max_tokens or lower reasoning.effort'
+                    : (msg.reasoning_content
+                        ? 'reasoning-only response with no extractable JSON'
+                        : 'no content returned');
+                throw new Error(`cloudflare returned empty text: ${why}`);
+            }
+            return String(text).trim();
         }
         default:
             throw new Error(`unknown AI provider "${provider.name}"`);
