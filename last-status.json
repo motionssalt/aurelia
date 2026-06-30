@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-06-30T12:25:04.110Z",
+  "last_cycle": "2026-06-30T12:30:26.129Z",
   "balance": 9970.17,
   "currency": "USD",
   "account_mode": "demo",
@@ -280,40 +280,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T09:10:17.108Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lmHNMEnv"
-      }
-    },
-    {
-      "ts": "2026-06-30T09:10:17.222Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:10:17.260Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T09:15:16.523Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T09:15:16.523Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T09:15:16.524Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T09:15:16.964Z",
       "level": "network",
@@ -1642,6 +1608,40 @@
       "meta": {
         "error": "All AI providers/keys failed; last error: unknown"
       }
+    },
+    {
+      "ts": "2026-06-30T12:30:25.150Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-06-30T12:30:25.150Z"
+      }
+    },
+    {
+      "ts": "2026-06-30T12:30:25.151Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:30:25.719Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Sfacgkkj"
+      }
+    },
+    {
+      "ts": "2026-06-30T12:30:26.030Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-06-30T12:30:26.129Z",
+      "level": "info",
+      "msg": "Cycle session not active",
+      "meta": {}
     }
   ],
   "daily_stats": {
