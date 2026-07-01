@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T20:40:27.156Z",
+  "last_cycle": "2026-07-01T20:45:55.308Z",
   "balance": 9906.73,
   "currency": "USD",
   "account_mode": "demo",
@@ -841,54 +841,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T18:05:19.527Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T18:05:24.547Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T18:05:24.547Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 55203
-      }
-    },
-    {
-      "ts": "2026-07-01T18:10:19.105Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T18:10:19.104Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T18:10:19.107Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T18:10:19.491Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g5AK6l1q"
-      }
-    },
-    {
-      "ts": "2026-07-01T18:10:19.673Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T18:10:28.570Z",
       "level": "warn",
@@ -2341,6 +2293,61 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 55809
+      }
+    },
+    {
+      "ts": "2026-07-01T20:45:15.257Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T20:45:15.257Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T20:45:15.258Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:45:15.765Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KYfQOqna"
+      }
+    },
+    {
+      "ts": "2026-07-01T20:45:16.056Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:45:54.625Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDCHF",
+        "conf": 0.8
+      }
+    },
+    {
+      "ts": "2026-07-01T20:45:54.714Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-01T20:45:54.815Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.",
+        "stack": "Error: ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
       }
     }
   ],
