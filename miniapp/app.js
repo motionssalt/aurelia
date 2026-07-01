@@ -91,7 +91,7 @@ function applyTheme() {
     set('--tg-secondary',   t.secondary_bg_color);
     set('--tg-header',      t.header_bg_color || t.secondary_bg_color);
     set('--tg-section',     t.section_bg_color);
-    set('--tg-accent',      t.accent_text_color);
+    set('--tg-accent',      t.accent_text_color || t.link_color || t.button_color);
     set('--tg-destructive', t.destructive_text_color);
     // Re-tint chart to match new theme without a rebuild.
     retintChart();
@@ -342,7 +342,8 @@ function chartThemeOptions() {
     const bg   = styles.getPropertyValue('--surface').trim()
               || styles.getPropertyValue('--tg-secondary').trim() || '#1b2330';
     const text = styles.getPropertyValue('--tg-text').trim() || '#f5f5f5';
-    const grid = 'rgba(255,255,255,0.05)';
+    const grid = styles.getPropertyValue('--chart-grid').trim()
+              || styles.getPropertyValue('--border-soft').trim() || 'transparent';
     return { bg, text, grid };
 }
 
@@ -587,7 +588,7 @@ function applyOverlayFor(active) {
     document.getElementById('ovlDir').className    = 'ovl-dir ' + dir;
     const entryNum = active.entry_price != null ? Number(active.entry_price) : NaN;
     document.getElementById('ovlEntry').textContent =
-        Number.isFinite(entryNum) ? ('entry ' + entryNum) : 'entry pending';
+        Number.isFinite(entryNum) ? String(entryNum) : 'Pending';
     document.getElementById('ovlMeta').textContent =
         '#' + active.contract_id + ' • ' + (active.path || '') +
         (active.stake != null ? (' • $' + active.stake) : '');
@@ -1088,13 +1089,17 @@ function renderActive() {
         const remainSec = Math.max(0, Math.floor((a.expiry_ms - Date.now()) / 1000));
         const rem = remainSec > 0 ? (Math.floor(remainSec / 60) + 'm ' + (remainSec % 60) + 's left') : 'EXPIRED';
         return `
-            <div class="trade" data-cid="${a.contract_id}">
-                <span class="sym">${a.symbol || ''}</span>
-                <span class="dir ${dirClass}">${dir}</span>
-                <span class="pnl">${rem}</span>
-                <span class="meta">#${a.contract_id} • ${a.path} • ${stake} ${conf ? '• ' + conf : ''} • ${entry}</span>
-                ${a.rationale ? `<span class="rat">${escapeHtml(a.rationale).slice(0, 220)}</span>` : ''}
-            </div>`;
+            <article class="trade" data-cid="${a.contract_id}">
+                <div class="trade-head">
+                    <span class="trade-title">
+                        <span class="sym">${a.symbol || ''}</span>
+                        <span class="dir ${dirClass}">${dir}</span>
+                    </span>
+                    <span class="pnl">${rem}</span>
+                </div>
+                <span class="meta">#${a.contract_id} • ${a.path} • ${stake}${conf ? ' • ' + conf : ''} • ${entry}</span>
+                ${a.rationale ? `<p class="rat">${escapeHtml(a.rationale).slice(0, 220)}</p>` : ''}
+            </article>`;
     }).join('');
 }
 
@@ -1113,13 +1118,17 @@ function renderHistory(trades) {
             const outcome = t.outcome || (pnl > 0 ? 'win' : pnl < 0 ? 'loss' : 'flat');
             const entry = t.entry != null ? (' entry ' + t.entry) : '';
             return `
-                <div class="trade">
-                    <span class="sym">${t.symbol || ''}</span>
-                    <span class="dir ${dirClass}">${dir}</span>
-                    <span class="pnl ${pnlClass}">${pnlText}</span>
+                <article class="trade">
+                    <div class="trade-head">
+                        <span class="trade-title">
+                            <span class="sym">${t.symbol || ''}</span>
+                            <span class="dir ${dirClass}">${dir}</span>
+                        </span>
+                        <span class="pnl ${pnlClass}">${pnlText}</span>
+                    </div>
                     <span class="meta">${when} • ${t.path || ''} • ${outcome} • $${Number(t.stake || 0).toFixed(2)}${entry}</span>
-                    ${t.ai_outcome_note ? `<span class="rat">${escapeHtml(t.ai_outcome_note).slice(0, 220)}</span>` : ''}
-                </div>`;
+                    ${t.ai_outcome_note ? `<p class="rat">${escapeHtml(t.ai_outcome_note).slice(0, 220)}</p>` : ''}
+                </article>`;
         }).join('');
     }
     const pageEl = document.getElementById('histPage');
@@ -1408,10 +1417,17 @@ function updateBalance() {
 }
 function updateStatusDot() {
     const dot = document.getElementById('statusDot');
+    const label = document.getElementById('statusText');
     const st = state.status || {};
-    if (!st.last_cycle) { dot.className = 'dot'; return; }
+    if (!st.last_cycle) {
+        dot.className = 'dot';
+        if (label) label.textContent = 'Syncing';
+        return;
+    }
     const age = Date.now() - Date.parse(st.last_cycle);
-    dot.className = 'dot ' + (age < 15 * 60 * 1000 ? 'ok' : 'err');
+    const fresh = age < 15 * 60 * 1000;
+    dot.className = 'dot ' + (fresh ? 'ok' : 'err');
+    if (label) label.textContent = fresh ? 'Live' : 'Stale';
 }
 
 /* ============================================================
