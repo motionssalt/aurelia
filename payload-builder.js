@@ -80,9 +80,13 @@ async function buildSymbolSlice(ws, symbol) {
         }
     }
     // Volatility context: use M5 ATR as a coarse spread/vol proxy.
+    // atr_14 is now a trailing 5-value series (see indicators.js) — pick
+    // the most recent (last) element so this proxy remains a scalar.
     const m5 = slice.timeframes.M5;
-    slice.volatility_proxy_atr14_m5 =
-        (m5 && m5.indicators && m5.indicators.atr_14) || null;
+    const atrSeries = m5 && m5.indicators && m5.indicators.atr_14;
+    slice.volatility_proxy_atr14_m5 = Array.isArray(atrSeries)
+        ? atrSeries[atrSeries.length - 1]
+        : (atrSeries || null);
     return slice;
 }
 
