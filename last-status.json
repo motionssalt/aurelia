@@ -1,13 +1,13 @@
 {
-  "last_cycle": "2026-07-01T00:20:23.907Z",
-  "balance": 9936.89,
+  "last_cycle": "2026-07-01T00:24:35.545Z",
+  "balance": 9927.11,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-01T00:20:53.330Z",
     "capital_start": 100,
-    "capital_remaining": 100,
+    "capital_remaining": 95,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 0,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3781300059,
+    "symbol": "frxUSDCAD",
+    "placed_at": "2026-07-01T00:24:35.545Z"
+  },
   "next_cycle_eligible_at": 0,
   "trade_history_cycle": [
     {
@@ -127,6 +131,21 @@
       "pnl": -15,
       "ai_outcome_note": "Despite an initial rally above the entry price, the asset failed to sustain gains and subsequently dipped below the entry, resulting in a loss.",
       "entry": "265.99"
+    },
+    {
+      "ts": "2026-07-01T00:24:35.545Z",
+      "path": "cycle",
+      "symbol": "frxUSDCAD",
+      "direction": "put",
+      "stake": 5,
+      "expiry_sec": 1800,
+      "confidence": 0.75,
+      "rationale": "Strong bullish trend is overextended with RSI and Stochastics deeply overbought across all timeframes. Price is at or above the upper Bollinger Bands, indicating a high probability of a bearish pullback.",
+      "contract_id": 3781300059,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -287,7 +306,15 @@
       "entry": "185.021"
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3781300059,
+      "path": "cycle",
+      "symbol": "frxUSDCAD",
+      "placed_at": "2026-07-01T00:24:35.545Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -296,122 +323,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T21:10:21.546Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T21:10:21.546Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:10:21.547Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:10:22.114Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qZioPt0q"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:10:22.480Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:10:22.585Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:15:21.501Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T21:15:21.501Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:15:21.503Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:15:21.864Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fWS06BVq"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:15:21.971Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:15:22.011Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:20:16.735Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T21:20:16.735Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:20:16.736Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:20:17.088Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Vs1VN6Ae"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:20:17.252Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:20:17.314Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T21:25:17.271Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T21:25:17.271Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T21:25:17.272Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-06-30T21:25:17.662Z",
       "level": "network",
@@ -1657,6 +1568,130 @@
       "level": "info",
       "msg": "Cycle session not active",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:22:33.937Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T00:22:33.937Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:22:33.938Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:22:34.408Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZcKGrhQG"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:22:34.598Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:41.393Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDCAD",
+        "conf": 0.75
+      }
+    },
+    {
+      "ts": "2026-07-01T00:23:41.394Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:23:41.395Z",
+      "level": "warn",
+      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:41.395Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:41.684Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fB7XasuM"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:23:41.877Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:41.877Z",
+      "level": "network",
+      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:42.444Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxUSDCAD PUT",
+      "meta": {
+        "stake": 5,
+        "price": 5,
+        "payout": 8.47,
+        "spot": 1.42111
+      }
+    },
+    {
+      "ts": "2026-07-01T00:23:43.120Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3781300059",
+      "meta": {
+        "transaction_id": 7414752739,
+        "longcode": "Win payout if USD/CAD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T00:23:43.568Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxUSDCAD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:43.671Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:23:46.946Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:24:35.544Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3781300059
+      }
     }
   ],
   "daily_stats": {
