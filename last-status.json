@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T07:00:25.642Z",
+  "last_cycle": "2026-07-01T07:05:19.196Z",
   "balance": 9911.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -484,42 +484,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T04:35:18.322Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Ny2ZK4fX"
-      }
-    },
-    {
-      "ts": "2026-07-01T04:35:18.435Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:35:24.792Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:35:24.792Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 53740
-      }
-    },
-    {
-      "ts": "2026-07-01T04:40:18.905Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T04:40:18.905Z"
-      }
-    },
     {
       "ts": "2026-07-01T04:40:18.907Z",
       "level": "network",
@@ -1970,6 +1934,44 @@
     },
     {
       "ts": "2026-07-01T07:00:25.642Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3801881399,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-01T06:51:50.391Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:05:17.880Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T07:05:17.880Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:05:17.881Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:05:18.294Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DoWJQJgI"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:05:18.535Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:05:19.195Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
