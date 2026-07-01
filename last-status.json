@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T19:30:21.303Z",
+  "last_cycle": "2026-07-01T19:35:23.988Z",
   "balance": 9906.78,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 90.38,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 9,
+    "trades": 10,
     "wins": 2,
-    "losses": 7,
-    "pnl": -10.39,
+    "losses": 8,
+    "pnl": -10.89,
     "win_streak": 0,
-    "loss_streak": 3,
+    "loss_streak": 4,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3866872519,
-    "symbol": "frxEURGBP",
-    "placed_at": "2026-07-01T19:16:50.141Z"
-  },
-  "next_cycle_eligible_at": 1782933082351,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782934578914,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -606,11 +602,11 @@
       "confidence": 0.75,
       "rationale": "M5 price is outside the lower Bollinger Band, and M15 RSI is oversold and rising, indicating a high probability of a bullish bounce.",
       "contract_id": 3866872519,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.85691,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -0.5,
+      "ai_outcome_note": "The price initially rose slightly after entry but ultimately declined below the entry point of 0.85691, leading to a loss for the call option."
     }
   ],
   "trade_history_manual": [
@@ -803,15 +799,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3866872519,
-      "path": "cycle",
-      "symbol": "frxEURGBP",
-      "placed_at": "2026-07-01T19:16:50.141Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -821,48 +809,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T16:50:31.586Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T16:50:31.587Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 51306
-      }
-    },
-    {
-      "ts": "2026-07-01T16:55:25.831Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T16:55:25.830Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T16:55:25.833Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T16:55:26.454Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vMgAejS7"
-      }
-    },
-    {
-      "ts": "2026-07-01T16:55:26.770Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T16:55:33.600Z",
       "level": "warn",
@@ -2325,14 +2271,56 @@
         "symbol": "frxEURGBP",
         "placed_at": "2026-07-01T19:16:50.141Z"
       }
+    },
+    {
+      "ts": "2026-07-01T19:35:18.239Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T19:35:18.239Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:35:18.241Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:35:18.724Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AdR7powv"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:35:18.813Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:35:23.987Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:35:23.987Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 54927
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 31,
+    "trades": 32,
     "wins": 12,
-    "losses": 19,
-    "pnl": -23.31,
+    "losses": 20,
+    "pnl": -23.81,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2365,10 +2353,10 @@
         "pnl": -3.69
       },
       "frxEURGBP": {
-        "trades": 6,
+        "trades": 7,
         "wins": 2,
-        "losses": 4,
-        "pnl": -4.3
+        "losses": 5,
+        "pnl": -4.8
       },
       "frxAUDJPY": {
         "trades": 1,
