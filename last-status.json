@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-01T13:24:18.929Z",
-  "balance": 9915.31,
+  "last_cycle": "2026-07-01T13:25:24.584Z",
+  "balance": 9913.81,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -676,50 +676,6 @@
     "GEMINI_KEY_1": 1782916517358
   },
   "logs": [
-    {
-      "ts": "2026-07-01T10:55:17.397Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T10:56:02.459Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.75
-      }
-    },
-    {
-      "ts": "2026-07-01T10:56:02.485Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T10:56:02.976Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDJPY PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 162.683
-      }
-    },
-    {
-      "ts": "2026-07-01T10:56:03.592Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3821703599",
-      "meta": {
-        "transaction_id": 7491869819,
-        "longcode": "Win payout if USD/JPY is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
     {
       "ts": "2026-07-01T10:56:03.957Z",
       "level": "info",
@@ -2182,6 +2138,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3834943139
+      }
+    },
+    {
+      "ts": "2026-07-01T13:25:22.702Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T13:25:22.701Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T13:25:22.703Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T13:25:23.296Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=d4tYcKTN"
+      }
+    },
+    {
+      "ts": "2026-07-01T13:25:23.819Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T13:25:24.584Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3834943139,
+        "symbol": "frxAUDUSD",
+        "placed_at": "2026-07-01T13:24:18.929Z"
       }
     }
   ],
