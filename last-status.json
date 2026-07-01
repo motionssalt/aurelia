@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T04:35:24.793Z",
+  "last_cycle": "2026-07-01T04:42:30.038Z",
   "balance": 9914.66,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-01T00:20:53.330Z",
     "capital_start": 100,
-    "capital_remaining": 87.55,
+    "capital_remaining": 85.36,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 7,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3793427979,
+    "symbol": "frxNZDUSD",
+    "placed_at": "2026-07-01T04:42:30.037Z"
+  },
   "next_cycle_eligible_at": 1782880578532,
   "trade_history_cycle": [
     {
@@ -239,6 +243,21 @@
       "pnl": 1.9,
       "ai_outcome_note": "Post-entry price action showed a sustained decline below the entry point, confirming the bearish 'put' direction and leading to a win.",
       "entry": "1.65589"
+    },
+    {
+      "ts": "2026-07-01T04:42:30.037Z",
+      "path": "cycle",
+      "symbol": "frxNZDUSD",
+      "direction": "put",
+      "stake": 2.19,
+      "expiry_sec": 1800,
+      "confidence": 0.9,
+      "rationale": "Extremely overbought conditions across M5, M10, M15 (Stochastics K/D > 89, RSI > 60 on M5/M10). Price is above the upper Bollinger Bands on M5/M10, indicating an overextended bullish move ripe for a bearish pullback. ADX is moderate, suggesting the current bullish push may be losing steam.",
+      "contract_id": 3793427979,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -399,7 +418,15 @@
       "entry": "185.021"
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3793427979,
+      "path": "cycle",
+      "symbol": "frxNZDUSD",
+      "placed_at": "2026-07-01T04:42:30.037Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -409,132 +436,6 @@
     "GEMINI_KEY_1": 1782881132456
   },
   "logs": [
-    {
-      "ts": "2026-07-01T02:00:28.578Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T02:00:28.577Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:00:28.580Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:00:29.088Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3qtXH3WM"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:00:29.407Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:00:30.023Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3784713039,
-        "symbol": "frxEURAUD",
-        "placed_at": "2026-07-01T01:37:20.021Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:05:17.109Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T02:05:17.109Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:05:17.110Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:05:17.685Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=eb9rfLge"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:05:18.130Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:05:18.886Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3784713039,
-        "symbol": "frxEURAUD",
-        "placed_at": "2026-07-01T01:37:20.021Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:10:16.084Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T02:10:16.084Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:10:16.086Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:10:16.452Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=7S1ieDoA"
-      }
-    },
-    {
-      "ts": "2026-07-01T02:10:16.567Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:10:21.029Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T02:10:21.030Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 55625
-      }
-    },
-    {
-      "ts": "2026-07-01T02:15:14.533Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T02:15:14.533Z"
-      }
-    },
     {
       "ts": "2026-07-01T02:15:14.535Z",
       "level": "network",
@@ -1905,6 +1806,130 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 53740
+      }
+    },
+    {
+      "ts": "2026-07-01T04:40:18.905Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T04:40:18.905Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T04:40:18.907Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:40:19.265Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AQbCGd9z"
+      }
+    },
+    {
+      "ts": "2026-07-01T04:40:19.380Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:36.524Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxNZDUSD",
+        "conf": 0.9
+      }
+    },
+    {
+      "ts": "2026-07-01T04:41:36.525Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-07-01T04:41:36.525Z",
+      "level": "warn",
+      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:36.525Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:36.764Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4RMtYSod"
+      }
+    },
+    {
+      "ts": "2026-07-01T04:41:36.841Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:36.841Z",
+      "level": "network",
+      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:37.294Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxNZDUSD PUT",
+      "meta": {
+        "stake": 2.19,
+        "price": 2.19,
+        "payout": 3.71,
+        "spot": 0.56734
+      }
+    },
+    {
+      "ts": "2026-07-01T04:41:38.626Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3793427979",
+      "meta": {
+        "transaction_id": 7437711519,
+        "longcode": "Win payout if NZD/USD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T04:41:38.954Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:39.029Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:41:40.936Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T04:42:30.037Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3793427979
       }
     }
   ],
