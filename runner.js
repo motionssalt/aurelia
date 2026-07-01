@@ -338,6 +338,18 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         outcome = pnl > 0 ? 'win' : (pnl < 0 ? 'loss' : 'breakeven');
         entry = poc.entry_spot;
         exit  = poc.exit_tick || poc.sell_spot;
+    } else {
+        // Non-terminal (still open). Deriv usually populates entry_spot /
+        // entry_tick as soon as the first tick after the buy is seen — grab
+        // it now so the mini-app can draw the entry price line immediately,
+        // instead of waiting until the contract settles.
+        const e =
+            poc.entry_spot ??
+            poc.entry_spot_display_value ??
+            poc.entry_tick ??
+            poc.entry_tick_display_value ??
+            (poc.buy_price != null ? undefined : undefined);
+        if (e != null && Number.isFinite(Number(e))) entry = Number(e);
     }
 
     const record = {
@@ -373,17 +385,33 @@ async function settlePending(ws, pending) {
         }, 10000);
         const poc = reply.proposal_open_contract;
         if (!poc) return { settled: false };
+
+        // Always try to lift the entry price out of the POC snapshot, even
+        // while the contract is still open. This lets the mini-app's chart
+        // draw the horizontal entry line the moment the first tick lands,
+        // instead of showing "entry pending" for the entire duration.
+        const rawEntry =
+            poc.entry_spot ??
+            poc.entry_spot_display_value ??
+            poc.entry_tick ??
+            poc.entry_tick_display_value ??
+            null;
+        const entryNum = rawEntry != null && Number.isFinite(Number(rawEntry))
+            ? Number(rawEntry)
+            : null;
+
         if (poc.is_sold) {
             const profit = Number(poc.profit || 0);
             return {
                 settled: true,
                 outcome: profit > 0 ? 'win' : profit < 0 ? 'loss' : 'breakeven',
                 pnl:     profit,
-                entry:   poc.entry_spot,
+                entry:   entryNum != null ? entryNum : poc.entry_spot,
                 exit:    poc.exit_tick || poc.sell_spot,
             };
         }
-        return { settled: false };
+        // Not terminal yet — but we may still have learned the entry.
+        return { settled: false, entry: entryNum };
     } catch (e) {
         Logger.warn(`settle ${pending.contract_id} failed`, { error: e.message });
         return { settled: false };
@@ -497,6 +525,17 @@ async function settleAllPending(ws, config, state) {
     const newlySettled = [];
     for (const p of state.pending_contracts) {
         const r = await settlePending(ws, p);
+        // Whether or not the contract has settled, if we now know the
+        // entry price, patch it back onto the trade-history record so the
+        // mini-app's /api/trades/active surface picks it up and draws the
+        // entry line. This fixes the persistent "entry pending" state.
+        if (r && r.entry != null) {
+            const histArrEarly = p.path === 'manual'
+                ? state.trade_history_manual
+                : state.trade_history_cycle;
+            const recEarly = (histArrEarly || []).find(t => t.contract_id === p.contract_id);
+            if (recEarly && recEarly.entry == null) recEarly.entry = r.entry;
+        }
         if (!r.settled) { still.push(p); continue; }
         // Patch the trade history record by contract_id
         const histArr = p.path === 'manual'
