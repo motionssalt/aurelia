@@ -63,8 +63,8 @@
                     </div>
                     <div id="chart"></div>
                 </div>
-                <div id="rsiWrap" class="subpane hidden"><div class="subpane-tag">RSI</div><div id="rsiChart"></div></div>
-                <div id="atrWrap" class="subpane hidden"><div class="subpane-tag">ATR</div><div id="atrChart"></div></div>
+                <!-- Oscillator sub-panes are created/destroyed dynamically by app.js -->
+                <div id="subpanes"></div>
             </div>
 
             <div class="chart-footer">
@@ -246,89 +246,225 @@
                 </button>
             </div>
             <div class="sheet-body" id="indicatorBody">
-                <!-- Moving averages (dynamic list) -->
-                <div class="ind-group">
-                    <div class="ind-group-head">
-                        <span class="ind-group-title">EMA</span>
-                        <button class="mini-btn" id="addEma">+ Add</button>
+                <!-- ─── Overlay indicators (drawn on price) ─── -->
+                <div class="ind-cat">
+                    <div class="ind-cat-head">
+                        <span class="ind-cat-title">Overlay</span>
+                        <span class="ind-cat-sub">on price</span>
                     </div>
-                    <div id="emaList" class="ma-list"></div>
+
+                    <!-- Moving averages (dynamic list) -->
+                    <div class="ind-group">
+                        <div class="ind-group-head">
+                            <span class="ind-group-title"><span class="ind-swatch" data-swatch="ema"></span>EMA</span>
+                            <button class="mini-btn" id="addEma">+ Add</button>
+                        </div>
+                        <div id="emaList" class="ma-list"></div>
+                    </div>
+
+                    <div class="ind-group">
+                        <div class="ind-group-head">
+                            <span class="ind-group-title"><span class="ind-swatch" data-swatch="sma"></span>SMA</span>
+                            <button class="mini-btn" id="addSma">+ Add</button>
+                        </div>
+                        <div id="smaList" class="ma-list"></div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="bbOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="bb"></span>Bollinger Bands</span>
+                            <label class="switch">
+                                <input type="checkbox" id="bbOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="bbPeriod" value="20" />
+                            </label>
+                            <label class="param">Std Dev
+                                <input type="number" min="0.1" step="0.1" id="bbMult" value="2" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="kcOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="kc"></span>Keltner Channel</span>
+                            <label class="switch">
+                                <input type="checkbox" id="kcOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">EMA
+                                <input type="number" min="1" step="1" id="kcPeriod" value="20" />
+                            </label>
+                            <label class="param">ATR ×
+                                <input type="number" min="0.1" step="0.1" id="kcMult" value="1.5" />
+                            </label>
+                            <label class="param">ATR len
+                                <input type="number" min="1" step="1" id="kcAtr" value="10" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="dcOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="dc"></span>Donchian Channels</span>
+                            <label class="switch">
+                                <input type="checkbox" id="dcOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="dcPeriod" value="20" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="sarOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="sar"></span>Parabolic SAR</span>
+                            <label class="switch">
+                                <input type="checkbox" id="sarOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Step
+                                <input type="number" min="0.001" step="0.001" id="sarStep" value="0.02" />
+                            </label>
+                            <label class="param">Max
+                                <input type="number" min="0.01" step="0.01" id="sarMax" value="0.2" />
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="ind-group">
-                    <div class="ind-group-head">
-                        <span class="ind-group-title">SMA</span>
-                        <button class="mini-btn" id="addSma">+ Add</button>
+                <!-- ─── Oscillator indicators (separate sub-panes) ─── -->
+                <div class="ind-cat">
+                    <div class="ind-cat-head">
+                        <span class="ind-cat-title">Oscillator</span>
+                        <span class="ind-cat-sub">sub-pane</span>
                     </div>
-                    <div id="smaList" class="ma-list"></div>
-                </div>
 
-                <div class="ind-group">
-                    <div class="ind-row">
-                        <label class="switch">
-                            <input type="checkbox" id="bbOn" />
-                            <span class="slider"></span>
-                        </label>
-                        <span class="ind-name">Bollinger Bands</span>
+                    <div class="ind-group" data-on-target="rsiOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="rsi"></span>RSI</span>
+                            <label class="switch">
+                                <input type="checkbox" id="rsiOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="rsiPeriod" value="14" />
+                            </label>
+                        </div>
                     </div>
-                    <div class="ind-params">
-                        <label class="param">Period
-                            <input type="number" min="1" step="1" id="bbPeriod" value="20" />
-                        </label>
-                        <label class="param">Std Dev
-                            <input type="number" min="0.1" step="0.1" id="bbMult" value="2" />
-                        </label>
-                    </div>
-                </div>
 
-                <div class="ind-group">
-                    <div class="ind-row">
-                        <label class="switch">
-                            <input type="checkbox" id="kcOn" />
-                            <span class="slider"></span>
-                        </label>
-                        <span class="ind-name">Keltner Channel</span>
+                    <div class="ind-group" data-on-target="atrOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="atr"></span>ATR</span>
+                            <label class="switch">
+                                <input type="checkbox" id="atrOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="atrPeriod" value="14" />
+                            </label>
+                        </div>
                     </div>
-                    <div class="ind-params">
-                        <label class="param">EMA
-                            <input type="number" min="1" step="1" id="kcPeriod" value="20" />
-                        </label>
-                        <label class="param">ATR ×
-                            <input type="number" min="0.1" step="0.1" id="kcMult" value="1.5" />
-                        </label>
-                        <label class="param">ATR len
-                            <input type="number" min="1" step="1" id="kcAtr" value="10" />
-                        </label>
-                    </div>
-                </div>
 
-                <div class="ind-group">
-                    <div class="ind-row">
-                        <label class="switch">
-                            <input type="checkbox" id="rsiOn" />
-                            <span class="slider"></span>
-                        </label>
-                        <span class="ind-name">RSI <span class="dim small">(sub-panel)</span></span>
+                    <div class="ind-group" data-on-target="macdOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="macd"></span>MACD</span>
+                            <label class="switch">
+                                <input type="checkbox" id="macdOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Fast
+                                <input type="number" min="1" step="1" id="macdFast" value="12" />
+                            </label>
+                            <label class="param">Slow
+                                <input type="number" min="1" step="1" id="macdSlow" value="26" />
+                            </label>
+                            <label class="param">Signal
+                                <input type="number" min="1" step="1" id="macdSignal" value="9" />
+                            </label>
+                        </div>
                     </div>
-                    <div class="ind-params">
-                        <label class="param">Period
-                            <input type="number" min="1" step="1" id="rsiPeriod" value="14" />
-                        </label>
-                    </div>
-                </div>
 
-                <div class="ind-group">
-                    <div class="ind-row">
-                        <label class="switch">
-                            <input type="checkbox" id="atrOn" />
-                            <span class="slider"></span>
-                        </label>
-                        <span class="ind-name">ATR <span class="dim small">(sub-panel)</span></span>
+                    <div class="ind-group" data-on-target="stochOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="stoch"></span>Stochastic</span>
+                            <label class="switch">
+                                <input type="checkbox" id="stochOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">%K
+                                <input type="number" min="1" step="1" id="stochK" value="14" />
+                            </label>
+                            <label class="param">%D
+                                <input type="number" min="1" step="1" id="stochD" value="3" />
+                            </label>
+                            <label class="param">Smooth
+                                <input type="number" min="1" step="1" id="stochSmooth" value="3" />
+                            </label>
+                        </div>
                     </div>
-                    <div class="ind-params">
-                        <label class="param">Period
-                            <input type="number" min="1" step="1" id="atrPeriod" value="14" />
-                        </label>
+
+                    <div class="ind-group" data-on-target="adxOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="adx"></span>ADX</span>
+                            <label class="switch">
+                                <input type="checkbox" id="adxOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="adxPeriod" value="14" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="willrOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="willr"></span>Williams %R</span>
+                            <label class="switch">
+                                <input type="checkbox" id="willrOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="willrPeriod" value="14" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ind-group" data-on-target="cciOn">
+                        <div class="ind-row">
+                            <span class="ind-name"><span class="ind-swatch" data-swatch="cci"></span>CCI</span>
+                            <label class="switch">
+                                <input type="checkbox" id="cciOn" />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="ind-params">
+                            <label class="param">Period
+                                <input type="number" min="1" step="1" id="cciPeriod" value="20" />
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
