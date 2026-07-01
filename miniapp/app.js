@@ -5,12 +5,11 @@
    Depends on globals injected by <script> tags:
      • Telegram.WebApp                    (telegram-web-app.js)
      • LightweightCharts                  (lightweight-charts UMD)
+     • Indicators                         (indicators.js)
 
    Config:
      • window.AURELIA_API_BASE  can be set before this script loads to
-       point at the Cloudflare Worker (e.g. "https://aurelia.example.workers.dev").
-       If unset, we assume the Mini App is served from the same origin
-       as the API and use relative URLs.
+       point at the Cloudflare Worker. If unset we use relative URLs.
    ============================================================ */
 
 'use strict';
@@ -18,10 +17,24 @@
 const tg = window.Telegram && window.Telegram.WebApp;
 const API_BASE = (window.AURELIA_API_BASE || '').replace(/\/+$/, '');
 const DERIV_WS = 'wss://ws.derivws.com/websockets/v3?app_id=1089';
+const LS_KEY = 'aurelia.indicators.v1';
 
 // initData source of truth — set once at boot.
 let INIT_DATA = '';
 try { INIT_DATA = (tg && tg.initData) || ''; } catch (_) {}
+
+/* ── Shared colour tokens (mirror CSS variables) ──────────── */
+const COLORS = {
+    bull: '#26c281',
+    bear: '#ff5470',
+    accent: '#5aa9ff',
+    ema: ['#ffb020', '#8b7bff', '#00c2d1', '#ff7ac6'],
+    sma: ['#6ec1ff', '#f6c945', '#a0e57c', '#ff9a6c'],
+    bb: '#c7a3ff',
+    kc: '#ffcf6b',
+    rsi: '#5aa9ff',
+    atr: '#ffb020',
+};
 
 /* ── Telegram SDK bootstrap ───────────────────────────────── */
 function applyTheme() {
@@ -39,10 +52,14 @@ function applyTheme() {
     set('--tg-section',     t.section_bg_color);
     set('--tg-accent',      t.accent_text_color);
     set('--tg-destructive', t.destructive_text_color);
+    // Re-tint chart to match new theme without a rebuild.
+    retintChart();
 }
 if (tg) {
     try { tg.ready(); tg.expand(); } catch (_) {}
-    applyTheme();
+    // NOTE: the first applyTheme() is invoked from boot() (after `state`
+    // is initialized) to avoid a temporal-dead-zone reference via
+    // retintChart(). We only register the live theme listener here.
     tg.onEvent && tg.onEvent('themeChanged', applyTheme);
 }
 
@@ -61,7 +78,6 @@ function toast(msg, kind) {
 async function api(path, opts = {}) {
     const headers = Object.assign({
         'Content-Type': 'application/json',
-        // Preferred: dedicated header. Auth header kept as fallback.
         'X-Telegram-Init-Data': INIT_DATA || '',
     }, opts.headers || {});
     const r = await fetch(API_BASE + path, {
@@ -80,6 +96,38 @@ async function api(path, opts = {}) {
     return data;
 }
 
+/* ── Indicator config (persisted to localStorage) ─────────── */
+function defaultIndicatorConfig() {
+    return {
+        emas: [{ period: 20, on: true }, { period: 50, on: true }],
+        smas: [],
+        bb:  { on: false, period: 20, mult: 2 },
+        kc:  { on: false, period: 20, atr: 10, mult: 1.5 },
+        rsi: { on: false, period: 14 },
+        atr: { on: false, period: 14 },
+    };
+}
+function loadIndicatorConfig() {
+    try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return defaultIndicatorConfig();
+        const parsed = JSON.parse(raw);
+        // Merge with defaults so newly-added fields don't break older saves.
+        const def = defaultIndicatorConfig();
+        return {
+            emas: Array.isArray(parsed.emas) ? parsed.emas : def.emas,
+            smas: Array.isArray(parsed.smas) ? parsed.smas : def.smas,
+            bb:  Object.assign(def.bb,  parsed.bb  || {}),
+            kc:  Object.assign(def.kc,  parsed.kc  || {}),
+            rsi: Object.assign(def.rsi, parsed.rsi || {}),
+            atr: Object.assign(def.atr, parsed.atr || {}),
+        };
+    } catch (_) { return defaultIndicatorConfig(); }
+}
+function saveIndicatorConfig() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(state.ind)); } catch (_) {}
+}
+
 /* ── Global state cache ───────────────────────────────────── */
 const state = {
     config: null,
@@ -92,15 +140,24 @@ const state = {
     historyTotal: 0,
     chart: null,
     series: null,
+    rsiChart: null,
+    rsiSeries: null,
+    atrChart: null,
+    atrSeries: null,
     ws: null,
     wsPingTimer: null,
     subscriptionId: null,
-    tickSubId: null,
     currentSymbol: null,
     currentTfSec: 300,
-    candles: [], // { epoch, open, high, low, close }
+    candles: [], // { time, open, high, low, close }
     priceLine: null,
+    priceLineSeries: null, // series the price line is actually attached to
     overlayTimer: null,
+    ind: loadIndicatorConfig(),
+    // Map of overlay line series currently on the main chart:
+    //   key -> LineSeries
+    overlaySeries: {},
+    syncing: false,
 };
 
 /* ── Tab switching ────────────────────────────────────────── */
@@ -111,7 +168,11 @@ document.querySelectorAll('.tab').forEach(btn => {
         document.querySelectorAll('.tab-body').forEach(x => x.classList.toggle('active', x.id === 'tab-' + t));
         if (t === 'trades') refreshTrades();
         if (t === 'settings') renderSettings();
-        if (t === 'chart') queueOverlayRefresh();
+        if (t === 'chart') {
+            queueOverlayRefresh();
+            // The chart may have been laid out at 0px while hidden; re-fit now.
+            requestAnimationFrame(fitCharts);
+        }
     });
 });
 
@@ -127,12 +188,9 @@ function tfToSeconds(tf) {
 
 /* ============================================================
    DERIV WS — direct browser subscription
-   Reuses the exact ticks_history request shape from deriv.js.
    ============================================================ */
 function derivConnect() {
-    if (state.ws) {
-        try { state.ws.close(); } catch (_) {}
-    }
+    if (state.ws) { try { state.ws.close(); } catch (_) {} }
     if (state.wsPingTimer) { clearInterval(state.wsPingTimer); state.wsPingTimer = null; }
     setChartStatus('connecting', '');
     const ws = new WebSocket(DERIV_WS);
@@ -149,12 +207,8 @@ function derivConnect() {
         try { msg = JSON.parse(ev.data); } catch { return; }
         handleDerivMessage(msg);
     });
-    ws.addEventListener('close', () => {
-        setChartStatus('closed', 'err');
-    });
-    ws.addEventListener('error', () => {
-        setChartStatus('ws error', 'err');
-    });
+    ws.addEventListener('close', () => setChartStatus('closed', 'err'));
+    ws.addEventListener('error', () => setChartStatus('ws error', 'err'));
 }
 
 function subscribeCandles() {
@@ -162,8 +216,6 @@ function subscribeCandles() {
     const symbol = state.currentSymbol;
     const gran   = state.currentTfSec;
     if (!symbol) return;
-    // Same shape used in deriv.js (ticksHistory) — with subscribe=1 so
-    // the WS keeps streaming updates for the last candle.
     state.ws.send(JSON.stringify({
         ticks_history:     symbol,
         end:               'latest',
@@ -194,8 +246,11 @@ function handleDerivMessage(msg) {
         updateCandleCount();
         updateLastPrice(arr.length ? arr[arr.length - 1].close : null);
         state.subscriptionId = msg.subscription && msg.subscription.id;
+        // Data is now present on THIS series — safe to (re)draw indicators
+        // and the entry price line onto the correct, current series.
+        recomputeIndicators();
+        queueOverlayRefresh();
     } else if (msg.msg_type === 'ohlc') {
-        // Streamed update for the current candle
         const c = msg.ohlc || {};
         const cand = {
             time:  Number(c.open_time),
@@ -212,6 +267,7 @@ function handleDerivMessage(msg) {
         }
         if (state.series) state.series.update(cand);
         updateLastPrice(cand.close);
+        recomputeIndicators(); // live-update overlays with the streaming candle
     }
 }
 
@@ -226,37 +282,125 @@ function derivUnsubscribe() {
 /* ============================================================
    CHART setup — lightweight-charts
    ============================================================ */
+function chartThemeOptions() {
+    const styles = getComputedStyle(document.documentElement);
+    const bg   = styles.getPropertyValue('--surface').trim()
+              || styles.getPropertyValue('--tg-secondary').trim() || '#1b2330';
+    const text = styles.getPropertyValue('--tg-text').trim() || '#f5f5f5';
+    const grid = 'rgba(255,255,255,0.05)';
+    return { bg, text, grid };
+}
+
 function initChart() {
     if (state.chart) return;
     const el = document.getElementById('chart');
-    const styles = getComputedStyle(document.documentElement);
-    const bg   = styles.getPropertyValue('--tg-secondary').trim() || '#232e3c';
-    const text = styles.getPropertyValue('--tg-text').trim() || '#f5f5f5';
-    const grid = 'rgba(255,255,255,0.05)';
+    const { bg, text, grid } = chartThemeOptions();
     state.chart = LightweightCharts.createChart(el, {
         width:  el.clientWidth,
         height: el.clientHeight,
-        layout: { background: { color: bg }, textColor: text },
+        layout: { background: { color: bg }, textColor: text, fontSize: 11 },
+        grid:   { vertLines: { color: grid }, horzLines: { color: grid } },
+        rightPriceScale: { borderColor: grid },
+        timeScale: { borderColor: grid, timeVisible: true, secondsVisible: false },
+        crosshair: { mode: 0 },
+        handleScale: { axisPressedMouseMove: true },
+    });
+    state.series = state.chart.addCandlestickSeries({
+        upColor:      COLORS.bull,
+        downColor:    COLORS.bear,
+        borderUpColor:COLORS.bull,
+        borderDownColor:COLORS.bear,
+        wickUpColor:  COLORS.bull,
+        wickDownColor:COLORS.bear,
+    });
+
+    // Keep sub-panes time-scale in sync with main chart.
+    state.chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (state.syncing || !range) return;
+        state.syncing = true;
+        try {
+            if (state.rsiChart) state.rsiChart.timeScale().setVisibleLogicalRange(range);
+            if (state.atrChart) state.atrChart.timeScale().setVisibleLogicalRange(range);
+        } catch (_) {}
+        state.syncing = false;
+    });
+}
+
+function ensureSubChart(which) {
+    // which = 'rsi' | 'atr'
+    const wrapId   = which + 'Wrap';
+    const chartId  = which + 'Chart';
+    const wrap = document.getElementById(wrapId);
+    wrap.classList.remove('hidden');
+    if (state[which + 'Chart']) return;
+    const el = document.getElementById(chartId);
+    const { bg, text, grid } = chartThemeOptions();
+    const c = LightweightCharts.createChart(el, {
+        width: el.clientWidth,
+        height: el.clientHeight,
+        layout: { background: { color: bg }, textColor: text, fontSize: 10 },
         grid:   { vertLines: { color: grid }, horzLines: { color: grid } },
         rightPriceScale: { borderColor: grid },
         timeScale: { borderColor: grid, timeVisible: true, secondsVisible: false },
         crosshair: { mode: 0 },
     });
-    state.series = state.chart.addCandlestickSeries({
-        upColor:      '#2ecc71',
-        downColor:    '#ff595a',
-        borderUpColor:'#2ecc71',
-        borderDownColor:'#ff595a',
-        wickUpColor:  '#2ecc71',
-        wickDownColor:'#ff595a',
-    });
-    // Resize on viewport changes
-    const ro = new ResizeObserver(() => {
-        if (!state.chart) return;
-        state.chart.applyOptions({ width: el.clientWidth, height: el.clientHeight });
-    });
-    ro.observe(el);
+    if (which === 'rsi') {
+        state.rsiChart = c;
+        state.rsiSeries = c.addLineSeries({ color: COLORS.rsi, lineWidth: 2 });
+        // 30 / 70 guide lines
+        state.rsiSeries.createPriceLine({ price: 70, color: 'rgba(255,84,112,0.5)', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '70' });
+        state.rsiSeries.createPriceLine({ price: 30, color: 'rgba(38,194,129,0.5)', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '30' });
+    } else {
+        state.atrChart = c;
+        state.atrSeries = c.addLineSeries({ color: COLORS.atr, lineWidth: 2 });
+    }
+    // Sync main chart to reflect new pane immediately.
+    fitCharts();
 }
+
+function destroySubChart(which) {
+    const wrap = document.getElementById(which + 'Wrap');
+    if (state[which + 'Chart']) {
+        try { state[which + 'Chart'].remove(); } catch (_) {}
+        state[which + 'Chart'] = null;
+        state[which + 'Series'] = null;
+    }
+    if (wrap) wrap.classList.add('hidden');
+    fitCharts();
+}
+
+function retintChart() {
+    if (!state.chart) return;
+    const { bg, text, grid } = chartThemeOptions();
+    const opts = {
+        layout: { background: { color: bg }, textColor: text },
+        grid:   { vertLines: { color: grid }, horzLines: { color: grid } },
+        rightPriceScale: { borderColor: grid },
+        timeScale: { borderColor: grid },
+    };
+    try {
+        state.chart.applyOptions(opts);
+        if (state.rsiChart) state.rsiChart.applyOptions(opts);
+        if (state.atrChart) state.atrChart.applyOptions(opts);
+    } catch (_) {}
+}
+
+/* Resize all charts to their containers. Called on resize/orientation
+   change and whenever a sub-pane is toggled. */
+function fitCharts() {
+    const fit = (chart, elId) => {
+        if (!chart) return;
+        const el = document.getElementById(elId);
+        if (!el) return;
+        const w = el.clientWidth, h = el.clientHeight;
+        if (w > 0 && h > 0) chart.applyOptions({ width: w, height: h });
+    };
+    fit(state.chart, 'chart');
+    fit(state.rsiChart, 'rsiChart');
+    fit(state.atrChart, 'atrChart');
+}
+window.addEventListener('resize', () => requestAnimationFrame(fitCharts));
+window.addEventListener('orientationchange', () => setTimeout(fitCharts, 250));
 
 function setChartStatus(text, cls) {
     const el = document.getElementById('chartStatus');
@@ -275,44 +419,62 @@ function updateLastPrice(p) {
 
 /* ============================================================
    ACTIVE-POSITION OVERLAY (price line + countdown)
+
+   Bug-1 fix notes:
+   • The price line is now always (re)created on the CURRENT
+     `state.series`, and we remember which series it was attached
+     to (`state.priceLineSeries`) so removal never targets a
+     stale/disposed series after a symbol/timeframe switch.
+   • It is re-applied every time fresh candle data lands on the
+     current series (see handleDerivMessage 'candles' branch), so
+     it can never end up orphaned on a torn-down series.
+   • entry_price is coerced with Number() to guard against the API
+     sending it as a string, which would otherwise silently no-op.
    ============================================================ */
 function clearOverlay() {
-    document.getElementById('chartOverlay').classList.add('hidden');
-    if (state.priceLine && state.series) {
-        try { state.series.removePriceLine(state.priceLine); } catch (_) {}
+    const box = document.getElementById('chartOverlay');
+    if (box) box.classList.add('hidden');
+    if (state.priceLine && state.priceLineSeries) {
+        try { state.priceLineSeries.removePriceLine(state.priceLine); } catch (_) {}
     }
     state.priceLine = null;
+    state.priceLineSeries = null;
     if (state.overlayTimer) { clearInterval(state.overlayTimer); state.overlayTimer = null; }
 }
 
 function applyOverlayFor(active) {
-    // active = matching entry from GET /api/trades/active
     if (!state.series) return;
     clearOverlay();
     if (!active) return;
+
     const box = document.getElementById('chartOverlay');
     box.classList.remove('hidden');
-    document.getElementById('ovlDir').textContent = (active.direction || '?').toUpperCase();
-    document.getElementById('ovlDir').className   = 'ovl-dir ' + (active.direction || '');
+    const dir = (active.direction || '').toLowerCase();
+    document.getElementById('ovlDir').textContent = (dir || '?').toUpperCase();
+    document.getElementById('ovlDir').className    = 'ovl-dir ' + dir;
+    const entryNum = active.entry_price != null ? Number(active.entry_price) : NaN;
     document.getElementById('ovlEntry').textContent =
-        active.entry_price != null ? ('entry ' + active.entry_price) : 'entry pending';
+        Number.isFinite(entryNum) ? ('entry ' + entryNum) : 'entry pending';
     document.getElementById('ovlMeta').textContent =
         '#' + active.contract_id + ' • ' + (active.path || '') +
         (active.stake != null ? (' • $' + active.stake) : '');
 
-    // Native price-line — dashed, green for call, red for put
-    if (active.entry_price != null) {
+    // Native price-line — dashed, green for call, red for put.
+    if (Number.isFinite(entryNum)) {
+        const isPut = dir === 'put';
+        state.priceLineSeries = state.series;
         state.priceLine = state.series.createPriceLine({
-            price: Number(active.entry_price),
-            color: active.direction === 'put' ? '#ff595a' : '#2ecc71',
+            price: entryNum,
+            color: isPut ? COLORS.bear : COLORS.bull,
             lineWidth: 2,
-            lineStyle: 2, // dashed
+            lineStyle: LightweightCharts.LineStyle
+                ? LightweightCharts.LineStyle.Dashed : 2,
             axisLabelVisible: true,
-            title: 'ENTRY ' + (active.direction || '').toUpperCase(),
+            title: 'ENTRY ' + (dir || '').toUpperCase(),
         });
     }
 
-    // Countdown — recomputed each second from expiry_ms
+    // Countdown — recomputed each second from expiry_ms.
     const timerEl = document.getElementById('ovlTimer');
     function tick() {
         const now = Date.now();
@@ -335,10 +497,227 @@ function applyOverlayFor(active) {
 }
 
 function queueOverlayRefresh() {
-    // Re-derive from state.activeTrades cache; refresh silently.
     const list = state.activeTrades || [];
     const match = list.find(a => a.symbol === state.currentSymbol);
+    // Debug aid: expose the raw match so it's easy to inspect in console.
+    try { window.__aureliaActiveMatch = match || null; } catch (_) {}
     applyOverlayFor(match || null);
+}
+
+/* ============================================================
+   INDICATORS — client-side, incremental overlay management
+   ============================================================ */
+function overlayKey(kind, i, sub) {
+    return sub ? `${kind}${i}_${sub}` : `${kind}${i}`;
+}
+
+function removeOverlay(key) {
+    const s = state.overlaySeries[key];
+    if (s && state.chart) { try { state.chart.removeSeries(s); } catch (_) {} }
+    delete state.overlaySeries[key];
+}
+
+function removeAllPriceOverlays() {
+    Object.keys(state.overlaySeries).forEach(removeOverlay);
+}
+
+function ensureOverlaySeries(key, color, opts) {
+    if (state.overlaySeries[key]) return state.overlaySeries[key];
+    const s = state.chart.addLineSeries(Object.assign({
+        color,
+        lineWidth: 2,
+        priceLineVisible: false,
+        lastValueVisible: false,
+        crosshairMarkerVisible: false,
+    }, opts || {}));
+    state.overlaySeries[key] = s;
+    return s;
+}
+
+/* Recompute every enabled indicator from the current candle set and
+   push updated data into their (existing) series. Does NOT tear down
+   the main chart. Adds/removes only individual line series. */
+function recomputeIndicators() {
+    if (!state.chart || !state.series) return;
+    const I = window.Indicators;
+    const candles = state.candles;
+    const closes = candles.map(c => c.close);
+    const cfg = state.ind;
+    const wanted = new Set();
+
+    // EMA lines
+    cfg.emas.forEach((e, i) => {
+        if (!e.on) return;
+        const key = overlayKey('ema', i);
+        wanted.add(key);
+        const color = COLORS.ema[i % COLORS.ema.length];
+        const s = ensureOverlaySeries(key, color);
+        s.applyOptions({ color });
+        s.setData(I.toLineData(candles, I.ema(closes, Number(e.period) || 1)));
+    });
+    // SMA lines
+    cfg.smas.forEach((e, i) => {
+        if (!e.on) return;
+        const key = overlayKey('sma', i);
+        wanted.add(key);
+        const color = COLORS.sma[i % COLORS.sma.length];
+        const s = ensureOverlaySeries(key, color);
+        s.applyOptions({ color });
+        s.setData(I.toLineData(candles, I.sma(closes, Number(e.period) || 1)));
+    });
+    // Bollinger Bands
+    if (cfg.bb.on) {
+        const bb = I.bollinger(closes, Number(cfg.bb.period) || 20, Number(cfg.bb.mult) || 2);
+        [['bb_u', bb.upper, { lineStyle: 2 }], ['bb_m', bb.middle, {}], ['bb_l', bb.lower, { lineStyle: 2 }]]
+            .forEach(([key, arr, extra]) => {
+                wanted.add(key);
+                const s = ensureOverlaySeries(key, COLORS.bb, Object.assign({ lineWidth: 1 }, extra));
+                s.setData(I.toLineData(candles, arr));
+            });
+    }
+    // Keltner Channel
+    if (cfg.kc.on) {
+        const kc = I.keltner(candles, Number(cfg.kc.period) || 20, Number(cfg.kc.atr) || 10, Number(cfg.kc.mult) || 1.5);
+        [['kc_u', kc.upper, { lineStyle: 2 }], ['kc_m', kc.middle, {}], ['kc_l', kc.lower, { lineStyle: 2 }]]
+            .forEach(([key, arr, extra]) => {
+                wanted.add(key);
+                const s = ensureOverlaySeries(key, COLORS.kc, Object.assign({ lineWidth: 1 }, extra));
+                s.setData(I.toLineData(candles, arr));
+            });
+    }
+
+    // Remove any price-overlay series no longer wanted.
+    Object.keys(state.overlaySeries).forEach(key => {
+        if (!wanted.has(key)) removeOverlay(key);
+    });
+
+    // RSI sub-pane
+    if (cfg.rsi.on) {
+        ensureSubChart('rsi');
+        if (state.rsiSeries) {
+            state.rsiSeries.setData(I.toLineData(candles, I.rsi(closes, Number(cfg.rsi.period) || 14)));
+        }
+    } else {
+        destroySubChart('rsi');
+    }
+    // ATR sub-pane
+    if (cfg.atr.on) {
+        ensureSubChart('atr');
+        if (state.atrSeries) {
+            state.atrSeries.setData(I.toLineData(candles, I.atr(candles, Number(cfg.atr.period) || 14)));
+        }
+    } else {
+        destroySubChart('atr');
+    }
+}
+
+/* ── Indicator sheet UI ───────────────────────────────────── */
+const sheet = document.getElementById('indicatorSheet');
+document.getElementById('btnIndicators').addEventListener('click', () => {
+    renderIndicatorSheet();
+    sheet.classList.remove('hidden');
+    sheet.setAttribute('aria-hidden', 'false');
+});
+sheet.querySelectorAll('[data-close-sheet]').forEach(el => {
+    el.addEventListener('click', () => {
+        sheet.classList.add('hidden');
+        sheet.setAttribute('aria-hidden', 'true');
+    });
+});
+
+function maRowHtml(kind, i, item) {
+    return `
+        <div class="ma-row" data-kind="${kind}" data-idx="${i}">
+            <label class="switch">
+                <input type="checkbox" class="ma-on" ${item.on ? 'checked' : ''} />
+                <span class="slider"></span>
+            </label>
+            <input type="number" class="ma-period" min="1" step="1" value="${item.period}" />
+            <button class="mini-btn danger ma-del" aria-label="Remove">✕</button>
+        </div>`;
+}
+
+function renderIndicatorSheet() {
+    const cfg = state.ind;
+    // Moving-average lists
+    document.getElementById('emaList').innerHTML =
+        cfg.emas.map((e, i) => maRowHtml('ema', i, e)).join('');
+    document.getElementById('smaList').innerHTML =
+        cfg.smas.map((e, i) => maRowHtml('sma', i, e)).join('');
+    // Static toggles / params
+    document.getElementById('bbOn').checked = cfg.bb.on;
+    document.getElementById('bbPeriod').value = cfg.bb.period;
+    document.getElementById('bbMult').value = cfg.bb.mult;
+    document.getElementById('kcOn').checked = cfg.kc.on;
+    document.getElementById('kcPeriod').value = cfg.kc.period;
+    document.getElementById('kcMult').value = cfg.kc.mult;
+    document.getElementById('kcAtr').value = cfg.kc.atr;
+    document.getElementById('rsiOn').checked = cfg.rsi.on;
+    document.getElementById('rsiPeriod').value = cfg.rsi.period;
+    document.getElementById('atrOn').checked = cfg.atr.on;
+    document.getElementById('atrPeriod').value = cfg.atr.period;
+    wireMaRows();
+}
+
+function wireMaRows() {
+    document.querySelectorAll('.ma-row').forEach(row => {
+        const kind = row.dataset.kind;
+        const idx  = Number(row.dataset.idx);
+        const list = kind === 'ema' ? state.ind.emas : state.ind.smas;
+        row.querySelector('.ma-on').addEventListener('change', e => {
+            list[idx].on = e.target.checked;
+            persistAndRecompute();
+        });
+        row.querySelector('.ma-period').addEventListener('change', e => {
+            const v = Math.max(1, Math.round(Number(e.target.value) || 1));
+            list[idx].period = v;
+            e.target.value = v;
+            persistAndRecompute();
+        });
+        row.querySelector('.ma-del').addEventListener('click', () => {
+            // Remove this line's series first, then splice config.
+            removeOverlay(overlayKey(kind, idx));
+            list.splice(idx, 1);
+            persistAndRecompute();
+            renderIndicatorSheet();
+        });
+    });
+}
+
+document.getElementById('addEma').addEventListener('click', () => {
+    state.ind.emas.push({ period: 100, on: true });
+    persistAndRecompute();
+    renderIndicatorSheet();
+});
+document.getElementById('addSma').addEventListener('click', () => {
+    state.ind.smas.push({ period: 20, on: true });
+    persistAndRecompute();
+    renderIndicatorSheet();
+});
+
+// Static indicator param wiring
+function bindStatic(id, apply) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const ev = el.type === 'checkbox' ? 'change' : 'change';
+    el.addEventListener(ev, () => { apply(el); persistAndRecompute(); });
+}
+bindStatic('bbOn',     el => state.ind.bb.on = el.checked);
+bindStatic('bbPeriod', el => state.ind.bb.period = Math.max(1, Math.round(Number(el.value) || 20)));
+bindStatic('bbMult',   el => state.ind.bb.mult = Math.max(0.1, Number(el.value) || 2));
+bindStatic('kcOn',     el => state.ind.kc.on = el.checked);
+bindStatic('kcPeriod', el => state.ind.kc.period = Math.max(1, Math.round(Number(el.value) || 20)));
+bindStatic('kcMult',   el => state.ind.kc.mult = Math.max(0.1, Number(el.value) || 1.5));
+bindStatic('kcAtr',    el => state.ind.kc.atr = Math.max(1, Math.round(Number(el.value) || 10)));
+bindStatic('rsiOn',    el => state.ind.rsi.on = el.checked);
+bindStatic('rsiPeriod',el => state.ind.rsi.period = Math.max(1, Math.round(Number(el.value) || 14)));
+bindStatic('atrOn',    el => state.ind.atr.on = el.checked);
+bindStatic('atrPeriod',el => state.ind.atr.period = Math.max(1, Math.round(Number(el.value) || 14)));
+
+function persistAndRecompute() {
+    saveIndicatorConfig();
+    recomputeIndicators();
+    requestAnimationFrame(fitCharts);
 }
 
 /* ============================================================
@@ -347,29 +726,29 @@ function queueOverlayRefresh() {
 function populatePickers() {
     const symSel = document.getElementById('symbolPicker');
     const tfSel  = document.getElementById('tfPicker');
+    const prevSym = state.currentSymbol;
 
-    // Enabled symbols only (respecting master gates)
     const cfg = state.config || {};
     const list = [];
     const fx  = (cfg.symbols && cfg.symbols.forex)      || {};
     const syn = (cfg.symbols && cfg.symbols.synthetics) || {};
-    if (cfg.frx_enabled !== false) {
-        Object.keys(fx).forEach(k => fx[k] && list.push(k));
-    }
-    if (cfg.syn_enabled) {
-        Object.keys(syn).forEach(k => syn[k] && list.push(k));
-    }
+    if (cfg.frx_enabled !== false) Object.keys(fx).forEach(k => fx[k] && list.push(k));
+    if (cfg.syn_enabled) Object.keys(syn).forEach(k => syn[k] && list.push(k));
     const pool = list.length ? list : ['frxEURUSD'];
     symSel.innerHTML = pool.map(s => `<option value="${s}">${s}</option>`).join('');
 
-    tfSel.innerHTML = state.timeframes
-        .map(t => `<option value="${t}">${t}</option>`).join('');
+    tfSel.innerHTML = state.timeframes.map(t => `<option value="${t}">${t}</option>`).join('');
 
-    // Default: first enabled symbol, 5m
-    state.currentSymbol = pool[0];
+    // Preserve current selection if still valid.
+    if (prevSym && pool.includes(prevSym)) {
+        state.currentSymbol = prevSym;
+    } else {
+        state.currentSymbol = pool[0];
+    }
     symSel.value = state.currentSymbol;
-    tfSel.value  = '5m';
-    state.currentTfSec = tfToSeconds('5m');
+    if (!tfSel.value) { tfSel.value = '5m'; state.currentTfSec = tfToSeconds('5m'); }
+    else tfSel.value = tfSel.value;
+    if (!state.currentTfSec) state.currentTfSec = tfToSeconds('5m');
 }
 
 document.getElementById('symbolPicker').addEventListener('change', e => {
@@ -385,8 +764,15 @@ function resubscribe() {
     derivUnsubscribe();
     state.candles = [];
     if (state.series) state.series.setData([]);
+    // Clear indicator series data (they'll refill when candles land).
+    Object.values(state.overlaySeries).forEach(s => { try { s.setData([]); } catch (_) {} });
+    if (state.rsiSeries) { try { state.rsiSeries.setData([]); } catch (_) {} }
+    if (state.atrSeries) { try { state.atrSeries.setData([]); } catch (_) {} }
+    // Tear down the entry line from the previous symbol immediately so it
+    // never lingers when switching AWAY from a symbol that had a position.
+    clearOverlay();
     subscribeCandles();
-    queueOverlayRefresh();
+    // Overlay + indicators re-drawn once fresh candles arrive.
 }
 
 /* ============================================================
@@ -398,6 +784,8 @@ async function refreshTrades() {
             api('/api/trades/active'),
             api('/api/trades/history?limit=' + state.historyLimit + '&offset=' + state.historyOffset),
         ]);
+        // Debug aid for Bug-1 verification.
+        try { console.debug('[aurelia] /api/trades/active raw:', act); } catch (_) {}
         state.activeTrades = act.active || [];
         state.historyTotal = hist.total || 0;
         renderActive();
@@ -416,7 +804,7 @@ function renderActive() {
         return;
     }
     box.innerHTML = list.map(a => {
-        const dirClass = a.direction || '';
+        const dirClass = (a.direction || '').toLowerCase();
         const dir = (a.direction || '?').toUpperCase();
         const stake = a.stake != null ? ('$' + a.stake) : '—';
         const conf  = a.confidence != null ? (Math.round(a.confidence * 100) + '%') : '';
@@ -440,7 +828,7 @@ function renderHistory(trades) {
         box.innerHTML = '<div class="empty">No settled trades yet.</div>';
     } else {
         box.innerHTML = trades.map(t => {
-            const dirClass = t.direction || '';
+            const dirClass = (t.direction || '').toLowerCase();
             const dir = (t.direction || '?').toUpperCase();
             const pnl = Number(t.pnl || 0);
             const pnlClass = pnl > 0 ? 'win' : (pnl < 0 ? 'loss' : '');
@@ -489,32 +877,25 @@ document.getElementById('histNext').addEventListener('click', () => {
    ============================================================ */
 function renderSettings() {
     const cfg = state.config || {};
-    // Cycle
     const cs = (cfg.cycle && cfg.cycle.session) || {};
     document.getElementById('fCapital').value  = cs.capital     ?? 100;
     document.getElementById('fTP').value       = cs.take_profit ?? 20;
     document.getElementById('fSL').value       = cs.stop_loss   ?? 20;
     document.getElementById('fInterval').value = (cfg.cycle && cfg.cycle.interval_seconds) ?? 60;
-    // Account
     const mode = (cfg.account && cfg.account.mode) || 'demo';
     document.getElementById('fMode').checked = mode === 'real';
     document.getElementById('fModeLabel').textContent = mode === 'real' ? '🔴 REAL' : '🟡 DEMO';
-    // Gates
     document.getElementById('fFrxGate').checked = cfg.frx_enabled !== false;
     document.getElementById('fSynGate').checked = !!cfg.syn_enabled;
-    // Payout
     const p = cfg.payout || {};
     document.getElementById('fPayoutEnabled').checked = p.enabled !== false;
     document.getElementById('fPayoutMin').value = p.min_threshold ?? 0.7;
-    // Stake
     const s = cfg.stake || {};
     document.getElementById('fStakeMin').value = s.absolute_min ?? 0.35;
     document.getElementById('fStakeMax').value = s.absolute_max ?? 10000;
-    // Daily
     const d = cfg.daily_summary || {};
     document.getElementById('fDailyEnabled').checked = d.enabled !== false;
     document.getElementById('fDailyReset').checked = d.reset_on_send !== false;
-    // AI
     const a = cfg.ai || {};
     document.getElementById('fAiConf').value  = a.min_confidence ?? 0.55;
     document.getElementById('fAiHist').value  = a.max_history_entries ?? 12;
@@ -525,7 +906,6 @@ function renderSettings() {
     renderOverrides();
     renderAiProviders();
 
-    // Diagnostics
     const st = state.status || {};
     const diag = [
         'account_mode  : ' + (st.account_mode || (cfg.account && cfg.account.mode) || '—'),
@@ -762,7 +1142,6 @@ function updateStatusDot() {
    BOOTSTRAP
    ============================================================ */
 async function bootstrapReload() {
-    // Refresh cached config+status+trades; UI panels re-render.
     const [cfgR, stR, actR] = await Promise.all([
         api('/api/config'),
         api('/api/status'),
@@ -776,23 +1155,25 @@ async function bootstrapReload() {
     updateModeBadge();
     updateBalance();
     updateStatusDot();
-    // If the current visible tab is Settings, re-render its fields.
     if (document.getElementById('tab-settings').classList.contains('active')) renderSettings();
     queueOverlayRefresh();
 }
 
 async function boot() {
+    // Safe to apply the theme now — `state` is fully initialized.
+    applyTheme();
     if (!INIT_DATA) {
-        // Still allow local dev: show a clear diagnostic instead of a silent 401 loop.
         toast('No Telegram initData — open this via the bot Menu Button.', 'err');
     }
     try {
         await bootstrapReload();
         populatePickers();
         initChart();
+        // Draw any indicators enabled from a previous session immediately
+        // (they'll refill with data as soon as candles arrive).
+        recomputeIndicators();
         derivConnect();
-        // Kick off periodic status polling — trades and status refresh every 15s
-        // (config we can leave until user visits Settings again).
+        requestAnimationFrame(fitCharts);
         setInterval(async () => {
             try {
                 const [stR, actR] = await Promise.all([
