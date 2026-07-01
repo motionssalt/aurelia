@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T19:35:23.988Z",
+  "last_cycle": "2026-07-01T19:41:53.887Z",
   "balance": 9906.78,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-01T13:22:20.303Z",
     "capital_start": 100,
-    "capital_remaining": 90.38,
+    "capital_remaining": 89.63,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 10,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3869325039,
+    "symbol": "frxEURGBP",
+    "placed_at": "2026-07-01T19:41:53.886Z"
+  },
   "next_cycle_eligible_at": 1782934578914,
   "trade_history_cycle": [
     {
@@ -607,6 +611,22 @@
       "entry": 0.85691,
       "pnl": -0.5,
       "ai_outcome_note": "The price initially rose slightly after entry but ultimately declined below the entry point of 0.85691, leading to a loss for the call option."
+    },
+    {
+      "ts": "2026-07-01T19:41:53.886Z",
+      "path": "cycle",
+      "symbol": "frxEURGBP",
+      "direction": "call",
+      "stake": 0.75,
+      "expiry_sec": 1800,
+      "confidence": 0.75,
+      "rationale": "M15 RSI is oversold (29.32) and rising, with price in the lower third of Bollinger Bands, indicating a potential bullish bounce. EMAs are falling, but the narrowing gap suggests potential trend exhaustion.",
+      "contract_id": 3869325039,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 0.85689,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -799,7 +819,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3869325039,
+      "path": "cycle",
+      "symbol": "frxEURGBP",
+      "placed_at": "2026-07-01T19:41:53.886Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -809,95 +837,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T16:55:33.600Z",
-      "level": "warn",
-      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_1\" anyway",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T16:56:03.451Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-01T16:56:03.451Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. Potential reversal patterns (Doji, Evening Star) are present, but supporting indicators like RSI direction or overall trend confluence are conflicting or not strong enough for a clear entry."
-      }
-    },
-    {
-      "ts": "2026-07-01T17:00:21.688Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T17:00:21.688Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:00:21.690Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:00:22.075Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=apbQpGtc"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:00:22.194Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:00:27.600Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:00:30.831Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:00:30.832Z",
-      "level": "warn",
-      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_2\" anyway",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:01:20.362Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURGBP",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-07-01T17:01:20.380Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-07-01T17:01:20.952Z",
       "level": "trade",
@@ -2312,6 +2251,98 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 54927
+      }
+    },
+    {
+      "ts": "2026-07-01T19:40:17.112Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T19:40:17.111Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:40:17.113Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:40:17.404Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jFMmKYFM"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:40:17.514Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:41:00.025Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURGBP",
+        "conf": 0.75
+      }
+    },
+    {
+      "ts": "2026-07-01T19:41:00.054Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-01T19:41:00.583Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURGBP CALL",
+      "meta": {
+        "stake": 0.75,
+        "price": 0.75,
+        "payout": 1.29,
+        "spot": 0.85689
+      }
+    },
+    {
+      "ts": "2026-07-01T19:41:02.055Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3869325039",
+      "meta": {
+        "transaction_id": 7584077879,
+        "longcode": "Win payout if EUR/GBP is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T19:41:02.569Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:41:02.661Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:41:04.576Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:41:53.886Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3869325039
       }
     }
   ],
