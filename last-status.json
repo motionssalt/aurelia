@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T13:55:19.804Z",
+  "last_cycle": "2026-07-01T14:02:06.771Z",
   "balance": 9916.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-01T13:22:20.303Z",
     "capital_start": 100,
-    "capital_remaining": 101.09,
+    "capital_remaining": 99.57,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 2,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3838392999,
+    "symbol": "frxUSDJPY",
+    "placed_at": "2026-07-01T14:02:06.771Z"
+  },
   "next_cycle_eligible_at": 1782914174822,
   "trade_history_cycle": [
     {
@@ -479,6 +483,21 @@
       "pnl": 1.09,
       "ai_outcome_note": "The price initially dipped below the entry point but then reversed strongly, climbing well above the entry to secure a winning outcome.",
       "entry": "0.68986"
+    },
+    {
+      "ts": "2026-07-01T14:02:06.771Z",
+      "path": "cycle",
+      "symbol": "frxUSDJPY",
+      "direction": "call",
+      "stake": 1.52,
+      "expiry_sec": 2700,
+      "confidence": 0.9,
+      "rationale": "Extreme oversold RSI across M5/M10/M15, coupled with price trading below lower Bollinger Bands and below EMAs, indicates a high probability of a bullish bounce.",
+      "contract_id": 3838392999,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -655,106 +674,24 @@
       "entry": "0.80997"
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3838392999,
+      "path": "cycle",
+      "symbol": "frxUSDJPY",
+      "placed_at": "2026-07-01T14:02:06.771Z",
+      "expiry_sec": 2700
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
-    "GEMINI_KEY_4": 1782894635099,
     "OPENROUTER_KEY_1": 1782876622834,
     "GEMINI_KEY_2": 1782916517358,
-    "GEMINI_KEY_1": 1782916517358
+    "GEMINI_KEY_1": 1782916517358,
+    "GEMINI_KEY_3": 1782923432582
   },
   "logs": [
-    {
-      "ts": "2026-07-01T11:25:15.174Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=l1P6XPhA"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:25:15.374Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:25:15.966Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 3821703599,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-01T10:56:54.081Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:26:56.918Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T11:26:56.918Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:26:56.921Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:26:57.338Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PvetKnGO"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:26:57.467Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:27:01.344Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:27:01.345Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:27:01.450Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:27:03.241Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:30:22.235Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T11:30:22.235Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:30:22.237Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T11:30:22.769Z",
       "level": "network",
@@ -2167,6 +2104,106 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 55018
+      }
+    },
+    {
+      "ts": "2026-07-01T14:00:27.763Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T14:00:27.762Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:00:27.765Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:00:28.119Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FfZW8a8r"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:00:28.296Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:00:44.655Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:01:14.417Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDJPY",
+        "conf": 0.9
+      }
+    },
+    {
+      "ts": "2026-07-01T14:01:14.456Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-01T14:01:14.578Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxUSDJPY CALL",
+      "meta": {
+        "stake": 1.52,
+        "price": 1.52,
+        "payout": 2.58,
+        "spot": 162.406
+      }
+    },
+    {
+      "ts": "2026-07-01T14:01:15.187Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3838392999",
+      "meta": {
+        "transaction_id": 7524237499,
+        "longcode": "Win payout if USD/JPY is strictly higher than entry spot at 45 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T14:01:15.599Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxUSDJPY @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:01:15.710Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:01:17.839Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:02:06.770Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3838392999
       }
     }
   ],
