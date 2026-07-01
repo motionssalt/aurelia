@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T03:10:21.583Z",
+  "last_cycle": "2026-07-01T03:15:19.184Z",
   "balance": 9915.26,
   "currency": "USD",
   "account_mode": "demo",
@@ -388,49 +388,6 @@
     "GEMINI_KEY_1": 1782881132456
   },
   "logs": [
-    {
-      "ts": "2026-07-01T01:00:39.346Z",
-      "level": "warn",
-      "msg": "Provider \"openai\" key env \"OPENAI_API_KEY\" not set — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T01:00:41.626Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:55.602Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:55.627Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:55.719Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxAUDUSD CALL",
-      "meta": {
-        "stake": 0.5,
-        "price": 0.5,
-        "payout": 0.85,
-        "spot": 0.69019
-      }
-    },
     {
       "ts": "2026-07-01T01:00:56.335Z",
       "level": "trade",
@@ -1858,6 +1815,44 @@
     },
     {
       "ts": "2026-07-01T03:10:21.583Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3788024539,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-01T02:56:52.449Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:15:17.858Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T03:15:17.858Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:15:17.860Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T03:15:18.339Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CGXIrjrS"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:15:18.592Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T03:15:19.183Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
