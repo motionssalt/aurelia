@@ -1,13 +1,25 @@
 /* =====================================================================
    AURELIA — indicators.js
    ─────────────────────────────────────────────────────────────────────
-   Indicator catalogue (mirrors motionsalt-headless strategy.js INDICATORS)
-   plus tiny adapters that compute "last value" suitable for an AI payload.
+   Indicator catalogue — trimmed to the essentials so the AI has room
+   to reason without being buried under a dozen overlapping oscillators.
+
+   Kept:
+     • Moving Averages     — EMA 20, EMA 50   (trend structure)
+     • Bollinger Bands     — 20 / 2σ          (volatility envelope)
+     • RSI 14                                  (momentum companion)
+     • ATR 14                                  (volatility proxy, used
+                                                by runner + payload)
+     • Support / Resistance (pivot-based)
+     • Candlestick patterns (final 1–3 candles)
+
+   Removed (previously over-loaded the prompt): MACD, ADX, Stochastic,
+   Keltner Channels, Donchian Channels, Ichimoku Cloud.
 
    The AI NEVER computes indicators — this module hands it precomputed
    numbers. Callers pass candles[] (chronological, oldest first) and get
-   back a compact { rsi, ema_20, ema_50, macd, bb, atr, adx, stoch, ... }
-   object that fits in a JSON payload.
+   back a compact { rsi_14, ema_20, ema_50, bb, atr_14 } object that
+   fits in a JSON payload.
    ===================================================================== */
 
 'use strict';
@@ -22,7 +34,7 @@ function _highs(candles)  { return candles.map(c => c.high);  }
 function _lows(candles)   { return candles.map(c => c.low);   }
 
 /* ─────────────────────────────────────────────────────────────────
-   Per-timeframe indicator pack
+   Per-timeframe indicator pack (essentials only)
    ───────────────────────────────────────────────────────────────── */
 function computeIndicatorPack(candles) {
     if (!Array.isArray(candles) || candles.length < 30) {
@@ -32,61 +44,21 @@ function computeIndicatorPack(candles) {
     const high  = _highs(candles);
     const low   = _lows(candles);
 
-    const rsi14   = _last(ti.RSI.calculate({ values: close, period: 14 }));
-    const ema20   = _last(ti.EMA.calculate({ values: close, period: 20 }));
-    const ema50   = _last(ti.EMA.calculate({ values: close, period: 50 }));
-    const macdArr = ti.MACD.calculate({
-        values: close, fastPeriod: 12, slowPeriod: 26, signalPeriod: 9,
-        SimpleMAOscillator: false, SimpleMASignal: false,
-    });
-    const macd = _last(macdArr) || {};
-    const bbArr = ti.BollingerBands.calculate({ values: close, period: 20, stdDev: 2 });
-    const bb = _last(bbArr) || {};
+    const rsi14  = _last(ti.RSI.calculate({ values: close, period: 14 }));
+    const ema20  = _last(ti.EMA.calculate({ values: close, period: 20 }));
+    const ema50  = _last(ti.EMA.calculate({ values: close, period: 50 }));
+    const bbArr  = ti.BollingerBands.calculate({ values: close, period: 20, stdDev: 2 });
+    const bb     = _last(bbArr) || {};
     const atrArr = ti.ATR.calculate({ high, low, close, period: 14 });
-    const atr = _last(atrArr);
-    const adxArr = ti.ADX.calculate({ high, low, close, period: 14 });
-    const adx = _last(adxArr) || {};
-    const stochArr = ti.Stochastic.calculate({
-        high, low, close, period: 14, signalPeriod: 3,
-    });
-    const stoch = _last(stochArr) || {};
-    const kcArr = ti.KeltnerChannels.calculate({
-        high, low, close, period: 20, multiplier: 2,
-        maType: ti.EMA, useTrueRange: true,
-    });
-    const kc = _last(kcArr) || {};
-    const dcArr = ti.DonchianChannels
-        ? ti.DonchianChannels.calculate({ high, low, period: 20 })
-        : [];
-    const dc = _last(dcArr) || {};
-    const ichi = (() => {
-        try {
-            const arr = ti.IchimokuCloud.calculate({
-                high, low, conversionPeriod: 9, basePeriod: 26,
-                spanPeriod: 52, displacement: 26,
-            });
-            return _last(arr) || {};
-        } catch (e) { return {}; }
-    })();
+    const atr    = _last(atrArr);
 
     return {
         last_close: _num(_last(close)),
         rsi_14:    _num(rsi14),
         ema_20:    _num(ema20),
         ema_50:    _num(ema50),
-        macd:      { macd: _num(macd.MACD), signal: _num(macd.signal), hist: _num(macd.histogram) },
         bb:        { lower: _num(bb.lower), middle: _num(bb.middle), upper: _num(bb.upper) },
         atr_14:    _num(atr),
-        adx:       { adx: _num(adx.adx), plusDi: _num(adx.pdi), minusDi: _num(adx.mdi) },
-        stoch:     { k: _num(stoch.k), d: _num(stoch.d) },
-        keltner:   { lower: _num(kc.lower), middle: _num(kc.middle), upper: _num(kc.upper) },
-        donchian:  { lower: _num(dc.lower), middle: _num(dc.middle), upper: _num(dc.upper) },
-        ichimoku:  {
-            conversion: _num(ichi.conversion),
-            base:       _num(ichi.base),
-            spanA:      _num(ichi.spanA),
-            spanB:      _num(ichi.spanB),
-        },
     };
 }
 
