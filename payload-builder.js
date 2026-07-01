@@ -3,16 +3,20 @@
    ─────────────────────────────────────────────────────────────────────
    Assembles the JSON payload sent to the AI on every cycle tick.
 
-   Contract (REBUILD_PROMPT §3 & §4):
-     Per enabled symbol, per timeframe (M5/M10/M15):
-       • recent OHLC (aggregated; NO raw ticks)
-       • full indicator pack (RSI/EMA/MACD/BB/ATR/ADX/Stoch/Keltner/Donchian/Ichimoku)
+   Contract:
+     Per enabled symbol, per timeframe (M5/M10/M15) — NO raw OHLC in the
+     outbound payload; the AI works from pre-computed signals only:
+       • essential indicator pack (EMA 20/50, Bollinger Bands, RSI 14, ATR 14)
        • support/resistance levels
        • candlestick pattern flags
        • spread/volatility context (atr_14 as volatility proxy)
      Plus session context (summarised, capped):
        • running W/L, streaks, P/L, capital remaining, distance to TP/SL
        • last N trades (capped) with rationale + ai_outcome_note — NOT raw candles
+
+   Candles are still FETCHED internally (needed to compute the indicators,
+   S/R and pattern flags) but they are NEVER attached to the payload the
+   AI sees. This keeps the prompt lean so the model has room to reason.
 
    Lookback: 5 hours per the spec. At M5 that's 60 candles; M10 → 30; M15 → 20.
    We pull a bit more so indicators with longer warmups can settle.
@@ -61,14 +65,12 @@ async function buildSymbolSlice(ws, symbol) {
     for (const [label, gran] of Object.entries(TF)) {
         try {
             const candles = await Deriv.ticksHistory(ws, symbol, gran, TF_CANDLE_COUNT[label]);
-            // Send only OHLC (no epoch noise) plus computed indicators.
-            const compactCandles = candles.slice(-40).map(c => ({
-                o: c.open, h: c.high, l: c.low, c: c.close,
-            }));
+            // Candles are used ONLY to compute the indicator/S-R/pattern
+            // signals below — they are intentionally NOT attached to the
+            // outbound slice. The AI should never see raw OHLC.
             slice.timeframes[label] = {
                 granularity_seconds: gran,
-                candles: compactCandles,
-                indicators:    Indicators.computeIndicatorPack(candles),
+                indicators:         Indicators.computeIndicatorPack(candles),
                 support_resistance: Indicators.computeSupportResistance(candles, 50),
                 candle_patterns:    Indicators.computeCandlePatterns(candles),
             };
