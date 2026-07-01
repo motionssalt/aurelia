@@ -69,6 +69,12 @@ html, body {
 
 /* Full-height flex column so the chart tab can fill the viewport. */
 html, body { height: 100%; }
+/* Bug-2 hardening: some viewer contexts (Telegram Desktop, mobile
+   browser previews) let the html element scroll when only body has
+   `overflow: hidden`. Locking both prevents the app from turning into
+   a single long scrolling column with the indicator sheet spilled
+   inline underneath the chart. */
+html { overflow: hidden; }
 body {
     display: flex;
     flex-direction: column;
@@ -76,6 +82,8 @@ body {
     min-height: 100dvh;
     overflow: hidden;
     padding-bottom: env(safe-area-inset-bottom);
+    /* Ensure the body is the containing block for the fixed sheet. */
+    position: relative;
 }
 
 /* ── Header ───────────────────────────────────────────────────── */
@@ -143,8 +151,8 @@ main {
     flex-direction: column;
     overflow: hidden;
 }
-.tab-body { display: none; min-height: 0; }
-.tab-body.active { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.tab-body { display: none !important; min-height: 0; }
+.tab-body.active { display: flex !important; flex-direction: column; flex: 1 1 auto; min-height: 0; }
 /* Trades & Settings scroll; Chart fills. */
 #tab-trades, #tab-settings { overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 12px; }
 
@@ -424,8 +432,31 @@ details summary { cursor: pointer; padding: 8px 0; color: var(--tg-hint); font-s
 }
 
 /* ── Indicator bottom sheet ───────────────────────────────────── */
-.sheet { position: fixed; inset: 0; z-index: 200; }
-.sheet.hidden { display: none; }
+/*
+   Robust hardening (Bug-2 fix): previously .sheet relied on the
+   default "hidden" class + a plain `position: fixed`. In some viewer
+   contexts (Telegram Desktop, mobile browser previews) the sheet
+   contents were rendering inline as normal flow, spilling the
+   indicators UI below the chart. We now:
+   • Force-hide with `display: none !important` when .hidden is on the
+     root sheet element, so nothing can ever override it.
+   • Pin the sheet with an explicit top:0/right:0/bottom:0/left:0 in
+     addition to `inset: 0`, guarding against browsers that treat
+     `inset` as unknown when combined with a containing-block ancestor
+     that has transform/filter/etc.
+   • Clip content strictly to the panel with `overflow: hidden` on the
+     sheet layer, so a fallback to static positioning still wouldn't
+     bleed into the page beneath.
+*/
+.sheet {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0;
+    z-index: 200;
+    overflow: hidden;
+    pointer-events: auto;
+}
+.sheet.hidden { display: none !important; }
 .sheet-backdrop {
     position: absolute; inset: 0;
     background: rgba(0,0,0,0.5);
@@ -434,6 +465,7 @@ details summary { cursor: pointer; padding: 8px 0; color: var(--tg-hint); font-s
 .sheet-panel {
     position: absolute; left: 0; right: 0; bottom: 0;
     background: var(--tg-bg);
+    color: var(--tg-text);
     border-top-left-radius: 18px; border-top-right-radius: 18px;
     border-top: 1px solid var(--border);
     max-height: 82vh; max-height: 82dvh;
@@ -441,13 +473,16 @@ details summary { cursor: pointer; padding: 8px 0; color: var(--tg-hint); font-s
     padding-bottom: env(safe-area-inset-bottom);
     animation: slideUp 0.2s ease;
     box-shadow: 0 -8px 30px rgba(0,0,0,0.45);
+    overflow: hidden;
 }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .sheet-head {
+    position: relative;
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 16px 10px;
     border-bottom: 1px solid var(--border-2);
+    flex: 0 0 auto;
 }
 .sheet-head::before {
     content: ''; position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
