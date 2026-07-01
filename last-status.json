@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-01T22:11:57.444Z",
-  "balance": 9906.71,
+  "last_cycle": "2026-07-01T22:15:15.728Z",
+  "balance": 9905.36,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -901,40 +901,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T19:35:18.813Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T19:35:23.987Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T19:35:23.987Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 54927
-      }
-    },
-    {
-      "ts": "2026-07-01T19:40:17.112Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T19:40:17.111Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T19:40:17.113Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T19:40:17.404Z",
       "level": "network",
@@ -2408,6 +2374,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3882342719
+      }
+    },
+    {
+      "ts": "2026-07-01T22:15:14.651Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T22:15:14.650Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T22:15:14.653Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T22:15:15.093Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nEksbXDB"
+      }
+    },
+    {
+      "ts": "2026-07-01T22:15:15.474Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T22:15:15.727Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3882342719,
+        "symbol": "R_25",
+        "placed_at": "2026-07-01T22:11:57.443Z"
       }
     }
   ],
