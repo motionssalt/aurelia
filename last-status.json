@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-01T07:35:19.927Z",
-  "balance": 9908.79,
+  "last_cycle": "2026-07-01T07:40:21.055Z",
+  "balance": 9911.38,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -491,20 +491,14 @@
       "confidence": 0.85,
       "rationale": "Extreme overbought RSI across M5/M10 (72-75), price significantly above upper Bollinger Bands and all listed resistances on multiple timeframes, indicating an overextended bullish move ripe for a bearish pullback.",
       "contract_id": 3803901239,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "win",
+      "pnl": 1.09,
+      "ai_outcome_note": "The trade won as the price, after fluctuating, eventually ended below the 0.80997 entry, confirming the bearish expectation.",
+      "entry": "0.80997"
     }
   ],
   "pending_contracts": [
-    {
-      "contract_id": 3803901239,
-      "path": "manual",
-      "symbol": "frxUSDCHF",
-      "placed_at": "2026-07-01T07:19:18.784Z",
-      "expiry_sec": 1200
-    },
     {
       "contract_id": 3804792399,
       "path": "cycle",
@@ -522,52 +516,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T05:25:18.842Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T05:25:18.842Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T05:25:18.844Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T05:25:19.402Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=m0zokFW3"
-      }
-    },
-    {
-      "ts": "2026-07-01T05:25:19.726Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T05:25:20.376Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3795867039,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-01T05:22:02.795Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T05:30:20.683Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T05:30:20.683Z"
-      }
-    },
     {
       "ts": "2026-07-01T05:30:20.685Z",
       "level": "network",
@@ -2009,14 +1957,58 @@
         "symbol": "frxUSDCHF",
         "placed_at": "2026-07-01T07:31:44.790Z"
       }
+    },
+    {
+      "ts": "2026-07-01T07:40:16.391Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T07:40:16.391Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:40:16.394Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:40:16.773Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JDDDA1Cs"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:40:16.866Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:40:21.054Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:40:21.055Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3804792399,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-01T07:31:44.790Z"
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 11,
-    "wins": 3,
+    "trades": 12,
+    "wins": 4,
     "losses": 8,
-    "pnl": -15.55,
+    "pnl": -14.46,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2065,6 +2057,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.29
+      },
+      "frxUSDCHF": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.09
       }
     }
   },
@@ -2106,13 +2104,13 @@
     "date": "2026-07-01",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 198.5,
+    "capital_remaining": 201.09,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
-    "wins": 0,
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0
+    "pnl": 1.09
   },
   "_notified_halt_reason": null
 }
