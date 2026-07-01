@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T12:40:17.979Z",
+  "last_cycle": "2026-07-01T12:45:19.925Z",
   "balance": 9913.1,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 84.9,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 19,
+    "trades": 20,
     "wins": 8,
-    "losses": 11,
-    "pnl": -13.8,
+    "losses": 12,
+    "pnl": -15.1,
     "win_streak": 0,
-    "loss_streak": 2,
+    "loss_streak": 3,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3828438039,
-    "symbol": "frxUSDCHF",
-    "placed_at": "2026-07-01T12:11:41.136Z"
-  },
-  "next_cycle_eligible_at": 1782907576853,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782909976913,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -446,10 +442,11 @@
       "confidence": 0.85,
       "rationale": "Extreme overbought conditions across M5, M10, and M15 (RSI > 70). Price is at or above the upper Bollinger Bands on all timeframes, indicating an overextended bullish move ripe for a bearish pullback.",
       "contract_id": 3828438039,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "loss",
+      "pnl": -1.3,
+      "ai_outcome_note": "The price initially dipped below entry but then reversed and climbed significantly higher, resulting in a loss for the put trade.",
+      "entry": "0.81122"
     }
   ],
   "trade_history_manual": [
@@ -626,15 +623,7 @@
       "entry": "0.80997"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3828438039,
-      "path": "cycle",
-      "symbol": "frxUSDCHF",
-      "placed_at": "2026-07-01T12:11:41.136Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -644,52 +633,6 @@
     "GEMINI_KEY_1": 1782916517358
   },
   "logs": [
-    {
-      "ts": "2026-07-01T10:20:17.211Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T10:20:17.211Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T10:20:17.214Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T10:20:17.776Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CS5u8fja"
-      }
-    },
-    {
-      "ts": "2026-07-01T10:20:17.956Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T10:21:05.451Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURCAD",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-07-01T10:21:05.543Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-07-01T10:21:06.079Z",
       "level": "trade",
@@ -2143,14 +2086,56 @@
         "symbol": "frxUSDCHF",
         "placed_at": "2026-07-01T12:11:41.136Z"
       }
+    },
+    {
+      "ts": "2026-07-01T12:45:15.948Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T12:45:15.948Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T12:45:15.949Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T12:45:16.492Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=riSDRptH"
+      }
+    },
+    {
+      "ts": "2026-07-01T12:45:16.708Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T12:45:19.924Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T12:45:19.925Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 56988
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 20,
+    "trades": 21,
     "wins": 9,
-    "losses": 11,
-    "pnl": -12.71,
+    "losses": 12,
+    "pnl": -14.01,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2201,10 +2186,10 @@
         "pnl": -1.29
       },
       "frxUSDCHF": {
-        "trades": 2,
+        "trades": 3,
         "wins": 2,
-        "losses": 0,
-        "pnl": 1.97
+        "losses": 1,
+        "pnl": 0.67
       },
       "frxEURCHF": {
         "trades": 1,
