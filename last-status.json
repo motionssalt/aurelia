@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T11:40:24.313Z",
+  "last_cycle": "2026-07-01T11:45:40.459Z",
   "balance": 9914.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -628,40 +628,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T09:32:59.657Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T09:33:01.739Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T09:35:19.901Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T09:35:19.901Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T09:35:19.903Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T09:35:20.479Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vfhB8R4Z"
-      }
-    },
     {
       "ts": "2026-07-01T09:35:20.921Z",
       "level": "network",
@@ -2100,6 +2066,44 @@
     },
     {
       "ts": "2026-07-01T11:40:24.313Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3824830459,
+        "symbol": "frxGBPJPY",
+        "placed_at": "2026-07-01T11:31:51.642Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T11:45:39.878Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T11:45:39.878Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T11:45:39.880Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T11:45:40.243Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9VyRrC93"
+      }
+    },
+    {
+      "ts": "2026-07-01T11:45:40.317Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T11:45:40.458Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
