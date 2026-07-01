@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T14:50:29.394Z",
+  "last_cycle": "2026-07-01T14:56:58.983Z",
   "balance": 9914.88,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-01T13:22:20.303Z",
     "capital_start": 100,
-    "capital_remaining": 99.57,
+    "capital_remaining": 97.07,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 3,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3843356939,
+    "symbol": "frxEURGBP",
+    "placed_at": "2026-07-01T14:56:58.982Z"
+  },
   "next_cycle_eligible_at": 1782917480659,
   "trade_history_cycle": [
     {
@@ -495,6 +499,21 @@
       "pnl": -1.52,
       "ai_outcome_note": "The anticipated bullish bounce was not sustained, as price quickly reversed and spent significant time below the entry level, leading to a loss.",
       "entry": "162.406"
+    },
+    {
+      "ts": "2026-07-01T14:56:58.982Z",
+      "path": "cycle",
+      "symbol": "frxEURGBP",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.85,
+      "rationale": "M15 RSI oversold (21.56), M10 RSI approaching oversold (30.94), price at/near lower Bollinger Bands across all timeframes, and M5 Doji/Hammer patterns indicate a strong bullish bounce.",
+      "contract_id": 3843356939,
+      "settled": false,
+      "outcome": "pending",
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -671,7 +690,15 @@
       "entry": "0.80997"
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3843356939,
+      "path": "cycle",
+      "symbol": "frxEURGBP",
+      "placed_at": "2026-07-01T14:56:58.982Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -681,98 +708,6 @@
     "GEMINI_KEY_3": 1782923432582
   },
   "logs": [
-    {
-      "ts": "2026-07-01T12:10:22.819Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T12:10:49.324Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDCHF",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-07-01T12:10:49.382Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T12:10:49.950Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDCHF PUT",
-      "meta": {
-        "stake": 1.3,
-        "price": 1.3,
-        "payout": 2.24,
-        "spot": 0.81122
-      }
-    },
-    {
-      "ts": "2026-07-01T12:10:50.679Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3828438039",
-      "meta": {
-        "transaction_id": 7504972299,
-        "longcode": "Win payout if USD/CHF is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-01T12:10:51.165Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDCHF @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T12:10:51.381Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T12:10:53.340Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T12:11:41.136Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out â returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3828438039
-      }
-    },
-    {
-      "ts": "2026-07-01T12:15:18.479Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T12:15:18.479Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T12:15:18.481Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T12:15:19.019Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VW91uYPa"
-      }
-    },
     {
       "ts": "2026-07-01T12:15:19.296Z",
       "level": "network",
@@ -2191,6 +2126,98 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 51265
+      }
+    },
+    {
+      "ts": "2026-07-01T14:55:21.432Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T14:55:21.432Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:55:21.434Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:55:21.954Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4SBHwXlU"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:55:22.240Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:56:04.232Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURGBP",
+        "conf": 0.85
+      }
+    },
+    {
+      "ts": "2026-07-01T14:56:04.398Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-01T14:56:05.064Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURGBP CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.24,
+        "spot": 0.85814
+      }
+    },
+    {
+      "ts": "2026-07-01T14:56:06.672Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3843356939",
+      "meta": {
+        "transaction_id": 7533907539,
+        "longcode": "Win payout if EUR/GBP is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T14:56:07.209Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:56:07.370Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:56:09.165Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:56:58.982Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3843356939
       }
     }
   ],
