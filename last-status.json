@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T08:57:45.287Z",
+  "last_cycle": "2026-07-01T09:00:21.915Z",
   "balance": 9913.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -548,49 +548,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T06:50:20.127Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IvWSxtNc"
-      }
-    },
-    {
-      "ts": "2026-07-01T06:50:20.223Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:50:59.047Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-07-01T06:50:59.061Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T06:50:59.540Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.29,
-        "price": 1.29,
-        "payout": 2.19,
-        "spot": 1.14026
-      }
-    },
     {
       "ts": "2026-07-01T06:51:00.100Z",
       "level": "trade",
@@ -2031,6 +1988,44 @@
       "level": "info",
       "msg": "[chart] screenshot captured",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:00:20.907Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T09:00:20.907Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:00:20.910Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:00:21.236Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Vk95GaTu"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:00:21.398Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:00:21.914Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3811209759,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-01T08:51:46.449Z"
+      }
     }
   ],
   "daily_stats": {
