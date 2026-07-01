@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AURELIA</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <header id="topbar">
+        <div class="brand">
+            <span class="dot" id="statusDot"></span>
+            <span class="title">AURELIA</span>
+            <span class="badge" id="modeBadge">—</span>
+        </div>
+        <div class="balance" id="balance">—</div>
+    </header>
+
+    <nav id="tabs">
+        <button data-tab="chart"    class="tab active">📈 Chart</button>
+        <button data-tab="trades"   class="tab">📜 Trades</button>
+        <button data-tab="settings" class="tab">⚙️ Settings</button>
+    </nav>
+
+    <main>
+        <!-- ─────────── Chart tab ─────────── -->
+        <section id="tab-chart" class="tab-body active">
+            <div class="picker-row">
+                <label>Symbol
+                    <select id="symbolPicker"></select>
+                </label>
+                <label>Timeframe
+                    <select id="tfPicker"></select>
+                </label>
+                <span id="chartStatus" class="chart-status">idle</span>
+            </div>
+            <div id="chartWrap">
+                <div id="chartOverlay" class="chart-overlay hidden">
+                    <div class="ovl-line">
+                        <span class="ovl-dir" id="ovlDir">—</span>
+                        <span class="ovl-entry" id="ovlEntry">entry —</span>
+                    </div>
+                    <div class="ovl-timer" id="ovlTimer">--:--</div>
+                    <div class="ovl-meta" id="ovlMeta"></div>
+                </div>
+                <div id="chart"></div>
+            </div>
+            <div class="chart-footer">
+                <span id="lastPrice">last —</span>
+                <span id="candleCount"></span>
+            </div>
+        </section>
+
+        <!-- ─────────── Trades tab ─────────── -->
+        <section id="tab-trades" class="tab-body">
+            <h2>Active</h2>
+            <div id="activeList" class="trade-list">
+                <div class="empty">Loading…</div>
+            </div>
+
+            <h2>History <span id="historyCount" class="dim"></span></h2>
+            <div id="historyList" class="trade-list">
+                <div class="empty">Loading…</div>
+            </div>
+            <div class="pager">
+                <button id="histPrev">◀ Prev</button>
+                <span id="histPage">page 1</span>
+                <button id="histNext">Next ▶</button>
+            </div>
+        </section>
+
+        <!-- ─────────── Settings tab ─────────── -->
+        <section id="tab-settings" class="tab-body">
+
+            <div class="card">
+                <h3>Cycle</h3>
+                <div class="row">
+                    <button id="btnStart" class="primary">▶️ Start Cycle</button>
+                    <button id="btnPause">⏸️ Pause</button>
+                    <button id="btnScan">🤖 Scan Now</button>
+                </div>
+                <div class="grid2">
+                    <label>Capital $
+                        <input type="number" step="1" min="0" id="fCapital" />
+                    </label>
+                    <label>Take Profit $
+                        <input type="number" step="1" min="0" id="fTP" />
+                    </label>
+                    <label>Stop Loss $
+                        <input type="number" step="1" min="0" id="fSL" />
+                    </label>
+                    <label>Interval s
+                        <input type="number" step="10" min="10" id="fInterval" />
+                    </label>
+                </div>
+                <div class="row"><button id="btnSaveCycle" class="primary">Save Cycle</button></div>
+            </div>
+
+            <div class="card">
+                <h3>Account</h3>
+                <div class="row">
+                    <span>Mode:</span>
+                    <label class="switch">
+                        <input type="checkbox" id="fMode" />
+                        <span class="slider"></span>
+                    </label>
+                    <span id="fModeLabel" class="dim">—</span>
+                </div>
+                <p class="dim small">Toggle switches between 🟡 DEMO and 🔴 REAL. Saved immediately.</p>
+            </div>
+
+            <div class="card">
+                <h3>Master Gates</h3>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fFrxGate" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>FRX (forex) gate</span>
+                </div>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fSynGate" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>SYN (synthetics) gate</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Symbols — Forex</h3>
+                <div id="symListFx" class="sym-grid"></div>
+            </div>
+
+            <div class="card">
+                <h3>Symbols — Synthetics</h3>
+                <div id="symListSyn" class="sym-grid"></div>
+            </div>
+
+            <div class="card">
+                <h3>Payout Filter</h3>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fPayoutEnabled" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>Enable payout filter</span>
+                </div>
+                <label class="block">Global min payout ratio (0–5)
+                    <input type="number" step="0.01" min="0" max="5" id="fPayoutMin" />
+                </label>
+                <div class="row"><button id="btnSavePayout" class="primary">Save Payout</button></div>
+                <details>
+                    <summary>Per-symbol overrides (<span id="overrideCount">0</span>)</summary>
+                    <div id="overrideList" class="override-list"></div>
+                </details>
+            </div>
+
+            <div class="card">
+                <h3>Stake Bounds</h3>
+                <div class="grid2">
+                    <label>Absolute min $
+                        <input type="number" step="0.05" min="0.01" id="fStakeMin" />
+                    </label>
+                    <label>Absolute max $
+                        <input type="number" step="100" min="1" id="fStakeMax" />
+                    </label>
+                </div>
+                <div class="row"><button id="btnSaveStake" class="primary">Save Stake</button></div>
+            </div>
+
+            <div class="card">
+                <h3>Daily Summary</h3>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fDailyEnabled" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>Auto-send</span>
+                </div>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fDailyReset" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>Reset on send</span>
+                </div>
+                <div class="row"><button id="btnDailyRun">▶️ Run summary now</button></div>
+            </div>
+
+            <div class="card">
+                <h3>AI Providers</h3>
+                <p class="dim small">Toggle enabled flag (fallback waterfall order preserved). Key material is redacted server-side and cannot be edited from here.</p>
+                <div id="aiProviders" class="sym-grid"></div>
+                <div class="grid2">
+                    <label>Min confidence
+                        <input type="number" step="0.05" min="0" max="1" id="fAiConf" />
+                    </label>
+                    <label>History entries
+                        <input type="number" step="1" min="1" id="fAiHist" />
+                    </label>
+                    <label>Bench minutes
+                        <input type="number" step="15" min="1" id="fAiBench" />
+                    </label>
+                </div>
+                <div class="row"><button id="btnSaveAi" class="primary">Save AI</button></div>
+            </div>
+
+            <div class="card">
+                <h3>Diagnostics</h3>
+                <div id="diagBox" class="diag"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
