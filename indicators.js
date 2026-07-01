@@ -29,12 +29,32 @@ const ti = require('technicalindicators');
 function _last(arr) { return arr && arr.length ? arr[arr.length - 1] : null; }
 function _num(v) { return (typeof v === 'number' && Number.isFinite(v)) ? Number(v.toFixed(6)) : null; }
 
+// Return the last n elements of arr in oldest→newest order. If arr has
+// fewer than n items (e.g. indicator warmup shortened the series),
+// front-pad with nulls so the caller always gets a length-n array.
+function _lastN(arr, n = 5) {
+    const out = new Array(n).fill(null);
+    if (!Array.isArray(arr) || arr.length === 0) return out;
+    const take = Math.min(n, arr.length);
+    const start = arr.length - take;
+    for (let i = 0; i < take; i++) out[n - take + i] = arr[start + i];
+    return out;
+}
+
 function _closes(candles) { return candles.map(c => c.close); }
 function _highs(candles)  { return candles.map(c => c.high);  }
 function _lows(candles)   { return candles.map(c => c.low);   }
 
 /* ─────────────────────────────────────────────────────────────────
    Per-timeframe indicator pack (essentials only)
+
+   NOTE: now returns the trailing 5 values (oldest→newest) per indicator
+   instead of a single most-recent snapshot. This lets the AI infer
+   direction/slope/momentum shifts, not just the current level. Shape
+   of each series is fixed at length 5 — front-padded with null when
+   the underlying indicator array is shorter (warmup). `last_close`
+   stays a scalar for backwards compatibility; `last_close_series`
+   is the additive companion series.
    ───────────────────────────────────────────────────────────────── */
 function computeIndicatorPack(candles) {
     if (!Array.isArray(candles) || candles.length < 30) {
@@ -44,21 +64,24 @@ function computeIndicatorPack(candles) {
     const high  = _highs(candles);
     const low   = _lows(candles);
 
-    const rsi14  = _last(ti.RSI.calculate({ values: close, period: 14 }));
-    const ema20  = _last(ti.EMA.calculate({ values: close, period: 20 }));
-    const ema50  = _last(ti.EMA.calculate({ values: close, period: 50 }));
-    const bbArr  = ti.BollingerBands.calculate({ values: close, period: 20, stdDev: 2 });
-    const bb     = _last(bbArr) || {};
-    const atrArr = ti.ATR.calculate({ high, low, close, period: 14 });
-    const atr    = _last(atrArr);
+    const rsi14Arr = ti.RSI.calculate({ values: close, period: 14 });
+    const ema20Arr = ti.EMA.calculate({ values: close, period: 20 });
+    const ema50Arr = ti.EMA.calculate({ values: close, period: 50 });
+    const bbArr    = ti.BollingerBands.calculate({ values: close, period: 20, stdDev: 2 });
+    const atrArr   = ti.ATR.calculate({ high, low, close, period: 14 });
 
     return {
-        last_close: _num(_last(close)),
-        rsi_14:    _num(rsi14),
-        ema_20:    _num(ema20),
-        ema_50:    _num(ema50),
-        bb:        { lower: _num(bb.lower), middle: _num(bb.middle), upper: _num(bb.upper) },
-        atr_14:    _num(atr),
+        last_close:         _num(_last(close)),
+        last_close_series:  _lastN(close, 5).map(_num),
+        rsi_14:             _lastN(rsi14Arr, 5).map(_num),
+        ema_20:             _lastN(ema20Arr, 5).map(_num),
+        ema_50:             _lastN(ema50Arr, 5).map(_num),
+        bb: {
+            lower:  _lastN(bbArr.map(b => b.lower),  5).map(_num),
+            middle: _lastN(bbArr.map(b => b.middle), 5).map(_num),
+            upper:  _lastN(bbArr.map(b => b.upper),  5).map(_num),
+        },
+        atr_14:             _lastN(atrArr, 5).map(_num),
     };
 }
 
