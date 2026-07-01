@@ -502,6 +502,26 @@ function queueOverlayRefresh() {
     // Debug aid: expose the raw match so it's easy to inspect in console.
     try { window.__aureliaActiveMatch = match || null; } catch (_) {}
     applyOverlayFor(match || null);
+
+    // Bug-1 fix follow-up: when we have an active position but no entry
+    // price yet, the backend just hasn't caught up. Poll faster on a
+    // short one-shot timer so the entry line snaps in as soon as Deriv
+    // reports it, instead of waiting the full 15s status heartbeat.
+    if (state._entryChaseTimer) {
+        clearTimeout(state._entryChaseTimer); state._entryChaseTimer = null;
+    }
+    const needsEntry = match && (
+        match.entry_price == null || !Number.isFinite(Number(match.entry_price))
+    );
+    if (needsEntry) {
+        state._entryChaseTimer = setTimeout(async () => {
+            try {
+                const actR = await api('/api/trades/active');
+                state.activeTrades = actR.active || [];
+                queueOverlayRefresh();
+            } catch (_) { /* silent — heartbeat will retry */ }
+        }, 3000);
+    }
 }
 
 /* ============================================================
