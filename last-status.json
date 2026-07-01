@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T03:05:18.829Z",
+  "last_cycle": "2026-07-01T03:10:21.583Z",
   "balance": 9915.26,
   "currency": "USD",
   "account_mode": "demo",
@@ -388,44 +388,6 @@
     "GEMINI_KEY_1": 1782881132456
   },
   "logs": [
-    {
-      "ts": "2026-07-01T01:00:26.591Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:31.096Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:35.904Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:39.346Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-01T01:00:39.346Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T01:00:39.346Z",
       "level": "warn",
@@ -1858,6 +1820,44 @@
     },
     {
       "ts": "2026-07-01T03:05:18.829Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3788024539,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-01T02:56:52.449Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:10:20.527Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T03:10:20.527Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:10:20.529Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T03:10:20.969Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=anXMQwWB"
+      }
+    },
+    {
+      "ts": "2026-07-01T03:10:21.076Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T03:10:21.583Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
