@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T23:25:14.920Z",
+  "last_cycle": "2026-07-01T23:30:26.875Z",
   "balance": 9906.45,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 90.05,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 15,
+    "trades": 16,
     "wins": 5,
-    "losses": 10,
-    "pnl": -9.85,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "losses": 11,
+    "pnl": -11.22,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3885086959,
-    "symbol": "1HZ75V",
-    "placed_at": "2026-07-01T22:56:58.844Z"
-  },
-  "next_cycle_eligible_at": 1782945974849,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782948683489,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -702,11 +698,11 @@
       "confidence": 0.8,
       "rationale": "Strong bearish trend across M5/M10/M15 (EMA50 above EMA20, both falling). M10 shows strong bearish candle patterns (bearish engulfing, evening star). Price in middle third of BB on M10, with expanding ATR on M10/M15.",
       "contract_id": 3885086959,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 5286.11,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.37,
+      "ai_outcome_note": "The price moved steadily higher after entry, contrary to the put direction, ultimately closing well above the entry point and causing the loss."
     }
   ],
   "trade_history_manual": [
@@ -899,15 +895,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3885086959,
-      "path": "cycle",
-      "symbol": "1HZ75V",
-      "placed_at": "2026-07-01T22:56:58.844Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -917,52 +905,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T20:45:15.257Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T20:45:15.257Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T20:45:15.258Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T20:45:15.765Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KYfQOqna"
-      }
-    },
-    {
-      "ts": "2026-07-01T20:45:16.056Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T20:45:54.625Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDCHF",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-07-01T20:45:54.714Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-07-01T20:45:54.815Z",
       "level": "error",
@@ -2431,14 +2373,56 @@
         "symbol": "1HZ75V",
         "placed_at": "2026-07-01T22:56:58.844Z"
       }
+    },
+    {
+      "ts": "2026-07-01T23:30:22.907Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T23:30:22.907Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T23:30:22.909Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T23:30:23.269Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6oYaqgkZ"
+      }
+    },
+    {
+      "ts": "2026-07-01T23:30:23.391Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T23:30:26.874Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T23:30:26.875Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 56614
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 37,
+    "trades": 38,
     "wins": 15,
-    "losses": 22,
-    "pnl": -22.77,
+    "losses": 23,
+    "pnl": -24.14,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2535,6 +2519,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 1.11
+      },
+      "1HZ75V": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.37
       }
     }
   },
