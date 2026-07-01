@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-01T14:02:06.771Z",
-  "balance": 9916.4,
+  "last_cycle": "2026-07-01T14:05:28.130Z",
+  "balance": 9914.88,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -692,49 +692,6 @@
     "GEMINI_KEY_3": 1782923432582
   },
   "logs": [
-    {
-      "ts": "2026-07-01T11:30:22.769Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=eUFlCUNS"
-      }
-    },
-    {
-      "ts": "2026-07-01T11:30:23.070Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T11:30:59.123Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPJPY",
-        "conf": 0.75
-      }
-    },
-    {
-      "ts": "2026-07-01T11:30:59.201Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T11:30:59.836Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPJPY CALL",
-      "meta": {
-        "stake": 0.87,
-        "price": 0.87,
-        "payout": 1.5,
-        "spot": 215.516
-      }
-    },
     {
       "ts": "2026-07-01T11:31:00.506Z",
       "level": "trade",
@@ -2204,6 +2161,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3838392999
+      }
+    },
+    {
+      "ts": "2026-07-01T14:05:27.120Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T14:05:27.120Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:05:27.122Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:05:27.542Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=eG0B6KH8"
+      }
+    },
+    {
+      "ts": "2026-07-01T14:05:27.854Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T14:05:28.129Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3838392999,
+        "symbol": "frxUSDJPY",
+        "placed_at": "2026-07-01T14:02:06.771Z"
       }
     }
   ],
