@@ -1675,6 +1675,17 @@ function buildActiveTrades(st) {
         const rec = allHist.find(r => r && r.contract_id === p.contract_id) || {};
         const placedMs = Date.parse(p.placed_at || rec.ts || '') || Date.now();
         const expiryMs = placedMs + (Number(p.expiry_sec) || Number(rec.expiry_sec) || 0) * 1000;
+        // Entry price hunt — the runner may write it as `entry` (canonical)
+        // or `entry_price`, and Deriv sometimes sends it as a string. Try
+        // multiple keys, coerce with Number(), and only surface a finite
+        // value so the client can trust it.
+        const rawEntry =
+            (rec.entry        != null ? rec.entry        : null) ??
+            (rec.entry_price  != null ? rec.entry_price  : null) ??
+            (p.entry          != null ? p.entry          : null) ??
+            (p.entry_price    != null ? p.entry_price    : null);
+        const entryNum = rawEntry != null ? Number(rawEntry) : NaN;
+        const entryPrice = Number.isFinite(entryNum) ? entryNum : null;
         return {
             contract_id: p.contract_id,
             path:        p.path       || rec.path       || 'cycle',
@@ -1683,7 +1694,7 @@ function buildActiveTrades(st) {
             stake:       rec.stake       ?? null,
             confidence:  rec.confidence  ?? null,
             rationale:   rec.rationale   || null,
-            entry_price: rec.entry != null ? Number(rec.entry) : null,
+            entry_price: entryPrice,
             placed_at:   p.placed_at || rec.ts || null,
             placed_ms:   placedMs,
             expiry_sec:  Number(p.expiry_sec) || Number(rec.expiry_sec) || 0,
