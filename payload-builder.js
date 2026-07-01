@@ -7,8 +7,13 @@
      Per enabled symbol, per timeframe (M5/M10/M15) — NO raw OHLC in the
      outbound payload; the AI works from pre-computed signals only:
        • essential indicator pack (EMA 20/50, Bollinger Bands, RSI 14, ATR 14)
+         — each as a trailing 12-value series (see indicators.js)
        • support/resistance levels
        • candlestick pattern flags
+       • derived_signals: compact labels/zones/regimes + fired-condition
+         signals array, derived from the raw indicator pack by
+         signal-features.js (slopes, RSI zone+direction, BB position,
+         ATR regime, EMA cross state, combined signals array).
        • spread/volatility context (atr_14 as volatility proxy)
      Plus session context (summarised, capped):
        • running W/L, streaks, P/L, capital remaining, distance to TP/SL
@@ -18,15 +23,26 @@
    S/R and pattern flags) but they are NEVER attached to the payload the
    AI sees. This keeps the prompt lean so the model has room to reason.
 
-   Lookback: 5 hours per the spec. At M5 that's 60 candles; M10 → 30; M15 → 20.
-   We pull a bit more so indicators with longer warmups can settle.
+   Fetch vs report — staggered horizon design:
+     We deliberately FETCH more candles than we REPORT. The fetch count
+     per TF (TF_CANDLE_COUNT below) is sized as a warmup FLOOR: enough
+     history for 50-EMA and 20-BB to have stabilised BEFORE the reported
+     window begins. The REPORT window is fixed at 12 candles per TF (see
+     indicators.REPORT_WINDOW), giving a deliberate staggered-horizon
+     structure across timeframes rather than uneven wall-clock coverage:
+       • M5  → 12 × 5m  = 1h  (immediate structure)
+       • M10 → 12 × 10m = 2h  (short trend)
+       • M15 → 12 × 15m = 3h  (broader context)
+     12 points is also the minimum needed for signal-features.js to run
+     a numerically stable regression slope over each series.
    ===================================================================== */
 
 'use strict';
 
-const Deriv      = require('./deriv');
-const Indicators = require('./indicators');
-const Logger     = require('./logger');
+const Deriv          = require('./deriv');
+const Indicators     = require('./indicators');
+const SignalFeatures = require('./signal-features');
+const Logger         = require('./logger');
 
 // Granularity (seconds) per timeframe label.
 const TF = {
@@ -35,12 +51,17 @@ const TF = {
     M15: 900,
 };
 
-// How many candles to request per TF (≥ 5h coverage, with headroom for
-// 50-period EMA / 26-period MACD warmup).
+// How many candles to FETCH per TF. This is the warmup floor — sized
+// so 50-EMA / 20-BB have fully stabilised before the trailing 12-value
+// window that indicators.js actually REPORTS. The reported horizon is
+// controlled by indicators.REPORT_WINDOW (=12), not by these numbers:
+//   M5  reported =  12 × 5m  = 1h   (fetch  ~8.3h for warmup headroom)
+//   M10 reported =  12 × 10m = 2h   (fetch  10h  for warmup headroom)
+//   M15 reported =  12 × 15m = 3h   (fetch  15h  for warmup headroom)
 const TF_CANDLE_COUNT = {
-    M5:  100,   // 100 × 5m  = ~8.3h
-    M10: 60,    // 60  × 10m = 10h
-    M15: 60,    // 60  × 15m = 15h
+    M5:  100,   // fetch 100 × 5m  → report last 12 (→1h)
+    M10: 60,    // fetch  60 × 10m → report last 12 (→2h)
+    M15: 60,    // fetch  60 × 15m → report last 12 (→3h)
 };
 
 /* ─────────────────────────────────────────────────────────────────
@@ -68,11 +89,19 @@ async function buildSymbolSlice(ws, symbol) {
             // Candles are used ONLY to compute the indicator/S-R/pattern
             // signals below — they are intentionally NOT attached to the
             // outbound slice. The AI should never see raw OHLC.
+            const indicators     = Indicators.computeIndicatorPack(candles);
+            const supportResist  = Indicators.computeSupportResistance(candles, 50);
+            const candlePatterns = Indicators.computeCandlePatterns(candles);
+            // Layered on top of the raw indicator pack: interpretable
+            // slope labels, RSI zone+direction, BB position, ATR regime,
+            // EMA cross state, and a compact fired-signals array.
+            const derivedSignals = SignalFeatures.computeDerivedSignals(indicators, candlePatterns);
             slice.timeframes[label] = {
                 granularity_seconds: gran,
-                indicators:         Indicators.computeIndicatorPack(candles),
-                support_resistance: Indicators.computeSupportResistance(candles, 50),
-                candle_patterns:    Indicators.computeCandlePatterns(candles),
+                indicators:         indicators,
+                support_resistance: supportResist,
+                candle_patterns:    candlePatterns,
+                derived_signals:    derivedSignals,
             };
         } catch (e) {
             Logger.warn(`Failed to fetch ${symbol} ${label}`, { error: e.message });
