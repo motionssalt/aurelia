@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T01:10:16.999Z",
+  "last_cycle": "2026-07-01T01:15:21.321Z",
   "balance": 9921.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -341,40 +341,6 @@
     "OPENROUTER_KEY_1": 1782876622834
   },
   "logs": [
-    {
-      "ts": "2026-06-30T22:45:18.960Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:45:19.479Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kGKr28vP"
-      }
-    },
-    {
-      "ts": "2026-06-30T22:45:19.841Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:45:19.958Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:50:22.271Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T22:50:22.271Z"
-      }
-    },
     {
       "ts": "2026-06-30T22:50:22.273Z",
       "level": "network",
@@ -1743,6 +1709,44 @@
     },
     {
       "ts": "2026-07-01T01:10:16.998Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3783103559,
+        "symbol": "frxAUDUSD",
+        "placed_at": "2026-07-01T01:01:47.386Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T01:15:19.771Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T01:15:19.770Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T01:15:19.772Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:15:20.294Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=H0PEzufY"
+      }
+    },
+    {
+      "ts": "2026-07-01T01:15:20.655Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:15:21.320Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
