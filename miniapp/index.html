@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>AURELIA</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
@@ -19,34 +19,54 @@
     </header>
 
     <nav id="tabs">
-        <button data-tab="chart"    class="tab active">📈 Chart</button>
-        <button data-tab="trades"   class="tab">📜 Trades</button>
-        <button data-tab="settings" class="tab">⚙️ Settings</button>
+        <button data-tab="chart" class="tab active">
+            <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M3 3v18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 15l3-4 3 2 4-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Chart</span>
+        </button>
+        <button data-tab="trades" class="tab">
+            <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Trades</span>
+        </button>
+        <button data-tab="settings" class="tab">
+            <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 7l2.2 1.3M17.6 15.7l2.2 1.3M4.2 17l2.2-1.3M17.6 8.3l2.2-1.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Settings</span>
+        </button>
     </nav>
 
     <main>
         <!-- ─────────── Chart tab ─────────── -->
         <section id="tab-chart" class="tab-body active">
             <div class="picker-row">
-                <label>Symbol
+                <label class="field">
+                    <span class="field-lbl">Symbol</span>
                     <select id="symbolPicker"></select>
                 </label>
-                <label>Timeframe
+                <label class="field">
+                    <span class="field-lbl">TF</span>
                     <select id="tfPicker"></select>
                 </label>
+                <button id="btnIndicators" class="icon-btn" aria-label="Indicators" title="Indicators">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 12l8 4.5 8-4.5M4 16.5l8 4.5 8-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                </button>
                 <span id="chartStatus" class="chart-status">idle</span>
             </div>
-            <div id="chartWrap">
-                <div id="chartOverlay" class="chart-overlay hidden">
-                    <div class="ovl-line">
-                        <span class="ovl-dir" id="ovlDir">—</span>
-                        <span class="ovl-entry" id="ovlEntry">entry —</span>
+
+            <div id="chartArea">
+                <div id="chartWrap">
+                    <div id="chartOverlay" class="chart-overlay hidden">
+                        <div class="ovl-line">
+                            <span class="ovl-dir" id="ovlDir">—</span>
+                            <span class="ovl-entry" id="ovlEntry">entry —</span>
+                        </div>
+                        <div class="ovl-timer" id="ovlTimer">--:--</div>
+                        <div class="ovl-meta" id="ovlMeta"></div>
                     </div>
-                    <div class="ovl-timer" id="ovlTimer">--:--</div>
-                    <div class="ovl-meta" id="ovlMeta"></div>
+                    <div id="chart"></div>
                 </div>
-                <div id="chart"></div>
+                <div id="rsiWrap" class="subpane hidden"><div class="subpane-tag">RSI</div><div id="rsiChart"></div></div>
+                <div id="atrWrap" class="subpane hidden"><div class="subpane-tag">ATR</div><div id="atrChart"></div></div>
             </div>
+
             <div class="chart-footer">
                 <span id="lastPrice">last —</span>
                 <span id="candleCount"></span>
@@ -215,9 +235,110 @@
         </section>
     </main>
 
+    <!-- ─────────── Indicators bottom sheet ─────────── -->
+    <div id="indicatorSheet" class="sheet hidden" aria-hidden="true">
+        <div class="sheet-backdrop" data-close-sheet></div>
+        <div class="sheet-panel" role="dialog" aria-label="Indicators">
+            <div class="sheet-head">
+                <h3>Indicators</h3>
+                <button class="icon-btn" data-close-sheet aria-label="Close">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+            <div class="sheet-body" id="indicatorBody">
+                <!-- Moving averages (dynamic list) -->
+                <div class="ind-group">
+                    <div class="ind-group-head">
+                        <span class="ind-group-title">EMA</span>
+                        <button class="mini-btn" id="addEma">+ Add</button>
+                    </div>
+                    <div id="emaList" class="ma-list"></div>
+                </div>
+
+                <div class="ind-group">
+                    <div class="ind-group-head">
+                        <span class="ind-group-title">SMA</span>
+                        <button class="mini-btn" id="addSma">+ Add</button>
+                    </div>
+                    <div id="smaList" class="ma-list"></div>
+                </div>
+
+                <div class="ind-group">
+                    <div class="ind-row">
+                        <label class="switch">
+                            <input type="checkbox" id="bbOn" />
+                            <span class="slider"></span>
+                        </label>
+                        <span class="ind-name">Bollinger Bands</span>
+                    </div>
+                    <div class="ind-params">
+                        <label class="param">Period
+                            <input type="number" min="1" step="1" id="bbPeriod" value="20" />
+                        </label>
+                        <label class="param">Std Dev
+                            <input type="number" min="0.1" step="0.1" id="bbMult" value="2" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ind-group">
+                    <div class="ind-row">
+                        <label class="switch">
+                            <input type="checkbox" id="kcOn" />
+                            <span class="slider"></span>
+                        </label>
+                        <span class="ind-name">Keltner Channel</span>
+                    </div>
+                    <div class="ind-params">
+                        <label class="param">EMA
+                            <input type="number" min="1" step="1" id="kcPeriod" value="20" />
+                        </label>
+                        <label class="param">ATR ×
+                            <input type="number" min="0.1" step="0.1" id="kcMult" value="1.5" />
+                        </label>
+                        <label class="param">ATR len
+                            <input type="number" min="1" step="1" id="kcAtr" value="10" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ind-group">
+                    <div class="ind-row">
+                        <label class="switch">
+                            <input type="checkbox" id="rsiOn" />
+                            <span class="slider"></span>
+                        </label>
+                        <span class="ind-name">RSI <span class="dim small">(sub-panel)</span></span>
+                    </div>
+                    <div class="ind-params">
+                        <label class="param">Period
+                            <input type="number" min="1" step="1" id="rsiPeriod" value="14" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ind-group">
+                    <div class="ind-row">
+                        <label class="switch">
+                            <input type="checkbox" id="atrOn" />
+                            <span class="slider"></span>
+                        </label>
+                        <span class="ind-name">ATR <span class="dim small">(sub-panel)</span></span>
+                    </div>
+                    <div class="ind-params">
+                        <label class="param">Period
+                            <input type="number" min="1" step="1" id="atrPeriod" value="14" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="toast" class="toast hidden"></div>
 
     <script>window.AURELIA_API_BASE = 'https://aurelia-bot.motionssalt.workers.dev';</script>
+    <script src="./indicators.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>
