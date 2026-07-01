@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T08:55:22.045Z",
+  "last_cycle": "2026-07-01T08:57:45.287Z",
   "balance": 9913.76,
   "currency": "USD",
   "account_mode": "demo",
@@ -548,50 +548,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T06:48:37.332Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:48:41.629Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:48:41.630Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxAUDJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:48:41.773Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:48:44.863Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T06:50:19.783Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T06:50:19.783Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T06:50:19.785Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T06:50:20.127Z",
       "level": "network",
@@ -2029,6 +1985,52 @@
         "symbol": "frxEURGBP",
         "placed_at": "2026-07-01T08:51:46.449Z"
       }
+    },
+    {
+      "ts": "2026-07-01T08:57:40.061Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T08:57:40.060Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T08:57:40.062Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T08:57:40.661Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=5tNyNkIl"
+      }
+    },
+    {
+      "ts": "2026-07-01T08:57:41.026Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T08:57:41.841Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T08:57:42.046Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T08:57:44.164Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
