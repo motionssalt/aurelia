@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T07:24:58.193Z",
+  "last_cycle": "2026-07-01T07:25:18.366Z",
   "balance": 9910.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -496,44 +496,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T05:10:19.296Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T05:10:19.793Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0EcZIMGw"
-      }
-    },
-    {
-      "ts": "2026-07-01T05:10:20.080Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T05:10:20.683Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3793427979,
-        "symbol": "frxNZDUSD",
-        "placed_at": "2026-07-01T04:42:30.037Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T05:15:16.617Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T05:15:16.617Z"
-      }
-    },
     {
       "ts": "2026-07-01T05:15:16.619Z",
       "level": "network",
@@ -1981,6 +1943,42 @@
       "level": "info",
       "msg": "[chart] screenshot captured",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:25:17.435Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T07:25:17.435Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:25:17.437Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:25:17.772Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VzQfPS3C"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:25:17.862Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:25:18.366Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 30394
+      }
     }
   ],
   "daily_stats": {
