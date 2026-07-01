@@ -10,26 +10,34 @@
 </head>
 <body>
     <header id="topbar">
-        <div class="brand">
-            <span class="dot" id="statusDot"></span>
-            <span class="title">AURELIA</span>
+        <section class="identity-cluster" aria-label="Connection status">
+            <span class="brand-mark" aria-hidden="true"><span class="dot" id="statusDot"></span></span>
+            <span class="brand-copy">
+                <span class="title">AURELIA</span>
+                <span class="connection-label" id="statusText">Syncing</span>
+            </span>
+        </section>
+        <section class="account-cluster" aria-label="Account summary">
             <span class="badge" id="modeBadge">—</span>
-        </div>
-        <div class="balance" id="balance">—</div>
+            <span class="balance-card">
+                <span class="balance-label">Balance</span>
+                <span class="balance" id="balance">—</span>
+            </span>
+        </section>
     </header>
 
-    <nav id="tabs">
-        <button data-tab="chart" class="tab active">
+    <nav id="tabs" aria-label="Primary navigation">
+        <button data-tab="chart" class="tab active" type="button">
             <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M3 3v18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 15l3-4 3 2 4-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Chart</span>
+            <span class="tab-label">Chart</span>
         </button>
-        <button data-tab="trades" class="tab">
+        <button data-tab="trades" class="tab" type="button">
             <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <span>Trades</span>
+            <span class="tab-label">Trades</span>
         </button>
-        <button data-tab="settings" class="tab">
+        <button data-tab="settings" class="tab" type="button">
             <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 7l2.2 1.3M17.6 15.7l2.2 1.3M4.2 17l2.2-1.3M17.6 8.3l2.2-1.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <span>Settings</span>
+            <span class="tab-label">Settings</span>
         </button>
     </nav>
 
@@ -53,14 +61,23 @@
 
             <div id="chartArea">
                 <div id="chartWrap">
-                    <div id="chartOverlay" class="chart-overlay hidden">
-                        <div class="ovl-line">
+                    <aside id="chartOverlay" class="chart-overlay hidden" aria-live="polite">
+                        <div class="ovl-head">
                             <span class="ovl-dir" id="ovlDir">—</span>
-                            <span class="ovl-entry" id="ovlEntry">entry —</span>
+                            <span class="ovl-title">Active trade</span>
                         </div>
-                        <div class="ovl-timer" id="ovlTimer">--:--</div>
+                        <div class="ovl-stats">
+                            <span class="ovl-stat">
+                                <span class="ovl-label">Entry</span>
+                                <span class="ovl-entry" id="ovlEntry">—</span>
+                            </span>
+                            <span class="ovl-stat ovl-countdown">
+                                <span class="ovl-label">Expires</span>
+                                <span class="ovl-timer" id="ovlTimer">--:--</span>
+                            </span>
+                        </div>
                         <div class="ovl-meta" id="ovlMeta"></div>
-                    </div>
+                    </aside>
                     <div id="chart"></div>
                 </div>
                 <!-- Oscillator sub-panes are created/destroyed dynamically by app.js -->
@@ -94,12 +111,12 @@
         <!-- ─────────── Settings tab ─────────── -->
         <section id="tab-settings" class="tab-body">
 
-            <div class="card">
+            <div class="card card-feature">
                 <h3>Cycle</h3>
-                <div class="row">
-                    <button id="btnStart" class="primary">▶️ Start Cycle</button>
-                    <button id="btnPause">⏸️ Pause</button>
-                    <button id="btnScan">🤖 Scan Now</button>
+                <div class="row action-row">
+                    <button id="btnStart" class="primary">Start Cycle</button>
+                    <button id="btnPause" class="secondary">Pause</button>
+                    <button id="btnScan" class="ghost">Scan Now</button>
                 </div>
                 <div class="grid2">
                     <label>Capital $
@@ -118,7 +135,7 @@
                 <div class="row"><button id="btnSaveCycle" class="primary">Save Cycle</button></div>
             </div>
 
-            <div class="card">
+            <div class="card card-compact">
                 <h3>Account</h3>
                 <div class="row">
                     <span>Mode:</span>
@@ -131,7 +148,7 @@
                 <p class="dim small">Toggle switches between 🟡 DEMO and 🔴 REAL. Saved immediately.</p>
             </div>
 
-            <div class="card">
+            <div class="card card-compact">
                 <h3>Master Gates</h3>
                 <div class="row">
                     <label class="switch">
@@ -207,7 +224,7 @@
                     </label>
                     <span>Reset on send</span>
                 </div>
-                <div class="row"><button id="btnDailyRun">▶️ Run summary now</button></div>
+                <div class="row"><button id="btnDailyRun" class="secondary">Run summary now</button></div>
             </div>
 
             <div class="card">
