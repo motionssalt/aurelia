@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T16:50:31.588Z",
+  "last_cycle": "2026-07-01T16:56:03.452Z",
   "balance": 9910.07,
   "currency": "USD",
   "account_mode": "demo",
@@ -748,66 +748,11 @@
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "GEMINI_KEY_2": 1782933624331,
-    "GEMINI_KEY_1": 1782933624331,
     "GEMINI_KEY_3": 1782933624331,
     "GEMINI_KEY_4": 1782933624331,
     "OPENROUTER_KEY_2": 1782933624331
   },
   "logs": [
-    {
-      "ts": "2026-07-01T14:10:18.688Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T14:10:19.299Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3838392999,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-01T14:02:06.771Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T14:15:20.767Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T14:15:20.767Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T14:15:20.769Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T14:15:21.319Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UZS87ZSZ"
-      }
-    },
-    {
-      "ts": "2026-07-01T14:15:21.619Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T14:15:22.344Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3838392999,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-01T14:02:06.771Z"
-      }
-    },
     {
       "ts": "2026-07-01T14:20:20.267Z",
       "level": "info",
@@ -2262,6 +2207,57 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 51306
+      }
+    },
+    {
+      "ts": "2026-07-01T16:55:25.831Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T16:55:25.830Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T16:55:25.833Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T16:55:26.454Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vMgAejS7"
+      }
+    },
+    {
+      "ts": "2026-07-01T16:55:26.770Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T16:55:33.600Z",
+      "level": "warn",
+      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_1\" anyway",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T16:56:03.451Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-01T16:56:03.451Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. Potential reversal patterns (Doji, Evening Star) are present, but supporting indicators like RSI direction or overall trend confluence are conflicting or not strong enough for a clear entry."
       }
     }
   ],
