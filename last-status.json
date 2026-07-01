@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T09:33:02.858Z",
+  "last_cycle": "2026-07-01T09:35:22.004Z",
   "balance": 9914.37,
   "currency": "USD",
   "account_mode": "demo",
@@ -564,38 +564,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T07:24:53.974Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDCHF @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T07:24:54.049Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T07:24:57.406Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T07:25:17.435Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T07:25:17.435Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T07:25:17.437Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T07:25:17.772Z",
       "level": "network",
@@ -2031,6 +1999,44 @@
       "level": "info",
       "msg": "[chart] screenshot captured",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:35:19.901Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T09:35:19.901Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:35:19.903Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:35:20.479Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vfhB8R4Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:35:20.921Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:35:22.003Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3813756839,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-01T09:22:06.617Z"
+      }
     }
   ],
   "daily_stats": {
