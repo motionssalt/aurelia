@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T19:20:22.506Z",
+  "last_cycle": "2026-07-01T19:25:17.328Z",
   "balance": 9906.78,
   "currency": "USD",
   "account_mode": "demo",
@@ -821,42 +821,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T16:50:21.874Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T16:50:21.873Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T16:50:21.875Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T16:50:22.271Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IdviEikO"
-      }
-    },
-    {
-      "ts": "2026-07-01T16:50:22.625Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T16:50:25.135Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
     {
       "ts": "2026-07-01T16:50:25.926Z",
       "level": "warn",
@@ -2316,6 +2280,44 @@
     },
     {
       "ts": "2026-07-01T19:20:22.505Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3866872519,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-01T19:16:50.141Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:25:16.024Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T19:25:16.024Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:25:16.026Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:25:16.466Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kolJD3wD"
+      }
+    },
+    {
+      "ts": "2026-07-01T19:25:16.679Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T19:25:17.327Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
