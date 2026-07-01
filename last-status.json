@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T10:40:19.432Z",
+  "last_cycle": "2026-07-01T10:41:37.000Z",
   "balance": 9914.51,
   "currency": "USD",
   "account_mode": "demo",
@@ -596,58 +596,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T08:40:21.673Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T08:40:21.673Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T08:40:21.675Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T08:40:22.028Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YHD4RRZa"
-      }
-    },
-    {
-      "ts": "2026-07-01T08:40:22.184Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T08:40:23.691Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3807926019,
-        "symbol": "frxEURCHF",
-        "placed_at": "2026-07-01T08:11:58.194Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T08:45:16.349Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T08:45:16.349Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T08:45:16.351Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T08:45:16.835Z",
       "level": "network",
@@ -2067,6 +2015,52 @@
         "symbol": "frxEURCAD",
         "placed_at": "2026-07-01T10:21:57.212Z"
       }
+    },
+    {
+      "ts": "2026-07-01T10:41:32.320Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T10:41:32.320Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T10:41:32.322Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:41:32.783Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zC6lbbZF"
+      }
+    },
+    {
+      "ts": "2026-07-01T10:41:33.029Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:41:33.654Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCAD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:41:33.782Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:41:35.825Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
