@@ -52,9 +52,40 @@ const CHART_TFS = ['1m','5m','15m','30m','1h'];
 
 /* ─────────────────────────────────────────────────────────────────
    Worker entry
+   ─────────────────────────────────────────────────────────────────
+   Two responsibilities:
+     1. Telegram webhook (POST /)  — unchanged legacy behaviour.
+     2. Mini App HTTP API (GET/POST /api/*) — new in v3.
+
+   The router matches /api/* first; anything else falls through to
+   the original Telegram webhook path so nothing existing breaks.
    ───────────────────────────────────────────────────────────────── */
 export default {
     async fetch(request, env) {
+        const url = new URL(request.url);
+
+        // ── CORS pre-flight for the Mini App ────────────────────────
+        // The Mini App HTML is served from a different origin
+        // (Cloudflare Pages or wherever the static host lives) but
+        // runs inside Telegram's WebView.  We wildcard the origin for
+        // simplicity and gate every WRITE endpoint behind an
+        // initData HMAC signature — so CORS is NOT the security
+        // boundary, initData verification is.  Read endpoints do also
+        // require initData: no plain browser fetch works.
+        if (url.pathname.startsWith('/api/') && request.method === 'OPTIONS') {
+            return new Response(null, { status: 204, headers: corsHeaders() });
+        }
+
+        if (url.pathname.startsWith('/api/')) {
+            try {
+                return await handleApi(request, env, url);
+            } catch (e) {
+                console.error('api error', e);
+                return jsonResponse({ error: e.message || 'internal' }, 500);
+            }
+        }
+
+        // ── Legacy Telegram webhook path ────────────────────────────
         if (request.method !== 'POST') {
             return new Response('aurelia webhook ok', { status: 200 });
         }
@@ -1232,3 +1263,449 @@ const KB = {
         [{ text: '⬅️ Symbols', data: 'chart' }],
     ]),
 };
+
+/* =====================================================================
+   MINI APP HTTP API  (v3)
+   ---------------------------------------------------------------------
+   All /api/* endpoints require Telegram `initData` (Web App signed
+   payload) verified with TELEGRAM_BOT_TOKEN. The client sends it as
+   the `X-Telegram-Init-Data` request header. Any request that
+   fails HMAC verification is rejected with 401 BEFORE any repo read
+   or write is performed.
+
+   Route table (see setup.md for details):
+
+     GET  /api/config           sanitized config.json
+     GET  /api/status           full last-status.json
+     GET  /api/trades/active    open positions + pending contracts
+     GET  /api/trades/history   closed trades (paginated)
+     POST /api/config           partial config patch (validated)
+     POST /api/cycle/start      same as /startcycle
+     POST /api/cycle/pause      same as /pausecycle
+     POST /api/scan             same as /scan (dispatchManual)
+
+   The write endpoints reuse the exact same mutation helpers used by
+   the Telegram command / callback handlers, so validation rules stay
+   in one place.
+   ===================================================================== */
+
+const API_CORS_ORIGIN = '*'; // permissive; initData HMAC is the real gate
+
+function corsHeaders() {
+    return {
+        'Access-Control-Allow-Origin':  API_CORS_ORIGIN,
+        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, X-Telegram-Init-Data, Authorization',
+        'Access-Control-Max-Age':       '86400',
+    };
+}
+function jsonResponse(obj, status = 200, extra = {}) {
+    return new Response(JSON.stringify(obj), {
+        status,
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            ...corsHeaders(),
+            ...extra,
+        },
+    });
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Telegram Mini App initData verification
+   ─────────────────────────────────────────────────────────────────
+   Spec: https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app
+
+   Algorithm:
+     1. Parse initData as URLSearchParams; separate `hash` from the rest
+     2. Build data_check_string = sorted "key=value" pairs joined by '\n'
+     3. secret_key = HMAC_SHA256("WebAppData", bot_token)
+     4. computed_hash = HMAC_SHA256(secret_key, data_check_string) hex
+     5. constant-time compare with the provided `hash`
+     6. reject if auth_date is older than MAX_AGE_SECONDS
+
+   Returns { ok: true, user, authDate } on success or { ok: false, reason }.
+   ───────────────────────────────────────────────────────────────── */
+const INITDATA_MAX_AGE_SEC = 24 * 3600;
+
+async function verifyInitData(initData, botToken) {
+    if (!initData) return { ok: false, reason: 'missing initData' };
+    if (!botToken)  return { ok: false, reason: 'server missing bot token' };
+    let params;
+    try { params = new URLSearchParams(initData); }
+    catch (e) { return { ok: false, reason: 'malformed initData' }; }
+
+    const hash = params.get('hash');
+    if (!hash) return { ok: false, reason: 'no hash' };
+    params.delete('hash');
+
+    // Sort and join as "key=value\nkey=value..."
+    const pairs = [];
+    for (const [k, v] of params.entries()) pairs.push([k, v]);
+    pairs.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+    const dataCheckString = pairs.map(([k, v]) => `${k}=${v}`).join('\n');
+
+    const enc = new TextEncoder();
+    const secretKey = await crypto.subtle.importKey(
+        'raw', enc.encode('WebAppData'),
+        { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const secret = await crypto.subtle.sign('HMAC', secretKey, enc.encode(botToken));
+
+    const hmacKey = await crypto.subtle.importKey(
+        'raw', secret, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const sig = await crypto.subtle.sign('HMAC', hmacKey, enc.encode(dataCheckString));
+
+    const computed = [...new Uint8Array(sig)]
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+
+    // Constant-time-ish compare
+    if (computed.length !== hash.length) return { ok: false, reason: 'bad hash' };
+    let diff = 0;
+    for (let i = 0; i < computed.length; i++) diff |= computed.charCodeAt(i) ^ hash.charCodeAt(i);
+    if (diff !== 0) return { ok: false, reason: 'bad hash' };
+
+    // Freshness check
+    const authDate = Number(params.get('auth_date') || 0);
+    if (!authDate || (Date.now() / 1000 - authDate) > INITDATA_MAX_AGE_SEC) {
+        return { ok: false, reason: 'initData expired' };
+    }
+
+    let user = null;
+    try { user = JSON.parse(params.get('user') || 'null'); } catch (_) {}
+
+    return { ok: true, user, authDate };
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Config sanitizer — strip anything that looks like a raw key/secret
+   before the client ever sees it.
+   ───────────────────────────────────────────────────────────────── */
+function sanitizeConfigForClient(cfg) {
+    // Deep-clone via JSON to avoid mutating the source
+    const c = JSON.parse(JSON.stringify(cfg || {}));
+    if (c.ai && Array.isArray(c.ai.providers)) {
+        for (const p of c.ai.providers) {
+            // Never leak actual key values — keys[] is always redacted.
+            if (Array.isArray(p.keys) && p.keys.length) {
+                p.keys = p.keys.map(k => maskKey(k));
+            }
+            // key_accounts holds provider-side account IDs, sometimes
+            // sensitive; mask their values but keep the shape.
+            if (p.key_accounts && typeof p.key_accounts === 'object') {
+                const masked = {};
+                for (const k of Object.keys(p.key_accounts)) masked[k] = '****';
+                p.key_accounts = masked;
+            }
+        }
+    }
+    // Top-level ai.key_registry is a list of secret NAMES (not values)
+    // — safe to expose.  Same for provider.key_registry / provider.key_env.
+    return c;
+}
+function maskKey(k) {
+    if (!k) return '****';
+    const s = String(k);
+    if (s.length <= 4) return '****';
+    return '****' + s.slice(-4);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Shared mutation helpers — the Telegram command/callback handlers
+   above call these too where the logic was already simple; the API
+   handlers call them so the write path stays identical.
+   ───────────────────────────────────────────────────────────────── */
+
+// Bounds enforced by the Telegram +/- buttons; the API must respect them.
+const BOUNDS = {
+    'cycle.session.capital':     { min: 0,    max: 1e9  },
+    'cycle.session.take_profit': { min: 0,    max: 1e9  },
+    'cycle.session.stop_loss':   { min: 0,    max: 1e9  },
+    'cycle.interval_seconds':    { min: 10,   max: 86400, int: true },
+    'payout.min_threshold':      { min: 0,    max: 5    },
+    'stake.absolute_min':        { min: 0.01, max: 1e6  },
+    'stake.absolute_max':        { min: 1,    max: 1e9, int: true },
+    'ai.min_confidence':         { min: 0,    max: 1    },
+    'ai.max_history_entries':    { min: 1,    max: 500,  int: true },
+    'ai.bench_minutes':          { min: 1,    max: 10080, int: true },
+};
+
+function clamp(path, v) {
+    const b = BOUNDS[path];
+    if (!b) return v;
+    let n = Number(v);
+    if (!Number.isFinite(n)) throw new Error(`invalid number for ${path}`);
+    if (b.int) n = Math.floor(n);
+    if (n < b.min) n = b.min;
+    if (n > b.max) n = b.max;
+    return n;
+}
+
+/* Apply a partial patch to config.json with the SAME rules the
+   Telegram handlers enforce. Only the fields listed here are allowed
+   to be touched by the API — anything else is silently ignored, so
+   the client cannot smuggle in e.g. changes to ai.providers[].keys. */
+function applyConfigPatch(cfg, patch) {
+    if (!patch || typeof patch !== 'object') return cfg;
+    cfg.cycle          = cfg.cycle          || {};
+    cfg.cycle.session  = cfg.cycle.session  || {};
+    cfg.symbols        = cfg.symbols        || { forex: {}, synthetics: {} };
+    cfg.symbols.forex        = cfg.symbols.forex        || {};
+    cfg.symbols.synthetics   = cfg.symbols.synthetics   || {};
+    cfg.payout         = cfg.payout         || { enabled: true, min_threshold: 0.8, per_symbol: {} };
+    cfg.payout.per_symbol = cfg.payout.per_symbol || {};
+    cfg.stake          = cfg.stake          || {};
+    cfg.ai             = cfg.ai             || {};
+    cfg.daily_summary  = cfg.daily_summary  || {};
+    cfg.account        = cfg.account        || {};
+
+    // Cycle
+    if (patch.cycle && typeof patch.cycle === 'object') {
+        if (patch.cycle.running !== undefined) cfg.cycle.running = !!patch.cycle.running;
+        if (patch.cycle.interval_seconds !== undefined)
+            cfg.cycle.interval_seconds = clamp('cycle.interval_seconds', patch.cycle.interval_seconds);
+        if (patch.cycle.session && typeof patch.cycle.session === 'object') {
+            const s = patch.cycle.session;
+            if (s.capital     !== undefined) cfg.cycle.session.capital     = clamp('cycle.session.capital',     s.capital);
+            if (s.take_profit !== undefined) cfg.cycle.session.take_profit = clamp('cycle.session.take_profit', s.take_profit);
+            if (s.stop_loss   !== undefined) cfg.cycle.session.stop_loss   = clamp('cycle.session.stop_loss',   s.stop_loss);
+        }
+    }
+
+    // Master gates
+    if (patch.frx_enabled !== undefined) cfg.frx_enabled = !!patch.frx_enabled;
+    if (patch.syn_enabled !== undefined) cfg.syn_enabled = !!patch.syn_enabled;
+
+    // Symbols — only allow toggling booleans on symbols that already exist
+    // in the map. Add/remove is intentionally NOT exposed via API to keep
+    // the surface minimal; use the Telegram Add/Remove picker for that.
+    if (patch.symbols && typeof patch.symbols === 'object') {
+        for (const pool of ['forex', 'synthetics']) {
+            const inMap  = patch.symbols[pool];
+            if (!inMap || typeof inMap !== 'object') continue;
+            for (const [sym, v] of Object.entries(inMap)) {
+                if (Object.prototype.hasOwnProperty.call(cfg.symbols[pool], sym)) {
+                    cfg.symbols[pool][sym] = !!v;
+                }
+            }
+        }
+    }
+
+    // Account mode
+    if (patch.account && typeof patch.account === 'object') {
+        if (patch.account.mode === 'demo' || patch.account.mode === 'real') {
+            cfg.account.mode = patch.account.mode;
+        }
+    }
+
+    // Payout
+    if (patch.payout && typeof patch.payout === 'object') {
+        if (patch.payout.enabled !== undefined) cfg.payout.enabled = !!patch.payout.enabled;
+        if (patch.payout.min_threshold !== undefined)
+            cfg.payout.min_threshold = clamp('payout.min_threshold', patch.payout.min_threshold);
+        if (patch.payout.per_symbol && typeof patch.payout.per_symbol === 'object') {
+            for (const [sym, v] of Object.entries(patch.payout.per_symbol)) {
+                if (v === null) {
+                    delete cfg.payout.per_symbol[sym];
+                } else {
+                    const n = Number(v);
+                    if (Number.isFinite(n) && n >= 0 && n <= 5) {
+                        cfg.payout.per_symbol[sym] = Number(n.toFixed(4));
+                    }
+                }
+            }
+        }
+    }
+
+    // Stake bounds
+    if (patch.stake && typeof patch.stake === 'object') {
+        if (patch.stake.absolute_min !== undefined)
+            cfg.stake.absolute_min = clamp('stake.absolute_min', patch.stake.absolute_min);
+        if (patch.stake.absolute_max !== undefined)
+            cfg.stake.absolute_max = clamp('stake.absolute_max', patch.stake.absolute_max);
+    }
+
+    // AI (writable subset only — no keys, no providers array replacement)
+    if (patch.ai && typeof patch.ai === 'object') {
+        if (patch.ai.min_confidence !== undefined)
+            cfg.ai.min_confidence = clamp('ai.min_confidence', patch.ai.min_confidence);
+        if (patch.ai.max_history_entries !== undefined)
+            cfg.ai.max_history_entries = clamp('ai.max_history_entries', patch.ai.max_history_entries);
+        if (patch.ai.bench_minutes !== undefined)
+            cfg.ai.bench_minutes = clamp('ai.bench_minutes', patch.ai.bench_minutes);
+        // Provider enabled-toggles only (never key material)
+        if (Array.isArray(patch.ai.providers) && Array.isArray(cfg.ai.providers)) {
+            for (const inp of patch.ai.providers) {
+                if (!inp || !inp.name) continue;
+                const target = cfg.ai.providers.find(p => p && p.name === inp.name);
+                if (target && inp.enabled !== undefined) target.enabled = !!inp.enabled;
+            }
+        }
+    }
+
+    // Daily summary
+    if (patch.daily_summary && typeof patch.daily_summary === 'object') {
+        if (patch.daily_summary.enabled !== undefined)
+            cfg.daily_summary.enabled = !!patch.daily_summary.enabled;
+        if (patch.daily_summary.reset_on_send !== undefined)
+            cfg.daily_summary.reset_on_send = !!patch.daily_summary.reset_on_send;
+    }
+
+    return cfg;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   API router
+   ───────────────────────────────────────────────────────────────── */
+async function handleApi(request, env, url) {
+    const path = url.pathname;
+
+    // Every /api/* endpoint requires initData.  We accept either a
+    // dedicated header (preferred) or an "tma <initData>" Authorization
+    // header — documented in setup.md.
+    const initData =
+        request.headers.get('X-Telegram-Init-Data') ||
+        (request.headers.get('Authorization') || '').replace(/^tma\s+/i, '') ||
+        '';
+
+    const auth = await verifyInitData(initData, env.TELEGRAM_BOT_TOKEN);
+    if (!auth.ok) {
+        return jsonResponse({ error: 'unauthorized', reason: auth.reason }, 401);
+    }
+
+    // Optional owner check — mirrors the Telegram whitelist so the API
+    // is only usable by the bot's owner, not any Telegram user who
+    // happens to open the Mini App.
+    if (env.TELEGRAM_CHAT_ID && auth.user && String(auth.user.id) !== String(env.TELEGRAM_CHAT_ID)) {
+        return jsonResponse({ error: 'forbidden', reason: 'not owner' }, 403);
+    }
+
+    // ── GET routes ────────────────────────────────────────────────
+    if (request.method === 'GET' && path === '/api/config') {
+        const cfg = await ghReadJSON(env, 'config.json');
+        return jsonResponse({
+            config: sanitizeConfigForClient(cfg),
+            catalog: {
+                forex: SYMBOL_CATALOG_FOREX,
+                synthetics: SYMBOL_CATALOG_SYN,
+            },
+            timeframes: CHART_TFS,
+        });
+    }
+    if (request.method === 'GET' && path === '/api/status') {
+        const st = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
+        // Strip logs from status GET to keep the payload small; the
+        // Mini App doesn't render logs (Telegram already does).
+        const clean = { ...st };
+        delete clean.logs;
+        return jsonResponse({ status: clean });
+    }
+    if (request.method === 'GET' && path === '/api/trades/active') {
+        const st = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
+        return jsonResponse(buildActiveTrades(st));
+    }
+    if (request.method === 'GET' && path === '/api/trades/history') {
+        const st = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
+        const limit  = Math.max(1, Math.min(500, Number(url.searchParams.get('limit'))  || 50));
+        const offset = Math.max(0,             Number(url.searchParams.get('offset')) || 0);
+        return jsonResponse(buildHistory(st, limit, offset));
+    }
+
+    // ── POST routes ───────────────────────────────────────────────
+    if (request.method === 'POST' && path === '/api/config') {
+        let patch;
+        try { patch = await request.json(); }
+        catch { return jsonResponse({ error: 'bad json' }, 400); }
+        const cfg = await ghReadJSON(env, 'config.json');
+        applyConfigPatch(cfg, patch);
+        await ghWriteJSON(env, 'config.json', cfg, 'miniapp: config patch');
+        return jsonResponse({ ok: true, config: sanitizeConfigForClient(cfg) });
+    }
+
+    if (request.method === 'POST' && path === '/api/cycle/start') {
+        const cfg = await ghReadJSON(env, 'config.json');
+        const st  = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
+        await startCycleSession(env, cfg, st);
+        await dispatchWorkflow(env, { task: 'cycle' });
+        return jsonResponse({ ok: true });
+    }
+    if (request.method === 'POST' && path === '/api/cycle/pause') {
+        const cfg = await ghReadJSON(env, 'config.json');
+        cfg.cycle = cfg.cycle || {};
+        cfg.cycle.running = false;
+        await ghWriteJSON(env, 'config.json', cfg, 'miniapp: pause cycle');
+        return jsonResponse({ ok: true });
+    }
+    if (request.method === 'POST' && path === '/api/scan') {
+        await dispatchManual(env, { action: 'trade_now' });
+        return jsonResponse({ ok: true });
+    }
+    if (request.method === 'POST' && path === '/api/daily/run') {
+        await dispatchWorkflow(env, { task: 'daily_summary' });
+        return jsonResponse({ ok: true });
+    }
+
+    return jsonResponse({ error: 'not found', path }, 404);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Active-trades / history assembly
+   ─────────────────────────────────────────────────────────────────
+   IMPORTANT — field-name assumptions inferred from the current
+   last-status.json shape (see setup.md §Assumptions):
+     • state.cycle_open_position = { contract_id, symbol, placed_at }
+       — has NO direction or entry_price fields on its own.
+     • state.pending_contracts[] = { contract_id, path, symbol,
+                                     placed_at, expiry_sec }
+       — same, no direction/entry.
+     • Direction, stake, expiry_sec live on the matching
+       trade_history_{cycle,manual}[] record (correlated by
+       contract_id). Entry price is `entry` (a string on settled
+       records) — may be null while the trade is still pending, in
+       which case the client will fall back to "no line yet".
+     • expiry_timestamp is computed as
+         Date.parse(placed_at) + expiry_sec * 1000
+       because Deriv doesn't stamp it directly in the state file.
+   ───────────────────────────────────────────────────────────────── */
+function buildActiveTrades(st) {
+    const pending = Array.isArray(st.pending_contracts) ? st.pending_contracts : [];
+    const histC   = Array.isArray(st.trade_history_cycle)  ? st.trade_history_cycle  : [];
+    const histM   = Array.isArray(st.trade_history_manual) ? st.trade_history_manual : [];
+    const allHist = histC.concat(histM);
+
+    const active = pending.map(p => {
+        const rec = allHist.find(r => r && r.contract_id === p.contract_id) || {};
+        const placedMs = Date.parse(p.placed_at || rec.ts || '') || Date.now();
+        const expiryMs = placedMs + (Number(p.expiry_sec) || Number(rec.expiry_sec) || 0) * 1000;
+        return {
+            contract_id: p.contract_id,
+            path:        p.path       || rec.path       || 'cycle',
+            symbol:      p.symbol     || rec.symbol,
+            direction:   rec.direction || null,   // 'call' | 'put' | null
+            stake:       rec.stake       ?? null,
+            confidence:  rec.confidence  ?? null,
+            rationale:   rec.rationale   || null,
+            entry_price: rec.entry != null ? Number(rec.entry) : null,
+            placed_at:   p.placed_at || rec.ts || null,
+            placed_ms:   placedMs,
+            expiry_sec:  Number(p.expiry_sec) || Number(rec.expiry_sec) || 0,
+            expiry_ms:   expiryMs,
+        };
+    });
+
+    return {
+        active,
+        cycle_open_position:  st.cycle_open_position  || null,
+    };
+}
+
+function buildHistory(st, limit, offset) {
+    const histC = Array.isArray(st.trade_history_cycle)  ? st.trade_history_cycle  : [];
+    const histM = Array.isArray(st.trade_history_manual) ? st.trade_history_manual : [];
+    // Only *closed* (settled) trades belong in "history".  Pending
+    // rows in trade_history_* are considered still active.
+    const closed = histC.concat(histM).filter(r => r && r.settled === true);
+    // Newest first
+    closed.sort((a, b) => (Date.parse(b.ts) || 0) - (Date.parse(a.ts) || 0));
+    const total = closed.length;
+    const slice = closed.slice(offset, offset + limit);
+    return { total, offset, limit, trades: slice };
+}
