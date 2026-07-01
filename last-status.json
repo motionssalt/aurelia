@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T00:45:21.042Z",
+  "last_cycle": "2026-07-01T00:45:50.246Z",
   "balance": 9922.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -323,54 +323,6 @@
     "GEMINI_KEY_4": 1782754465978
   },
   "logs": [
-    {
-      "ts": "2026-06-30T21:55:18.907Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:00:23.469Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T22:00:23.469Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T22:00:23.470Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:00:23.955Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=BNk8r3h6"
-      }
-    },
-    {
-      "ts": "2026-06-30T22:00:24.313Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:00:24.403Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T22:05:19.600Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T22:05:19.600Z"
-      }
-    },
     {
       "ts": "2026-06-30T22:05:19.602Z",
       "level": "network",
@@ -1706,6 +1658,52 @@
         "symbol": "frxUSDCAD",
         "placed_at": "2026-07-01T00:24:35.545Z"
       }
+    },
+    {
+      "ts": "2026-07-01T00:45:44.407Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T00:45:44.406Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:45:44.408Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:45:44.996Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kSH3kLpf"
+      }
+    },
+    {
+      "ts": "2026-07-01T00:45:45.312Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:45:45.913Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCAD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:45:46.055Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T00:45:49.023Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
