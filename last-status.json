@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T01:59:16.401Z",
+  "last_cycle": "2026-07-01T02:00:30.024Z",
   "balance": 9917.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -356,40 +356,6 @@
     "OPENROUTER_KEY_1": 1782876622834
   },
   "logs": [
-    {
-      "ts": "2026-07-01T00:05:18.941Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T00:05:19.130Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T00:10:15.874Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T00:10:15.873Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T00:10:15.875Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T00:10:16.237Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4DlRIzXT"
-      }
-    },
     {
       "ts": "2026-07-01T00:10:16.417Z",
       "level": "network",
@@ -1795,6 +1761,44 @@
       "level": "info",
       "msg": "[chart] screenshot captured",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-01T02:00:28.578Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T02:00:28.577Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T02:00:28.580Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T02:00:29.088Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3qtXH3WM"
+      }
+    },
+    {
+      "ts": "2026-07-01T02:00:29.407Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T02:00:30.023Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3784713039,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-01T01:37:20.021Z"
+      }
     }
   ],
   "daily_stats": {
