@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-01T10:50:22.428Z",
-  "balance": 9914.51,
+  "last_cycle": "2026-07-01T10:51:34.460Z",
+  "balance": 9916.77,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-01T00:20:53.330Z",
     "capital_start": 100,
-    "capital_remaining": 86.31,
+    "capital_remaining": 88.57,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 16,
-    "wins": 7,
+    "trades": 17,
+    "wins": 8,
     "losses": 9,
-    "pnl": -12.38,
-    "win_streak": 1,
+    "pnl": -11.43,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3818669859,
-    "symbol": "frxEURCAD",
-    "placed_at": "2026-07-01T10:21:57.212Z"
-  },
-  "next_cycle_eligible_at": 1782901148373,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782903145676,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -398,10 +394,11 @@
       "confidence": 0.8,
       "rationale": "M15 Morning Star pattern in a clear downtrend (EMA20 < EMA50 across all timeframes), with price near M5 support, indicates a strong bullish reversal.",
       "contract_id": 3818669859,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "win",
+      "pnl": 0.95,
+      "ai_outcome_note": "Despite an initial dip below the entry price, the asset recovered strongly, closing above the entry price to secure a win.",
+      "entry": "1.61989"
     }
   ],
   "trade_history_manual": [
@@ -578,15 +575,7 @@
       "entry": "0.80997"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3818669859,
-      "path": "cycle",
-      "symbol": "frxEURCAD",
-      "placed_at": "2026-07-01T10:21:57.212Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -596,66 +585,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T08:50:54.573Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURGBP CALL",
-      "meta": {
-        "stake": 0.86,
-        "price": 0.86,
-        "payout": 1.48,
-        "spot": 0.86031
-      }
-    },
-    {
-      "ts": "2026-07-01T08:50:55.968Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3811209759",
-      "meta": {
-        "transaction_id": 7471413739,
-        "longcode": "Win payout if EUR/GBP is strictly higher than entry spot at 20 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-01T08:50:56.292Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T08:50:56.393Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T08:50:58.187Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T08:51:46.449Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3811209759
-      }
-    },
-    {
-      "ts": "2026-07-01T08:55:20.654Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T08:55:20.654Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T08:55:20.655Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T08:55:21.180Z",
       "level": "network",
@@ -2063,14 +1992,66 @@
         "symbol": "frxEURCAD",
         "placed_at": "2026-07-01T10:21:57.212Z"
       }
+    },
+    {
+      "ts": "2026-07-01T10:51:24.819Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T10:51:24.819Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T10:51:24.820Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:51:25.270Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=mzv6qqkT"
+      }
+    },
+    {
+      "ts": "2026-07-01T10:51:25.495Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:51:31.482Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:51:31.482Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCAD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:51:31.610Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T10:51:33.402Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 17,
-    "wins": 8,
+    "trades": 18,
+    "wins": 9,
     "losses": 9,
-    "pnl": -11.29,
+    "pnl": -10.34,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2131,6 +2112,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 1.09
+      },
+      "frxEURCAD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 0.95
       }
     }
   },
