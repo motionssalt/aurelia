@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T21:35:26.673Z",
+  "last_cycle": "2026-07-01T21:40:24.431Z",
   "balance": 9906.71,
   "currency": "USD",
   "account_mode": "demo",
@@ -885,44 +885,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T19:00:20.925Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LNAiLBf8"
-      }
-    },
-    {
-      "ts": "2026-07-01T19:00:21.041Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T19:00:21.608Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3862937499,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-01T18:36:50.162Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T19:05:15.959Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T19:05:15.959Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T19:05:15.961Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T19:05:16.410Z",
       "level": "network",
@@ -2386,6 +2348,44 @@
     },
     {
       "ts": "2026-07-01T21:35:26.672Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3879417159,
+        "symbol": "R_100",
+        "placed_at": "2026-07-01T21:31:55.435Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T21:40:23.287Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T21:40:23.286Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T21:40:23.289Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T21:40:23.762Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UQlBOGAm"
+      }
+    },
+    {
+      "ts": "2026-07-01T21:40:24.075Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T21:40:24.431Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
