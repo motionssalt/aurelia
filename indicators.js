@@ -20,6 +20,18 @@
    numbers. Callers pass candles[] (chronological, oldest first) and get
    back a compact { rsi_14, ema_20, ema_50, bb, atr_14 } object that
    fits in a JSON payload.
+
+   Fetch-vs-report distinction:
+     • Callers fetch MORE candles than they report — enough headroom so
+       longer-warmup indicators (EMA 50, Bollinger 20) have already
+       stabilised before the reported window begins.
+     • This module REPORTS the trailing 12 computed values per series
+       (see REPORT_WINDOW below). 12 points gives a stable regression
+       slope for downstream signal-features.js while still being
+       compact enough to keep the AI payload lean.
+     • The reported horizon is therefore ~ 12 × timeframe (M5 → 1h,
+       M10 → 2h, M15 → 3h) — see payload-builder.js for the full
+       staggered-horizon rationale.
    ===================================================================== */
 
 'use strict';
@@ -29,10 +41,16 @@ const ti = require('technicalindicators');
 function _last(arr) { return arr && arr.length ? arr[arr.length - 1] : null; }
 function _num(v) { return (typeof v === 'number' && Number.isFinite(v)) ? Number(v.toFixed(6)) : null; }
 
+// Length of the trailing window this module REPORTS. Note this is
+// distinct from how many candles the caller FETCHES — fetch stays
+// larger (see payload-builder.js TF_CANDLE_COUNT) so warmup periods
+// (50-EMA, 20-BB) have room to stabilise before the reported window.
+const REPORT_WINDOW = 12;
+
 // Return the last n elements of arr in oldest→newest order. If arr has
 // fewer than n items (e.g. indicator warmup shortened the series),
 // front-pad with nulls so the caller always gets a length-n array.
-function _lastN(arr, n = 5) {
+function _lastN(arr, n = REPORT_WINDOW) {
     const out = new Array(n).fill(null);
     if (!Array.isArray(arr) || arr.length === 0) return out;
     const take = Math.min(n, arr.length);
@@ -48,13 +66,21 @@ function _lows(candles)   { return candles.map(c => c.low);   }
 /* ─────────────────────────────────────────────────────────────────
    Per-timeframe indicator pack (essentials only)
 
-   NOTE: now returns the trailing 5 values (oldest→newest) per indicator
-   instead of a single most-recent snapshot. This lets the AI infer
-   direction/slope/momentum shifts, not just the current level. Shape
-   of each series is fixed at length 5 — front-padded with null when
-   the underlying indicator array is shorter (warmup). `last_close`
-   stays a scalar for backwards compatibility; `last_close_series`
-   is the additive companion series.
+   NOTE: returns the trailing REPORT_WINDOW (=12) values (oldest→newest)
+   per indicator instead of a single most-recent snapshot. This lets
+   downstream consumers (signal-features.js, the AI) infer
+   direction/slope/momentum shifts, not just the current level.
+
+   The window was bumped from 5 → 12 to make regression-based slope
+   detection (in signal-features.js) numerically stable. Shape of each
+   series is fixed at length 12 — front-padded with null when the
+   underlying indicator array is shorter (warmup). `last_close` stays a
+   scalar for backwards compatibility; `last_close_series` is the
+   additive companion series.
+
+   Reported horizon = 12 × timeframe → M5 ≈ 1h, M10 ≈ 2h, M15 ≈ 3h.
+   Callers should fetch MORE candles than 12 so 50-EMA / 20-BB warmup
+   is complete before the reported window (see payload-builder.js).
    ───────────────────────────────────────────────────────────────── */
 function computeIndicatorPack(candles) {
     if (!Array.isArray(candles) || candles.length < 30) {
@@ -72,16 +98,16 @@ function computeIndicatorPack(candles) {
 
     return {
         last_close:         _num(_last(close)),
-        last_close_series:  _lastN(close, 5).map(_num),
-        rsi_14:             _lastN(rsi14Arr, 5).map(_num),
-        ema_20:             _lastN(ema20Arr, 5).map(_num),
-        ema_50:             _lastN(ema50Arr, 5).map(_num),
+        last_close_series:  _lastN(close).map(_num),
+        rsi_14:             _lastN(rsi14Arr).map(_num),
+        ema_20:             _lastN(ema20Arr).map(_num),
+        ema_50:             _lastN(ema50Arr).map(_num),
         bb: {
-            lower:  _lastN(bbArr.map(b => b.lower),  5).map(_num),
-            middle: _lastN(bbArr.map(b => b.middle), 5).map(_num),
-            upper:  _lastN(bbArr.map(b => b.upper),  5).map(_num),
+            lower:  _lastN(bbArr.map(b => b.lower)).map(_num),
+            middle: _lastN(bbArr.map(b => b.middle)).map(_num),
+            upper:  _lastN(bbArr.map(b => b.upper)).map(_num),
         },
-        atr_14:             _lastN(atrArr, 5).map(_num),
+        atr_14:             _lastN(atrArr).map(_num),
     };
 }
 
@@ -148,6 +174,7 @@ function computeCandlePatterns(candles) {
 }
 
 module.exports = {
+    REPORT_WINDOW,
     computeIndicatorPack,
     computeSupportResistance,
     computeCandlePatterns,
