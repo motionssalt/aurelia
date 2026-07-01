@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T07:15:15.045Z",
+  "last_cycle": "2026-07-01T07:17:07.860Z",
   "balance": 9911.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -484,60 +484,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T04:41:37.294Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxNZDUSD PUT",
-      "meta": {
-        "stake": 2.19,
-        "price": 2.19,
-        "payout": 3.71,
-        "spot": 0.56734
-      }
-    },
-    {
-      "ts": "2026-07-01T04:41:38.626Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3793427979",
-      "meta": {
-        "transaction_id": 7437711519,
-        "longcode": "Win payout if NZD/USD is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-01T04:41:38.954Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:41:39.029Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:41:40.936Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:42:30.037Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3793427979
-      }
-    },
-    {
-      "ts": "2026-07-01T04:45:17.081Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T04:45:17.081Z"
-      }
-    },
     {
       "ts": "2026-07-01T04:45:17.082Z",
       "level": "network",
@@ -1985,6 +1931,52 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-01T06:51:50.391Z"
       }
+    },
+    {
+      "ts": "2026-07-01T07:17:01.638Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T07:17:01.638Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:17:01.640Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:17:02.042Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=azRDB73a"
+      }
+    },
+    {
+      "ts": "2026-07-01T07:17:02.615Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:17:03.364Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:17:03.531Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T07:17:06.626Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
