@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-01T22:40:16.715Z",
-  "balance": 9905.36,
+  "last_cycle": "2026-07-01T22:45:19.721Z",
+  "balance": 9907.82,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-01T13:22:20.303Z",
     "capital_start": 100,
-    "capital_remaining": 88.96,
+    "capital_remaining": 91.42,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 14,
-    "wins": 4,
+    "trades": 15,
+    "wins": 5,
     "losses": 10,
-    "pnl": -10.96,
-    "win_streak": 0,
-    "loss_streak": 1,
+    "pnl": -9.85,
+    "win_streak": 1,
+    "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3882342719,
-    "symbol": "R_25",
-    "placed_at": "2026-07-01T22:11:57.443Z"
-  },
-  "next_cycle_eligible_at": 1782943577620,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782945974849,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -686,11 +682,11 @@
       "confidence": 0.85,
       "rationale": "M5 price is significantly outside the lower Bollinger Band, indicating extreme oversold conditions. This occurs within a broader bullish trend, as confirmed by rising EMAs (EMA20 above EMA50) across all timeframes. A bullish bounce is highly probable.",
       "contract_id": 3882342719,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 2715.184,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.11,
+      "ai_outcome_note": "The price initially rose significantly after entry, then experienced a pullback, but ultimately recovered to close above the entry point, resulting in a win."
     }
   ],
   "trade_history_manual": [
@@ -883,15 +879,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3882342719,
-      "path": "cycle",
-      "symbol": "R_25",
-      "placed_at": "2026-07-01T22:11:57.443Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -901,52 +889,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T20:00:26.620Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T20:00:26.620Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T20:00:26.621Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T20:00:27.272Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CjaHFiGN"
-      }
-    },
-    {
-      "ts": "2026-07-01T20:00:27.588Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T20:00:28.344Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3869325039,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-01T19:41:53.886Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T20:05:19.862Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T20:05:19.862Z"
-      }
-    },
     {
       "ts": "2026-07-01T20:05:19.864Z",
       "level": "network",
@@ -2411,14 +2353,56 @@
         "symbol": "R_25",
         "placed_at": "2026-07-01T22:11:57.443Z"
       }
+    },
+    {
+      "ts": "2026-07-01T22:45:14.119Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T22:45:14.119Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T22:45:14.121Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T22:45:14.627Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=36umGZbX"
+      }
+    },
+    {
+      "ts": "2026-07-01T22:45:14.759Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T22:45:19.720Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T22:45:19.720Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 55129
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 36,
-    "wins": 14,
+    "trades": 37,
+    "wins": 15,
     "losses": 22,
-    "pnl": -23.88,
+    "pnl": -22.77,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2509,6 +2493,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.25
+      },
+      "R_25": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.11
       }
     }
   },
