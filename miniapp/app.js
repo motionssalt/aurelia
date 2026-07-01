@@ -17,24 +17,65 @@
 const tg = window.Telegram && window.Telegram.WebApp;
 const API_BASE = (window.AURELIA_API_BASE || '').replace(/\/+$/, '');
 const DERIV_WS = 'wss://ws.derivws.com/websockets/v3?app_id=1089';
-const LS_KEY = 'aurelia.indicators.v1';
+const LS_KEY = 'aurelia.indicators.v2';
 
 // initData source of truth — set once at boot.
 let INIT_DATA = '';
 try { INIT_DATA = (tg && tg.initData) || ''; } catch (_) {}
 
-/* ── Shared colour tokens (mirror CSS variables) ──────────── */
+/* ── Shared colour tokens ─────────────────────────────────────
+   These are resolved LIVE from the CSS custom properties in
+   :root (style.css) so the chart never carries hardcoded hex
+   values that bypass the token / Telegram-theme system. We read
+   them once at boot into `COLORS` and refresh them on retint. */
+function cssVar(name, fallback) {
+    try {
+        const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        return v || fallback;
+    } catch (_) { return fallback; }
+}
 const COLORS = {
     bull: '#26c281',
     bear: '#ff5470',
     accent: '#5aa9ff',
-    ema: ['#ffb020', '#8b7bff', '#00c2d1', '#ff7ac6'],
-    sma: ['#6ec1ff', '#f6c945', '#a0e57c', '#ff9a6c'],
-    bb: '#c7a3ff',
-    kc: '#ffcf6b',
-    rsi: '#5aa9ff',
-    atr: '#ffb020',
+    ema: [], sma: [],
+    bb: '#c7a3ff', kc: '#ffcf6b', dc: '#7cc6ff', sar: '#ffb020',
+    rsi: '#5aa9ff', atr: '#ffb020',
+    macd: '#5aa9ff', macdSignal: '#ffb020',
+    stochK: '#5aa9ff', stochD: '#ffb020',
+    adx: '#c7a3ff', diPlus: '#26c281', diMinus: '#ff5470',
+    willr: '#8b7bff', cci: '#00c2d1',
 };
+/* Pull the palette from CSS tokens so all defaults live in :root. */
+function refreshColors() {
+    COLORS.bull    = cssVar('--bull', '#26c281');
+    COLORS.bear    = cssVar('--bear', '#ff5470');
+    COLORS.accent  = cssVar('--accent', '#5aa9ff');
+    COLORS.ema = [
+        cssVar('--ind-a', '#ffb020'), cssVar('--ind-b', '#8b7bff'),
+        cssVar('--ind-c', '#00c2d1'), cssVar('--ind-d', '#ff7ac6'),
+    ];
+    COLORS.sma = [
+        cssVar('--ind-e', '#6ec1ff'), cssVar('--ind-f', '#f6c945'),
+        cssVar('--ind-g', '#a0e57c'), cssVar('--ind-h', '#ff9a6c'),
+    ];
+    COLORS.bb   = cssVar('--ind-b', '#c7a3ff');
+    COLORS.kc   = cssVar('--ind-f', '#ffcf6b');
+    COLORS.dc   = cssVar('--ind-e', '#7cc6ff');
+    COLORS.sar  = cssVar('--ind-a', '#ffb020');
+    COLORS.rsi  = cssVar('--accent', '#5aa9ff');
+    COLORS.atr  = cssVar('--ind-a', '#ffb020');
+    COLORS.macd = cssVar('--accent', '#5aa9ff');
+    COLORS.macdSignal = cssVar('--ind-a', '#ffb020');
+    COLORS.stochK = cssVar('--accent', '#5aa9ff');
+    COLORS.stochD = cssVar('--ind-a', '#ffb020');
+    COLORS.adx    = cssVar('--ind-b', '#c7a3ff');
+    COLORS.diPlus = cssVar('--bull', '#26c281');
+    COLORS.diMinus= cssVar('--bear', '#ff5470');
+    COLORS.willr  = cssVar('--ind-b', '#8b7bff');
+    COLORS.cci    = cssVar('--ind-c', '#00c2d1');
+}
+refreshColors();
 
 /* ── Telegram SDK bootstrap ───────────────────────────────── */
 function applyTheme() {
@@ -99,12 +140,21 @@ async function api(path, opts = {}) {
 /* ── Indicator config (persisted to localStorage) ─────────── */
 function defaultIndicatorConfig() {
     return {
+        // Overlay indicators (drawn on the price chart)
         emas: [{ period: 20, on: true }, { period: 50, on: true }],
         smas: [],
-        bb:  { on: false, period: 20, mult: 2 },
-        kc:  { on: false, period: 20, atr: 10, mult: 1.5 },
-        rsi: { on: false, period: 14 },
-        atr: { on: false, period: 14 },
+        bb:   { on: false, period: 20, mult: 2 },
+        kc:   { on: false, period: 20, atr: 10, mult: 1.5 },
+        dc:   { on: false, period: 20 },
+        sar:  { on: false, step: 0.02, max: 0.2 },
+        // Oscillator indicators (drawn in dedicated sub-panes)
+        rsi:   { on: false, period: 14 },
+        atr:   { on: false, period: 14 },
+        macd:  { on: false, fast: 12, slow: 26, signal: 9 },
+        stoch: { on: false, k: 14, d: 3, smooth: 3 },
+        adx:   { on: false, period: 14 },
+        willr: { on: false, period: 14 },
+        cci:   { on: false, period: 20 },
     };
 }
 function loadIndicatorConfig() {
@@ -117,10 +167,17 @@ function loadIndicatorConfig() {
         return {
             emas: Array.isArray(parsed.emas) ? parsed.emas : def.emas,
             smas: Array.isArray(parsed.smas) ? parsed.smas : def.smas,
-            bb:  Object.assign(def.bb,  parsed.bb  || {}),
-            kc:  Object.assign(def.kc,  parsed.kc  || {}),
-            rsi: Object.assign(def.rsi, parsed.rsi || {}),
-            atr: Object.assign(def.atr, parsed.atr || {}),
+            bb:    Object.assign(def.bb,    parsed.bb    || {}),
+            kc:    Object.assign(def.kc,    parsed.kc    || {}),
+            dc:    Object.assign(def.dc,    parsed.dc    || {}),
+            sar:   Object.assign(def.sar,   parsed.sar   || {}),
+            rsi:   Object.assign(def.rsi,   parsed.rsi   || {}),
+            atr:   Object.assign(def.atr,   parsed.atr   || {}),
+            macd:  Object.assign(def.macd,  parsed.macd  || {}),
+            stoch: Object.assign(def.stoch, parsed.stoch || {}),
+            adx:   Object.assign(def.adx,   parsed.adx   || {}),
+            willr: Object.assign(def.willr, parsed.willr || {}),
+            cci:   Object.assign(def.cci,   parsed.cci   || {}),
         };
     } catch (_) { return defaultIndicatorConfig(); }
 }
@@ -140,10 +197,8 @@ const state = {
     historyTotal: 0,
     chart: null,
     series: null,
-    rsiChart: null,
-    rsiSeries: null,
-    atrChart: null,
-    atrSeries: null,
+    // Generic oscillator sub-panes: key -> { chart, el, series: {..}, priceLines: [] }
+    subCharts: {},
     ws: null,
     wsPingTimer: null,
     subscriptionId: null,
@@ -319,57 +374,131 @@ function initChart() {
         if (state.syncing || !range) return;
         state.syncing = true;
         try {
-            if (state.rsiChart) state.rsiChart.timeScale().setVisibleLogicalRange(range);
-            if (state.atrChart) state.atrChart.timeScale().setVisibleLogicalRange(range);
+            Object.values(state.subCharts).forEach(sc => {
+                if (sc.chart) sc.chart.timeScale().setVisibleLogicalRange(range);
+            });
         } catch (_) {}
         state.syncing = false;
     });
 }
 
+/* ── Dynamic oscillator sub-panes ─────────────────────────────
+   Each oscillator (RSI, ATR, MACD, Stochastic, ADX, Williams %R,
+   CCI) renders in its own lightweight-charts instance stacked
+   below the main price chart. Panes are created/destroyed on
+   demand as indicators are toggled. */
+const SUBPANE_LABELS = {
+    rsi: 'RSI', atr: 'ATR', macd: 'MACD', stoch: 'STOCH',
+    adx: 'ADX', willr: 'W%R', cci: 'CCI',
+};
+/* Deterministic display order for stacked panes. */
+const SUBPANE_ORDER = ['rsi', 'atr', 'macd', 'stoch', 'adx', 'willr', 'cci'];
+
 function ensureSubChart(which) {
-    // which = 'rsi' | 'atr'
-    const wrapId   = which + 'Wrap';
-    const chartId  = which + 'Chart';
-    const wrap = document.getElementById(wrapId);
-    wrap.classList.remove('hidden');
-    if (state[which + 'Chart']) return;
-    const el = document.getElementById(chartId);
+    if (state.subCharts[which]) return state.subCharts[which];
+    const host = document.getElementById('subpanes');
+
+    // Build the wrapper DOM.
+    const wrap = document.createElement('div');
+    wrap.className = 'subpane';
+    wrap.dataset.pane = which;
+    const tag = document.createElement('div');
+    tag.className = 'subpane-tag';
+    tag.textContent = SUBPANE_LABELS[which] || which.toUpperCase();
+    const chartEl = document.createElement('div');
+    chartEl.className = 'subpane-chart';
+    wrap.appendChild(tag);
+    wrap.appendChild(chartEl);
+
+    // Insert in canonical order so panes never reshuffle unpredictably.
+    const orderIdx = SUBPANE_ORDER.indexOf(which);
+    let before = null;
+    for (const child of Array.from(host.children)) {
+        const ci = SUBPANE_ORDER.indexOf(child.dataset.pane);
+        if (ci > orderIdx) { before = child; break; }
+    }
+    host.insertBefore(wrap, before);
+
     const { bg, text, grid } = chartThemeOptions();
-    const c = LightweightCharts.createChart(el, {
-        width: el.clientWidth,
-        height: el.clientHeight,
+    const c = LightweightCharts.createChart(chartEl, {
+        width: chartEl.clientWidth,
+        height: chartEl.clientHeight,
         layout: { background: { color: bg }, textColor: text, fontSize: 10 },
         grid:   { vertLines: { color: grid }, horzLines: { color: grid } },
         rightPriceScale: { borderColor: grid },
-        timeScale: { borderColor: grid, timeVisible: true, secondsVisible: false },
+        timeScale: { borderColor: grid, timeVisible: true, secondsVisible: false, visible: false },
         crosshair: { mode: 0 },
+        handleScale: false,
+        handleScroll: false,
     });
+
+    const sc = { chart: c, el: chartEl, wrap, series: {} };
+    const line = (color, opts) => c.addLineSeries(Object.assign({
+        color, lineWidth: 2, priceLineVisible: false, lastValueVisible: false,
+    }, opts || {}));
+
     if (which === 'rsi') {
-        state.rsiChart = c;
-        state.rsiSeries = c.addLineSeries({ color: COLORS.rsi, lineWidth: 2 });
-        // 30 / 70 guide lines
-        state.rsiSeries.createPriceLine({ price: 70, color: 'rgba(255,84,112,0.5)', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '70' });
-        state.rsiSeries.createPriceLine({ price: 30, color: 'rgba(38,194,129,0.5)', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '30' });
-    } else {
-        state.atrChart = c;
-        state.atrSeries = c.addLineSeries({ color: COLORS.atr, lineWidth: 2 });
+        sc.series.main = line(COLORS.rsi);
+        sc.series.main.createPriceLine({ price: 70, color: withAlpha(COLORS.bear, 0.5), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '70' });
+        sc.series.main.createPriceLine({ price: 30, color: withAlpha(COLORS.bull, 0.5), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '30' });
+    } else if (which === 'atr') {
+        sc.series.main = line(COLORS.atr);
+    } else if (which === 'macd') {
+        sc.series.hist = c.addHistogramSeries({ priceLineVisible: false, lastValueVisible: false });
+        sc.series.macd = line(COLORS.macd);
+        sc.series.signal = line(COLORS.macdSignal, { lineWidth: 1 });
+    } else if (which === 'stoch') {
+        sc.series.k = line(COLORS.stochK);
+        sc.series.d = line(COLORS.stochD, { lineWidth: 1 });
+        sc.series.k.createPriceLine({ price: 80, color: withAlpha(COLORS.bear, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '80' });
+        sc.series.k.createPriceLine({ price: 20, color: withAlpha(COLORS.bull, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '20' });
+    } else if (which === 'adx') {
+        sc.series.adx = line(COLORS.adx, { lineWidth: 2 });
+        sc.series.plus = line(COLORS.diPlus, { lineWidth: 1 });
+        sc.series.minus = line(COLORS.diMinus, { lineWidth: 1 });
+        sc.series.adx.createPriceLine({ price: 25, color: withAlpha(COLORS.accent, 0.4), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '25' });
+    } else if (which === 'willr') {
+        sc.series.main = line(COLORS.willr);
+        sc.series.main.createPriceLine({ price: -20, color: withAlpha(COLORS.bear, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '-20' });
+        sc.series.main.createPriceLine({ price: -80, color: withAlpha(COLORS.bull, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '-80' });
+    } else if (which === 'cci') {
+        sc.series.main = line(COLORS.cci);
+        sc.series.main.createPriceLine({ price: 100, color: withAlpha(COLORS.bear, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '100' });
+        sc.series.main.createPriceLine({ price: -100, color: withAlpha(COLORS.bull, 0.45), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: '-100' });
     }
-    // Sync main chart to reflect new pane immediately.
+
+    state.subCharts[which] = sc;
+
+    // Adopt the main chart's current visible range so panes line up.
+    try {
+        const range = state.chart && state.chart.timeScale().getVisibleLogicalRange();
+        if (range) c.timeScale().setVisibleLogicalRange(range);
+    } catch (_) {}
+
     fitCharts();
+    return sc;
 }
 
 function destroySubChart(which) {
-    const wrap = document.getElementById(which + 'Wrap');
-    if (state[which + 'Chart']) {
-        try { state[which + 'Chart'].remove(); } catch (_) {}
-        state[which + 'Chart'] = null;
-        state[which + 'Series'] = null;
-    }
-    if (wrap) wrap.classList.add('hidden');
+    const sc = state.subCharts[which];
+    if (!sc) return;
+    try { sc.chart.remove(); } catch (_) {}
+    if (sc.wrap && sc.wrap.parentNode) sc.wrap.parentNode.removeChild(sc.wrap);
+    delete state.subCharts[which];
     fitCharts();
 }
 
+/* Convert a hex color token to an rgba() string with the given alpha.
+   Keeps guide-line colors derived from the same tokens (no new hex). */
+function withAlpha(hex, a) {
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(String(hex).trim());
+    if (!m) return hex;
+    const r = parseInt(m[1], 16), g = parseInt(m[2], 16), b = parseInt(m[3], 16);
+    return `rgba(${r},${g},${b},${a})`;
+}
+
 function retintChart() {
+    refreshColors();
     if (!state.chart) return;
     const { bg, text, grid } = chartThemeOptions();
     const opts = {
@@ -380,24 +509,28 @@ function retintChart() {
     };
     try {
         state.chart.applyOptions(opts);
-        if (state.rsiChart) state.rsiChart.applyOptions(opts);
-        if (state.atrChart) state.atrChart.applyOptions(opts);
+        // Re-tint the candlestick series to the (possibly updated) tokens.
+        if (state.series) state.series.applyOptions({
+            upColor: COLORS.bull, downColor: COLORS.bear,
+            borderUpColor: COLORS.bull, borderDownColor: COLORS.bear,
+            wickUpColor: COLORS.bull, wickDownColor: COLORS.bear,
+        });
+        Object.values(state.subCharts).forEach(sc => {
+            try { sc.chart.applyOptions(opts); } catch (_) {}
+        });
     } catch (_) {}
 }
 
 /* Resize all charts to their containers. Called on resize/orientation
    change and whenever a sub-pane is toggled. */
 function fitCharts() {
-    const fit = (chart, elId) => {
-        if (!chart) return;
-        const el = document.getElementById(elId);
-        if (!el) return;
+    const fitEl = (chart, el) => {
+        if (!chart || !el) return;
         const w = el.clientWidth, h = el.clientHeight;
         if (w > 0 && h > 0) chart.applyOptions({ width: w, height: h });
     };
-    fit(state.chart, 'chart');
-    fit(state.rsiChart, 'rsiChart');
-    fit(state.atrChart, 'atrChart');
+    fitEl(state.chart, document.getElementById('chart'));
+    Object.values(state.subCharts).forEach(sc => fitEl(sc.chart, sc.el));
 }
 window.addEventListener('resize', () => requestAnimationFrame(fitCharts));
 window.addEventListener('orientationchange', () => setTimeout(fitCharts, 250));
@@ -605,30 +738,84 @@ function recomputeIndicators() {
                 s.setData(I.toLineData(candles, arr));
             });
     }
+    // Donchian Channels
+    if (cfg.dc.on) {
+        const dc = I.donchian(candles, Number(cfg.dc.period) || 20);
+        [['dc_u', dc.upper, { lineStyle: 2 }], ['dc_m', dc.middle, { lineStyle: 3 }], ['dc_l', dc.lower, { lineStyle: 2 }]]
+            .forEach(([key, arr, extra]) => {
+                wanted.add(key);
+                const s = ensureOverlaySeries(key, COLORS.dc, Object.assign({ lineWidth: 1 }, extra));
+                s.setData(I.toLineData(candles, arr));
+            });
+    }
+    // Parabolic SAR — dotted markers rendered as a thin point-style line.
+    if (cfg.sar.on) {
+        const sar = I.parabolicSar(candles, Number(cfg.sar.step) || 0.02, Number(cfg.sar.max) || 0.2);
+        wanted.add('sar');
+        const s = ensureOverlaySeries('sar', COLORS.sar, {
+            lineWidth: 1,
+            lineStyle: LightweightCharts.LineStyle ? LightweightCharts.LineStyle.Dotted : 1,
+            pointMarkersVisible: true,
+            pointMarkersRadius: 2,
+        });
+        s.setData(I.toLineData(candles, sar));
+    }
 
     // Remove any price-overlay series no longer wanted.
     Object.keys(state.overlaySeries).forEach(key => {
         if (!wanted.has(key)) removeOverlay(key);
     });
 
-    // RSI sub-pane
+    /* ── Oscillator sub-panes ────────────────────────────────── */
+    // RSI
     if (cfg.rsi.on) {
-        ensureSubChart('rsi');
-        if (state.rsiSeries) {
-            state.rsiSeries.setData(I.toLineData(candles, I.rsi(closes, Number(cfg.rsi.period) || 14)));
-        }
-    } else {
-        destroySubChart('rsi');
-    }
-    // ATR sub-pane
+        const sc = ensureSubChart('rsi');
+        sc.series.main.setData(I.toLineData(candles, I.rsi(closes, Number(cfg.rsi.period) || 14)));
+    } else destroySubChart('rsi');
+
+    // ATR
     if (cfg.atr.on) {
-        ensureSubChart('atr');
-        if (state.atrSeries) {
-            state.atrSeries.setData(I.toLineData(candles, I.atr(candles, Number(cfg.atr.period) || 14)));
-        }
-    } else {
-        destroySubChart('atr');
-    }
+        const sc = ensureSubChart('atr');
+        sc.series.main.setData(I.toLineData(candles, I.atr(candles, Number(cfg.atr.period) || 14)));
+    } else destroySubChart('atr');
+
+    // MACD (line + signal + histogram)
+    if (cfg.macd.on) {
+        const sc = ensureSubChart('macd');
+        const m = I.macd(closes, Number(cfg.macd.fast) || 12, Number(cfg.macd.slow) || 26, Number(cfg.macd.signal) || 9);
+        sc.series.hist.setData(I.toHistData(candles, m.histogram, withAlpha(COLORS.bull, 0.5), withAlpha(COLORS.bear, 0.5)));
+        sc.series.macd.setData(I.toLineData(candles, m.macd));
+        sc.series.signal.setData(I.toLineData(candles, m.signal));
+    } else destroySubChart('macd');
+
+    // Stochastic (%K + %D)
+    if (cfg.stoch.on) {
+        const sc = ensureSubChart('stoch');
+        const st = I.stochastic(candles, Number(cfg.stoch.k) || 14, Number(cfg.stoch.d) || 3, Number(cfg.stoch.smooth) || 3);
+        sc.series.k.setData(I.toLineData(candles, st.k));
+        sc.series.d.setData(I.toLineData(candles, st.d));
+    } else destroySubChart('stoch');
+
+    // ADX (+DI / -DI)
+    if (cfg.adx.on) {
+        const sc = ensureSubChart('adx');
+        const a = I.adx(candles, Number(cfg.adx.period) || 14);
+        sc.series.adx.setData(I.toLineData(candles, a.adx));
+        sc.series.plus.setData(I.toLineData(candles, a.plusDI));
+        sc.series.minus.setData(I.toLineData(candles, a.minusDI));
+    } else destroySubChart('adx');
+
+    // Williams %R
+    if (cfg.willr.on) {
+        const sc = ensureSubChart('willr');
+        sc.series.main.setData(I.toLineData(candles, I.williamsR(candles, Number(cfg.willr.period) || 14)));
+    } else destroySubChart('willr');
+
+    // CCI
+    if (cfg.cci.on) {
+        const sc = ensureSubChart('cci');
+        sc.series.main.setData(I.toLineData(candles, I.cci(candles, Number(cfg.cci.period) || 20)));
+    } else destroySubChart('cci');
 }
 
 /* ── Indicator sheet UI ───────────────────────────────────── */
@@ -665,18 +852,50 @@ function renderIndicatorSheet() {
     document.getElementById('smaList').innerHTML =
         cfg.smas.map((e, i) => maRowHtml('sma', i, e)).join('');
     // Static toggles / params
-    document.getElementById('bbOn').checked = cfg.bb.on;
-    document.getElementById('bbPeriod').value = cfg.bb.period;
-    document.getElementById('bbMult').value = cfg.bb.mult;
-    document.getElementById('kcOn').checked = cfg.kc.on;
-    document.getElementById('kcPeriod').value = cfg.kc.period;
-    document.getElementById('kcMult').value = cfg.kc.mult;
-    document.getElementById('kcAtr').value = cfg.kc.atr;
-    document.getElementById('rsiOn').checked = cfg.rsi.on;
-    document.getElementById('rsiPeriod').value = cfg.rsi.period;
-    document.getElementById('atrOn').checked = cfg.atr.on;
-    document.getElementById('atrPeriod').value = cfg.atr.period;
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+    const chk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = !!v; };
+    chk('bbOn', cfg.bb.on);   set('bbPeriod', cfg.bb.period);  set('bbMult', cfg.bb.mult);
+    chk('kcOn', cfg.kc.on);   set('kcPeriod', cfg.kc.period);  set('kcMult', cfg.kc.mult); set('kcAtr', cfg.kc.atr);
+    chk('dcOn', cfg.dc.on);   set('dcPeriod', cfg.dc.period);
+    chk('sarOn', cfg.sar.on); set('sarStep', cfg.sar.step);    set('sarMax', cfg.sar.max);
+    chk('rsiOn', cfg.rsi.on); set('rsiPeriod', cfg.rsi.period);
+    chk('atrOn', cfg.atr.on); set('atrPeriod', cfg.atr.period);
+    chk('macdOn', cfg.macd.on); set('macdFast', cfg.macd.fast); set('macdSlow', cfg.macd.slow); set('macdSignal', cfg.macd.signal);
+    chk('stochOn', cfg.stoch.on); set('stochK', cfg.stoch.k); set('stochD', cfg.stoch.d); set('stochSmooth', cfg.stoch.smooth);
+    chk('adxOn', cfg.adx.on);     set('adxPeriod', cfg.adx.period);
+    chk('willrOn', cfg.willr.on); set('willrPeriod', cfg.willr.period);
+    chk('cciOn', cfg.cci.on);     set('cciPeriod', cfg.cci.period);
     wireMaRows();
+    refreshGroupActiveStates();
+    paintSwatches();
+}
+
+/* Reflect each indicator group's on/off state on its card container
+   (adds `.is-on`) for the active-state visual treatment. */
+function refreshGroupActiveStates() {
+    document.querySelectorAll('.ind-group[data-on-target]').forEach(g => {
+        const t = document.getElementById(g.dataset.onTarget);
+        g.classList.toggle('is-on', !!(t && t.checked));
+    });
+    // EMA / SMA groups: on if any member line is enabled.
+    const emaGroup = document.getElementById('emaList') && document.getElementById('emaList').closest('.ind-group');
+    const smaGroup = document.getElementById('smaList') && document.getElementById('smaList').closest('.ind-group');
+    if (emaGroup) emaGroup.classList.toggle('is-on', state.ind.emas.some(e => e.on));
+    if (smaGroup) smaGroup.classList.toggle('is-on', state.ind.smas.some(e => e.on));
+}
+
+/* Colour the little swatch chips in the sheet using the live tokens. */
+function paintSwatches() {
+    const map = {
+        ema: COLORS.ema[0], sma: COLORS.sma[0], bb: COLORS.bb, kc: COLORS.kc,
+        dc: COLORS.dc, sar: COLORS.sar, rsi: COLORS.rsi, atr: COLORS.atr,
+        macd: COLORS.macd, stoch: COLORS.stochK, adx: COLORS.adx,
+        willr: COLORS.willr, cci: COLORS.cci,
+    };
+    document.querySelectorAll('.ind-swatch[data-swatch]').forEach(el => {
+        const c = map[el.dataset.swatch];
+        if (c) el.style.background = c;
+    });
 }
 
 function wireMaRows() {
@@ -686,6 +905,7 @@ function wireMaRows() {
         const list = kind === 'ema' ? state.ind.emas : state.ind.smas;
         row.querySelector('.ma-on').addEventListener('change', e => {
             list[idx].on = e.target.checked;
+            refreshGroupActiveStates();
             persistAndRecompute();
         });
         row.querySelector('.ma-period').addEventListener('change', e => {
@@ -719,20 +939,55 @@ document.getElementById('addSma').addEventListener('click', () => {
 function bindStatic(id, apply) {
     const el = document.getElementById(id);
     if (!el) return;
-    const ev = el.type === 'checkbox' ? 'change' : 'change';
-    el.addEventListener(ev, () => { apply(el); persistAndRecompute(); });
+    el.addEventListener('change', () => {
+        apply(el);
+        refreshGroupActiveStates();
+        persistAndRecompute();
+    });
 }
+const posInt = (v, d) => Math.max(1, Math.round(Number(v) || d));
+const posFlt = (v, d) => Math.max(0.001, Number(v) || d);
+// Bollinger
 bindStatic('bbOn',     el => state.ind.bb.on = el.checked);
-bindStatic('bbPeriod', el => state.ind.bb.period = Math.max(1, Math.round(Number(el.value) || 20)));
+bindStatic('bbPeriod', el => state.ind.bb.period = posInt(el.value, 20));
 bindStatic('bbMult',   el => state.ind.bb.mult = Math.max(0.1, Number(el.value) || 2));
+// Keltner
 bindStatic('kcOn',     el => state.ind.kc.on = el.checked);
-bindStatic('kcPeriod', el => state.ind.kc.period = Math.max(1, Math.round(Number(el.value) || 20)));
+bindStatic('kcPeriod', el => state.ind.kc.period = posInt(el.value, 20));
 bindStatic('kcMult',   el => state.ind.kc.mult = Math.max(0.1, Number(el.value) || 1.5));
-bindStatic('kcAtr',    el => state.ind.kc.atr = Math.max(1, Math.round(Number(el.value) || 10)));
+bindStatic('kcAtr',    el => state.ind.kc.atr = posInt(el.value, 10));
+// Donchian
+bindStatic('dcOn',     el => state.ind.dc.on = el.checked);
+bindStatic('dcPeriod', el => state.ind.dc.period = posInt(el.value, 20));
+// Parabolic SAR
+bindStatic('sarOn',    el => state.ind.sar.on = el.checked);
+bindStatic('sarStep',  el => state.ind.sar.step = posFlt(el.value, 0.02));
+bindStatic('sarMax',   el => state.ind.sar.max = posFlt(el.value, 0.2));
+// RSI
 bindStatic('rsiOn',    el => state.ind.rsi.on = el.checked);
-bindStatic('rsiPeriod',el => state.ind.rsi.period = Math.max(1, Math.round(Number(el.value) || 14)));
+bindStatic('rsiPeriod',el => state.ind.rsi.period = posInt(el.value, 14));
+// ATR
 bindStatic('atrOn',    el => state.ind.atr.on = el.checked);
-bindStatic('atrPeriod',el => state.ind.atr.period = Math.max(1, Math.round(Number(el.value) || 14)));
+bindStatic('atrPeriod',el => state.ind.atr.period = posInt(el.value, 14));
+// MACD
+bindStatic('macdOn',     el => state.ind.macd.on = el.checked);
+bindStatic('macdFast',   el => state.ind.macd.fast = posInt(el.value, 12));
+bindStatic('macdSlow',   el => state.ind.macd.slow = posInt(el.value, 26));
+bindStatic('macdSignal', el => state.ind.macd.signal = posInt(el.value, 9));
+// Stochastic
+bindStatic('stochOn',     el => state.ind.stoch.on = el.checked);
+bindStatic('stochK',      el => state.ind.stoch.k = posInt(el.value, 14));
+bindStatic('stochD',      el => state.ind.stoch.d = posInt(el.value, 3));
+bindStatic('stochSmooth', el => state.ind.stoch.smooth = posInt(el.value, 3));
+// ADX
+bindStatic('adxOn',     el => state.ind.adx.on = el.checked);
+bindStatic('adxPeriod', el => state.ind.adx.period = posInt(el.value, 14));
+// Williams %R
+bindStatic('willrOn',     el => state.ind.willr.on = el.checked);
+bindStatic('willrPeriod', el => state.ind.willr.period = posInt(el.value, 14));
+// CCI
+bindStatic('cciOn',     el => state.ind.cci.on = el.checked);
+bindStatic('cciPeriod', el => state.ind.cci.period = posInt(el.value, 20));
 
 function persistAndRecompute() {
     saveIndicatorConfig();
@@ -786,8 +1041,9 @@ function resubscribe() {
     if (state.series) state.series.setData([]);
     // Clear indicator series data (they'll refill when candles land).
     Object.values(state.overlaySeries).forEach(s => { try { s.setData([]); } catch (_) {} });
-    if (state.rsiSeries) { try { state.rsiSeries.setData([]); } catch (_) {} }
-    if (state.atrSeries) { try { state.atrSeries.setData([]); } catch (_) {} }
+    Object.values(state.subCharts).forEach(sc => {
+        Object.values(sc.series).forEach(s => { try { s.setData([]); } catch (_) {} });
+    });
     // Tear down the entry line from the previous symbol immediately so it
     // never lingers when switching AWAY from a symbol that had a position.
     clearOverlay();
