@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T01:25:15.605Z",
+  "last_cycle": "2026-07-01T01:25:39.247Z",
   "balance": 9921.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -341,54 +341,6 @@
     "OPENROUTER_KEY_1": 1782876622834
   },
   "logs": [
-    {
-      "ts": "2026-06-30T23:00:20.048Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T23:00:20.338Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8VPdamcu"
-      }
-    },
-    {
-      "ts": "2026-06-30T23:00:20.445Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T23:00:20.481Z",
-      "level": "info",
-      "msg": "Cycle session not active",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T23:05:14.659Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-06-30T23:05:14.659Z"
-      }
-    },
-    {
-      "ts": "2026-06-30T23:05:14.662Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-06-30T23:05:15.174Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oy4ClhcR"
-      }
-    },
     {
       "ts": "2026-06-30T23:05:15.455Z",
       "level": "network",
@@ -1762,6 +1714,52 @@
         "symbol": "frxAUDUSD",
         "placed_at": "2026-07-01T01:01:47.386Z"
       }
+    },
+    {
+      "ts": "2026-07-01T01:25:35.319Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T01:25:35.319Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T01:25:35.321Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:25:35.693Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yspVCZUP"
+      }
+    },
+    {
+      "ts": "2026-07-01T01:25:35.889Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:25:36.410Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxAUDUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:25:36.518Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T01:25:38.297Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
