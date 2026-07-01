@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T20:15:25.891Z",
+  "last_cycle": "2026-07-01T20:21:53.082Z",
   "balance": 9906.03,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-01T13:22:20.303Z",
     "capital_start": 100,
-    "capital_remaining": 89.63,
+    "capital_remaining": 88.13,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 11,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3873290819,
+    "symbol": "frxEURCAD",
+    "placed_at": "2026-07-01T20:21:53.082Z"
+  },
   "next_cycle_eligible_at": 1782936981773,
   "trade_history_cycle": [
     {
@@ -623,6 +627,22 @@
       "entry": 0.85689,
       "pnl": -0.75,
       "ai_outcome_note": "The price initially moved above entry but then declined, failing to sustain the anticipated bullish bounce and closing below the entry level."
+    },
+    {
+      "ts": "2026-07-01T20:21:53.082Z",
+      "path": "cycle",
+      "symbol": "frxEURCAD",
+      "direction": "call",
+      "stake": 1.5,
+      "expiry_sec": 900,
+      "confidence": 0.75,
+      "rationale": "Price is significantly outside the lower Bollinger Band on M5/M10, indicating extreme oversold conditions. Price is also at a strong support level (1.61729), suggesting a high probability of a bullish bounce.",
+      "contract_id": 3873290819,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.6172,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -815,7 +835,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3873290819,
+      "path": "cycle",
+      "symbol": "frxEURCAD",
+      "placed_at": "2026-07-01T20:21:53.082Z",
+      "expiry_sec": 900
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -825,96 +853,6 @@
     "GEMINI_KEY_2": 1782938424448
   },
   "logs": [
-    {
-      "ts": "2026-07-01T17:35:14.462Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T17:35:14.462Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:35:14.464Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:35:14.803Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2b0cS9EB"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:35:14.905Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:35:15.444Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3854578419,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-01T17:02:15.779Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:40:17.301Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T17:40:17.300Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:40:17.303Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:40:17.725Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iw4zm1ro"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:40:17.810Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T17:40:17.909Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3854578419,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-01T17:02:15.779Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:45:24.252Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T17:45:24.251Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T17:45:24.253Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T17:45:24.790Z",
       "level": "network",
@@ -2327,6 +2265,98 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 55882
+      }
+    },
+    {
+      "ts": "2026-07-01T20:20:18.328Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T20:20:18.327Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T20:20:18.329Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:20:18.756Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HfQAwDku"
+      }
+    },
+    {
+      "ts": "2026-07-01T20:20:18.926Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:20:59.539Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURCAD",
+        "conf": 0.75
+      }
+    },
+    {
+      "ts": "2026-07-01T20:20:59.580Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-01T20:21:00.098Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURCAD CALL",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.2,
+        "spot": 1.6172
+      }
+    },
+    {
+      "ts": "2026-07-01T20:21:01.504Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3873290819",
+      "meta": {
+        "transaction_id": 7591770159,
+        "longcode": "Win payout if EUR/CAD is strictly higher than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-01T20:21:01.902Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCAD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:21:02.011Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:21:03.804Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T20:21:53.082Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3873290819
       }
     }
   ],
