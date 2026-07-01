@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T16:40:27.805Z",
+  "last_cycle": "2026-07-01T16:45:20.100Z",
   "balance": 9908.43,
   "currency": "USD",
   "account_mode": "demo",
@@ -764,52 +764,6 @@
     "GEMINI_KEY_3": 1782923432582
   },
   "logs": [
-    {
-      "ts": "2026-07-01T14:00:44.655Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-01T14:01:14.417Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-07-01T14:01:14.456Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T14:01:14.578Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDJPY CALL",
-      "meta": {
-        "stake": 1.52,
-        "price": 1.52,
-        "payout": 2.58,
-        "spot": 162.406
-      }
-    },
-    {
-      "ts": "2026-07-01T14:01:15.187Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3838392999",
-      "meta": {
-        "transaction_id": 7524237499,
-        "longcode": "Win payout if USD/JPY is strictly higher than entry spot at 45 minutes after contract start time."
-      }
-    },
     {
       "ts": "2026-07-01T14:01:15.599Z",
       "level": "info",
@@ -2272,6 +2226,44 @@
     },
     {
       "ts": "2026-07-01T16:40:27.805Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3850695059,
+        "symbol": "frxEURCHF",
+        "placed_at": "2026-07-01T16:16:42.171Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T16:45:18.172Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T16:45:18.172Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T16:45:18.174Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T16:45:18.543Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2M3oGtq7"
+      }
+    },
+    {
+      "ts": "2026-07-01T16:45:18.655Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T16:45:20.099Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
