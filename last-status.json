@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-01T06:45:17.492Z",
-  "balance": 9910.7,
+  "last_cycle": "2026-07-01T06:48:45.984Z",
+  "balance": 9912.85,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-01T00:20:53.330Z",
     "capital_start": 100,
-    "capital_remaining": 83.59,
+    "capital_remaining": 85.74,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 9,
-    "wins": 2,
+    "trades": 10,
+    "wins": 3,
     "losses": 7,
-    "pnl": -15.14,
-    "win_streak": 0,
-    "loss_streak": 2,
+    "pnl": -14.26,
+    "win_streak": 1,
+    "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3798584119,
-    "symbol": "frxAUDJPY",
-    "placed_at": "2026-07-01T06:03:23.653Z"
-  },
-  "next_cycle_eligible_at": 1782885382529,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782888577555,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -286,10 +282,11 @@
       "confidence": 0.8,
       "rationale": "M5/M15 evening star patterns, M10/M15 overbought Stochastics (K below D on M15), and strong underlying bearish trend (high ADX with MinusDI > PlusDI on M10/M15) indicate a high probability of a bearish reversal.",
       "contract_id": 3798584119,
-      "settled": false,
-      "outcome": "pending",
-      "pnl": 0,
-      "ai_outcome_note": null
+      "settled": true,
+      "outcome": "win",
+      "pnl": 0.88,
+      "ai_outcome_note": "The trade won as price initially moved against the bearish direction but then reversed, consistently declining to close well below the entry point.",
+      "entry": "112.177"
     }
   ],
   "trade_history_manual": [
@@ -450,15 +447,7 @@
       "entry": "185.021"
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3798584119,
-      "path": "cycle",
-      "symbol": "frxAUDJPY",
-      "placed_at": "2026-07-01T06:03:23.653Z",
-      "expiry_sec": 2700
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -468,71 +457,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T04:10:28.089Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 56019
-      }
-    },
-    {
-      "ts": "2026-07-01T04:15:16.495Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T04:15:16.495Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T04:15:16.498Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:15:16.875Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QXbRnkXf"
-      }
-    },
-    {
-      "ts": "2026-07-01T04:15:17.093Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T04:16:17.583Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURAUD",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-07-01T04:16:17.623Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T04:16:18.119Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURAUD PUT",
-      "meta": {
-        "stake": 3,
-        "price": 3,
-        "payout": 4.9,
-        "spot": 1.65589
-      }
-    },
     {
       "ts": "2026-07-01T04:16:19.495Z",
       "level": "trade",
@@ -1969,14 +1893,66 @@
         "symbol": "frxAUDJPY",
         "placed_at": "2026-07-01T06:03:23.653Z"
       }
+    },
+    {
+      "ts": "2026-07-01T06:48:36.335Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T06:48:36.335Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T06:48:36.337Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T06:48:37.021Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lIZBU9nT"
+      }
+    },
+    {
+      "ts": "2026-07-01T06:48:37.332Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T06:48:41.629Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T06:48:41.630Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxAUDJPY @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T06:48:41.773Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T06:48:44.863Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-01",
-    "trades": 9,
-    "wins": 2,
+    "trades": 10,
+    "wins": 3,
     "losses": 7,
-    "pnl": -15.14,
+    "pnl": -14.26,
     "by_symbol": {
       "frxUSDCAD": {
         "trades": 1,
@@ -2013,6 +1989,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -0.5
+      },
+      "frxAUDJPY": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 0.88
       }
     }
   },
