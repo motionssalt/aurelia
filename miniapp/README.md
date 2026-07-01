@@ -1,98 +1,49 @@
-# AURELIA — Telegram Mini App
+# Aurelia Mini App UI Overhaul
 
-Vanilla HTML/CSS/JS Telegram Mini App for the AURELIA trading bot. No build
-step, no bundler, no UI framework. Ships as plain static files served next to
-the Cloudflare Worker API.
+## Project name, goals, and main features
+Aurelia is a Telegram Mini App for monitoring automated trading cycles, active trades, historical outcomes, charts, indicators, and bot configuration. This static front-end connects to the existing Aurelia Cloudflare Worker API and Deriv websocket data source.
 
-## Files
+## Currently completed features
+- Full UI overhaul for `miniapp/index.html`, `miniapp/style.css`, and targeted non-indicator UI code in `miniapp/app.js`.
+- Redesigned top bar with grouped brand/status and account/balance hierarchy.
+- Redesigned pill-style tab navigation with explicit text-decoration suppression for default, active, hover, focus, and pressed states.
+- Theme-token audit and migration for UI components, including chart overlay, badges, status dot, buttons, inputs, toggles, cards, trade rows, bottom sheet, and toast states.
+- Redesigned chart active-trade overlay with direction badge, entry stat, countdown stat, and metadata hierarchy.
+- Redesigned trade cards with header, meta, and rationale sections for better scannability.
+- Redesigned settings cards, controls, toggles, symbol chips, and button hierarchy.
+- Chart grid colors now read from CSS theme tokens instead of using a fixed dark-theme assumption.
+- Light-mode verification was performed with a temporary preview page: tab text-decoration resolved to `none`, and the chart overlay rendered with adaptive light-theme surface/text colors.
 
-| File            | Role |
-|-----------------|------|
-| `index.html`    | Markup: top bar, tab nav, chart / trades / settings tabs, indicator bottom-sheet. |
-| `style.css`     | Design tokens + all styling. Dark theme, Telegram `--tg-*` integration. |
-| `app.js`        | App logic: Telegram SDK, Deriv WebSocket, lightweight-charts, indicator rendering, settings CRUD. |
-| `indicators.js` | Self-contained, dependency-free technical-indicator math (`window.Indicators`). |
+## Functional entry URIs
+- `miniapp/index.html` — Telegram Mini App entry point.
+- API base configured in page script: `https://aurelia-bot.motionssalt.workers.dev`.
+- API endpoints used by the client include:
+  - `/api/config`
+  - `/api/status`
+  - `/api/trades/active`
+  - `/api/trades/history?limit={limit}&offset={offset}`
+  - `/api/cycle/start`
+  - `/api/cycle/pause`
+  - `/api/scan`
+  - `/api/daily/run`
+- Realtime chart data: `wss://ws.derivws.com/websockets/v3?app_id=1089`.
 
-## Indicator library (`indicators.js`)
+## Data models, structures, and storage services used
+- No local database was added.
+- Indicator settings continue to use browser `localStorage` key `aurelia.indicators.v2`.
+- Runtime state remains in the existing client-side `state` object in `miniapp/app.js`.
+- Trading/configuration data remains provided by the existing Aurelia Worker API.
 
-Pure functions. Inputs are arrays of numbers or candle objects
-`{time, open, high, low, close}`. Outputs are arrays aligned to input length,
-with `null` for warm-up periods. Exposed on `window.Indicators`.
+## Features not yet implemented
+- No new backend/API functionality was added.
+- No changes were made to `indicators.js` or indicator calculation logic.
+- No authentication flow was added for local browser preview; the Mini App remains designed to run inside Telegram with valid init data.
 
-**Overlay-type** (rendered directly on the price chart):
+## Recommended next steps
+- Copy the modified `miniapp/index.html`, `miniapp/app.js`, and `miniapp/style.css` into the upstream repository and test inside Telegram on both light and dark themes.
+- Verify real active-trade overlay data against live API responses inside Telegram.
+- Consider adding screenshot-based visual regression tests for light/dark theme token coverage.
 
-- `sma(values, period)`
-- `ema(values, period)` — SMA-seeded
-- `bollinger(closes, period, mult)` → `{upper, middle, lower}`
-- `keltner(candles, emaPeriod, atrPeriod, mult)` → `{upper, middle, lower}`
-- `donchian(candles, period)` → `{upper, middle, lower}` **(new)**
-- `parabolicSar(candles, step, max)` **(new)**
-
-**Oscillator-type** (rendered in dedicated sub-panes below the price chart):
-
-- `rsi(closes, period)` — Wilder smoothing
-- `atr(candles, period)` — Wilder smoothing
-- `macd(closes, fast, slow, signal)` → `{macd, signal, histogram}` **(new)**
-- `stochastic(candles, kPeriod, dPeriod, smoothK)` → `{k, d}` **(new)**
-- `adx(candles, period)` → `{adx, plusDI, minusDI}` **(new)**
-- `williamsR(candles, period)` **(new)**
-- `cci(candles, period)` **(new)**
-
-Helpers: `trueRange`, `rollingStd`, `toLineData`, `toHistData`.
-
-Each indicator is independently toggleable from the indicator picker and each
-oscillator renders in its own synced lightweight-charts sub-pane. Default line
-colors are read live from CSS tokens (`--bull`, `--bear`, `--accent`,
-`--ind-a … --ind-h`) — no chart color is hardcoded outside `:root`.
-
-## UI
-
-- **Design tokens** consolidated in `:root`: a 4px spacing scale (`--sp-1…6`),
-  a small radius scale (`--r-sm/md/lg/pill`), a clear type scale
-  (`--fs-2xs…2xl`), and font-weight tokens.
-- **Tab nav** uses an animated underline active-state.
-- **Indicator picker** is a scannable bottom-sheet grouped into **Overlay** and
-  **Oscillator** categories, each row with a color swatch, toggle, and inline
-  parameters. Enabled rows get an active-state treatment.
-- **Micro-interactions**: 170ms ease transitions on tab switches, toggles,
-  button presses, sub-pane mount, and toasts — subtle, non-bouncy.
-- Preserves the dark theme and live Telegram `--tg-*` theme-token integration
-  (`app.js applyTheme` → `retintChart` → `refreshColors`).
-
-## Functional entry points
-
-Static app served at the Mini App root. Talks to the Worker API
-(`window.AURELIA_API_BASE`) with the Telegram `initData` header:
-
-- `GET  /api/config`, `POST /api/config`
-- `GET  /api/status`
-- `GET  /api/trades/active`, `GET /api/trades/history?limit&offset`
-- `POST /api/cycle/start`, `/api/cycle/pause`, `/api/scan`, `/api/daily/run`
-
-Live candles stream directly from Deriv over WebSocket
-(`wss://ws.derivws.com/websockets/v3?app_id=1089`).
-
-## Data / storage
-
-- Indicator config persists to `localStorage` under `aurelia.indicators.v2`
-  (schema-merged with defaults so older saves upgrade cleanly).
-- All trading/account config lives server-side (Cloudflare Worker); the app
-  only reads/patches it via the API above.
-
-## Verified
-
-Loads with no code errors; all 13 indicator functions compute correctly and
-all overlay + oscillator indicators toggle on/off and render (verified via a
-lightweight-charts render smoke test and a full app-boot toggle harness).
-
-## Not implemented / next steps
-
-- Per-indicator custom color pickers (currently token-driven defaults).
-- Draggable sub-pane reordering (order is currently canonical/fixed).
-- Persisting indicator config server-side (currently local only).
-
-## Scope note
-
-Data flow, WebSocket logic, and trade-execution logic in `app.js` are
-unchanged — this pass only extended the indicator library, added indicator
-toggle wiring/rendering, and modernized the UI.
+## Public URLs
+- Production Mini App/API host referenced by the frontend: `https://aurelia-bot.motionssalt.workers.dev`.
+- No new public deployment URL was created in this workspace.
