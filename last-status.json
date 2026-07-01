@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-01T09:46:35.592Z",
-  "balance": 9914.37,
+  "last_cycle": "2026-07-01T09:50:17.586Z",
+  "balance": 9912.37,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -580,44 +580,6 @@
     "GEMINI_KEY_2": 1782894635099
   },
   "logs": [
-    {
-      "ts": "2026-07-01T07:35:18.892Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T07:35:19.926Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3804792399,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-01T07:31:44.790Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T07:40:16.391Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T07:40:16.391Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T07:40:16.394Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T07:40:16.773Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JDDDA1Cs"
-      }
-    },
     {
       "ts": "2026-07-01T07:40:16.866Z",
       "level": "network",
@@ -2050,6 +2012,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3815837959
+      }
+    },
+    {
+      "ts": "2026-07-01T09:50:16.477Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-01T09:50:16.476Z"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:50:16.478Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:50:16.942Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LTHD0kqf"
+      }
+    },
+    {
+      "ts": "2026-07-01T09:50:17.032Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-01T09:50:17.585Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3815837959,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-01T09:46:35.591Z"
       }
     }
   ],
