@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T10:12:18.955Z",
-  "balance": 9905.56,
+  "last_cycle": "2026-07-02T10:15:15.265Z",
+  "balance": 9902.06,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1204,68 +1204,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T07:40:24.323Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T07:40:24.998Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3915364539,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-02T07:36:50.742Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T07:45:21.955Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T07:45:21.955Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T07:45:21.957Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T07:45:22.433Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lxaTIJyA"
-      }
-    },
-    {
-      "ts": "2026-07-02T07:45:22.701Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T07:45:23.318Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3915364539,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-02T07:36:50.742Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T07:50:22.133Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T07:50:22.133Z"
-      }
-    },
     {
       "ts": "2026-07-02T07:50:22.135Z",
       "level": "network",
@@ -2705,6 +2643,67 @@
       "meta": {
         "contract_id": 3928529699
       }
+    },
+    {
+      "ts": "2026-07-02T10:15:14.226Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T10:15:14.226Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T10:15:14.229Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:15:14.602Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2I2IucJc"
+      }
+    },
+    {
+      "ts": "2026-07-02T10:15:14.699Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:15:15.220Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:15:15.263Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-02T10:15:15.263Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-02T10:15:15.264Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3928529699,
+        "symbol": "frxEURCHF",
+        "placed_at": "2026-07-02T10:12:18.954Z"
+      }
     }
   ],
   "daily_stats": {
@@ -3514,6 +3513,22 @@
       "previous": ""
     },
     {
+      "title": "Spanish 10-y Bond Auction",
+      "country": "EUR",
+      "date": "2026-07-02T04:41:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "3.38|1.9"
+    },
+    {
+      "title": "French 10-y Bond Auction",
+      "country": "EUR",
+      "date": "2026-07-02T04:56:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "3.80|2.4"
+    },
+    {
       "title": "Unemployment Rate",
       "country": "EUR",
       "date": "2026-07-02T05:00:00-04:00",
@@ -3522,25 +3537,9 @@
       "previous": "6.3%"
     },
     {
-      "title": "Spanish 10-y Bond Auction",
-      "country": "EUR",
-      "date": "2026-07-02T05:03:00-04:00",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "3.38|1.9"
-    },
-    {
-      "title": "French 10-y Bond Auction",
-      "country": "EUR",
-      "date": "2026-07-02T05:18:00-04:00",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "3.80|2.4"
-    },
-    {
       "title": "10-y Bond Auction",
       "country": "GBP",
-      "date": "2026-07-02T05:33:00-04:00",
+      "date": "2026-07-02T05:03:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "4.86|3.5"
@@ -3722,5 +3721,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1782983424490
+  "_calendar_last_fetch": 1782987315220,
+  "_calendar_fetch_history": [
+    1782987315220
+  ],
+  "_calendar_last_fetch_trigger": "scheduled"
 }
