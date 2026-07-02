@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T05:25:14.370Z",
+  "last_cycle": "2026-07-02T05:30:23.832Z",
   "balance": 9901.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 99.3,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 6,
+    "trades": 7,
     "wins": 4,
-    "losses": 2,
-    "pnl": 1.3,
-    "win_streak": 2,
-    "loss_streak": 0,
+    "losses": 3,
+    "pnl": -0.7,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3903599859,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-02T04:57:00.844Z"
-  },
-  "next_cycle_eligible_at": 1782967883153,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782970279773,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -853,11 +849,12 @@
       "confidence": 0.85,
       "rationale": "Price is extremely oversold on M15 (outside lower Bollinger Band) and M10 (very low in lower third), with expanding ATR on M10/M15, indicating a high probability of a bullish bounce/reversal. M5 RSI is also rising from oversold.",
       "contract_id": 3903599859,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 162.419,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -2,
+      "ai_outcome_note": "Despite initial bullish movement, the price failed to sustain a strong bounce from oversold conditions, ultimately declining below the entry point for a loss.",
+      "exit": 162.397
     }
   ],
   "trade_history_manual": [
@@ -1050,15 +1047,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3903599859,
-      "path": "cycle",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-02T04:57:00.844Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1068,52 +1057,6 @@
     "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-02T02:40:23.215Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ycNRtiRR"
-      }
-    },
-    {
-      "ts": "2026-07-02T02:40:23.330Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T02:40:23.776Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3895834219,
-        "symbol": "frxNZDUSD",
-        "placed_at": "2026-07-02T02:16:50.380Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T02:45:16.065Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T02:45:16.065Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T02:45:16.067Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T02:45:16.481Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=N1lK2tij"
-      }
-    },
     {
       "ts": "2026-07-02T02:45:16.673Z",
       "level": "network",
@@ -2577,14 +2520,56 @@
         "symbol": "frxUSDJPY",
         "placed_at": "2026-07-02T04:57:00.844Z"
       }
+    },
+    {
+      "ts": "2026-07-02T05:30:19.118Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T05:30:19.117Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:30:19.120Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:30:19.549Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LLW30BmD"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:30:19.671Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:30:23.831Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:30:23.832Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 55941
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 8,
+    "trades": 9,
     "wins": 4,
-    "losses": 4,
-    "pnl": -1.68,
+    "losses": 5,
+    "pnl": -3.68,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2605,10 +2590,10 @@
         "pnl": 1.22
       },
       "frxUSDJPY": {
-        "trades": 1,
+        "trades": 2,
         "wins": 0,
-        "losses": 1,
-        "pnl": -1.5
+        "losses": 2,
+        "pnl": -3.5
       },
       "frxNZDUSD": {
         "trades": 1,
