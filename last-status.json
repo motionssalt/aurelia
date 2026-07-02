@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T14:35:20.030Z",
+  "last_cycle": "2026-07-02T14:40:23.957Z",
   "balance": 9902.92,
   "currency": "USD",
   "account_mode": "demo",
@@ -1297,51 +1297,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T12:35:15.357Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:35:19.846Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:35:19.847Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3940480119,
-        "symbol": "frxGBPUSD",
-        "placed_at": "2026-07-02T12:21:31.821Z",
-        "event_title": "Average Hourly Earnings m/m"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:35:19.848Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 55655
-      }
-    },
-    {
-      "ts": "2026-07-02T12:40:18.333Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T12:40:18.333Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:40:18.336Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T12:40:18.796Z",
       "level": "network",
@@ -2830,6 +2785,55 @@
     },
     {
       "ts": "2026-07-02T14:35:20.029Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3952083119,
+        "symbol": "frxEURCHF",
+        "placed_at": "2026-07-02T14:28:24.858Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:40:22.040Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T14:40:22.040Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:40:22.043Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:40:22.579Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Nyx2TFTQ"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:40:22.806Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:40:23.956Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3951925059,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-02T14:26:47.390Z",
+        "event_title": "Natural Gas Storage"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:40:23.957Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
