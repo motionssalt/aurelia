@@ -48,6 +48,8 @@ const Chart       = require('./chart');
 const Risk        = require('./risk');
 const AIClient    = require('./ai-client');
 const Payload     = require('./payload-builder');
+const Calendar    = require('./calendar');
+const NewsMode    = require('./news-mode');
 
 const CFG_PATH   = path.join(__dirname, 'config.json');
 const STATE_PATH = path.join(__dirname, 'last-status.json');
@@ -660,6 +662,11 @@ async function settleAllPending(ws, config, state) {
                 state.next_cycle_eligible_at =
                     Date.now() + 1000 * ((config.cycle && config.cycle.interval_seconds) || 60);
             }
+            // Clear news position lock if this was the open news position
+            if (p.path === 'news' && state.news_open_position &&
+                state.news_open_position.contract_id === p.contract_id) {
+                state.news_open_position = null;
+            }
         }
     }
     state.pending_contracts = still;
@@ -1042,6 +1049,43 @@ async function runDailySummary(ws, config, state) {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   Calendar refresh — hourly cadence, piggybacked on the cycle tick.
+   Respects rate limit: max 2 requests / 5 min (hourly is well
+   within this). On failure, alert via Telegram and keep stale data.
+   ───────────────────────────────────────────────────────────────── */
+async function maybeRefreshCalendar(config, state) {
+    const now = Date.now();
+    const lastFetch = state._calendar_last_fetch || 0;
+    const oneHourMs = 60 * 60 * 1000;
+
+    if (now - lastFetch < oneHourMs) return; /* too soon */
+
+    try {
+        const data = await Calendar.fetchCalendar();
+        state.calendar_data = data;
+        state._calendar_last_fetch = now;
+        Logger.info('Calendar refreshed', { events: data.length });
+    } catch (e) {
+        Logger.error('Calendar refresh failed', { error: e.message });
+        try {
+            await Telegram.send(
+                `⚠️ <b>AURELIA</b> — Calendar refresh failed: <code>${escapeHtml(e.message)}</code>\n` +
+                `<i>Trading with previously cached data (${state.calendar_data ? state.calendar_data.length : 0} events).</i>`
+            );
+        } catch (_) {}
+        /* Keep existing state.calendar_data — do NOT wipe it */
+        state._calendar_last_fetch = now; /* don't retry immediately */
+    }
+}
+
+function escapeHtml(s) {
+    return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+/* ─────────────────────────────────────────────────────────────────
    MAIN
    ───────────────────────────────────────────────────────────────── */
 async function main() {
@@ -1056,6 +1100,9 @@ async function main() {
     state.pending_contracts   = state.pending_contracts   || [];
     state.trade_history_cycle = state.trade_history_cycle || [];
     state.trade_history_manual= state.trade_history_manual|| [];
+    state.trade_history_news  = state.trade_history_news  || [];
+    state.news_open_position  = state.news_open_position  || null;
+    state.news_scheduled_intents = state.news_scheduled_intents || [];
     state.ai_keys_bench       = state.ai_keys_bench       || {};
     ensureDailyStats(state);
     ensureManualSession(state, config);
@@ -1092,8 +1139,19 @@ async function main() {
         // Always settle pendings first
         await settleAllPending(ws, config, state);
 
+        // ── Hourly calendar refresh ──
+        await maybeRefreshCalendar(config, state);
+
         if (task === 'cycle') {
-            ws = await runCycle(ws, config, state, connOpts) || ws;
+            // News Mode takes precedence over normal cycle when enabled
+            if (config.news_mode && config.news_mode.enabled) {
+                ws = await NewsMode.runNewsMode(ws, config, state, connOpts, {
+                    placeAndSettle,
+                    checkPayoutThreshold,
+                }) || ws;
+            } else {
+                ws = await runCycle(ws, config, state, connOpts) || ws;
+            }
         } else if (task === 'manual') {
             ws = await runManual(ws, config, state, connOpts) || ws;
         } else if (task === 'settle_only') {
@@ -1113,6 +1171,7 @@ async function main() {
     // Trim history rings (keep last 200 each)
     if (state.trade_history_cycle.length  > 200) state.trade_history_cycle  = state.trade_history_cycle.slice(-200);
     if (state.trade_history_manual.length > 200) state.trade_history_manual = state.trade_history_manual.slice(-200);
+    if (state.trade_history_news.length    > 200) state.trade_history_news    = state.trade_history_news.slice(-200);
 
     state.last_cycle = new Date().toISOString();
     state.logs = Logger.mergeRing(state.logs || []);
@@ -1123,3 +1182,12 @@ async function main() {
 
 main().then(code => process.exit(code || 0))
       .catch(e  => { console.error('fatal', e); process.exit(1); });
+
+/* ─────────────────────────────────────────────────────────────────
+   Exports for news-mode.js (avoids circular dependency via
+   dynamic require inside news-mode).
+   ───────────────────────────────────────────────────────────────── */
+module.exports = {
+    placeAndSettle,
+    checkPayoutThreshold,
+};
