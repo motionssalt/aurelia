@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T04:57:00.844Z",
-  "balance": 9903.27,
+  "last_cycle": "2026-07-02T05:00:24.807Z",
+  "balance": 9901.27,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1068,50 +1068,6 @@
     "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-02T02:15:58.886Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxNZDUSD",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-07-02T02:15:58.901Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T02:15:58.987Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxNZDUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 0.56847
-      }
-    },
-    {
-      "ts": "2026-07-02T02:15:59.539Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3895834219",
-      "meta": {
-        "transaction_id": 7634971959,
-        "longcode": "Win payout if NZD/USD is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T02:15:59.842Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T02:15:59.918Z",
       "level": "info",
@@ -2578,6 +2534,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3903599859
+      }
+    },
+    {
+      "ts": "2026-07-02T05:00:23.608Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T05:00:23.608Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:00:23.610Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:00:24.014Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UsTzEXR5"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:00:24.181Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:00:24.806Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3903599859,
+        "symbol": "frxUSDJPY",
+        "placed_at": "2026-07-02T04:57:00.844Z"
       }
     }
   ],
