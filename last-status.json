@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T19:10:25.349Z",
+  "last_cycle": "2026-07-02T19:15:21.993Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 91.31,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 29,
+    "trades": 30,
     "wins": 16,
-    "losses": 13,
-    "pnl": -6.19,
+    "losses": 14,
+    "pnl": -8.69,
     "win_streak": 0,
-    "loss_streak": 2,
+    "loss_streak": 3,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3975478479,
-    "symbol": "frxUSDCAD",
-    "placed_at": "2026-07-02T18:42:27.818Z"
-  },
-  "next_cycle_eligible_at": 1783017382538,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783019776908,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1193,11 +1189,12 @@
       "confidence": 0.9,
       "rationale": "Strong bearish trend continuation across M5, M10, and M15, with falling EMAs, EMA50 consistently above EMA20, price in the lower third of Bollinger Bands, and falling RSI, indicating sustained downward momentum.",
       "contract_id": 3975478479,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.41781,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -2.5,
+      "ai_outcome_note": "The put trade resulted in a loss as the price, after initial fluctuations, ultimately reversed and surged significantly above the entry point, leading to an unfavorable exit.",
+      "exit": 1.4184
     }
   ],
   "trade_history_manual": [
@@ -1390,15 +1387,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3975478479,
-      "path": "cycle",
-      "symbol": "frxUSDCAD",
-      "placed_at": "2026-07-02T18:42:27.818Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1408,56 +1397,6 @@
     "GEMINI_KEY_4": 1783024241576
   },
   "logs": [
-    {
-      "ts": "2026-07-02T16:55:19.248Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T16:55:19.249Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3965120279,
-        "symbol": "frxGBPJPY",
-        "placed_at": "2026-07-02T16:52:34.362Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:00:31.448Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T17:00:31.447Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:00:31.450Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:00:31.806Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fR8zC7ih"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:00:31.958Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:00:32.596Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T17:00:32.597Z",
       "level": "info",
@@ -2871,14 +2810,60 @@
         "symbol": "frxUSDCAD",
         "placed_at": "2026-07-02T18:42:27.818Z"
       }
+    },
+    {
+      "ts": "2026-07-02T19:15:16.358Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T19:15:16.357Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:15:16.361Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:15:16.692Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YYXSFvLK"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:15:16.821Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:15:21.991Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:15:21.992Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:15:21.992Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 31,
+    "trades": 32,
     "wins": 16,
-    "losses": 15,
-    "pnl": -9.17,
+    "losses": 16,
+    "pnl": -11.67,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2969,6 +2954,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 1.04
+      },
+      "frxUSDCAD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -2.5
       }
     }
   },
