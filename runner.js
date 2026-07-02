@@ -55,6 +55,8 @@ const CFG_PATH   = path.join(__dirname, 'config.json');
 const STATE_PATH = path.join(__dirname, 'last-status.json');
 
 const HARD_BUDGET_MS = 55000;
+const CALENDAR_FETCH_RATE_WINDOW_MS = 5 * 60 * 1000;
+const CALENDAR_FETCH_RATE_MAX = 2;
 
 /* ─────────────────────────────────────────────────────────────────
    IO
@@ -68,7 +70,7 @@ function writeJSON(p, obj) {
 }
 function detectTask() {
     const t = (process.env.INPUT_TASK || 'cycle').toLowerCase();
-    if (['cycle', 'manual', 'settle_only', 'daily_summary'].includes(t)) return t;
+    if (['cycle', 'manual', 'settle_only', 'daily_summary', 'calendar_fetch'].includes(t)) return t;
     return 'cycle';
 }
 
@@ -89,6 +91,31 @@ function isSymbolEnabled(sym, config) {
     // FRX (forex) master gate — defaults to true if not explicitly set
     if (config.frx_enabled === false) return false;
     return !!fx[sym];
+}
+
+function getSymbolConflict(state, symbol, tickClaims) {
+    if (!symbol) return null;
+    if (tickClaims && typeof tickClaims.get === 'function' && tickClaims.has(symbol)) {
+        return { kind: 'tick_claim', by: tickClaims.get(symbol) || 'unknown' };
+    }
+    const pending = Array.isArray(state && state.pending_contracts) ? state.pending_contracts : [];
+    const livePending = pending.find(p => p && p.symbol === symbol);
+    if (livePending) return { kind: 'pending', by: livePending.path || 'unknown' };
+    if (state && state.cycle_open_position && state.cycle_open_position.symbol === symbol) {
+        return { kind: 'open_position', by: 'cycle' };
+    }
+    if (state && state.news_open_position && state.news_open_position.symbol === symbol) {
+        return { kind: 'open_position', by: 'news' };
+    }
+    return null;
+}
+
+function claimTickSymbol(tickClaims, symbol, pathKind) {
+    if (tickClaims && typeof tickClaims.set === 'function' && symbol) tickClaims.set(symbol, pathKind || 'unknown');
+}
+
+function releaseTickSymbol(tickClaims, symbol) {
+    if (tickClaims && typeof tickClaims.delete === 'function' && symbol) tickClaims.delete(symbol);
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -296,7 +323,10 @@ async function placeAndSettle(ws, norm, config, state, opts) {
     const contractType = norm.direction === 'call' ? 'CALL' : 'PUT';
     const minutes      = Risk.expirySecondsToMinutes(norm.expirySec);
     const mode         = (config.account && config.account.mode) || 'demo';
-    const isCycle      = !!(opts && opts.cycle);
+    const pathKind     = (opts && opts.path) || (!!(opts && opts.cycle) ? 'cycle' : 'manual');
+    const isCycle      = pathKind === 'cycle';
+    const isNews       = pathKind === 'news';
+    const usesCycleSession = pathKind === 'cycle' || pathKind === 'news';
 
     // The Deriv socket may have gone stale while we waited on the AI
     // decision — ANY slow AI provider can trigger this (Gemini long
@@ -337,26 +367,40 @@ async function placeAndSettle(ws, norm, config, state, opts) {
                 // applyCycleSettlement / applyManualSettlement add back
                 // `stake + pnl` on settle, leaving the math correct.
                 // -----------------------------------------------------
-                if (isCycle && state.cycle_session) {
+                if (usesCycleSession && state.cycle_session) {
                     state.cycle_session.capital_remaining = Number(
                         ((state.cycle_session.capital_remaining || 0) - norm.stake).toFixed(2)
                     );
-                } else if (!isCycle && state.manual_session) {
+                } else if (!usesCycleSession && state.manual_session) {
                     state.manual_session.capital_remaining = Number(
                         ((state.manual_session.capital_remaining || 0) - norm.stake).toFixed(2)
                     );
                 }
                 try {
-                    await Telegram.send(Telegram.templates.tradePlaced({
-                        symbol:       norm.symbol,
-                        mode,
-                        direction:    contractType,
-                        stake:        norm.stake,
-                        duration:     minutes,
-                        durationUnit: 'm',
-                        strategy:     isCycle ? 'aurelia/cycle' : 'aurelia/manual',
-                        contractId:   buy.contract_id,
-                    }));
+                    if (isNews) {
+                        await Telegram.send(Telegram.templates.newsPlaced({
+                            symbol:       norm.symbol,
+                            mode,
+                            direction:    contractType,
+                            stake:        norm.stake,
+                            duration:     minutes,
+                            durationUnit: 'm',
+                            eventTitle:   (opts && opts.eventTitle) || 'Upcoming economic event',
+                            minutesUntil: Number.isFinite(Number(opts && opts.minutesUntil)) ? Number(opts.minutesUntil) : 0,
+                            contractId:   buy.contract_id,
+                        }));
+                    } else {
+                        await Telegram.send(Telegram.templates.tradePlaced({
+                            symbol:       norm.symbol,
+                            mode,
+                            direction:    contractType,
+                            stake:        norm.stake,
+                            duration:     minutes,
+                            durationUnit: 'm',
+                            strategy:     `aurelia/${pathKind}`,
+                            contractId:   buy.contract_id,
+                        }));
+                    }
                     placedNotified = true;
                 } catch (e) {
                     Logger.warn('Telegram tradePlaced failed', { error: e.message });
@@ -425,7 +469,7 @@ async function placeAndSettle(ws, norm, config, state, opts) {
 
     const record = {
         ts:         new Date().toISOString(),
-        path:       isCycle ? 'cycle' : 'manual',
+        path:       pathKind,
         symbol:     norm.symbol,
         direction:  norm.direction,
         stake:      norm.stake,
@@ -635,7 +679,9 @@ async function settleAllPending(ws, config, state) {
         if (r && r.entry != null) {
             const histArrEarly = p.path === 'manual'
                 ? state.trade_history_manual
-                : state.trade_history_cycle;
+                : p.path === 'news'
+                    ? state.trade_history_news
+                    : state.trade_history_cycle;
             const recEarly = (histArrEarly || []).find(t => t.contract_id === p.contract_id);
             if (recEarly && recEarly.entry == null) recEarly.entry = r.entry;
         }
@@ -643,9 +689,12 @@ async function settleAllPending(ws, config, state) {
         // Patch the trade history record by contract_id
         const histArr = p.path === 'manual'
             ? state.trade_history_manual
-            : state.trade_history_cycle;
+            : p.path === 'news'
+                ? state.trade_history_news
+                : state.trade_history_cycle;
         const rec = (histArr || []).find(t => t.contract_id === p.contract_id);
         if (rec) {
+            if (p.path === 'news' && p.event_title && !rec.event_title) rec.event_title = p.event_title;
             rec.settled = true;
             rec.outcome = r.outcome;
             rec.pnl     = r.pnl;
@@ -654,6 +703,7 @@ async function settleAllPending(ws, config, state) {
             newlySettled.push({ rec, path: p.path });
             if (p.path === 'cycle')  applyCycleSettlement(state, rec);
             if (p.path === 'manual') applyManualSettlement(state, rec);
+            if (p.path === 'news')   NewsMode.applyNewsSettlement(state, rec);
             applyDailyStat(state, rec);
             // Clear cycle position lock if this was the open cycle position
             if (p.path === 'cycle' && state.cycle_open_position &&
@@ -709,25 +759,47 @@ async function settleAllPending(ws, config, state) {
     // Fire settled notifications + post-mortems
     for (const { rec } of newlySettled) {
         try {
-            await Telegram.send(Telegram.templates.cycleResult({
-                result:   rec.outcome,
-                symbol:   rec.symbol,
-                mode:     state.account_mode || config.account.mode,
-                entry:    rec.entry,
-                exit:     rec.exit,
-                pnl:      rec.pnl,
-                strategy: `aurelia/${rec.path}`,
-                duration: Risk.expirySecondsToMinutes(rec.expiry_sec || 900),
-                durationUnit: 'm',
-                balance:  state.balance,
-                currency: state.currency,
-                session:  rec.path === 'cycle' ? {
-                    wins: state.cycle_session.wins,
-                    losses: state.cycle_session.losses,
-                    pnl: state.cycle_session.pnl,
-                    trades: state.cycle_session.trades,
-                } : null,
-            }));
+            if (rec.path === 'news') {
+                await Telegram.send(Telegram.templates.newsResult({
+                    result:   rec.outcome,
+                    symbol:   rec.symbol,
+                    mode:     state.account_mode || config.account.mode,
+                    entry:    rec.entry,
+                    exit:     rec.exit,
+                    pnl:      rec.pnl,
+                    eventTitle: rec.event_title || (state.news_open_position && state.news_open_position.event_title) || 'Upcoming economic event',
+                    duration: Risk.expirySecondsToMinutes(rec.expiry_sec || 900),
+                    durationUnit: 'm',
+                    balance:  state.balance,
+                    currency: state.currency,
+                    session:  state.cycle_session ? {
+                        wins: state.cycle_session.wins,
+                        losses: state.cycle_session.losses,
+                        pnl: state.cycle_session.pnl,
+                        trades: state.cycle_session.trades,
+                    } : null,
+                }));
+            } else {
+                await Telegram.send(Telegram.templates.cycleResult({
+                    result:   rec.outcome,
+                    symbol:   rec.symbol,
+                    mode:     state.account_mode || config.account.mode,
+                    entry:    rec.entry,
+                    exit:     rec.exit,
+                    pnl:      rec.pnl,
+                    strategy: `aurelia/${rec.path}`,
+                    duration: Risk.expirySecondsToMinutes(rec.expiry_sec || 900),
+                    durationUnit: 'm',
+                    balance:  state.balance,
+                    currency: state.currency,
+                    session:  rec.path === 'cycle' ? {
+                        wins: state.cycle_session.wins,
+                        losses: state.cycle_session.losses,
+                        pnl: state.cycle_session.pnl,
+                        trades: state.cycle_session.trades,
+                    } : null,
+                }));
+            }
         } catch (e) {
             Logger.warn('cycleResult notification failed', { error: e.message });
         }
@@ -749,7 +821,7 @@ async function settleAllPending(ws, config, state) {
 /* ─────────────────────────────────────────────────────────────────
    CYCLE PATH
    ───────────────────────────────────────────────────────────────── */
-async function runCycle(ws, config, state, connOpts) {
+async function runCycle(ws, config, state, connOpts, tickClaims) {
     // Session gates (REBUILD_PROMPT §2A — code-enforced, AI cannot override)
     if (!config.cycle || !config.cycle.running) {
         Logger.info('Cycle not running (config.cycle.running=false)');
@@ -803,6 +875,16 @@ async function runCycle(ws, config, state, connOpts) {
         return;
     }
 
+    const cycleConflict = getSymbolConflict(state, v.normalised.symbol, tickClaims);
+    if (cycleConflict) {
+        Logger.info('Cycle trade blocked by symbol conflict', {
+            symbol: v.normalised.symbol,
+            conflict_kind: cycleConflict.kind,
+            conflict_by: cycleConflict.by,
+        });
+        return;
+    }
+
     // Payout-threshold filter (defensive — applies AFTER AI decision)
     const pay = await checkPayoutThreshold(ws, v.normalised, config);
     if (!pay.ok) {
@@ -815,8 +897,9 @@ async function runCycle(ws, config, state, connOpts) {
     }
 
     // Place and (try to) settle in-cycle
+    claimTickSymbol(tickClaims, v.normalised.symbol, 'cycle');
     const { record, ws: freshWs } = await placeAndSettle(
-        ws, v.normalised, config, state, { cycle: true, connOpts });
+        ws, v.normalised, config, state, { cycle: true, path: 'cycle', connOpts });
     ws = freshWs || ws;
     state.trade_history_cycle = state.trade_history_cycle || [];
     state.trade_history_cycle.push(record);
@@ -1053,28 +1136,111 @@ async function runDailySummary(ws, config, state) {
    Respects rate limit: max 2 requests / 5 min (hourly is well
    within this). On failure, alert via Telegram and keep stale data.
    ───────────────────────────────────────────────────────────────── */
-async function maybeRefreshCalendar(config, state) {
-    const now = Date.now();
-    const lastFetch = state._calendar_last_fetch || 0;
-    const oneHourMs = 60 * 60 * 1000;
+function pruneCalendarFetchHistory(state, now) {
+    const recent = Array.isArray(state._calendar_fetch_history) ? state._calendar_fetch_history : [];
+    state._calendar_fetch_history = recent
+        .map(ts => Number(ts) || 0)
+        .filter(ts => ts > 0 && now - ts < CALENDAR_FETCH_RATE_WINDOW_MS);
+    return state._calendar_fetch_history;
+}
 
-    if (now - lastFetch < oneHourMs) return; /* too soon */
+function calendarFetchWindowRemainingMs(state, now) {
+    const recent = pruneCalendarFetchHistory(state, now);
+    if (recent.length < CALENDAR_FETCH_RATE_MAX) return 0;
+    const oldest = recent[0] || now;
+    return Math.max(0, CALENDAR_FETCH_RATE_WINDOW_MS - (now - oldest));
+}
+
+function describeCalendarRange(events) {
+    const stamps = (Array.isArray(events) ? events : [])
+        .map(ev => Date.parse(ev && ev.date))
+        .filter(ms => Number.isFinite(ms))
+        .sort((a, b) => a - b);
+    if (!stamps.length) return 'unknown range';
+    const start = new Date(stamps[0]).toISOString().slice(0, 10);
+    const end = new Date(stamps[stamps.length - 1]).toISOString().slice(0, 10);
+    return start === end ? start : `${start} → ${end}`;
+}
+
+async function refreshCalendarNow(state, opts = {}) {
+    const now = Date.now();
+    const trigger = opts.trigger || 'scheduled';
+    const recent = pruneCalendarFetchHistory(state, now);
+    const remainingMs = calendarFetchWindowRemainingMs(state, now);
+
+    if (remainingMs > 0) {
+        return {
+            ok: false,
+            skipped: true,
+            rateLimited: true,
+            trigger,
+            remainingMs,
+            recentCount: recent.length,
+        };
+    }
+
+    state._calendar_fetch_history.push(now);
 
     try {
         const data = await Calendar.fetchCalendar();
         state.calendar_data = data;
         state._calendar_last_fetch = now;
-        Logger.info('Calendar refreshed', { events: data.length });
+        state._calendar_last_fetch_trigger = trigger;
+        Logger.info('Calendar refreshed', { events: data.length, trigger });
+        return {
+            ok: true,
+            skipped: false,
+            trigger,
+            events: data.length,
+            range: describeCalendarRange(data),
+        };
     } catch (e) {
-        Logger.error('Calendar refresh failed', { error: e.message });
+        Logger.error('Calendar refresh failed', { error: e.message, trigger });
         try {
             await Telegram.send(
-                `⚠️ <b>AURELIA</b> — Calendar refresh failed: <code>${escapeHtml(e.message)}</code>\n` +
+                `⚠️ <b>AURELIA</b> — Calendar refresh failed: <code>${escapeHtml(e.message)}</code>
+` +
                 `<i>Trading with previously cached data (${state.calendar_data ? state.calendar_data.length : 0} events).</i>`
             );
         } catch (_) {}
-        /* Keep existing state.calendar_data — do NOT wipe it */
-        state._calendar_last_fetch = now; /* don't retry immediately */
+        state._calendar_last_fetch = now;
+        state._calendar_last_fetch_trigger = `${trigger}:failed`;
+        return { ok: false, skipped: false, trigger, error: e };
+    }
+}
+
+async function maybeRefreshCalendar(config, state) {
+    const now = Date.now();
+    const lastFetch = state._calendar_last_fetch || 0;
+    const oneHourMs = 60 * 60 * 1000;
+
+    if (now - lastFetch < oneHourMs) return;
+    await refreshCalendarNow(state, { trigger: 'scheduled' });
+}
+
+async function runCalendarFetchTask(state) {
+    const result = await refreshCalendarNow(state, { trigger: 'manual' });
+    if (result.ok) {
+        await Telegram.send(
+            `✅ <b>News calendar refreshed</b>
+` +
+            `Events : <b>${result.events}</b>
+` +
+            `Range  : <code>${escapeHtml(result.range)}</code>
+` +
+            `<i>Real ForexFactory data fetched on demand.</i>`
+        );
+        return;
+    }
+    if (result.skipped && result.rateLimited) {
+        const waitMin = Math.ceil(result.remainingMs / 60000);
+        await Telegram.send(
+            `⏳ <b>News calendar fetch skipped</b>
+` +
+            `Rate limit guard active: max 2 ForexFactory requests per 5 minutes.
+` +
+            `Try again in about <b>${waitMin} min</b>.`
+        );
     }
 }
 
@@ -1094,6 +1260,7 @@ async function main() {
 
     const config = readJSON(CFG_PATH);
     if (!config) { Logger.error('config.json missing'); return 0; }
+    const task = detectTask();
 
     const state = readJSON(STATE_PATH, {});
     state.cycle_session       = state.cycle_session       || { active:false, halted:false };
@@ -1107,6 +1274,14 @@ async function main() {
     ensureDailyStats(state);
     ensureManualSession(state, config);
 
+    if (task === 'calendar_fetch') {
+        await runCalendarFetchTask(state);
+        state.logs = Logger.mergeRing(state.logs || []);
+        writeJSON(STATE_PATH, state);
+        Logger.info('Calendar fetch task complete');
+        return 0;
+    }
+
     if (config.enabled === false) {
         Logger.info('Bot disabled');
         state.last_cycle = new Date().toISOString();
@@ -1115,7 +1290,6 @@ async function main() {
         return 0;
     }
 
-    const task = detectTask();
     const connOpts = {
         bearer: process.env.DERIV_BEARER_TOKEN,
         appId:  process.env.DERIV_APP_ID,
@@ -1143,15 +1317,18 @@ async function main() {
         await maybeRefreshCalendar(config, state);
 
         if (task === 'cycle') {
-            // News Mode takes precedence over normal cycle when enabled
+            const tickClaims = new Map();
             if (config.news_mode && config.news_mode.enabled) {
                 ws = await NewsMode.runNewsMode(ws, config, state, connOpts, {
                     placeAndSettle,
                     checkPayoutThreshold,
+                    applyDailyStat,
+                    getSymbolConflict: (symbol) => getSymbolConflict(state, symbol, tickClaims),
+                    claimSymbol: (symbol, pathKind) => claimTickSymbol(tickClaims, symbol, pathKind),
+                    releaseSymbol: (symbol) => releaseTickSymbol(tickClaims, symbol),
                 }) || ws;
-            } else {
-                ws = await runCycle(ws, config, state, connOpts) || ws;
             }
+            ws = await runCycle(ws, config, state, connOpts, tickClaims) || ws;
         } else if (task === 'manual') {
             ws = await runManual(ws, config, state, connOpts) || ws;
         } else if (task === 'settle_only') {
