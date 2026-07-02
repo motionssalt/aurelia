@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T16:00:29.568Z",
+  "last_cycle": "2026-07-02T16:05:24.993Z",
   "balance": 9903.23,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 100.27,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 24,
+    "trades": 25,
     "wins": 15,
-    "losses": 9,
-    "pnl": 2.77,
+    "losses": 10,
+    "pnl": 0.27,
     "win_streak": 0,
-    "loss_streak": 2,
+    "loss_streak": 3,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3958039659,
-    "symbol": "frxAUDUSD",
-    "placed_at": "2026-07-02T15:32:30.862Z"
-  },
-  "next_cycle_eligible_at": 1783005693997,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783008378452,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1108,11 +1104,12 @@
       "confidence": 0.9,
       "rationale": "Strong bullish trend across M5/M10/M15 with multiple bullish candle patterns (Bullish Engulfing, Morning Star) and expanding ATR on higher timeframes, indicating potential for continued upward momentum after a slight RSI pullback.",
       "contract_id": 3958039659,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.69363,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -2.5,
+      "ai_outcome_note": "The price action after entry predominantly stayed below the call's purchase level, failing to sustain upward movement and resulting in a loss at exit.",
+      "exit": 0.69285
     }
   ],
   "trade_history_manual": [
@@ -1305,15 +1302,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3958039659,
-      "path": "cycle",
-      "symbol": "frxAUDUSD",
-      "placed_at": "2026-07-02T15:32:30.862Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1323,65 +1312,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T14:00:38.379Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3948831359,
-        "symbol": "frxEURAUD",
-        "placed_at": "2026-07-02T13:53:13.401Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:05:26.775Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T14:05:26.774Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:05:26.777Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:05:27.310Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QjCTCwZj"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:05:27.570Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:05:28.433Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3948674879,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-02T13:51:36.309Z",
-        "event_title": "Factory Orders m/m"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:05:28.434Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3948831359,
-        "symbol": "frxEURAUD",
-        "placed_at": "2026-07-02T13:53:13.401Z"
-      }
-    },
     {
       "ts": "2026-07-02T14:10:22.570Z",
       "level": "info",
@@ -2886,14 +2816,62 @@
         "symbol": "frxAUDUSD",
         "placed_at": "2026-07-02T15:32:30.862Z"
       }
+    },
+    {
+      "ts": "2026-07-02T16:05:17.789Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T16:05:17.788Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:05:17.791Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:05:18.121Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VbVeHTlb"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:05:18.353Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:05:24.991Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:05:24.992Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:05:24.992Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 53460
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 26,
+    "trades": 27,
     "wins": 15,
-    "losses": 11,
-    "pnl": -0.21,
+    "losses": 12,
+    "pnl": -2.71,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2966,6 +2944,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 1.04
+      },
+      "frxAUDUSD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -2.5
       }
     }
   },
