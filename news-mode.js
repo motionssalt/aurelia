@@ -9,10 +9,26 @@
    event fires. When both News Mode and the normal cycle are enabled,
    both paths may run on the same tick with per-symbol overlap guards.
 
+   ── BUG FIXES (this revision) ────────────────────────────────────
+   1) Missing news events
+      Previously we called Calendar.findQualifyingEvent (singular)
+      with a 2-10 min window. With a 5-min cron cadence this dropped
+      any event landing in the [0,2) min bucket on a given tick.
+      We now use Calendar.findQualifyingEvents (plural) which uses a
+      wider 0.5-15 min window — every event is visible on at least
+      two consecutive ticks.
+   2) Multiple simultaneous events (e.g. NFP + Unemployment Rate +
+      Avg Hourly Earnings at the same 12:30 UTC release) were being
+      collapsed to a single event, hiding critical context from the
+      AI. We now group same-timestamp events into a "bundle" and
+      pass the ENTIRE bundle to the AI so its inference is based
+      on all releases, not just one.
+   ─────────────────────────────────────────────────────────────────
+
    Public surface:
      runNewsMode(ws, config, state, connOpts, deps)  → ws | undefined
        deps = { placeAndSettle, checkPayoutThreshold }
-     buildNewsDecisionPrompt(payload, event)          → string
+     buildNewsDecisionPrompt(payload, eventsOrEvent) → string
    ===================================================================== */
 
 'use strict';
@@ -30,41 +46,70 @@ const Telegram     = require('./telegram');
 const INTENT_DUE_WINDOW_MIN = 3;
 
 /* ─────────────────────────────────────────────────────────────────
-   Prompt builder — same shape as the normal decision prompt but
-   prepends explicit news-event context and requires the rationale
-   to reference the news event by name.
+   Normalise the second argument of buildNewsDecisionPrompt to an
+   array. Old call sites pass a single event object; new call sites
+   pass an array (bundle) of events. Either shape works.
    ───────────────────────────────────────────────────────────────── */
-function buildNewsDecisionPrompt(payload, event) {
-    const eventDesc = Calendar.describeEvent(event);
+function _asEventArray(eventsOrEvent) {
+    if (!eventsOrEvent) return [];
+    if (Array.isArray(eventsOrEvent)) return eventsOrEvent.filter(Boolean);
+    return [eventsOrEvent];
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Prompt builder — same shape as the normal decision prompt but
+   prepends explicit news-event context (single event OR a bundle
+   of simultaneous events) and requires the rationale to reference
+   at least one event by name.
+   ───────────────────────────────────────────────────────────────── */
+function buildNewsDecisionPrompt(payload, eventsOrEvent) {
+    const events = _asEventArray(eventsOrEvent);
+    const isBundle = events.length > 1;
+    const eventDesc = isBundle
+        ? Calendar.describeEvents(events)
+        : Calendar.describeEvent(events[0]);
+
     const schemaHint = JSON.stringify({
         action: '"trade" | "skip"',
-        symbol: 'string (one of the symbols in payload.symbols that matches the event currency)',
+        symbol: 'string (one of the symbols in payload.symbols that matches one of the event currencies)',
         direction: '"call" | "put"',
         expiry_seconds: 'integer >= 900 (15m Deriv forex floor)',
         stake: 'number',
         confidence: 'number 0.0-1.0',
-        rationale: 'short string that EXPLICITLY names the news event and explains why you expect it to move price in the chosen direction',
+        rationale: 'short string that EXPLICITLY names the news event(s) being reacted to and explains why you expect price to move in the chosen direction',
     }, null, 2);
+
+    const bundleGuidance = isBundle
+        ? [
+            'IMPORTANT — SIMULTANEOUS RELEASE:',
+            `  ${events.length} events fire at the same time. You MUST reason about the`,
+            '  net effect of ALL of them combined (not just one). Consider whether the',
+            '  releases reinforce each other or conflict. If they conflict and there is',
+            '  no clear net directional edge, return {"action":"skip"}.',
+            '',
+        ]
+        : [];
 
     return [
         'You are AURELIA in NEWS MODE. You are trading ahead of an upcoming economic news event.',
         'You are given a structured market snapshot for multiple symbols across M5/M10/M15,',
-        'plus session context and the details of the upcoming news event.',
+        'plus session context and the details of the upcoming news event(s).',
         '',
-        '=== UPCOMING NEWS EVENT ===',
+        '=== UPCOMING NEWS EVENT(S) ===',
         eventDesc,
-        '=== END NEWS EVENT ===',
+        '=== END NEWS EVENT(S) ===',
         '',
+        ...bundleGuidance,
         'Hard rules you MUST obey:',
         '  • Pick AT MOST ONE best setup, or skip.',
         '  • expiry_seconds MUST be >= 900 (15 minutes — Deriv forex intraday floor).',
         '  • stake MUST be between meta.stake_floor and meta.stake_ceiling, max 2 decimals.',
         '  • direction is "call" (price up) or "put" (price down).',
-        '  • CRITICAL: Your rationale MUST explicitly name the news event (title) and explain',
-        '    why you expect it to move price in the chosen direction. Do NOT just describe',
-        '    technical/candlestick conditions — this is a news-driven trade and the rationale',
-        '    must reference the specific event being reacted to.',
-        '  • If the event does not offer a clear directional edge, return {"action":"skip"}.',
+        '  • CRITICAL: Your rationale MUST explicitly name at least one of the news events',
+        '    (by title) and explain why you expect it to move price in the chosen direction.',
+        '    Do NOT just describe technical/candlestick conditions — this is a news-driven',
+        '    trade and the rationale must reference the specific event(s) being reacted to.',
+        '  • If the event(s) do not offer a clear directional edge, return {"action":"skip"}.',
         '',
         'Return STRICT JSON only (no markdown fences):',
         schemaHint,
@@ -76,9 +121,13 @@ function buildNewsDecisionPrompt(payload, event) {
 
 /* ─────────────────────────────────────────────────────────────────
    Validate a news-mode AI decision (same shape as normal cycle,
-   but rationale must reference the event title).
+   but rationale must reference at least one event title in the
+   bundle).
    ───────────────────────────────────────────────────────────────── */
-function validateNewsDecision(d, config, state, event) {
+function validateNewsDecision(d, config, state, eventsOrEvent) {
+    const events = _asEventArray(eventsOrEvent);
+    const primaryEvent = events[0] || {};
+
     const errs = [];
     if (!d || typeof d !== 'object') return { ok: false, errs: ['decision not object'] };
     if (d.action === 'skip') return { ok: true, skip: true };
@@ -88,21 +137,25 @@ function validateNewsDecision(d, config, state, event) {
     if (!['call', 'put'].includes(dir)) errs.push(`direction invalid (${d.direction})`);
     if (errs.length) return { ok: false, errs };
 
-    /* Check that rationale references the news event */
-    const rationale = String(d.rationale || '');
-    const eventTitle = String(event.title || '').toLowerCase();
-    if (eventTitle && !rationale.toLowerCase().includes(eventTitle)) {
-        /* Be lenient — if the title is very long, a partial match is ok */
-        const titleWords = eventTitle.split(/\s+/).filter(w => w.length > 3);
-        const hasPartial = titleWords.some(w => rationale.toLowerCase().includes(w));
-        if (!hasPartial) {
-            Logger.warn('News Mode rationale does not reference event title', {
-                event: event.title, rationale: rationale.slice(0, 120),
-            });
-            /* We don't reject — just warn. The user review requirement is
-               that the rationale should reference the event, but a weak
-               rationale is still better than silently overriding the AI. */
+    /* Check that rationale references AT LEAST ONE event title in the bundle. */
+    const rationale = String(d.rationale || '').toLowerCase();
+    let referencesSome = false;
+    for (const ev of events) {
+        const t = String(ev.title || '').toLowerCase();
+        if (!t) continue;
+        if (rationale.includes(t)) { referencesSome = true; break; }
+        const titleWords = t.split(/\s+/).filter(w => w.length > 3);
+        if (titleWords.some(w => rationale.includes(w))) {
+            referencesSome = true; break;
         }
+    }
+    if (!referencesSome && events.length > 0) {
+        Logger.warn('News Mode rationale does not reference any event title in bundle', {
+            events: events.map(e => e.title),
+            rationale: rationale.slice(0, 120),
+        });
+        /* We don't reject — just warn. A weak rationale is still
+           better than silently overriding the AI. */
     }
 
     const expiry = Risk.clampExpirySeconds(d.expiry_seconds, config);
@@ -125,6 +178,14 @@ function validateNewsDecision(d, config, state, event) {
     };
     const stake = Risk.clampStake(d.stake, config, stakeOpts);
 
+    /* eventTitle used for logging / record — pick the highest-impact
+       event in the bundle, or fall back to the primary. */
+    const impactRank = { high: 3, medium: 2, low: 1 };
+    const chosenEvent = events.slice().sort((a, b) =>
+        (impactRank[String(b.impact || '').toLowerCase()] || 0) -
+        (impactRank[String(a.impact || '').toLowerCase()] || 0)
+    )[0] || primaryEvent;
+
     return {
         ok: true,
         skip: false,
@@ -134,8 +195,9 @@ function validateNewsDecision(d, config, state, event) {
             expirySec:  expiry,
             stake,
             confidence: Number(d.confidence) || 0,
-            rationale:  rationale,
+            rationale:  String(d.rationale || ''),
         },
+        chosenEvent,
     };
 }
 
@@ -144,10 +206,14 @@ function validateNewsDecision(d, config, state, event) {
 
    Flow:
     1. Check for due scheduled intents → fire if target time reached.
-    2. Look for a qualifying upcoming event in the calendar.
-    3. If event found → build AI payload with news context → ask AI.
-    4. Validate decision → check payout → place trade.
-    5. Record trade as 'news' path (separate from cycle/manual).
+    2. Look for ALL qualifying upcoming events in the calendar.
+    3. Group them by fire-time. Take the earliest bucket (soonest
+       release) as the bundle to trade on — that's the release the
+       market will react to next.
+    4. Build AI payload spanning the union of symbols affected by
+       every event in the bundle, and pass the full bundle context.
+    5. Validate decision → check payout → place trade.
+    6. Record trade as 'news' path (separate from cycle/manual).
 
    deps = { placeAndSettle(ws, norm, config, state, opts), checkPayoutThreshold(ws, norm, config) }
    ───────────────────────────────────────────────────────────────── */
@@ -173,29 +239,55 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
         return ws;
     }
 
-    /* ── 3. Find qualifying upcoming event ── */
+    /* ── 3. Find ALL qualifying upcoming events ── */
     const calendar = state.calendar_data || [];
     if (!Array.isArray(calendar) || calendar.length === 0) {
         Logger.info('News Mode: no calendar data available');
         return ws;
     }
 
-    const event = Calendar.findQualifyingEvent(calendar);
-    if (!event) {
+    const qualifyingEvents = Calendar.findQualifyingEvents(calendar);
+    if (!qualifyingEvents || qualifyingEvents.length === 0) {
         Logger.info('News Mode: no qualifying upcoming event this tick');
         return ws;
     }
 
-    const minsToEvent = Calendar.minutesUntil(event);
-    Logger.info('News Mode: qualifying event detected', {
-        title: event.title, country: event.country,
-        impact: event.impact, minutes_until: Math.round(minsToEvent),
+    /* Group by fire-time and pick the earliest bucket. That's the
+       release the market is about to react to; later buckets will
+       be picked up on subsequent ticks. */
+    const timeBuckets = Calendar.groupEventsByTime(qualifyingEvents);
+    if (!timeBuckets.length) {
+        Logger.info('News Mode: no qualifying upcoming event this tick (post-group)');
+        return ws;
+    }
+    /* groupEventsByTime returns buckets sorted by time ascending →
+       first bucket = soonest release. */
+    const bundle = timeBuckets[0];
+
+    /* Anchor "closest event" for logging — soonest one in bundle. */
+    const primaryEvent = bundle
+        .slice()
+        .sort((a, b) => Calendar.minutesUntil(a) - Calendar.minutesUntil(b))[0];
+    const minsToEvent = Calendar.minutesUntil(primaryEvent);
+
+    Logger.info('News Mode: qualifying event bundle detected', {
+        bundle_size: bundle.length,
+        titles: bundle.map(e => e.title),
+        countries: Array.from(new Set(bundle.map(e => e.country))),
+        impacts: bundle.map(e => e.impact),
+        minutes_until: Math.round(minsToEvent),
     });
 
-    /* ── 4. Build AI payload for the affected symbol(s) ── */
-    const affectedSymbols = Calendar.eventToSymbols(event);
+    /* ── 4. Build AI payload for the union of affected symbols ── */
+    const affectedSet = new Set();
+    for (const ev of bundle) {
+        for (const sym of Calendar.eventToSymbols(ev)) affectedSet.add(sym);
+    }
+    const affectedSymbols = Array.from(affectedSet);
     if (affectedSymbols.length === 0) {
-        Logger.info(`News Mode: no symbol mapping for currency ${event.country}`);
+        Logger.info('News Mode: no symbol mapping for any event in bundle', {
+            countries: bundle.map(e => e.country),
+        });
         return ws;
     }
 
@@ -209,10 +301,10 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
         return ws;
     }
 
-    /* ── 5. Ask AI with news-aware prompt ── */
+    /* ── 5. Ask AI with news-aware prompt (bundle-aware) ── */
     let decision, keyUsed;
     try {
-        const prompt = buildNewsDecisionPrompt(payload, event);
+        const prompt = buildNewsDecisionPrompt(payload, bundle);
         const r = await AIClient.askDecision({ payload, config, state, prompt });
         decision = r.decision; keyUsed = r.keyUsed;
     } catch (e) {
@@ -221,8 +313,8 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
         return ws;
     }
 
-    /* ── 6. Validate decision ── */
-    const v = validateNewsDecision(decision, config, state, event);
+    /* ── 6. Validate decision (bundle-aware) ── */
+    const v = validateNewsDecision(decision, config, state, bundle);
     if (!v.ok) {
         Logger.warn('News Mode: invalid AI decision', { errs: v.errs });
         return ws;
@@ -257,24 +349,32 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
 
     /* ── 8. Place trade ── */
     if (deps.claimSymbol) deps.claimSymbol(v.normalised.symbol, 'news');
+
+    /* eventTitle used downstream is the chosen (highest-impact)
+       event from the bundle; also include the full bundle titles
+       so records/telegram show all simultaneous events. */
+    const bundleTitles = bundle.map(e => e.title);
+    const eventTitleForRecord = (v.chosenEvent && v.chosenEvent.title) || primaryEvent.title;
+
     const { record, ws: freshWs } = await placeAndSettle(
         ws, v.normalised, config, state, {
             cycle: false,
             path: 'news',
             connOpts,
-            eventTitle: event.title,
+            eventTitle: eventTitleForRecord,
+            eventBundle: bundleTitles,
             minutesUntil: minsToEvent,
         });
     ws = freshWs || ws;
 
     /* Store in news-specific history */
-    record.event_title = event.title;
+    record.event_title  = eventTitleForRecord;
+    record.event_bundle = bundleTitles;
     state.trade_history_news = state.trade_history_news || [];
     state.trade_history_news.push(record);
 
     /* ── 9. Handle settlement / pending ── */
     if (record.settled) {
-        record.event_title = event.title;
         applyNewsSettlement(state, record);
         if (deps.applyDailyStat) deps.applyDailyStat(state, record);
     } else if (record.contract_id) {
@@ -282,7 +382,8 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
             contract_id: record.contract_id,
             symbol:      record.symbol,
             placed_at:   record.ts,
-            event_title: event.title,
+            event_title: eventTitleForRecord,
+            event_bundle: bundleTitles,
         };
         state.pending_contracts.push({
             contract_id: record.contract_id,
@@ -290,7 +391,8 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
             symbol:      record.symbol,
             placed_at:   record.ts,
             expiry_sec:  record.expiry_sec,
-            event_title: event.title,
+            event_title: eventTitleForRecord,
+            event_bundle: bundleTitles,
         });
     }
 
