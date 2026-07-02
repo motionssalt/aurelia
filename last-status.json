@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T03:37:04.135Z",
-  "balance": 9900.73,
+  "last_cycle": "2026-07-02T03:40:23.389Z",
+  "balance": 9899.23,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1034,46 +1034,6 @@
     "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-02T00:58:03.367Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T00:58:03.416Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ50V PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.72,
-        "spot": 274062.79
-      }
-    },
-    {
-      "ts": "2026-07-02T00:58:03.499Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3891814539",
-      "meta": {
-        "transaction_id": 7627567119,
-        "longcode": "Win payout if Volatility 50 (1s) Index is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T00:58:03.806Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ50V @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T00:58:03.958Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T00:58:05.758Z",
       "level": "info",
@@ -2542,6 +2502,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3899479439
+      }
+    },
+    {
+      "ts": "2026-07-02T03:40:22.196Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T03:40:22.196Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T03:40:22.198Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T03:40:22.602Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6RPXEieP"
+      }
+    },
+    {
+      "ts": "2026-07-02T03:40:22.795Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T03:40:23.388Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3899479439,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-02T03:37:04.134Z"
       }
     }
   ],
