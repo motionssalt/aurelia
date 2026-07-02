@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T15:32:30.863Z",
-  "balance": 9905.73,
+  "last_cycle": "2026-07-02T15:35:38.992Z",
+  "balance": 9903.23,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1323,62 +1323,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T13:45:17.016Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T13:45:17.015Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:45:17.018Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:45:17.571Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Y3dN9zGK"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:45:17.678Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:45:18.309Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:45:25.401Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:45:25.402Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:45:25.402Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 52368
-      }
-    },
     {
       "ts": "2026-07-02T13:50:25.191Z",
       "level": "info",
@@ -2878,6 +2822,76 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3958039659
+      }
+    },
+    {
+      "ts": "2026-07-02T15:35:28.011Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T15:35:28.011Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:35:28.013Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:35:28.585Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GcPP8QY7"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:35:28.868Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:35:30.094Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "MPC Member Mann Speaks"
+        ],
+        "countries": [
+          "GBP"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-02T15:35:38.990Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:35:38.990Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:35:38.991Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3958039659,
+        "symbol": "frxAUDUSD",
+        "placed_at": "2026-07-02T15:32:30.862Z"
       }
     }
   ],
