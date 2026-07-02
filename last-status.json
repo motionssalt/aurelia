@@ -1,25 +1,29 @@
 {
-  "last_cycle": "2026-07-02T12:35:19.848Z",
-  "balance": 9902.41,
+  "last_cycle": "2026-07-02T12:42:03.959Z",
+  "balance": 9907.44,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 100.44,
+    "capital_remaining": 101.98,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 17,
-    "wins": 11,
+    "trades": 18,
+    "wins": 12,
     "losses": 6,
-    "pnl": 2.94,
-    "win_streak": 2,
+    "pnl": 4.48,
+    "win_streak": 3,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3942221139,
+    "symbol": "frxUSDJPY",
+    "placed_at": "2026-07-02T12:42:03.959Z"
+  },
   "next_cycle_eligible_at": 1782995775503,
   "trade_history_cycle": [
     {
@@ -1025,6 +1029,22 @@
       "pnl": 1.04,
       "ai_outcome_note": "The price initially dipped and consolidated below entry, but a strong late-stage bullish surge ultimately drove it above the exit for a win.",
       "exit": 1.62309
+    },
+    {
+      "ts": "2026-07-02T12:42:03.959Z",
+      "path": "cycle",
+      "symbol": "frxUSDJPY",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 3600,
+      "confidence": 0.85,
+      "rationale": "Price is extremely oversold across all timeframes (M5/M10/M15, outside lower BB, M15 percentile -0.27). M15 RSI is rising from oversold, indicating a potential bullish reversal. M5/M10 Doji candles suggest indecision after a strong fall.",
+      "contract_id": 3942221139,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 160.745,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1219,12 +1239,11 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 3940480119,
-      "path": "news",
-      "symbol": "frxGBPUSD",
-      "placed_at": "2026-07-02T12:21:31.821Z",
-      "expiry_sec": 900,
-      "event_title": "Average Hourly Earnings m/m"
+      "contract_id": 3942221139,
+      "path": "cycle",
+      "symbol": "frxUSDJPY",
+      "placed_at": "2026-07-02T12:42:03.959Z",
+      "expiry_sec": 3600
     }
   ],
   "ai_keys_bench": {
@@ -1236,108 +1255,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T10:20:18.462Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kQBgw9y3"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:20:18.673Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:20:19.277Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3928529699,
-        "symbol": "frxEURCHF",
-        "placed_at": "2026-07-02T10:12:18.954Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:25:18.290Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T10:25:18.290Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:25:18.292Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:25:18.729Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XbKXk3f4"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:25:18.895Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:25:19.537Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:25:19.537Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3928529699,
-        "symbol": "frxEURCHF",
-        "placed_at": "2026-07-02T10:12:18.954Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:30:21.519Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T10:30:21.518Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:30:21.521Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:30:21.989Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Lu91ZWPV"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:30:22.179Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:30:22.849Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T10:30:22.849Z",
       "level": "info",
@@ -2737,14 +2654,118 @@
       "meta": {
         "ms_remaining": 55655
       }
+    },
+    {
+      "ts": "2026-07-02T12:40:18.333Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T12:40:18.333Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:40:18.336Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:40:18.796Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1MHCrk2M"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:40:18.957Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:40:23.627Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:40:23.627Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:41:11.676Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDJPY",
+        "conf": 0.85
+      }
+    },
+    {
+      "ts": "2026-07-02T12:41:11.691Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-02T12:41:12.315Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxUSDJPY CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.24,
+        "spot": 160.744
+      }
+    },
+    {
+      "ts": "2026-07-02T12:41:12.953Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3942221139",
+      "meta": {
+        "transaction_id": 7723907919,
+        "longcode": "Win payout if USD/JPY is strictly higher than entry spot at 1 hour after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-02T12:41:13.255Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxUSDJPY @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:41:13.385Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:41:15.176Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:42:03.958Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3942221139
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 19,
-    "wins": 11,
+    "trades": 20,
+    "wins": 12,
     "losses": 8,
-    "pnl": -0.04,
+    "pnl": 1.5,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2789,10 +2810,10 @@
         "pnl": 2.54
       },
       "frxGBPUSD": {
-        "trades": 1,
-        "wins": 1,
+        "trades": 2,
+        "wins": 2,
         "losses": 0,
-        "pnl": 1.04
+        "pnl": 2.58
       },
       "frxUSDCHF": {
         "trades": 3,
@@ -2886,20 +2907,16 @@
       "confidence": 0.7,
       "rationale": "The market has already priced in significant USD strength ahead of the Average Hourly Earnings m/m release. With the forecast matching the previous at 0.3%, an 'as expected' outcome might not be sufficient to sustain the current rally, leading to profit-taking and a bullish reversal for GBPUSD.",
       "contract_id": 3940480119,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.32994,
-      "pnl": 0,
-      "ai_outcome_note": null,
-      "event_title": "Average Hourly Earnings m/m"
+      "pnl": 1.54,
+      "ai_outcome_note": "After initial consolidation, a sharp bullish price surge well above the entry point led to a profitable outcome.",
+      "event_title": "Average Hourly Earnings m/m",
+      "exit": 1.33647
     }
   ],
-  "news_open_position": {
-    "contract_id": 3940480119,
-    "symbol": "frxGBPUSD",
-    "placed_at": "2026-07-02T12:21:31.821Z",
-    "event_title": "Average Hourly Earnings m/m"
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
