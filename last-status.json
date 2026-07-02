@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T14:45:30.151Z",
+  "last_cycle": "2026-07-02T14:50:29.277Z",
   "balance": 9902.92,
   "currency": "USD",
   "account_mode": "demo",
@@ -1297,52 +1297,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T12:41:12.315Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDJPY CALL",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.24,
-        "spot": 160.744
-      }
-    },
-    {
-      "ts": "2026-07-02T12:41:12.953Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3942221139",
-      "meta": {
-        "transaction_id": 7723907919,
-        "longcode": "Win payout if USD/JPY is strictly higher than entry spot at 1 hour after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T12:41:13.255Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:41:13.385Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:41:15.176Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:42:03.958Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3942221139
-      }
-    },
     {
       "ts": "2026-07-02T12:45:14.990Z",
       "level": "info",
@@ -2839,6 +2793,55 @@
     },
     {
       "ts": "2026-07-02T14:45:30.151Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3952083119,
+        "symbol": "frxEURCHF",
+        "placed_at": "2026-07-02T14:28:24.858Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:50:27.254Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T14:50:27.254Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:50:27.257Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:50:27.715Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3WrhxBwc"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:50:28.013Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:50:29.276Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3951925059,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-02T14:26:47.390Z",
+        "event_title": "Natural Gas Storage"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:50:29.277Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
