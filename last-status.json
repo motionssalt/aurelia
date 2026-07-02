@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-01T23:55:17.388Z",
+  "last_cycle": "2026-07-02T00:00:22.944Z",
   "balance": 9904.95,
   "currency": "USD",
   "account_mode": "demo",
@@ -933,44 +933,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T21:15:21.176Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 3876055219,
-        "symbol": "1HZ10V",
-        "placed_at": "2026-07-01T20:51:49.373Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:20:18.427Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T21:20:18.426Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:20:18.428Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T21:20:18.863Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=xQQtHoRe"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:20:18.966Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T21:20:19.061Z",
       "level": "info",
@@ -2444,118 +2406,53 @@
         "symbol": "R_75",
         "placed_at": "2026-07-01T23:32:49.358Z"
       }
+    },
+    {
+      "ts": "2026-07-02T00:00:22.345Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T00:00:22.345Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:00:22.347Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:00:22.745Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aSS3rMh6"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:00:22.853Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:00:22.943Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3887198239,
+        "symbol": "R_75",
+        "placed_at": "2026-07-01T23:32:49.358Z"
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-07-01",
-    "trades": 38,
-    "wins": 15,
-    "losses": 23,
-    "pnl": -24.14,
-    "by_symbol": {
-      "frxUSDCAD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -5
-      },
-      "frxAUDUSD": {
-        "trades": 4,
-        "wins": 2,
-        "losses": 2,
-        "pnl": -1.26
-      },
-      "frxEURAUD": {
-        "trades": 3,
-        "wins": 1,
-        "losses": 2,
-        "pnl": -3.87
-      },
-      "frxGBPUSD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      },
-      "frxNZDUSD": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -3.69
-      },
-      "frxEURGBP": {
-        "trades": 8,
-        "wins": 2,
-        "losses": 6,
-        "pnl": -5.55
-      },
-      "frxAUDJPY": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 0.88
-      },
-      "frxEURUSD": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -2.67
-      },
-      "frxUSDCHF": {
-        "trades": 3,
-        "wins": 2,
-        "losses": 1,
-        "pnl": 0.67
-      },
-      "frxEURCHF": {
-        "trades": 4,
-        "wins": 3,
-        "losses": 1,
-        "pnl": 1.37
-      },
-      "frxEURCAD": {
-        "trades": 2,
-        "wins": 2,
-        "losses": 0,
-        "pnl": 1.65
-      },
-      "frxUSDJPY": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -3.02
-      },
-      "frxGBPJPY": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -0.87
-      },
-      "1HZ10V": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.23
-      },
-      "R_100": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.25
-      },
-      "R_25": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.11
-      },
-      "1HZ75V": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.37
-      }
-    }
+    "date": "2026-07-02",
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "pnl": 0,
+    "by_symbol": {}
   },
   "daily_history": [
     {
@@ -2592,16 +2489,16 @@
     }
   ],
   "manual_session": {
-    "date": "2026-07-01",
+    "date": "2026-07-02",
     "active": true,
     "capital_start": 200,
-    "capital_remaining": 202.18,
+    "capital_remaining": 200,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 2,
-    "wins": 2,
+    "trades": 0,
+    "wins": 0,
     "losses": 0,
-    "pnl": 2.18
+    "pnl": 0
   },
   "_notified_halt_reason": null
 }
