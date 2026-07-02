@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T15:15:20.347Z",
+  "last_cycle": "2026-07-02T15:20:39.848Z",
   "balance": 9905.73,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 102.77,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 23,
+    "trades": 24,
     "wins": 15,
-    "losses": 8,
-    "pnl": 4.27,
+    "losses": 9,
+    "pnl": 2.77,
     "win_streak": 0,
-    "loss_streak": 1,
+    "loss_streak": 2,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3955309219,
-    "symbol": "frxEURCHF",
-    "placed_at": "2026-07-02T15:01:55.619Z"
-  },
-  "next_cycle_eligible_at": 1783004356283,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783005693997,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1091,11 +1087,12 @@
       "confidence": 0.75,
       "rationale": "Extreme oversold conditions across all timeframes (M5/M10/M15 BB percentile as low as 0.04), with very low and falling RSI, indicating a high probability of a bullish bounce.",
       "contract_id": 3955309219,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.91826,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Despite an initial upward bounce, the price reversed and steadily declined below the entry point, leading to the reported loss.",
+      "exit": 0.91813
     }
   ],
   "trade_history_manual": [
@@ -1288,15 +1285,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3955309219,
-      "path": "cycle",
-      "symbol": "frxEURCHF",
-      "placed_at": "2026-07-02T15:01:55.619Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1306,86 +1295,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T13:20:26.384Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:20:26.449Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-02T13:20:26.449Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:20:26.450Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event detected",
-      "meta": {
-        "title": "Manufacturing PMI",
-        "country": "CAD",
-        "impact": "Low",
-        "minutes_until": 10
-      }
-    },
-    {
-      "ts": "2026-07-02T13:20:33.780Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:20:33.780Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:20:33.781Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3942221139,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-02T12:42:03.959Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:25:26.911Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T13:25:26.911Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:25:26.913Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:25:27.477Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=07bh6Z4P"
-      }
-    },
     {
       "ts": "2026-07-02T13:25:27.786Z",
       "level": "network",
@@ -2859,14 +2768,85 @@
         "symbol": "frxEURCHF",
         "placed_at": "2026-07-02T15:01:55.619Z"
       }
+    },
+    {
+      "ts": "2026-07-02T15:20:32.841Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T15:20:32.841Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:20:32.843Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:20:33.377Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=z3YTQ2nn"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:20:33.711Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:20:39.804Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:20:39.805Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:20:39.846Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-02T15:20:39.846Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:20:39.847Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:20:39.848Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 54149
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 25,
+    "trades": 26,
     "wins": 15,
-    "losses": 10,
-    "pnl": 1.29,
+    "losses": 11,
+    "pnl": -0.21,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2899,10 +2879,10 @@
         "pnl": 1.04
       },
       "frxEURCHF": {
-        "trades": 3,
+        "trades": 4,
         "wins": 0,
-        "losses": 3,
-        "pnl": -8.5
+        "losses": 4,
+        "pnl": -10
       },
       "frxEURAUD": {
         "trades": 3,
@@ -3937,9 +3917,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783002031337,
+  "_calendar_last_fetch": 1783005639805,
   "_calendar_fetch_history": [
-    1783002031337
+    1783005639805
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
