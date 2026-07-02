@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T17:25:23.834Z",
+  "last_cycle": "2026-07-02T17:32:36.024Z",
   "balance": 9901.77,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 98.81,
+    "capital_remaining": 96.31,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 27,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3968768979,
+    "symbol": "frxUSDCHF",
+    "placed_at": "2026-07-02T17:32:36.023Z"
+  },
   "next_cycle_eligible_at": 1783013177688,
   "trade_history_cycle": [
     {
@@ -1144,6 +1148,22 @@
       "pnl": 1.04,
       "ai_outcome_note": "Despite an initial upward movement, the price eventually reversed and dropped below the entry level, allowing for a profitable exit on this put trade.",
       "exit": 214.98
+    },
+    {
+      "ts": "2026-07-02T17:32:36.023Z",
+      "path": "cycle",
+      "symbol": "frxUSDCHF",
+      "direction": "put",
+      "stake": 2.5,
+      "expiry_sec": 1200,
+      "confidence": 0.9,
+      "rationale": "Extreme overbought conditions across all timeframes (M10 BB percentile 0.95, M15 at 0.90), with bearish divergence on higher timeframes (M10 EMA50 falling, M15 both EMAs falling) indicating a likely reversal.",
+      "contract_id": 3968768979,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 0.80371,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1336,7 +1356,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3968768979,
+      "path": "cycle",
+      "symbol": "frxUSDCHF",
+      "placed_at": "2026-07-02T17:32:36.023Z",
+      "expiry_sec": 1200
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1346,138 +1374,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T15:20:33.711Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:20:39.804Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:20:39.805Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:20:39.846Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-02T15:20:39.846Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:20:39.847Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:20:39.848Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 54149
-      }
-    },
-    {
-      "ts": "2026-07-02T15:25:17.873Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T15:25:17.873Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:25:17.875Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:25:18.202Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0jkCaymT"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:25:18.319Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:25:18.352Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:25:58.008Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxCADJPY",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-07-02T15:25:58.026Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T15:25:58.067Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "InvalidInputAsset: Trading is not offered for this asset.",
-        "stack": "Error: InvalidInputAsset: Trading is not offered for this asset.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:30:28.839Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T15:30:28.838Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:30:28.841Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:30:29.415Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6c1vyZDB"
-      }
-    },
     {
       "ts": "2026-07-02T15:30:29.749Z",
       "level": "network",
@@ -2842,6 +2738,136 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 53854
+      }
+    },
+    {
+      "ts": "2026-07-02T17:30:28.220Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T17:30:28.220Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:30:28.222Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:30:28.621Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=byHO8MSe"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:30:28.724Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:30:28.763Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:42.479Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDCHF",
+        "conf": 0.9
+      }
+    },
+    {
+      "ts": "2026-07-02T17:31:42.480Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:31:42.481Z",
+      "level": "warn",
+      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:42.481Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:42.727Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=axrmulij"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:31:42.851Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:42.851Z",
+      "level": "network",
+      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:43.339Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxUSDCHF PUT",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.31,
+        "spot": 0.80372
+      }
+    },
+    {
+      "ts": "2026-07-02T17:31:43.929Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3968768979",
+      "meta": {
+        "transaction_id": 7775232779,
+        "longcode": "Win payout if USD/CHF is strictly lower than entry spot at 20 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-02T17:31:44.379Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxUSDCHF @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:44.466Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:31:47.901Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:32:36.023Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3968768979
       }
     }
   ],
