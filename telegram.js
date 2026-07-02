@@ -342,6 +342,72 @@ const templates = {
         ].join('\n');
     },
 
+    /* NEW — News Mode templates */
+    newsModeEnabled({ mode }) {
+        const badge = formatBadge(mode);
+        return [
+            `📰 <b>NEWS MODE ON</b> ${badge}`,
+            `Normal cycle trading is <b>PAUSED</b>.`,
+            `The bot now trades only on upcoming economic news events.`,
+            `<i>Toggle off to resume normal cycle trading.</i>`,
+        ].join('\n');
+    },
+
+    newsModeDisabled({ mode }) {
+        const badge = formatBadge(mode);
+        return [
+            `📰 <b>NEWS MODE OFF</b> ${badge}`,
+            `Normal cycle trading has <b>RESUMED</b>.`,
+            `<i>Toggle on to switch back to news-driven trading.</i>`,
+        ].join('\n');
+    },
+
+    newsPlaced({ symbol, mode, direction, stake, duration, durationUnit,
+                 eventTitle, minutesUntil, contractId }) {
+        const badge = formatBadge(mode);
+        const dirArrow = _directionArrow(direction);
+        return [
+            `📰 <b>NEWS TRADE PLACED</b> — ${_esc(symbol)} ${badge}`,
+            `Event   : <i>${_esc(eventTitle)}</i>`,
+            `In      : <b>${Math.round(minutesUntil)} min</b>`,
+            `Direction: <b>${dirArrow}</b>`,
+            `Stake   : ${_money(stake)}`,
+            `Duration: <b>${_durationLabel(duration, durationUnit)}</b>`,
+            ...(contractId ? [`Contract: <code>${_esc(contractId)}</code>`] : []),
+        ].join('\n');
+    },
+
+    newsResult({ result, symbol, mode, entry, exit, pnl, eventTitle, duration, durationUnit,
+                 balance, currency, session }) {
+        const badge = formatBadge(mode);
+        const head  = (result === 'win')
+            ? `✅ <b>NEWS WIN</b> — ${_esc(symbol)} ${badge}`
+            : (result === 'loss')
+                ? `❌ <b>NEWS LOSS</b> — ${_esc(symbol)} ${badge}`
+                : `➖ <b>${_esc(String(result || 'unknown').toUpperCase())}</b> — ${_esc(symbol)} ${badge}`;
+        const sign = (pnl >= 0 ? '+' : '');
+        const lines = [
+            head,
+            `Event   : <i>${_esc(eventTitle)}</i>`,
+            `Entry   : <code>${_esc(entry)}</code>`,
+            `Exit    : <code>${_esc(exit)}</code>`,
+        ];
+        if (duration != null) {
+            lines.push(`Duration: <b>${_durationLabel(duration, durationUnit)}</b>`);
+        }
+        lines.push(`P/L     : <b>${sign}${_money(pnl)}</b>`);
+        if (Number.isFinite(Number(balance))) {
+            lines.push(`Balance : ${_money(balance, currency || 'USD')}`);
+        }
+        const sess = _sessionLine(session);
+        if (sess) lines.push(sess);
+        return lines.join('\n');
+    },
+
+    newsCalendarAlert({ message }) {
+        return `⚠️ <b>News Calendar</b>\n${_esc(message)}`;
+    },
+
     heartbeatSilent({ lastSeen }) {
         return [
             '⚠️ <b>MOTIONSALT BOT SILENT</b>',
