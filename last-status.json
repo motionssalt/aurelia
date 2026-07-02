@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T17:40:29.416Z",
+  "last_cycle": "2026-07-02T17:45:25.218Z",
   "balance": 9899.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1374,60 +1374,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T15:35:28.011Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T15:35:28.011Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:35:28.013Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:35:28.585Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GcPP8QY7"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:35:28.868Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:35:30.094Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "MPC Member Mann Speaks"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-02T15:35:38.990Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
     {
       "ts": "2026-07-02T15:35:38.990Z",
       "level": "info",
@@ -2848,6 +2794,50 @@
     },
     {
       "ts": "2026-07-02T17:40:29.415Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3968768979,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-02T17:32:36.023Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:45:23.724Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T17:45:23.723Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:45:23.726Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:45:24.160Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WesAK4PU"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:45:24.359Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:45:25.217Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:45:25.217Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
