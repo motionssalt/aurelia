@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T17:50:23.084Z",
+  "last_cycle": "2026-07-02T17:55:31.749Z",
   "balance": 9899.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 96.31,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 27,
+    "trades": 28,
     "wins": 16,
-    "losses": 11,
-    "pnl": -1.19,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "losses": 12,
+    "pnl": -3.69,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3968768979,
-    "symbol": "frxUSDCHF",
-    "placed_at": "2026-07-02T17:32:36.023Z"
-  },
-  "next_cycle_eligible_at": 1783013177688,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783014979982,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1159,11 +1155,12 @@
       "confidence": 0.9,
       "rationale": "Extreme overbought conditions across all timeframes (M10 BB percentile 0.95, M15 at 0.90), with bearish divergence on higher timeframes (M10 EMA50 falling, M15 both EMAs falling) indicating a likely reversal.",
       "contract_id": 3968768979,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.80371,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -2.5,
+      "ai_outcome_note": "Despite an initial dip, the price reversed and climbed significantly above the entry point, causing the put trade to result in a loss.",
+      "exit": 0.80396
     }
   ],
   "trade_history_manual": [
@@ -1356,15 +1353,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3968768979,
-      "path": "cycle",
-      "symbol": "frxUSDCHF",
-      "placed_at": "2026-07-02T17:32:36.023Z",
-      "expiry_sec": 1200
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1374,72 +1363,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T15:40:24.137Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "MPC Member Mann Speaks"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
-    {
-      "ts": "2026-07-02T15:40:29.554Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:40:29.554Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming 'MPC Member Mann Speaks' event is rated as Low Impact. Without further context on the expected tone or content of the speech, it does not provide a clear directional edge for GBP-related pairs, making a news-driven trade too speculative."
-      }
-    },
-    {
-      "ts": "2026-07-02T15:40:29.555Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3958039659,
-        "symbol": "frxAUDUSD",
-        "placed_at": "2026-07-02T15:32:30.862Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:45:31.046Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T15:45:31.045Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:45:31.048Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:45:31.578Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=xALPATHY"
-      }
-    },
     {
       "ts": "2026-07-02T15:45:31.874Z",
       "level": "network",
@@ -2845,14 +2768,62 @@
         "symbol": "frxUSDCHF",
         "placed_at": "2026-07-02T17:32:36.023Z"
       }
+    },
+    {
+      "ts": "2026-07-02T17:55:18.845Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T17:55:18.844Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:55:18.847Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:55:19.398Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZHQJrRis"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:55:19.747Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:55:31.747Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:55:31.748Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:55:31.749Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 48233
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 29,
+    "trades": 30,
     "wins": 16,
-    "losses": 13,
-    "pnl": -4.17,
+    "losses": 14,
+    "pnl": -6.67,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2903,10 +2874,10 @@
         "pnl": 2.58
       },
       "frxUSDCHF": {
-        "trades": 4,
+        "trades": 5,
         "wins": 4,
-        "losses": 0,
-        "pnl": 6.75
+        "losses": 1,
+        "pnl": 4.25
       },
       "frxEURGBP": {
         "trades": 1,
