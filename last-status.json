@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T00:45:19.931Z",
+  "last_cycle": "2026-07-02T00:55:20.928Z",
   "balance": 9903.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -938,60 +938,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T22:11:06.124Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for R_25 @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:11:06.302Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:11:09.635Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:11:57.443Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out â returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3882342719
-      }
-    },
-    {
-      "ts": "2026-07-01T22:15:14.651Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T22:15:14.650Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:15:14.653Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:15:15.093Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nEksbXDB"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:15:15.474Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T22:15:15.727Z",
       "level": "info",
@@ -2432,6 +2378,68 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 54457
+      }
+    },
+    {
+      "ts": "2026-07-02T00:50:22.525Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T00:50:22.524Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:50:22.526Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:50:31.028Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PzcdrXMo"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:50:34.769Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:52:53.720Z",
+      "level": "warn",
+      "msg": "Failed to fetch R_75 M5",
+      "meta": {
+        "error": "request timeout: {\"ticks_history\":\"R_75\",\"end\":\"latest\",\"count\":100,\"style\":\"candles\",\"granularit"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:53:13.741Z",
+      "level": "warn",
+      "msg": "Failed to fetch R_75 M10",
+      "meta": {
+        "error": "request timeout: {\"ticks_history\":\"R_75\",\"end\":\"latest\",\"count\":60,\"style\":\"candles\",\"granularity"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:55:20.928Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxUSDJPY",
+        "conf": 0.75
+      }
+    },
+    {
+      "ts": "2026-07-02T00:55:20.928Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxUSDJPY disabled in config"
       }
     }
   ],
