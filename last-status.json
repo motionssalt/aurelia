@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T19:50:22.117Z",
+  "last_cycle": "2026-07-02T19:55:15.001Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1398,50 +1398,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-02T17:31:42.851Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:31:42.851Z",
-      "level": "network",
-      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:31:43.339Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDCHF PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.31,
-        "spot": 0.80372
-      }
-    },
-    {
-      "ts": "2026-07-02T17:31:43.929Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3968768979",
-      "meta": {
-        "transaction_id": 7775232779,
-        "longcode": "Win payout if USD/CHF is strictly lower than entry spot at 20 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T17:31:44.379Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDCHF @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:31:44.466Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-02T17:31:47.901Z",
       "level": "info",
       "msg": "[chart] screenshot captured",
@@ -2827,6 +2783,46 @@
     },
     {
       "ts": "2026-07-02T19:50:22.117Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:55:14.365Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T19:55:14.365Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:55:14.367Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:55:14.724Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TnZGVdy7"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:55:14.901Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:55:15.000Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:55:15.000Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
