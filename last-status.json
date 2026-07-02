@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T00:01:10.013Z",
+  "last_cycle": "2026-07-02T00:05:31.257Z",
   "balance": 9904.95,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 98.5,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "losses": 0,
-    "pnl": 0,
+    "losses": 1,
+    "pnl": -1.5,
     "win_streak": 0,
-    "loss_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3887198239,
-    "symbol": "R_75",
-    "placed_at": "2026-07-01T23:32:49.358Z"
-  },
-  "next_cycle_eligible_at": 0,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782950785942,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -718,11 +714,11 @@
       "confidence": 0.85,
       "rationale": "Price is extremely overbought, consistently outside the upper Bollinger Bands across M5, M10, and M15, with expanding ATR, indicating a high probability of a bearish reversal.",
       "contract_id": 3887198239,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 47059.7617,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "The price continued to climb after entry, moving contrary to the expected bearish reversal and causing the put trade to result in a loss."
     }
   ],
   "trade_history_manual": [
@@ -915,15 +911,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3887198239,
-      "path": "cycle",
-      "symbol": "R_75",
-      "placed_at": "2026-07-01T23:32:49.358Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -933,48 +921,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T21:25:28.543Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T21:25:28.543Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 51196
-      }
-    },
-    {
-      "ts": "2026-07-01T21:30:20.219Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T21:30:20.218Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:30:20.221Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T21:30:20.612Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qZJG1JYT"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:30:20.740Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T21:31:04.250Z",
       "level": "info",
@@ -2442,15 +2388,64 @@
       "meta": {
         "date": "2026-07-02"
       }
+    },
+    {
+      "ts": "2026-07-02T00:05:24.887Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T00:05:24.887Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:05:24.889Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:05:25.381Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=K0qYDcNH"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:05:25.705Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:05:31.256Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:05:31.256Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 54686
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "losses": 0,
-    "pnl": 0,
-    "by_symbol": {}
+    "losses": 1,
+    "pnl": -1.5,
+    "by_symbol": {
+      "R_75": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
+      }
+    }
   },
   "daily_history": [
     {
