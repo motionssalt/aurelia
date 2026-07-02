@@ -1,13 +1,13 @@
 {
-  "last_cycle": "2026-07-02T00:55:20.928Z",
-  "balance": 9903.47,
+  "last_cycle": "2026-07-02T00:58:53.459Z",
+  "balance": 9901.97,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 100,
+    "capital_remaining": 98.5,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 0,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3891814539,
+    "symbol": "1HZ50V",
+    "placed_at": "2026-07-02T00:58:53.458Z"
+  },
   "next_cycle_eligible_at": 0,
   "trade_history_cycle": [
     {
@@ -736,6 +740,22 @@
       "pnl": -1.48,
       "ai_outcome_note": "The price briefly dipped below entry but then reversed and moved significantly higher, leading to a loss for the put trade.",
       "exit": 771.81
+    },
+    {
+      "ts": "2026-07-02T00:58:53.458Z",
+      "path": "cycle",
+      "symbol": "1HZ50V",
+      "direction": "put",
+      "stake": 1.5,
+      "expiry_sec": 1800,
+      "confidence": 0.8,
+      "rationale": "Consistent bearish trend across M5/M10/M15 with falling EMAs, price in lower third of Bollinger Bands, and RSI neutral/falling. M5/M10 show Evening Star patterns.",
+      "contract_id": 3891814539,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 274063.31,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -928,116 +948,24 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3891814539,
+      "path": "cycle",
+      "symbol": "1HZ50V",
+      "placed_at": "2026-07-02T00:58:53.458Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "OPENROUTER_KEY_2": 1782933624331,
-    "GEMINI_KEY_1": 1782934230651,
     "GEMINI_KEY_2": 1782938424448,
-    "GEMINI_KEY_3": 1782952830300
+    "GEMINI_KEY_3": 1782952830300,
+    "GEMINI_KEY_4": 1782962851629
   },
   "logs": [
-    {
-      "ts": "2026-07-01T22:15:15.727Z",
-      "level": "info",
-      "msg": "Cycle position open Ã¢ÂÂ waiting for settlement",
-      "meta": {
-        "contract_id": 3882342719,
-        "symbol": "R_25",
-        "placed_at": "2026-07-01T22:11:57.443Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:20:17.775Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T22:20:17.775Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:20:17.777Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:20:18.111Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1wYRp7Np"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:20:18.238Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:20:18.351Z",
-      "level": "info",
-      "msg": "Cycle position open Ã¢ÂÂ waiting for settlement",
-      "meta": {
-        "contract_id": 3882342719,
-        "symbol": "R_25",
-        "placed_at": "2026-07-01T22:11:57.443Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:25:13.774Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T22:25:13.774Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:25:13.776Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:25:14.222Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RAFrk1EM"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:25:14.416Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:25:14.607Z",
-      "level": "info",
-      "msg": "Cycle position open Ã¢ÂÂ waiting for settlement",
-      "meta": {
-        "contract_id": 3882342719,
-        "symbol": "R_25",
-        "placed_at": "2026-07-01T22:11:57.443Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:30:20.043Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T22:30:20.043Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T22:30:20.045Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T22:30:20.455Z",
       "level": "network",
@@ -2440,6 +2368,106 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxUSDJPY disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:57:26.303Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T00:57:26.303Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:57:26.305Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:57:26.624Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=47BibnFj"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:57:26.771Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:57:31.844Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:58:03.352Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "1HZ50V",
+        "conf": 0.8
+      }
+    },
+    {
+      "ts": "2026-07-02T00:58:03.367Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-02T00:58:03.416Z",
+      "level": "trade",
+      "msg": "Proposal accepted 1HZ50V PUT",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.72,
+        "spot": 274062.79
+      }
+    },
+    {
+      "ts": "2026-07-02T00:58:03.499Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3891814539",
+      "meta": {
+        "transaction_id": 7627567119,
+        "longcode": "Win payout if Volatility 50 (1s) Index is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-02T00:58:03.806Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for 1HZ50V @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:58:03.958Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:58:05.758Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:58:53.458Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3891814539
       }
     }
   ],
