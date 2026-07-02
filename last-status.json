@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T20:00:32.175Z",
+  "last_cycle": "2026-07-02T20:05:19.109Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1398,50 +1398,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-02T17:35:26.677Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:35:26.677Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3968768979,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-02T17:32:36.023Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:40:27.935Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T17:40:27.935Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:40:27.937Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:40:28.408Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iGNdQOWB"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:40:28.745Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-02T17:40:29.415Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -2821,6 +2777,46 @@
     },
     {
       "ts": "2026-07-02T20:00:32.175Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T20:05:18.444Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T20:05:18.444Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T20:05:18.446Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T20:05:18.944Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FfFmrbe7"
+      }
+    },
+    {
+      "ts": "2026-07-02T20:05:19.072Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T20:05:19.108Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T20:05:19.109Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
