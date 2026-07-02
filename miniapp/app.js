@@ -213,6 +213,8 @@ const state = {
     //   key -> LineSeries
     overlaySeries: {},
     syncing: false,
+    newsScope: 'today',
+    calendarEvents: [],
 };
 
 /* ── Tab switching ────────────────────────────────────────── */
@@ -223,6 +225,7 @@ document.querySelectorAll('.tab').forEach(btn => {
         document.querySelectorAll('.tab-body').forEach(x => x.classList.toggle('active', x.id === 'tab-' + t));
         if (t === 'trades') refreshTrades();
         if (t === 'settings') renderSettings();
+        if (t === 'news') refreshNews();
         if (t === 'chart') {
             queueOverlayRefresh();
             // The chart may have been laid out at 0px while hidden; re-fit now.
@@ -1097,7 +1100,7 @@ function renderActive() {
                     </span>
                     <span class="pnl">${rem}</span>
                 </div>
-                <span class="meta">#${a.contract_id} • ${a.path} • ${stake}${conf ? ' • ' + conf : ''} • ${entry}</span>
+                <span class="meta">#${a.contract_id} • ${a.path}${a.event_title ? ' • 📰 ' + escapeHtml(a.event_title).slice(0, 40) : ''} • ${stake}${conf ? ' • ' + conf : ''} • ${entry}</span>
                 ${a.rationale ? `<p class="rat">${escapeHtml(a.rationale).slice(0, 220)}</p>` : ''}
             </article>`;
     }).join('');
@@ -1187,6 +1190,12 @@ function renderSettings() {
     const d = cfg.daily_summary || {};
     document.getElementById('fDailyEnabled').checked = d.enabled !== false;
     document.getElementById('fDailyReset').checked = d.reset_on_send !== false;
+    const nm = state.config.news_mode || {};
+    document.getElementById('fNewsMode').checked = !!nm.enabled;
+    document.getElementById('fNewsModeLabel').textContent = nm.enabled ? 'News Mode ON' : 'News Mode OFF';
+    document.getElementById('fNewsModeHint').textContent = nm.enabled
+        ? 'Normal cycle trading is PAUSED. The bot trades only on upcoming economic news events.'
+        : 'When ON, normal cycle trading is paused. The bot trades only on upcoming economic news events.';
     const a = cfg.ai || {};
     document.getElementById('fAiConf').value  = a.min_confidence ?? 0.55;
     document.getElementById('fAiHist').value  = a.max_history_entries ?? 12;
@@ -1203,8 +1212,12 @@ function renderSettings() {
         'balance       : ' + (st.balance ?? '—') + ' ' + (st.currency || ''),
         'last_cycle    : ' + (st.last_cycle || '—'),
         'cycle running : ' + (cfg.cycle && cfg.cycle.running ? 'yes' : 'no'),
+        'news mode     : ' + (cfg.news_mode && cfg.news_mode.enabled ? 'ON (cycle paused)' : 'OFF'),
         'open position : ' + (st.cycle_open_position
             ? (st.cycle_open_position.symbol + ' #' + st.cycle_open_position.contract_id)
+            : '—'),
+        'news position : ' + (st.news_open_position
+            ? (st.news_open_position.symbol + ' #' + st.news_open_position.contract_id)
             : '—'),
         'init_data len : ' + (INIT_DATA ? INIT_DATA.length : 0),
     ].join('\n');
@@ -1391,6 +1404,17 @@ document.getElementById('fSynGate').addEventListener('change', async e => {
         populatePickers();
     } catch (err) { toast('Failed: ' + err.message, 'err'); e.target.checked = !e.target.checked; }
 });
+document.getElementById('fNewsMode').addEventListener('change', async e => {
+    try {
+        const r = await api('/api/config', { method: 'POST', body: { news_mode: { enabled: e.target.checked } } });
+        state.config = r.config;
+        document.getElementById('fNewsModeLabel').textContent = e.target.checked ? 'News Mode ON' : 'News Mode OFF';
+        document.getElementById('fNewsModeHint').textContent = e.target.checked
+            ? 'Normal cycle trading is PAUSED. The bot trades only on upcoming economic news events.'
+            : 'When ON, normal cycle trading is paused. The bot trades only on upcoming economic news events.';
+        toast('News Mode ' + (e.target.checked ? 'ON' : 'OFF'), 'ok');
+    } catch (err) { toast('Failed: ' + err.message, 'err'); e.target.checked = !e.target.checked; }
+});
 document.getElementById('fDailyEnabled').addEventListener('change', async e => {
     try {
         const r = await api('/api/config', { method: 'POST',
@@ -1404,6 +1428,108 @@ document.getElementById('fDailyReset').addEventListener('change', async e => {
             body: { daily_summary: { reset_on_send: e.target.checked } } });
         state.config = r.config; toast('Daily reset ' + (e.target.checked ? 'ON' : 'OFF'), 'ok');
     } catch (err) { toast('Failed: ' + err.message, 'err'); e.target.checked = !e.target.checked; }
+});
+
+/* ============================================================
+   NEWS tab
+   ============================================================ */
+async function refreshNews() {
+    try {
+        const data = await api('/api/calendar?scope=' + state.newsScope);
+        state.calendarEvents = data.events || [];
+        renderNews();
+    } catch (e) {
+        document.getElementById('newsStatus').textContent = 'Failed to load calendar.';
+        document.getElementById('newsList').innerHTML = '<div class="empty">Error: ' + escapeHtml(e.message) + '</div>';
+    }
+}
+
+function renderNews() {
+    const list = state.calendarEvents || [];
+    const statusEl = document.getElementById('newsStatus');
+
+    if (!list.length) {
+        statusEl.textContent = state.newsScope === 'today' ? 'No events scheduled for today.' : 'No calendar data.';
+        document.getElementById('newsList').innerHTML = '<div class="empty">No events.</div>';
+        return;
+    }
+
+    statusEl.textContent = list.length + ' event' + (list.length === 1 ? '' : 's');
+
+    /* Group by day */
+    const groups = {};
+    for (const ev of list) {
+        const dayKey = (ev.date || '').slice(0, 10) || 'Unknown';
+        if (!groups[dayKey]) groups[dayKey] = [];
+        groups[dayKey].push(ev);
+    }
+
+    const dayOrder = Object.keys(groups).sort();
+    const html = dayOrder.map(day => {
+        const dayLabel = formatDayLabel(day);
+        const items = groups[day].map(ev => {
+            const impactClass = impactToClass(ev.impact);
+            const localTime = formatLocalTime(ev.date);
+            return `
+                <article class="news-event">
+                    <div class="news-event-head">
+                        <span class="news-time">${escapeHtml(localTime)}</span>
+                        <span class="news-impact ${impactClass}">${escapeHtml(ev.impact || 'Low')}</span>
+                        <span class="news-currency">${escapeHtml(ev.country || '')}</span>
+                    </div>
+                    <div class="news-title">${escapeHtml(ev.title || '')}</div>
+                    <div class="news-values">
+                        ${ev.forecast ? '<span class="news-fc">Fc: ' + escapeHtml(ev.forecast) + '</span>' : ''}
+                        ${ev.previous ? '<span class="news-prev">Prev: ' + escapeHtml(ev.previous) + '</span>' : ''}
+                    </div>
+                </article>`;
+        }).join('');
+        return `<div class="news-day"><h4>${escapeHtml(dayLabel)}</h4>${items}</div>`;
+    }).join('');
+
+    document.getElementById('newsList').innerHTML = html;
+}
+
+function impactToClass(impact) {
+    const i = String(impact || '').toLowerCase();
+    if (i === 'high') return 'impact-high';
+    if (i === 'medium') return 'impact-medium';
+    if (i === 'holiday') return 'impact-holiday';
+    return 'impact-low';
+}
+
+function formatLocalTime(isoDate) {
+    if (!isoDate) return '—';
+    try {
+        const d = new Date(isoDate);
+        return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    } catch (_) { return isoDate.slice(11, 16); }
+}
+
+function formatDayLabel(dayStr) {
+    try {
+        const d = new Date(dayStr + 'T00:00:00');
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const diff = (d - today) / 86400000;
+        if (diff === 0) return 'Today';
+        if (diff === 1) return 'Tomorrow';
+        return d.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+    } catch (_) { return dayStr; }
+}
+
+/* Today / This Week toggle */
+document.getElementById('newsTodayBtn').addEventListener('click', () => {
+    state.newsScope = 'today';
+    document.getElementById('newsTodayBtn').classList.add('active');
+    document.getElementById('newsWeekBtn').classList.remove('active');
+    refreshNews();
+});
+document.getElementById('newsWeekBtn').addEventListener('click', () => {
+    state.newsScope = 'week';
+    document.getElementById('newsWeekBtn').classList.add('active');
+    document.getElementById('newsTodayBtn').classList.remove('active');
+    refreshNews();
 });
 
 /* ============================================================
