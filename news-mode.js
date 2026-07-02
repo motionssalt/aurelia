@@ -3,10 +3,11 @@
    ─────────────────────────────────────────────────────────────────────
    News Mode trading engine.
 
-   When News Mode is enabled, the normal cycle-trading logic is
-   replaced by event-driven trading: on each tick, check for an
-   upcoming economic news event, run AI analysis on the affected
-   symbol(s), and place a trade ~5 minutes before the event fires.
+   News Mode is an independent event-driven trading path: on each
+   tick, check for an upcoming economic news event, run AI analysis
+   on the affected symbol(s), and place a trade ~5 minutes before the
+   event fires. When both News Mode and the normal cycle are enabled,
+   both paths may run on the same tick with per-symbol overlap guards.
 
    Public surface:
      runNewsMode(ws, config, state, connOpts, deps)  → ws | undefined
@@ -161,7 +162,7 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
     }
 
     /* ── 1. Process due scheduled intents (bot-side timing fallback) ── */
-    const firedIntents = await processDueIntents(ws, config, state, connOpts, placeAndSettle);
+    const firedIntents = await processDueIntents(ws, config, state, connOpts, placeAndSettle, deps);
     if (firedIntents > 0) {
         Logger.info(`News Mode: fired ${firedIntents} scheduled intent(s)`);
     }
@@ -231,6 +232,16 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
         return ws;
     }
 
+    const conflict = deps.getSymbolConflict ? deps.getSymbolConflict(v.normalised.symbol) : null;
+    if (conflict) {
+        Logger.info('News Mode: trade blocked by symbol conflict', {
+            symbol: v.normalised.symbol,
+            conflict_kind: conflict.kind,
+            conflict_by: conflict.by,
+        });
+        return ws;
+    }
+
     /* ── 7. Payout-threshold filter (same as cycle) ── */
     if (checkPayoutThreshold) {
         const pay = await checkPayoutThreshold(ws, v.normalised, config);
@@ -245,17 +256,27 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
     }
 
     /* ── 8. Place trade ── */
+    if (deps.claimSymbol) deps.claimSymbol(v.normalised.symbol, 'news');
     const { record, ws: freshWs } = await placeAndSettle(
-        ws, v.normalised, config, state, { cycle: false, connOpts });
+        ws, v.normalised, config, state, {
+            cycle: false,
+            path: 'news',
+            connOpts,
+            eventTitle: event.title,
+            minutesUntil: minsToEvent,
+        });
     ws = freshWs || ws;
 
     /* Store in news-specific history */
+    record.event_title = event.title;
     state.trade_history_news = state.trade_history_news || [];
     state.trade_history_news.push(record);
 
     /* ── 9. Handle settlement / pending ── */
     if (record.settled) {
+        record.event_title = event.title;
         applyNewsSettlement(state, record);
+        if (deps.applyDailyStat) deps.applyDailyStat(state, record);
     } else if (record.contract_id) {
         state.news_open_position = {
             contract_id: record.contract_id,
@@ -269,6 +290,7 @@ async function runNewsMode(ws, config, state, connOpts, deps) {
             symbol:      record.symbol,
             placed_at:   record.ts,
             expiry_sec:  record.expiry_sec,
+            event_title: event.title,
         });
     }
 
@@ -323,7 +345,7 @@ function scheduleIntent(state, intent) {
 
 /* Process any scheduled intents whose target time has arrived.
    Returns the count of intents that were fired. */
-async function processDueIntents(ws, config, state, connOpts, placeAndSettle) {
+async function processDueIntents(ws, config, state, connOpts, placeAndSettle, deps) {
     if (!placeAndSettle) return 0;
     const intents = state.news_scheduled_intents || [];
     if (intents.length === 0) return 0;
@@ -346,11 +368,21 @@ async function processDueIntents(ws, config, state, connOpts, placeAndSettle) {
     }
 
     /* Fire each due intent */
+    let firedCount = 0;
     for (const intent of due) {
         Logger.info('News Mode: firing scheduled intent', {
             symbol: intent.symbol, event: intent.eventTitle,
         });
         try {
+            const conflict = deps && deps.getSymbolConflict ? deps.getSymbolConflict(intent.symbol) : null;
+            if (conflict) {
+                Logger.info('News Mode: scheduled intent blocked by symbol conflict', {
+                    symbol: intent.symbol,
+                    conflict_kind: conflict.kind,
+                    conflict_by: conflict.by,
+                });
+                continue;
+            }
             const norm = {
                 symbol:     intent.symbol,
                 direction:  intent.direction,
@@ -359,23 +391,41 @@ async function processDueIntents(ws, config, state, connOpts, placeAndSettle) {
                 confidence: intent.confidence || 0.6,
                 rationale:  `[News Mode — scheduled] ${intent.rationale} (event: ${intent.eventTitle})`,
             };
-            const { record } = await placeAndSettle(ws, norm, config, state, { cycle: false, connOpts });
+            if (deps && deps.claimSymbol) deps.claimSymbol(intent.symbol, 'news');
+            const { record } = await placeAndSettle(ws, norm, config, state, {
+                cycle: false,
+                path: 'news',
+                connOpts,
+                eventTitle: intent.eventTitle,
+                minutesUntil: 0,
+            });
 
             state.trade_history_news = state.trade_history_news || [];
+            record.event_title = intent.eventTitle;
             state.trade_history_news.push(record);
+            firedCount += 1;
 
             if (record.settled) {
                 applyNewsSettlement(state, record);
+                if (deps && deps.applyDailyStat) deps.applyDailyStat(state, record);
             } else if (record.contract_id) {
+                state.news_open_position = {
+                    contract_id: record.contract_id,
+                    symbol:      record.symbol,
+                    placed_at:   record.ts,
+                    event_title: intent.eventTitle,
+                };
                 state.pending_contracts.push({
                     contract_id: record.contract_id,
                     path:        'news',
                     symbol:      record.symbol,
                     placed_at:   record.ts,
                     expiry_sec:  record.expiry_sec,
+                    event_title: intent.eventTitle,
                 });
             }
         } catch (e) {
+            if (deps && deps.releaseSymbol) deps.releaseSymbol(intent.symbol);
             Logger.error('News Mode: scheduled intent failed', {
                 error: e.message, intent: intent.id,
             });
@@ -384,7 +434,7 @@ async function processDueIntents(ws, config, state, connOpts, placeAndSettle) {
     }
 
     state.news_scheduled_intents = remaining;
-    return due.length;
+    return firedCount;
 }
 
 /* ─────────────────────────────────────────────────────────────────
