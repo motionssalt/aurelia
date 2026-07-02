@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T10:40:31.914Z",
+  "last_cycle": "2026-07-02T10:45:24.670Z",
   "balance": 9902.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 100.09,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 14,
+    "trades": 15,
     "wins": 9,
-    "losses": 5,
-    "pnl": 3.59,
-    "win_streak": 3,
-    "loss_streak": 0,
+    "losses": 6,
+    "pnl": 0.09,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3928529699,
-    "symbol": "frxEURCHF",
-    "placed_at": "2026-07-02T10:12:18.954Z"
-  },
-  "next_cycle_eligible_at": 1782986780171,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782989179791,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -989,11 +985,12 @@
       "confidence": 0.9,
       "rationale": "Strong bearish trend continuation across all timeframes, with M15 RSI oversold and falling, and price very low in the lower Bollinger Band, indicating sustained downward momentum.",
       "contract_id": 3928529699,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.91864,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -3.5,
+      "ai_outcome_note": "The price initially consolidated near entry, then surged significantly upwards, moving against the 'put' direction to result in a loss.",
+      "exit": 0.91924
     }
   ],
   "trade_history_manual": [
@@ -1186,15 +1183,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3928529699,
-      "path": "cycle",
-      "symbol": "frxEURCHF",
-      "placed_at": "2026-07-02T10:12:18.954Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1204,62 +1193,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T08:16:06.363Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDJPY",
-        "conf": 0.95
-      }
-    },
-    {
-      "ts": "2026-07-02T08:16:06.443Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T08:16:07.101Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxAUDJPY CALL",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.31,
-        "spot": 111.261
-      }
-    },
-    {
-      "ts": "2026-07-02T08:16:08.588Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3918840379",
-      "meta": {
-        "transaction_id": 7678803079,
-        "longcode": "Win payout if AUD/JPY is strictly higher than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T08:16:09.149Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxAUDJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T08:16:09.326Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T08:16:11.126Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T08:16:11.728Z",
       "level": "warn",
@@ -2704,14 +2637,62 @@
         "symbol": "frxEURCHF",
         "placed_at": "2026-07-02T10:12:18.954Z"
       }
+    },
+    {
+      "ts": "2026-07-02T10:45:19.189Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T10:45:19.189Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T10:45:19.191Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:45:19.585Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=d2yVdBlX"
+      }
+    },
+    {
+      "ts": "2026-07-02T10:45:19.705Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:45:24.668Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:45:24.669Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T10:45:24.669Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 55122
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 16,
+    "trades": 17,
     "wins": 9,
-    "losses": 7,
-    "pnl": 0.61,
+    "losses": 8,
+    "pnl": -2.89,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2744,10 +2725,10 @@
         "pnl": 1.04
       },
       "frxEURCHF": {
-        "trades": 1,
+        "trades": 2,
         "wins": 0,
-        "losses": 1,
-        "pnl": -2
+        "losses": 2,
+        "pnl": -5.5
       },
       "frxEURAUD": {
         "trades": 2,
