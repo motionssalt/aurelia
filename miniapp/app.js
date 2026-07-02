@@ -1194,8 +1194,8 @@ function renderSettings() {
     document.getElementById('fNewsMode').checked = !!nm.enabled;
     document.getElementById('fNewsModeLabel').textContent = nm.enabled ? 'News Mode ON' : 'News Mode OFF';
     document.getElementById('fNewsModeHint').textContent = nm.enabled
-        ? 'Normal cycle trading is PAUSED. The bot trades only on upcoming economic news events.'
-        : 'When ON, normal cycle trading is paused. The bot trades only on upcoming economic news events.';
+        ? 'Event-driven News Mode is active. Normal cycle trading can still run if the cycle is enabled.'
+        : 'When ON, News Mode adds an event-driven trading path. Normal cycle trading remains controlled by its own cycle toggle/session.';
     const a = cfg.ai || {};
     document.getElementById('fAiConf').value  = a.min_confidence ?? 0.55;
     document.getElementById('fAiHist').value  = a.max_history_entries ?? 12;
@@ -1212,7 +1212,7 @@ function renderSettings() {
         'balance       : ' + (st.balance ?? '—') + ' ' + (st.currency || ''),
         'last_cycle    : ' + (st.last_cycle || '—'),
         'cycle running : ' + (cfg.cycle && cfg.cycle.running ? 'yes' : 'no'),
-        'news mode     : ' + (cfg.news_mode && cfg.news_mode.enabled ? 'ON (cycle paused)' : 'OFF'),
+        'news mode     : ' + (cfg.news_mode && cfg.news_mode.enabled ? 'ON (independent)' : 'OFF'),
         'open position : ' + (st.cycle_open_position
             ? (st.cycle_open_position.symbol + ' #' + st.cycle_open_position.contract_id)
             : '—'),
@@ -1410,8 +1410,8 @@ document.getElementById('fNewsMode').addEventListener('change', async e => {
         state.config = r.config;
         document.getElementById('fNewsModeLabel').textContent = e.target.checked ? 'News Mode ON' : 'News Mode OFF';
         document.getElementById('fNewsModeHint').textContent = e.target.checked
-            ? 'Normal cycle trading is PAUSED. The bot trades only on upcoming economic news events.'
-            : 'When ON, normal cycle trading is paused. The bot trades only on upcoming economic news events.';
+            ? 'Event-driven News Mode is active. Normal cycle trading can still run if the cycle is enabled.'
+            : 'When ON, News Mode adds an event-driven trading path. Normal cycle trading remains controlled by its own cycle toggle/session.';
         toast('News Mode ' + (e.target.checked ? 'ON' : 'OFF'), 'ok');
     } catch (err) { toast('Failed: ' + err.message, 'err'); e.target.checked = !e.target.checked; }
 });
@@ -1530,6 +1530,16 @@ document.getElementById('newsWeekBtn').addEventListener('click', () => {
     document.getElementById('newsWeekBtn').classList.add('active');
     document.getElementById('newsTodayBtn').classList.remove('active');
     refreshNews();
+});
+document.getElementById('newsFetchBtn').addEventListener('click', async () => {
+    try {
+        await api('/api/calendar/fetch', { method: 'POST' });
+        toast('Real calendar fetch queued', 'ok');
+        document.getElementById('newsStatus').textContent = 'Real ForexFactory refresh queued…';
+        setTimeout(() => refreshNews(), 15000);
+    } catch (e) {
+        toast('Fetch failed: ' + e.message, 'err');
+    }
 });
 
 /* ============================================================
