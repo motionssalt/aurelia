@@ -4,10 +4,20 @@
    ForexFactory economic calendar fetcher.
 
    Public surface:
-     fetchCalendar()                → Promise<event[]>
-     findQualifyingEvent(calendar, nowMs?) → event | null
-     eventToSymbols(event)          → string[] (Deriv symbols)
-     minutesUntil(event, nowMs?)    → number
+     fetchCalendar()                        → Promise<event[]>
+     findQualifyingEvent(calendar, nowMs?)  → event | null
+         (kept for backward compatibility — returns the single best event)
+     findQualifyingEvents(calendar, nowMs?) → event[]
+         (NEW — returns ALL events in the qualifying window, sorted by
+          proximity. When multiple events share the same timestamp
+          (e.g. NFP + Unemployment Rate + Avg Hourly Earnings all at
+          12:30 UTC) all of them are returned so the AI can reason
+          over the combined bundle.)
+     eventToSymbols(event)                  → string[] (Deriv symbols)
+     minutesUntil(event, nowMs?)            → number
+     describeEvent(event)                   → string
+     describeEvents(events)                 → string  (bundle description)
+     groupEventsByTime(events, toleranceMs?)→ event[][] (same-time buckets)
 
    The source file (ff_calendar_thisweek.json) is regenerated hourly
    server-side, so we refresh no more than once per hour.
@@ -18,6 +28,31 @@
 const Logger = require('./logger');
 
 const CALENDAR_URL = 'https://nfs.faireconomy.media/ff_calendar_thisweek.json';
+
+/* Qualifying window (minutes from now).
+   ─────────────────────────────────────────────────────────────────
+   The GitHub Actions cron runs every ~5 min (with ±1-2 min jitter
+   from cron-job.org). To guarantee EVERY event is caught by at
+   least one tick, the window must be strictly wider than the
+   cron cadence. We use [0.5, 15]:
+     • Lower bound 0.5 min — still catches an event even if the
+       cron tick lands 30 s before it (previous code used 2 min,
+       which silently DROPPED any event that fell into the
+       [0, 2) bucket for a given tick — the biggest cause of
+       missed events).
+     • Upper bound 15 min — with 5-min cron cadence, this means an
+       event is seen on 3 consecutive ticks (~15/10/5 min out) so
+       even if one tick is dropped by GitHub Actions or cron-job.org
+       we still have redundant chances to fire.
+   Ideal-lead-time target for "closest" ranking is 5 min out. */
+const WINDOW_MIN_MINUTES     = 0.5;
+const WINDOW_MAX_MINUTES     = 15;
+const IDEAL_LEAD_MINUTES     = 5;
+
+/* Tolerance for grouping events that fire at the "same time".
+   ForexFactory publishes to the minute, so anything within 60 s of
+   another event is treated as a simultaneous release. */
+const SAME_TIME_TOLERANCE_MS = 60 * 1000;
 
 /* Country-code → Deriv forex symbol(s).
    We map the event currency to ALL enabled forex pairs that contain
@@ -78,32 +113,78 @@ function minutesUntil(event, nowMs) {
     return (eventMs - now) / 60000;
 }
 
-/* Find a qualifying upcoming news event:
-   • Event is in the future (between 2 and 10 minutes from now).
-   • We look for the closest event that falls within the "5 minutes
-     before" window, with relaxed tolerance (±3 min) since cron ticks
-     land on 5-minute boundaries and won't always hit exactly -5 min.
-   • Returns the single best-matching event, or null if none qualify.
+/* ─────────────────────────────────────────────────────────────────
+   findQualifyingEvents(calendar, nowMs?) → event[]
 
-   We deliberately do NOT filter by impact level — the AI decides
-   whether an event is worth trading. */
-function findQualifyingEvent(calendar, nowMs) {
-    if (!Array.isArray(calendar) || calendar.length === 0) return null;
+   Return ALL events whose fire-time falls inside the qualifying
+   window [WINDOW_MIN_MINUTES, WINDOW_MAX_MINUTES] minutes from now,
+   sorted by proximity to the ideal lead time (5 min).
+
+   The returned array preserves original event objects (no wrapping)
+   so downstream code can pass them straight to eventToSymbols /
+   describeEvent. Duplicates within 60 s of each other are all
+   included — grouping is the caller's responsibility (see
+   groupEventsByTime).
+
+   This is the primary lookup used by news-mode. The old
+   findQualifyingEvent (singular) is retained as a thin wrapper for
+   backward compatibility.
+   ───────────────────────────────────────────────────────────────── */
+function findQualifyingEvents(calendar, nowMs) {
+    if (!Array.isArray(calendar) || calendar.length === 0) return [];
     const now = nowMs || Date.now();
 
-    /* Window: events between 2 and 10 minutes from now.
-       The sweet spot is ~5 min before the event — enough time for the
-       AI to analyse and place a trade, but close enough that the pre-
-       news price action is meaningful. */
     const candidates = calendar
         .map(ev => ({ ev, mins: minutesUntil(ev, now) }))
-        .filter(({ mins }) => mins >= 2 && mins <= 10);
+        .filter(({ mins }) => mins >= WINDOW_MIN_MINUTES && mins <= WINDOW_MAX_MINUTES);
 
-    if (candidates.length === 0) return null;
+    if (candidates.length === 0) return [];
 
-    /* Pick the event closest to 5 minutes away (the ideal lead time). */
-    candidates.sort((a, b) => Math.abs(a.mins - 5) - Math.abs(b.mins - 5));
-    return candidates[0].ev;
+    /* Sort by distance to ideal lead time (5 min out). Events that
+       are equally close keep their original calendar order. */
+    candidates.sort((a, b) =>
+        Math.abs(a.mins - IDEAL_LEAD_MINUTES) - Math.abs(b.mins - IDEAL_LEAD_MINUTES)
+    );
+
+    return candidates.map(c => c.ev);
+}
+
+/* Backward-compatible singular helper — returns just the top event
+   from findQualifyingEvents, or null. Existing callers that only
+   want a single event keep working; new callers should use
+   findQualifyingEvents to get the full batch. */
+function findQualifyingEvent(calendar, nowMs) {
+    const list = findQualifyingEvents(calendar, nowMs);
+    return list.length > 0 ? list[0] : null;
+}
+
+/* Group events into buckets of near-simultaneous releases.
+   Two events belong to the same bucket when their fire-times are
+   within `toleranceMs` of each other (default 60 s).
+
+   Input events do NOT need to be pre-sorted. Output is an array of
+   buckets, each bucket is an array of events sharing a fire-time.
+   Buckets are ordered by their (earliest) fire-time ascending. */
+function groupEventsByTime(events, toleranceMs) {
+    if (!Array.isArray(events) || events.length === 0) return [];
+    const tol = typeof toleranceMs === 'number' ? toleranceMs : SAME_TIME_TOLERANCE_MS;
+
+    const withTime = events
+        .map(ev => ({ ev, t: Date.parse(ev.date) }))
+        .filter(x => Number.isFinite(x.t))
+        .sort((a, b) => a.t - b.t);
+
+    const buckets = [];
+    for (const x of withTime) {
+        const last = buckets[buckets.length - 1];
+        if (last && Math.abs(x.t - last.t) <= tol) {
+            last.events.push(x.ev);
+            /* Keep bucket timestamp anchored to the earliest event in it. */
+        } else {
+            buckets.push({ t: x.t, events: [x.ev] });
+        }
+    }
+    return buckets.map(b => b.events);
 }
 
 /* Map an event's country code to the Deriv forex symbol(s) that
@@ -113,7 +194,7 @@ function eventToSymbols(event) {
     return COUNTRY_SYMBOL_MAP[event.country.toUpperCase()] || [];
 }
 
-/* Build a human-readable description of the event for AI context. */
+/* Build a human-readable description of a SINGLE event for AI context. */
 function describeEvent(event) {
     if (!event) return '';
     const mins = Math.round(minutesUntil(event));
@@ -129,11 +210,50 @@ function describeEvent(event) {
     return parts.join('\n');
 }
 
+/* Build a human-readable description of a BUNDLE of events (one or
+   many) sharing approximately the same fire-time. Used by news-mode
+   to give the AI the full multi-event picture instead of just one. */
+function describeEvents(events) {
+    if (!Array.isArray(events) || events.length === 0) return '';
+    if (events.length === 1) return describeEvent(events[0]);
+
+    const first = events[0];
+    const mins  = Math.round(minutesUntil(first));
+    const timeLabel = mins > 0 ? `${mins} min from now` : (mins < 0 ? `${Math.abs(mins)} min ago` : 'now');
+
+    const header = [
+        `Simultaneous release: ${events.length} events at ${first.date} (${timeLabel})`,
+        `Currencies affected: ${Array.from(new Set(events.map(e => e.country))).join(', ')}`,
+        '',
+    ];
+
+    const body = events.map((ev, i) => {
+        const lines = [
+            `[Event ${i + 1}] ${ev.title}`,
+            `  Country/Currency: ${ev.country}`,
+            `  Impact: ${ev.impact || 'unknown'}`,
+        ];
+        if (ev.forecast) lines.push(`  Forecast: ${ev.forecast}`);
+        if (ev.previous) lines.push(`  Previous: ${ev.previous}`);
+        return lines.join('\n');
+    });
+
+    return header.concat(body).join('\n');
+}
+
 module.exports = {
     fetchCalendar,
-    findQualifyingEvent,
+    findQualifyingEvent,     // legacy singular (returns top event)
+    findQualifyingEvents,    // NEW plural (returns full list)
+    groupEventsByTime,       // NEW helper for same-time bundling
     eventToSymbols,
     minutesUntil,
     describeEvent,
+    describeEvents,          // NEW bundle formatter
     CALENDAR_URL,
+    /* Exposed for tests / diagnostics */
+    WINDOW_MIN_MINUTES,
+    WINDOW_MAX_MINUTES,
+    IDEAL_LEAD_MINUTES,
+    SAME_TIME_TOLERANCE_MS,
 };
