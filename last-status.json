@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T00:00:22.944Z",
+  "last_cycle": "2026-07-02T00:01:10.013Z",
   "balance": 9904.95,
   "currency": "USD",
   "account_mode": "demo",
@@ -933,44 +933,6 @@
     "GEMINI_KEY_3": 1782952830300
   },
   "logs": [
-    {
-      "ts": "2026-07-01T21:20:19.061Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 3876055219,
-        "symbol": "1HZ10V",
-        "placed_at": "2026-07-01T20:51:49.373Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:25:18.420Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-01T21:25:18.420Z"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:25:18.422Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T21:25:19.048Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WAyuMhi5"
-      }
-    },
-    {
-      "ts": "2026-07-01T21:25:19.494Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-01T21:25:28.543Z",
       "level": "info",
@@ -2444,6 +2406,42 @@
         "symbol": "R_75",
         "placed_at": "2026-07-01T23:32:49.358Z"
       }
+    },
+    {
+      "ts": "2026-07-02T00:01:08.603Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T00:01:08.603Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:01:08.605Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:01:09.097Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=motlasI0"
+      }
+    },
+    {
+      "ts": "2026-07-02T00:01:09.380Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T00:01:10.013Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-07-02"
+      }
     }
   ],
   "daily_stats": {
@@ -2481,6 +2479,14 @@
     },
     {
       "date": "2026-07-01",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
+    },
+    {
+      "date": "2026-07-02",
       "trades": 0,
       "wins": 0,
       "losses": 0,
