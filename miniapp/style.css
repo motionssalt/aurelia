@@ -1,5 +1,5 @@
 /* ============================================================
-   AURELIA Mini App — complete UI overhaul (2026 fintech)
+   AURELIA Mini App — refurbished UI pass
    Static, mobile-first Telegram Mini App stylesheet.
 
    Theme policy:
@@ -43,11 +43,11 @@
     /* Adaptive surfaces: work against light or dark Telegram palettes. */
     --app-bg: var(--tg-bg);
     --surface: var(--tg-secondary, var(--tg-section));
-    --surface-elevated: color-mix(in srgb, var(--tg-secondary) 86%, var(--tg-text) 14%);
+    --surface-elevated: color-mix(in srgb, var(--tg-secondary) 84%, var(--tg-text) 16%);
     --surface-muted: color-mix(in srgb, var(--tg-secondary) 92%, var(--tg-bg) 8%);
     --surface-contrast: color-mix(in srgb, var(--tg-bg) 82%, var(--tg-text) 18%);
-    --control-bg: color-mix(in srgb, var(--tg-bg) 72%, var(--tg-secondary) 28%);
-    --control-bg-hover: color-mix(in srgb, var(--tg-secondary) 80%, var(--tg-text) 20%);
+    --control-bg: color-mix(in srgb, var(--tg-bg) 68%, var(--tg-secondary) 32%);
+    --control-bg-hover: color-mix(in srgb, var(--tg-secondary) 78%, var(--tg-text) 22%);
     --border: color-mix(in srgb, var(--tg-hint) 26%, transparent);
     --border-soft: color-mix(in srgb, var(--tg-hint) 14%, transparent);
     --muted-fill: color-mix(in srgb, var(--tg-hint) 12%, transparent);
@@ -58,6 +58,7 @@
     --warn-fill: color-mix(in srgb, var(--warn) 16%, transparent);
     --chart-grid: color-mix(in srgb, var(--tg-hint) 18%, transparent);
     --shadow-soft: 0 10px 28px color-mix(in srgb, var(--tg-bg) 28%, transparent);
+    --shadow-card: 0 1px 0 color-mix(in srgb, var(--tg-text) 5%, transparent), 0 10px 24px color-mix(in srgb, var(--tg-bg) 18%, transparent);
 
     /* Typography. */
     --fs-2xs: 10px;
@@ -93,6 +94,7 @@
     --ctl-h: 42px;
     --topbar-h: 70px;
     --tabs-h: 62px;
+    --page-pad: var(--sp-4);
 
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
     --dur: 180ms;
@@ -118,6 +120,11 @@ body {
 }
 button, input, select { font: inherit; }
 button { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--accent-border); outline-offset: 2px; }
+::selection { background: var(--accent-fill); color: var(--tg-text); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--r-pill); }
+::-webkit-scrollbar-track { background: transparent; }
 
 /* ── Header: grouped status + account summary ───────────────── */
 #topbar {
@@ -234,7 +241,7 @@ button { touch-action: manipulation; }
     flex: 0 0 auto;
     height: var(--tabs-h);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--sp-2);
     padding: var(--sp-2) var(--sp-3);
     background: var(--tg-header);
@@ -297,10 +304,19 @@ main { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; ove
 .tab-body.active { display: flex !important; flex: 1 1 auto; flex-direction: column; min-height: 0; animation: tabIn var(--dur) var(--ease); }
 @keyframes tabIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 #tab-trades,
-#tab-settings { overflow-y: auto; -webkit-overflow-scrolling: touch; padding: var(--sp-4); }
+#tab-news,
+#tab-settings {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--page-pad);
+    padding-bottom: calc(var(--page-pad) + env(safe-area-inset-bottom));
+}
+#tab-trades,
+#tab-settings { gap: 0; }
 
 /* ── Chart tab ──────────────────────────────────────────────── */
-#tab-chart { padding: var(--sp-3) var(--sp-3) var(--sp-2); }
+#tab-chart { padding: var(--sp-3) var(--sp-3) var(--sp-2); overflow: hidden; }
 .picker-row {
     flex: 0 0 auto;
     display: grid;
@@ -387,7 +403,7 @@ input[type="text"]:focus { border-color: var(--accent-border); box-shadow: 0 0 0
     border: 1px solid var(--border-soft);
     border-radius: var(--r-xl);
 }
-#chartWrap { flex: 1 1 auto; min-height: 0; }
+#chartWrap { flex: 1 1 auto; min-height: 0; box-shadow: var(--shadow-card); }
 #chart { position: absolute; inset: 0; width: 100%; height: 100%; }
 #subpanes { flex: 0 0 auto; display: flex; flex-direction: column; gap: var(--sp-2); min-height: 0; }
 #subpanes:empty { display: none; }
@@ -503,9 +519,10 @@ h2:first-child { margin-top: 0; }
     border-radius: var(--r-lg);
     background: var(--surface);
     border: 1px solid var(--border-soft);
-    transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
-.trade:hover { border-color: var(--border); }
+.trade:hover { border-color: var(--border); transform: translateY(-1px); }
 .trade-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); }
 .trade-title { display: flex; align-items: center; min-width: 0; gap: var(--sp-2); }
 .trade .sym { min-width: 0; color: var(--tg-text); font-size: var(--fs-md); font-weight: var(--fw-heavy); letter-spacing: .15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -556,6 +573,7 @@ h2:first-child { margin-top: 0; }
     border-radius: var(--r-xl);
     background: var(--surface);
     border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-card);
 }
 .card-feature { background: var(--surface-elevated); border-color: var(--border); }
 .card-compact { padding: var(--sp-3) var(--sp-4); }
@@ -604,6 +622,7 @@ button {
     transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), transform var(--dur) var(--ease), opacity var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 button:hover { background: var(--control-bg-hover); border-color: var(--border); }
+button:focus-visible { outline: 2px solid var(--accent-border); outline-offset: 2px; }
 button.primary { background: var(--tg-button); color: var(--tg-button-text); border-color: var(--tg-button); }
 button.primary:hover { opacity: .92; }
 button.secondary { background: var(--accent-fill); color: var(--accent); border-color: var(--accent-border); }
@@ -763,138 +782,207 @@ details summary { cursor: pointer; padding: var(--sp-2) 0; color: var(--tg-hint)
     .badge { padding: 0 var(--sp-2); }
     .tab { height: 42px; gap: 6px; }
     .tab .tab-ico { width: 18px; height: 18px; }
+    :root { --page-pad: var(--sp-3); }
     .picker-row { grid-template-columns: minmax(104px, 1fr) 66px auto; }
     .chart-status { grid-column: 1 / -1; justify-self: stretch; justify-content: center; }
     .action-row { grid-template-columns: 1fr; }
     .grid2 { grid-template-columns: 1fr; }
+    .news-toggle-group { width: 100%; display: grid; grid-template-columns: 1fr 1fr; margin-left: 0; }
+    #newsFetchBtn { width: 100%; grid-column: 1 / -1; }
 }
 
 /* ============================================================
    News tab styles
    ============================================================ */
+#tab-news {
+    gap: var(--sp-3);
+}
 .news-header {
+    flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: var(--sp-2);
-    margin-bottom: var(--sp-3);
+    gap: var(--sp-3);
 }
 .news-header h2 {
     margin: 0;
-    font-size: var(--text-lg);
     color: var(--tg-text);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-heavy);
+    letter-spacing: .15px;
+    line-height: 1.15;
 }
 .news-toggle-group {
     display: flex;
-    gap: 0;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    border: 1px solid var(--border-soft);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-left: auto;
 }
 .news-scope-btn {
-    background: var(--surface-muted);
+    min-height: 36px;
+    padding: 0 var(--sp-3);
+    border-radius: var(--r-pill);
+    background: var(--control-bg);
     color: var(--tg-hint);
-    border: none;
-    padding: var(--sp-2) var(--sp-3);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+    border: 1px solid var(--border-soft);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-heavy);
+    letter-spacing: .35px;
+    text-transform: uppercase;
 }
 .news-scope-btn.active {
-    background: var(--accent);
-    color: var(--tg-button-text);
+    background: var(--accent-fill);
+    color: var(--accent);
+    border-color: var(--accent-border);
+}
+#newsFetchBtn {
+    min-height: 36px;
+    padding: 0 var(--sp-3);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: .35px;
 }
 .news-status {
-    font-size: var(--text-xs);
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 28px;
+    padding: 0 var(--sp-3);
+    border-radius: var(--r-pill);
+    background: var(--muted-fill);
     color: var(--tg-hint);
-    margin-bottom: var(--sp-2);
+    border: 1px solid var(--border-soft);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    font-variant-numeric: tabular-nums;
 }
 .news-list {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--sp-3);
+    gap: var(--sp-4);
+    min-height: min-content;
+    padding-bottom: var(--sp-2);
+}
+.news-day {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
 }
 .news-day h4 {
-    margin: 0 0 var(--sp-2) 0;
-    font-size: var(--text-sm);
+    position: sticky;
+    top: calc(-1 * var(--page-pad));
+    z-index: 1;
+    margin: 0;
+    padding: var(--sp-2) 0;
     color: var(--tg-hint);
+    background: var(--app-bg);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-heavy);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: .9px;
 }
 .news-event {
     background: var(--surface);
     border: 1px solid var(--border-soft);
     border-radius: var(--r-lg);
     padding: var(--sp-3);
-    margin-bottom: var(--sp-2);
-    transition: border-color var(--dur) var(--ease);
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), background var(--dur) var(--ease);
 }
+.news-event:hover { border-color: var(--border); transform: translateY(-1px); }
 .news-event-head {
     display: flex;
     align-items: center;
     gap: var(--sp-2);
-    margin-bottom: var(--sp-1);
+    margin-bottom: var(--sp-2);
     flex-wrap: wrap;
 }
 .news-time {
-    font-size: var(--text-xs);
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 var(--sp-2);
+    border-radius: var(--r-pill);
+    background: var(--control-bg);
     color: var(--tg-hint);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-heavy);
     font-variant-numeric: tabular-nums;
 }
 .news-impact {
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: var(--r-sm);
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 var(--sp-2);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-heavy);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: .55px;
 }
 .news-impact.impact-high {
-    background: var(--bear);
-    color: var(--tg-button-text);
+    background: var(--bear-fill);
+    color: var(--bear);
+    border: 1px solid color-mix(in srgb, var(--bear) 35%, transparent);
 }
 .news-impact.impact-medium {
-    background: var(--warn);
-    color: #1a1a1a;
+    background: var(--warn-fill);
+    color: var(--warn);
+    border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
 }
 .news-impact.impact-low {
-    background: color-mix(in srgb, var(--surface-contrast) 80%, var(--tg-text) 10%);
+    background: var(--muted-fill);
     color: var(--tg-hint);
+    border: 1px solid var(--border-soft);
 }
 .news-impact.impact-holiday {
     background: var(--surface-contrast);
     color: var(--tg-hint);
+    border: 1px solid var(--border-soft);
     font-style: italic;
 }
 .news-currency {
-    font-size: var(--text-xs);
-    font-weight: 700;
-    color: var(--accent);
     margin-left: auto;
+    color: var(--accent);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-heavy);
+    letter-spacing: .35px;
 }
 .news-title {
-    font-size: var(--text-sm);
-    font-weight: 600;
+    margin: 0 0 var(--sp-2);
     color: var(--tg-text);
-    line-height: 1.35;
-    margin-bottom: var(--sp-1);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    line-height: 1.38;
 }
 .news-values {
     display: flex;
-    gap: var(--sp-3);
-    font-size: var(--text-xs);
+    flex-wrap: wrap;
+    gap: var(--sp-2);
     color: var(--tg-hint);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-med);
 }
-.news-fc, .news-prev {
+.news-fc,
+.news-prev {
+    display: inline-flex;
+    min-height: 24px;
+    align-items: center;
+    padding: 0 var(--sp-2);
+    border-radius: var(--r-pill);
+    background: var(--control-bg);
     font-variant-numeric: tabular-nums;
 }
 
 /* News Mode card highlight */
 .card-news {
-    border-color: color-mix(in srgb, var(--accent) 30%, var(--border-soft));
+    border-color: var(--accent-border);
 }
 .card-news.card-compact {
-    background: color-mix(in srgb, var(--surface) 95%, var(--accent) 5%);
+    background: color-mix(in srgb, var(--surface) 92%, var(--accent) 8%);
 }
