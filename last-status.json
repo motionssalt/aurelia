@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-02T12:30:33.551Z",
-  "balance": 9899.87,
+  "last_cycle": "2026-07-02T12:35:19.848Z",
+  "balance": 9902.41,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 97.9,
+    "capital_remaining": 100.44,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 16,
-    "wins": 10,
+    "trades": 17,
+    "wins": 11,
     "losses": 6,
-    "pnl": 1.9,
-    "win_streak": 1,
+    "pnl": 2.94,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3935905819,
-    "symbol": "frxEURCAD",
-    "placed_at": "2026-07-02T11:32:15.012Z"
-  },
-  "next_cycle_eligible_at": 1782991581617,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782995775503,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1023,11 +1019,12 @@
       "confidence": 0.85,
       "rationale": "Strong bullish trend continuation across M5, M10, and M15, with rising EMAs, widening EMA20-EMA50 gap, rising/overbought RSI, price consistently in the upper third of Bollinger Bands, and expanding ATR on higher timeframes.",
       "contract_id": 3935905819,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.62132,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.04,
+      "ai_outcome_note": "The price initially dipped and consolidated below entry, but a strong late-stage bullish surge ultimately drove it above the exit for a win.",
+      "exit": 1.62309
     }
   ],
   "trade_history_manual": [
@@ -1222,13 +1219,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 3935905819,
-      "path": "cycle",
-      "symbol": "frxEURCAD",
-      "placed_at": "2026-07-02T11:32:15.012Z",
-      "expiry_sec": 3600
-    },
-    {
       "contract_id": 3940480119,
       "path": "news",
       "symbol": "frxGBPUSD",
@@ -1246,59 +1236,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T10:15:14.699Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:15:15.220Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:15:15.263Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-02T10:15:15.263Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:15:15.264Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3928529699,
-        "symbol": "frxEURCHF",
-        "placed_at": "2026-07-02T10:12:18.954Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:20:17.972Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T10:20:17.972Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:20:17.974Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T10:20:18.462Z",
       "level": "network",
@@ -2747,14 +2684,67 @@
         "symbol": "frxEURCAD",
         "placed_at": "2026-07-02T11:32:15.012Z"
       }
+    },
+    {
+      "ts": "2026-07-02T12:35:14.865Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T12:35:14.865Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:35:14.868Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:35:15.240Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JhbuU9wr"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:35:15.357Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:35:19.846Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:35:19.847Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3940480119,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-02T12:21:31.821Z",
+        "event_title": "Average Hourly Earnings m/m"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:35:19.848Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 55655
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 18,
-    "wins": 10,
+    "trades": 19,
+    "wins": 11,
     "losses": 8,
-    "pnl": -1.08,
+    "pnl": -0.04,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2821,6 +2811,12 @@
         "wins": 2,
         "losses": 0,
         "pnl": 3.62
+      },
+      "frxEURCAD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.04
       }
     }
   },
