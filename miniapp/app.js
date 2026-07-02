@@ -1117,6 +1117,12 @@ function renderHistory(trades) {
             const when = (t.ts || '').replace('T', ' ').slice(0, 16);
             const outcome = t.outcome || (pnl > 0 ? 'win' : pnl < 0 ? 'loss' : 'flat');
             const entry = t.entry != null ? (' entry ' + t.entry) : '';
+            // BUG-1 fix: also render exit price on settled trades. Prior
+            // to the runner-side exit-field fix this was always null, so
+            // this block silently emitted nothing; now that record.exit
+            // is populated for every settled contract we surface it in
+            // the history card next to entry.
+            const exit  = t.exit  != null ? (' exit '  + t.exit)  : '';
             return `
                 <article class="trade">
                     <div class="trade-head">
@@ -1126,7 +1132,7 @@ function renderHistory(trades) {
                         </span>
                         <span class="pnl ${pnlClass}">${pnlText}</span>
                     </div>
-                    <span class="meta">${when} • ${t.path || ''} • ${outcome} • $${Number(t.stake || 0).toFixed(2)}${entry}</span>
+                    <span class="meta">${when} • ${t.path || ''} • ${outcome} • $${Number(t.stake || 0).toFixed(2)}${entry}${exit}</span>
                     ${t.ai_outcome_note ? `<p class="rat">${escapeHtml(t.ai_outcome_note).slice(0, 220)}</p>` : ''}
                 </article>`;
         }).join('');
