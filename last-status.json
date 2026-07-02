@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T12:21:31.822Z",
-  "balance": 9902.37,
+  "last_cycle": "2026-07-02T12:25:23.356Z",
+  "balance": 9899.87,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1246,52 +1246,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T10:11:26.369Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6kuJMPtp"
-      }
-    },
-    {
-      "ts": "2026-07-02T10:11:26.563Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:11:26.563Z",
-      "level": "network",
-      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T10:11:27.117Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURCHF PUT",
-      "meta": {
-        "stake": 3.5,
-        "price": 3.5,
-        "payout": 6.03,
-        "spot": 0.91865
-      }
-    },
-    {
-      "ts": "2026-07-02T10:11:28.597Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3928529699",
-      "meta": {
-        "transaction_id": 7697444619,
-        "longcode": "Win payout if EUR/CHF is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T10:11:29.041Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURCHF @ 5m",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T10:11:29.145Z",
       "level": "info",
@@ -2730,6 +2684,55 @@
     },
     {
       "ts": "2026-07-02T12:21:31.821Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3935905819,
+        "symbol": "frxEURCAD",
+        "placed_at": "2026-07-02T11:32:15.012Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:25:21.206Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T12:25:21.205Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:25:21.208Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:25:21.686Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=q06JC5eU"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:25:22.002Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T12:25:23.355Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3940480119,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-02T12:21:31.821Z",
+        "event_title": "Average Hourly Earnings m/m"
+      }
+    },
+    {
+      "ts": "2026-07-02T12:25:23.356Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
