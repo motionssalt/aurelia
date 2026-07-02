@@ -160,6 +160,11 @@ async function handleCommand(cmd, args, env) {
         case '/scan':
             return dispatchManual(env, { action: 'trade_now' }, 'Manual scan triggered.');
 
+        case '/newsfetch':
+        case '/fetchnews':
+            await dispatchWorkflow(env, { task: 'calendar_fetch' });
+            return tgSend(env, '📰 Real calendar fetch queued — you will get a confirmation message when the ForexFactory data lands.');
+
         case '/syn': {
             const v = (args[0] || '').toLowerCase();
             const cfg = await ghReadJSON(env, 'config.json');
@@ -273,6 +278,7 @@ function helpText() {
         '<b>AURELIA — commands</b>',
         '/menu  /status  /settings  /logs',
         '/scan — fire one manual AI trade',
+        '/newsfetch — fetch real ForexFactory calendar now',
         '/chart SYM TF  (e.g. /chart frxEURUSD 5m)',
         '',
         '<b>Cycle</b>',
@@ -285,7 +291,7 @@ function helpText() {
         '/setpayout clear frxEURUSD',
         '',
         '<b>Other</b>',
-        '/syn on|off  /mode demo|real  /summary',
+        '/syn on|off  /mode demo|real  /summary  /newsfetch',
     ].join('\n');
 }
 
@@ -356,6 +362,10 @@ async function handleCallback(cb, env) {
             ? Telegram.templates.newsModeEnabled({ mode: cfg.account.mode })
             : Telegram.templates.newsModeDisabled({ mode: cfg.account.mode });
         return tgEdit(env, cb, template, KB.mainMenu(cfg));
+    }
+    if (data === 'news_fetch_now') {
+        await dispatchWorkflow(env, { task: 'calendar_fetch' });
+        return tgEdit(env, cb, '📰 Real calendar fetch queued — Telegram will confirm once the latest ForexFactory data is stored.', KB.mainMenu(cfg));
     }
     if (data === 'frx_toggle') {
         // FRX master gate — mirrors syn_enabled. Default treats undefined
@@ -774,7 +784,7 @@ function renderMenu(cfg, st) {
         `⚡ <b>AURELIA</b> ${badge(cfg)}`,
         `Balance: <b>$${fmt2(st && st.balance)}</b>`,
         `Cycle: ${cycle ? '▶️ running' : '⏸️ paused'}   SYN: ${cfg && cfg.syn_enabled ? '✅' : '⛔'}`,
-        `News Mode: ${newsOn ? '📰 ON (cycle paused)' : '📰 OFF'}`,
+        `News Mode: ${newsOn ? '📰 ON (independent)' : '📰 OFF'}`,
         `Symbols: FX ${fxOn}/${fxTot}  •  SYN ${synOn}/${synTot}`,
     ].join('\n');
 }
@@ -804,7 +814,7 @@ function renderStatus(cfg, st) {
         `Trades / W / L  : ${ds.trades || 0} / ${ds.wins || 0} / ${ds.losses || 0}`,
         `P/L             : ${dsSign}$${fmt2(ds.pnl || 0)}`,
         '',
-        `<b>News Mode</b>     : ${cfg.news_mode && cfg.news_mode.enabled ? '📰 ON — cycle paused' : '📰 OFF'}`,
+        `<b>News Mode</b>     : ${cfg.news_mode && cfg.news_mode.enabled ? '📰 ON — event-driven path active' : '📰 OFF'}`,
     ].join('\n');
 }
 
@@ -1031,8 +1041,8 @@ const KB = {
         [{ text: '▶️ Start Cycle', data: 'cycle_start' }, { text: '⏸️ Pause Cycle', data: 'cycle_pause' }],
         [{ text: '⚙️ Settings',   data: 'set:open' },    { text: '📈 Chart',       data: 'chart' }],
         [{ text: '🎛️ SYN',        data: 'syn_toggle' },  { text: '🔄 Mode',        data: 'mode_toggle' }],
-        [{ text: (cfg && cfg.news_mode && cfg.news_mode.enabled) ? '📰 News ON' : '📰 News OFF', data: 'news_toggle' }, { text: '📋 Logs', data: 'logs:1:all' }],
-        [{ text: '❓ Help',        data: 'help' }],
+        [{ text: (cfg && cfg.news_mode && cfg.news_mode.enabled) ? '📰 News ON' : '📰 News OFF', data: 'news_toggle' }, { text: '🔄 Fetch News', data: 'news_fetch_now' }],
+        [{ text: '📋 Logs',        data: 'logs:1:all' }, { text: '❓ Help', data: 'help' }],
     ]),
     statusScreen: () => kb([
         [{ text: '🔄 Refresh', data: 'status' }, { text: '🏠 Menu', data: 'menu' }],
@@ -1297,6 +1307,7 @@ const KB = {
      POST /api/cycle/start      same as /startcycle
      POST /api/cycle/pause      same as /pausecycle
      POST /api/scan             same as /scan (dispatchManual)
+     POST /api/calendar/fetch   queue a real ForexFactory refresh now
 
    The write endpoints reuse the exact same mutation helpers used by
    the Telegram command / callback handlers, so validation rules stay
@@ -1664,6 +1675,10 @@ async function handleApi(request, env, url) {
         await dispatchManual(env, { action: 'trade_now' });
         return jsonResponse({ ok: true });
     }
+    if (request.method === 'POST' && path === '/api/calendar/fetch') {
+        await dispatchWorkflow(env, { task: 'calendar_fetch' });
+        return jsonResponse({ ok: true });
+    }
     if (request.method === 'POST' && path === '/api/daily/run') {
         await dispatchWorkflow(env, { task: 'daily_summary' });
         return jsonResponse({ ok: true });
@@ -1695,7 +1710,8 @@ function buildActiveTrades(st) {
     const pending = Array.isArray(st.pending_contracts) ? st.pending_contracts : [];
     const histC   = Array.isArray(st.trade_history_cycle)  ? st.trade_history_cycle  : [];
     const histM   = Array.isArray(st.trade_history_manual) ? st.trade_history_manual : [];
-    const allHist = histC.concat(histM);
+    const histN   = Array.isArray(st.trade_history_news)   ? st.trade_history_news   : [];
+    const allHist = histC.concat(histM).concat(histN);
 
     const active = pending.map(p => {
         const rec = allHist.find(r => r && r.contract_id === p.contract_id) || {};
@@ -1725,8 +1741,9 @@ function buildActiveTrades(st) {
             placed_ms:   placedMs,
             expiry_sec:  Number(p.expiry_sec) || Number(rec.expiry_sec) || 0,
             expiry_ms:   expiryMs,
-            event_title: (p.path === 'news' && st.news_open_position && st.news_open_position.event_title)
-                ? st.news_open_position.event_title : null,
+            event_title: p.path === 'news'
+                ? (rec.event_title || p.event_title || (st.news_open_position && st.news_open_position.event_title) || null)
+                : null,
         };
     });
 
