@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T06:45:21.587Z",
+  "last_cycle": "2026-07-02T06:50:34.623Z",
   "balance": 9900.31,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 98.34,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 8,
+    "trades": 9,
     "wins": 5,
-    "losses": 3,
-    "pnl": 0.34,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "losses": 4,
+    "pnl": -1.66,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3909126339,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-02T06:16:53.234Z"
-  },
-  "next_cycle_eligible_at": 1782972679510,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782975091631,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -887,11 +883,12 @@
       "confidence": 0.85,
       "rationale": "Extremely oversold across all timeframes (M5/M10/M15), with price consistently outside the lower Bollinger Band on M10/M15 and very low RSI, indicating a high probability of a bullish bounce.",
       "contract_id": 3909126339,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 162.261,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -2,
+      "ai_outcome_note": "The anticipated bullish bounce did not occur; instead, the price continued to decline significantly after entry, leading to a loss for the call option.",
+      "exit": 162.186
     }
   ],
   "trade_history_manual": [
@@ -1084,15 +1081,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3909126339,
-      "path": "cycle",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-02T06:16:53.234Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1102,50 +1091,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T04:00:28.344Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T04:00:28.904Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3899479439,
-        "symbol": "frxEURAUD",
-        "placed_at": "2026-07-02T03:37:04.134Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T04:05:19.564Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T04:05:19.564Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T04:05:19.566Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T04:05:20.090Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dAI2olvo"
-      }
-    },
-    {
-      "ts": "2026-07-02T04:05:20.285Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T04:05:21.602Z",
       "level": "info",
@@ -2611,14 +2556,56 @@
         "symbol": "frxUSDJPY",
         "placed_at": "2026-07-02T06:16:53.234Z"
       }
+    },
+    {
+      "ts": "2026-07-02T06:50:24.643Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T06:50:24.643Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T06:50:24.645Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T06:50:27.516Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IIbanEed"
+      }
+    },
+    {
+      "ts": "2026-07-02T06:50:30.929Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T06:50:34.622Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T06:50:34.622Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 57009
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 10,
+    "trades": 11,
     "wins": 5,
-    "losses": 5,
-    "pnl": -2.64,
+    "losses": 6,
+    "pnl": -4.64,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2639,10 +2626,10 @@
         "pnl": 1.22
       },
       "frxUSDJPY": {
-        "trades": 2,
+        "trades": 3,
         "wins": 0,
-        "losses": 2,
-        "pnl": -3.5
+        "losses": 3,
+        "pnl": -5.5
       },
       "frxNZDUSD": {
         "trades": 1,
