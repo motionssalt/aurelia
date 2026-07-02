@@ -35,6 +35,10 @@
             <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="tab-label">Trades</span>
         </button>
+        <button data-tab="news" class="tab" type="button">
+            <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 8h16M8 4v4M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="tab-label">News</span>
+        </button>
         <button data-tab="settings" class="tab" type="button">
             <svg viewBox="0 0 24 24" class="tab-ico" aria-hidden="true"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 7l2.2 1.3M17.6 15.7l2.2 1.3M4.2 17l2.2-1.3M17.6 8.3l2.2-1.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="tab-label">Settings</span>
@@ -108,6 +112,21 @@
             </div>
         </section>
 
+        <!-- ─────────── News tab ─────────── -->
+        <section id="tab-news" class="tab-body">
+            <div class="news-header">
+                <h2>Economic Calendar</h2>
+                <div class="news-toggle-group">
+                    <button id="newsTodayBtn" class="news-scope-btn active">Today</button>
+                    <button id="newsWeekBtn" class="news-scope-btn">This Week</button>
+                </div>
+            </div>
+            <div id="newsStatus" class="news-status">Loading…</div>
+            <div id="newsList" class="news-list">
+                <div class="empty">Loading calendar data…</div>
+            </div>
+        </section>
+
         <!-- ─────────── Settings tab ─────────── -->
         <section id="tab-settings" class="tab-body">
 
@@ -164,6 +183,18 @@
                     </label>
                     <span>SYN (synthetics) gate</span>
                 </div>
+            </div>
+
+            <div class="card card-compact card-news">
+                <h3>News Mode</h3>
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" id="fNewsMode" />
+                        <span class="slider"></span>
+                    </label>
+                    <span id="fNewsModeLabel">News Mode OFF</span>
+                </div>
+                <p class="dim small" id="fNewsModeHint">When ON, normal cycle trading is paused. The bot trades only on upcoming economic news events.</p>
             </div>
 
             <div class="card">
