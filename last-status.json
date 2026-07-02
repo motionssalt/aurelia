@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T16:20:24.906Z",
+  "last_cycle": "2026-07-02T16:25:20.870Z",
   "balance": 9900.73,
   "currency": "USD",
   "account_mode": "demo",
@@ -1340,79 +1340,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T14:25:28.077Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:25:33.046Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:25:33.047Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event detected",
-      "meta": {
-        "title": "Natural Gas Storage",
-        "country": "USD",
-        "impact": "Low",
-        "minutes_until": 4
-      }
-    },
-    {
-      "ts": "2026-07-02T14:25:54.048Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDCHF",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-02T14:25:54.109Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T14:25:54.660Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDCHF PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.31,
-        "spot": 0.8024
-      }
-    },
-    {
-      "ts": "2026-07-02T14:25:55.316Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3951925059",
-      "meta": {
-        "transaction_id": 7742647079,
-        "longcode": "Win payout if USD/CHF is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T14:25:55.710Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDCHF @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:25:55.830Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T14:25:57.801Z",
       "level": "info",
@@ -2880,6 +2807,73 @@
         "symbol": "frxGBPCAD",
         "placed_at": "2026-07-02T16:11:56.697Z"
       }
+    },
+    {
+      "ts": "2026-07-02T16:25:19.149Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T16:25:19.149Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:25:19.151Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:25:19.631Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iZ7GJxAu"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:25:19.910Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:25:20.644Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:25:20.867Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-02T16:25:20.868Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:25:20.869Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:25:20.869Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3961571059,
+        "symbol": "frxGBPCAD",
+        "placed_at": "2026-07-02T16:11:56.697Z"
+      }
     }
   ],
   "daily_stats": {
@@ -3964,9 +3958,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783005639805,
+  "_calendar_last_fetch": 1783009520643,
   "_calendar_fetch_history": [
-    1783005639805
+    1783009520643
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
