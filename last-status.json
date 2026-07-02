@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-02T14:55:31.300Z",
-  "balance": 9902.92,
+  "last_cycle": "2026-07-02T14:58:28.045Z",
+  "balance": 9907.23,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 99.96,
+    "capital_remaining": 104.27,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 21,
-    "wins": 14,
-    "losses": 7,
-    "pnl": 5.46,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "trades": 23,
+    "wins": 15,
+    "losses": 8,
+    "pnl": 4.27,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3952083119,
-    "symbol": "frxEURCHF",
-    "placed_at": "2026-07-02T14:28:24.858Z"
-  },
-  "next_cycle_eligible_at": 1783002383029,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783004356283,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1074,11 +1070,12 @@
       "confidence": 0.8,
       "rationale": "Price is extremely oversold, with M5/M10 Bollinger Band percentiles as low as 0.06-0.07 and M15 at 0.11, indicating a high probability of a bullish bounce. ATR is expanding on higher timeframes, suggesting potential for a sharp reversal.",
       "contract_id": 3952083119,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.91866,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -3,
+      "ai_outcome_note": "The anticipated bullish bounce was short-lived as price failed to sustain gains, eventually trending downwards below the entry, leading to a loss.",
+      "exit": 0.91829
     }
   ],
   "trade_history_manual": [
@@ -1271,23 +1268,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3951925059,
-      "path": "news",
-      "symbol": "frxUSDCHF",
-      "placed_at": "2026-07-02T14:26:47.390Z",
-      "expiry_sec": 1800,
-      "event_title": "Natural Gas Storage"
-    },
-    {
-      "contract_id": 3952083119,
-      "path": "cycle",
-      "symbol": "frxEURCHF",
-      "placed_at": "2026-07-02T14:28:24.858Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1297,72 +1278,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T12:50:18.118Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T12:50:18.117Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:50:18.120Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:50:18.552Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=s2dJNbjA"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:50:18.655Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:50:19.158Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:50:19.158Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3942221139,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-02T12:42:03.959Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:55:22.661Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T12:55:22.661Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:55:22.663Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:55:23.178Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g4A1elZ1"
-      }
-    },
     {
       "ts": "2026-07-02T12:55:23.464Z",
       "level": "network",
@@ -2854,14 +2769,72 @@
         "symbol": "frxEURCHF",
         "placed_at": "2026-07-02T14:28:24.858Z"
       }
+    },
+    {
+      "ts": "2026-07-02T14:58:15.231Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T14:58:15.231Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:58:15.233Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:15.767Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KgPdO42N"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:58:15.965Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:21.315Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:25.206Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:25.206Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:25.346Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:58:27.147Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 23,
-    "wins": 14,
-    "losses": 9,
-    "pnl": 2.48,
+    "trades": 25,
+    "wins": 15,
+    "losses": 10,
+    "pnl": 1.29,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2894,10 +2867,10 @@
         "pnl": 1.04
       },
       "frxEURCHF": {
-        "trades": 2,
+        "trades": 3,
         "wins": 0,
-        "losses": 2,
-        "pnl": -5.5
+        "losses": 3,
+        "pnl": -8.5
       },
       "frxEURAUD": {
         "trades": 3,
@@ -2912,10 +2885,10 @@
         "pnl": 2.58
       },
       "frxUSDCHF": {
-        "trades": 3,
-        "wins": 3,
+        "trades": 4,
+        "wins": 4,
         "losses": 0,
-        "pnl": 4.94
+        "pnl": 6.75
       },
       "frxEURGBP": {
         "trades": 1,
@@ -3039,20 +3012,16 @@
       "confidence": 0.65,
       "rationale": "The forecast for Natural Gas Storage is higher than the previous, suggesting ample supply or weaker demand, which is generally bearish for the USD. This aligns with the strong bearish trend observed in USDCHF across M5, M10, and M15 timeframes, with falling EMAs and price in the lower Bollinger Band, supporting a 'put' direction.",
       "contract_id": 3951925059,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 0.80243,
-      "pnl": 0,
-      "ai_outcome_note": null,
-      "event_title": "Natural Gas Storage"
+      "pnl": 1.81,
+      "ai_outcome_note": "The price action, after an initial rally, ultimately declined to close below the entry, resulting in a win for the put trade.",
+      "event_title": "Natural Gas Storage",
+      "exit": 0.80242
     }
   ],
-  "news_open_position": {
-    "contract_id": 3951925059,
-    "symbol": "frxUSDCHF",
-    "placed_at": "2026-07-02T14:26:47.390Z",
-    "event_title": "Natural Gas Storage"
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
