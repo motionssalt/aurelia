@@ -347,9 +347,9 @@ const templates = {
         const badge = formatBadge(mode);
         return [
             `📰 <b>NEWS MODE ON</b> ${badge}`,
-            `Normal cycle trading is <b>PAUSED</b>.`,
-            `The bot now trades only on upcoming economic news events.`,
-            `<i>Toggle off to resume normal cycle trading.</i>`,
+            `Event-driven news trading is <b>ACTIVE</b>.`,
+            `Normal cycle trading stays independently configurable and can run alongside News Mode.`,
+            `<i>Toggle off to stop only the news-driven path.</i>`,
         ].join('\n');
     },
 
@@ -357,8 +357,9 @@ const templates = {
         const badge = formatBadge(mode);
         return [
             `📰 <b>NEWS MODE OFF</b> ${badge}`,
-            `Normal cycle trading has <b>RESUMED</b>.`,
-            `<i>Toggle on to switch back to news-driven trading.</i>`,
+            `Event-driven news trading is <b>DISABLED</b>.`,
+            `Normal cycle trading is unchanged and remains controlled by its own cycle toggle/session.`,
+            `<i>Toggle on to re-enable news-driven trading.</i>`,
         ].join('\n');
     },
 
