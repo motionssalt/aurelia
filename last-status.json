@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T16:52:34.363Z",
-  "balance": 9900.73,
+  "last_cycle": "2026-07-02T16:55:19.249Z",
+  "balance": 9899.23,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1357,55 +1357,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T14:55:29.965Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:55:31.299Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3951925059,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-02T14:26:47.390Z",
-        "event_title": "Natural Gas Storage"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:55:31.299Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3952083119,
-        "symbol": "frxEURCHF",
-        "placed_at": "2026-07-02T14:28:24.858Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:58:15.231Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T14:58:15.231Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T14:58:15.233Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T14:58:15.767Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KgPdO42N"
-      }
-    },
     {
       "ts": "2026-07-02T14:58:15.965Z",
       "level": "network",
@@ -2855,6 +2806,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3965120279
+      }
+    },
+    {
+      "ts": "2026-07-02T16:55:18.168Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T16:55:18.167Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:55:18.170Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:55:18.526Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fGDzZqNx"
+      }
+    },
+    {
+      "ts": "2026-07-02T16:55:18.640Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:55:19.248Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T16:55:19.249Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3965120279,
+        "symbol": "frxGBPJPY",
+        "placed_at": "2026-07-02T16:52:34.362Z"
       }
     }
   ],
