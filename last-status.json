@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-02T05:36:41.366Z",
-  "balance": 9901.27,
+  "last_cycle": "2026-07-02T05:40:22.573Z",
+  "balance": 9899.77,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1085,50 +1085,6 @@
     "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-02T02:55:57.029Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURCHF",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-07-02T02:55:57.071Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T02:55:57.572Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURCHF PUT",
-      "meta": {
-        "stake": 2,
-        "price": 2,
-        "payout": 3.39,
-        "spot": 0.9207
-      }
-    },
-    {
-      "ts": "2026-07-02T02:55:58.547Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3897657479",
-      "meta": {
-        "transaction_id": 7638290219,
-        "longcode": "Win payout if EUR/CHF is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-02T02:55:58.934Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURCHF @ 5m",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T02:55:59.032Z",
       "level": "info",
@@ -2595,6 +2551,44 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 3906154859
+      }
+    },
+    {
+      "ts": "2026-07-02T05:40:21.497Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T05:40:21.497Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:40:21.499Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:40:21.812Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MxEP78hX"
+      }
+    },
+    {
+      "ts": "2026-07-02T05:40:21.937Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T05:40:22.572Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3906154859,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-02T05:36:41.365Z"
       }
     }
   ],
