@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-02T01:25:21.868Z",
-  "balance": 9900.47,
+  "last_cycle": "2026-07-02T01:30:25.515Z",
+  "balance": 9903.19,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 98.5,
+    "capital_remaining": 101.22,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
-    "wins": 0,
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0,
-    "win_streak": 0,
+    "pnl": 1.22,
+    "win_streak": 1,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3891814539,
-    "symbol": "1HZ50V",
-    "placed_at": "2026-07-02T00:58:53.458Z"
-  },
-  "next_cycle_eligible_at": 0,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782955880059,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -751,11 +747,12 @@
       "confidence": 0.8,
       "rationale": "Consistent bearish trend across M5/M10/M15 with falling EMAs, price in lower third of Bollinger Bands, and RSI neutral/falling. M5/M10 show Evening Star patterns.",
       "contract_id": 3891814539,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 274063.31,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.22,
+      "ai_outcome_note": "Despite initial upward movement, the price ultimately declined significantly below the entry point, enabling a profitable put trade.",
+      "exit": 273571.07
     }
   ],
   "trade_history_manual": [
@@ -948,78 +945,16 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3891814539,
-      "path": "cycle",
-      "symbol": "1HZ50V",
-      "placed_at": "2026-07-02T00:58:53.458Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "OPENROUTER_KEY_2": 1782933624331,
-    "GEMINI_KEY_2": 1782938424448,
     "GEMINI_KEY_3": 1782952830300,
-    "GEMINI_KEY_4": 1782962851629
+    "GEMINI_KEY_4": 1782962851629,
+    "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-01T22:56:07.895Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-01T22:56:07.957Z",
-      "level": "trade",
-      "msg": "Proposal accepted 1HZ75V PUT",
-      "meta": {
-        "stake": 1.37,
-        "price": 1.37,
-        "payout": 2.49,
-        "spot": 5285.58
-      }
-    },
-    {
-      "ts": "2026-07-01T22:56:08.083Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=3885086959",
-      "meta": {
-        "transaction_id": 7614446939,
-        "longcode": "Win payout if Volatility 75 (1s) Index is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-01T22:56:08.527Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for 1HZ75V @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:56:08.630Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:56:10.545Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-01T22:56:58.844Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out Ã¢ÂÂ returning best-effort snapshot",
-      "meta": {
-        "contract_id": 3885086959
-      }
-    },
     {
       "ts": "2026-07-01T23:00:32.843Z",
       "level": "info",
@@ -2471,14 +2406,64 @@
         "symbol": "1HZ50V",
         "placed_at": "2026-07-02T00:58:53.458Z"
       }
+    },
+    {
+      "ts": "2026-07-02T01:30:19.501Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T01:30:19.501Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T01:30:19.503Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T01:30:19.842Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=cq30U8MY"
+      }
+    },
+    {
+      "ts": "2026-07-02T01:30:19.965Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T01:30:20.685Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
+      }
+    },
+    {
+      "ts": "2026-07-02T01:30:25.514Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T01:30:25.514Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 54545
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 2,
-    "wins": 0,
+    "trades": 3,
+    "wins": 1,
     "losses": 2,
-    "pnl": -2.98,
+    "pnl": -1.76,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2491,6 +2476,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.48
+      },
+      "1HZ50V": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.22
       }
     }
   },
