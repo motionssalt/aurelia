@@ -138,7 +138,7 @@ async function handleMessage(msg, env) {
     }
     const cfg = await ghReadJSON(env, 'config.json');
     const st  = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
-    return tgSend(env, renderMenu(cfg, st), { reply_markup: KB.mainMenu() });
+    return tgSend(env, renderMenu(cfg, st), { reply_markup: KB.mainMenu(cfg) });
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -150,7 +150,7 @@ async function handleCommand(cmd, args, env) {
         case '/menu': {
             const cfg = await ghReadJSON(env, 'config.json');
             const st  = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
-            return tgSend(env, renderMenu(cfg, st), { reply_markup: KB.mainMenu() });
+            return tgSend(env, renderMenu(cfg, st), { reply_markup: KB.mainMenu(cfg) });
         }
         case '/status': {
             const cfg = await ghReadJSON(env, 'config.json');
@@ -299,9 +299,9 @@ async function handleCallback(cb, env) {
     const st  = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
 
     /* ── Navigation ───────────────────────────────────────────── */
-    if (data === 'menu')         return tgEdit(env, cb, renderMenu(cfg, st),       KB.mainMenu());
+    if (data === 'menu')         return tgEdit(env, cb, renderMenu(cfg, st),       KB.mainMenu(cfg));
     if (data === 'status')       return tgEdit(env, cb, renderStatus(cfg, st),     KB.statusScreen());
-    if (data === 'help')         return tgEdit(env, cb, helpText(),                KB.mainMenu());
+    if (data === 'help')         return tgEdit(env, cb, helpText(),                KB.mainMenu(cfg));
 
     /* ── Settings home + sub-screens ──────────────────────────── */
     if (data === 'set:open' || data === 'settings')
@@ -331,22 +331,31 @@ async function handleCallback(cb, env) {
     /* ── Cycle actions ───────────────────────────────────────── */
     if (data === 'scan_now') {
         await dispatchManual(env, { action: 'trade_now' });
-        return tgEdit(env, cb, '🤖 Manual AI scan queued — watch the chat.', KB.mainMenu());
+        return tgEdit(env, cb, '🤖 Manual AI scan queued — watch the chat.', KB.mainMenu(cfg));
     }
     if (data === 'cycle_start') {
         await startCycleSession(env, cfg, st);
         await dispatchWorkflow(env, { task: 'cycle' });
-        return tgEdit(env, cb, '▶️ Cycle started.', KB.mainMenu());
+        return tgEdit(env, cb, '▶️ Cycle started.', KB.mainMenu(cfg));
     }
     if (data === 'cycle_pause') {
         cfg.cycle.running = false;
         await ghWriteJSON(env, 'config.json', cfg, 'bot: pause cycle');
-        return tgEdit(env, cb, '⏸️ Cycle paused.', KB.mainMenu());
+        return tgEdit(env, cb, '⏸️ Cycle paused.', KB.mainMenu(cfg));
     }
     if (data === 'syn_toggle') {
         cfg.syn_enabled = !cfg.syn_enabled;
         await ghWriteJSON(env, 'config.json', cfg, `bot: SYN ${cfg.syn_enabled}`);
-        return tgEdit(env, cb, `Synthetics: <b>${cfg.syn_enabled ? 'ON' : 'OFF'}</b>`, KB.mainMenu());
+        return tgEdit(env, cb, `Synthetics: <b>${cfg.syn_enabled ? 'ON' : 'OFF'}</b>`, KB.mainMenu(cfg));
+    }
+    if (data === 'news_toggle') {
+        cfg.news_mode = cfg.news_mode || {};
+        cfg.news_mode.enabled = !cfg.news_mode.enabled;
+        await ghWriteJSON(env, 'config.json', cfg, `bot: News Mode ${cfg.news_mode.enabled}`);
+        const template = cfg.news_mode.enabled
+            ? Telegram.templates.newsModeEnabled({ mode: cfg.account.mode })
+            : Telegram.templates.newsModeDisabled({ mode: cfg.account.mode });
+        return tgEdit(env, cb, template, KB.mainMenu(cfg));
     }
     if (data === 'frx_toggle') {
         // FRX master gate — mirrors syn_enabled. Default treats undefined
@@ -363,7 +372,7 @@ async function handleCallback(cb, env) {
         }
         cfg.account.mode = 'demo';
         await ghWriteJSON(env, 'config.json', cfg, 'bot: mode demo');
-        return tgEdit(env, cb, '🟡 Switched to <b>DEMO</b>.', KB.mainMenu());
+        return tgEdit(env, cb, '🟡 Switched to <b>DEMO</b>.', KB.mainMenu(cfg));
     }
 
     /* ── Adjust numeric cycle params via +/- buttons ─────────── */
@@ -580,7 +589,7 @@ async function handleCallback(cb, env) {
             `📈 Chart for <code>${escapeHtml(sym)}</code> ${tf} queued.`);
         return tgEdit(env, cb,
             `📈 Chart for <b>${escapeHtml(sym)}</b> <code>${tf}</code> queued.`,
-            KB.mainMenu());
+            KB.mainMenu(cfg));
     }
 
     /* ── Logs ────────────────────────────────────────────────── */
@@ -591,7 +600,7 @@ async function handleCallback(cb, env) {
             KB.logs(Number(page) || 1, filter || 'all'));
     }
 
-    return tgEdit(env, cb, renderMenu(cfg, st), KB.mainMenu());
+    return tgEdit(env, cb, renderMenu(cfg, st), KB.mainMenu(cfg));
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -758,12 +767,14 @@ function countEnabled(map) {
 
 function renderMenu(cfg, st) {
     const cycle = cfg && cfg.cycle && cfg.cycle.running;
+    const newsOn = cfg && cfg.news_mode && cfg.news_mode.enabled;
     const [fxOn, fxTot]   = countEnabled(cfg && cfg.symbols && cfg.symbols.forex);
     const [synOn, synTot] = countEnabled(cfg && cfg.symbols && cfg.symbols.synthetics);
     return [
         `⚡ <b>AURELIA</b> ${badge(cfg)}`,
         `Balance: <b>$${fmt2(st && st.balance)}</b>`,
         `Cycle: ${cycle ? '▶️ running' : '⏸️ paused'}   SYN: ${cfg && cfg.syn_enabled ? '✅' : '⛔'}`,
+        `News Mode: ${newsOn ? '📰 ON (cycle paused)' : '📰 OFF'}`,
         `Symbols: FX ${fxOn}/${fxTot}  •  SYN ${synOn}/${synTot}`,
     ].join('\n');
 }
@@ -792,6 +803,8 @@ function renderStatus(cfg, st) {
         `<b>Today (${escapeHtml(ds.date || '—')})</b>`,
         `Trades / W / L  : ${ds.trades || 0} / ${ds.wins || 0} / ${ds.losses || 0}`,
         `P/L             : ${dsSign}$${fmt2(ds.pnl || 0)}`,
+        '',
+        `<b>News Mode</b>     : ${cfg.news_mode && cfg.news_mode.enabled ? '📰 ON — cycle paused' : '📰 OFF'}`,
     ].join('\n');
 }
 
@@ -1013,12 +1026,13 @@ function kb(rows) {
 }
 
 const KB = {
-    mainMenu: () => kb([
+    mainMenu: (cfg) => kb([
         [{ text: '📊 Status',     data: 'status' },      { text: '🤖 Scan Now',    data: 'scan_now' }],
         [{ text: '▶️ Start Cycle', data: 'cycle_start' }, { text: '⏸️ Pause Cycle', data: 'cycle_pause' }],
         [{ text: '⚙️ Settings',   data: 'set:open' },    { text: '📈 Chart',       data: 'chart' }],
         [{ text: '🎛️ SYN',        data: 'syn_toggle' },  { text: '🔄 Mode',        data: 'mode_toggle' }],
-        [{ text: '📋 Logs',        data: 'logs:1:all' },  { text: '❓ Help',         data: 'help' }],
+        [{ text: (cfg && cfg.news_mode && cfg.news_mode.enabled) ? '📰 News ON' : '📰 News OFF', data: 'news_toggle' }, { text: '📋 Logs', data: 'logs:1:all' }],
+        [{ text: '❓ Help',        data: 'help' }],
     ]),
     statusScreen: () => kb([
         [{ text: '🔄 Refresh', data: 'status' }, { text: '🏠 Menu', data: 'menu' }],
@@ -1549,6 +1563,13 @@ function applyConfigPatch(cfg, patch) {
             cfg.daily_summary.reset_on_send = !!patch.daily_summary.reset_on_send;
     }
 
+    // News Mode
+    if (patch.news_mode && typeof patch.news_mode === 'object') {
+        cfg.news_mode = cfg.news_mode || {};
+        if (patch.news_mode.enabled !== undefined)
+            cfg.news_mode.enabled = !!patch.news_mode.enabled;
+    }
+
     return cfg;
 }
 
@@ -1607,6 +1628,11 @@ async function handleApi(request, env, url) {
         const limit  = Math.max(1, Math.min(500, Number(url.searchParams.get('limit'))  || 50));
         const offset = Math.max(0,             Number(url.searchParams.get('offset')) || 0);
         return jsonResponse(buildHistory(st, limit, offset));
+    }
+    if (request.method === 'GET' && path === '/api/calendar') {
+        const st = await ghReadJSON(env, 'last-status.json').catch(() => ({}));
+        const scope = url.searchParams.get('scope') || 'week'; /* 'today' | 'week' */
+        return jsonResponse(buildCalendarResponse(st, scope));
     }
 
     // ── POST routes ───────────────────────────────────────────────
@@ -1699,6 +1725,8 @@ function buildActiveTrades(st) {
             placed_ms:   placedMs,
             expiry_sec:  Number(p.expiry_sec) || Number(rec.expiry_sec) || 0,
             expiry_ms:   expiryMs,
+            event_title: (p.path === 'news' && st.news_open_position && st.news_open_position.event_title)
+                ? st.news_open_position.event_title : null,
         };
     });
 
@@ -1708,12 +1736,49 @@ function buildActiveTrades(st) {
     };
 }
 
+/* Build calendar response for the Mini App News tab.
+   scope: 'today' (events from today only) or 'week' (all events). */
+function buildCalendarResponse(st, scope) {
+    const all = Array.isArray(st.calendar_data) ? st.calendar_data : [];
+    const now = new Date();
+    let events = all;
+
+    if (scope === 'today') {
+        /* Filter to events whose date falls on today's UTC date */
+        const todayStr = now.toISOString().slice(0, 10);
+        events = all.filter(ev => {
+            try { return ev.date && ev.date.startsWith(todayStr); }
+            catch (_) { return false; }
+        });
+    }
+
+    /* Map to a clean shape for the client */
+    const mapped = events.map(ev => ({
+        title:    ev.title    || '',
+        country:  ev.country  || '',
+        date:     ev.date     || '',
+        impact:   ev.impact   || 'Low',
+        forecast: ev.forecast || '',
+        previous: ev.previous || '',
+    }));
+
+    /* Sort by date ascending */
+    mapped.sort((a, b) => {
+        const ta = Date.parse(a.date) || 0;
+        const tb = Date.parse(b.date) || 0;
+        return ta - tb;
+    });
+
+    return { events: mapped, scope, total: mapped.length };
+}
+
 function buildHistory(st, limit, offset) {
     const histC = Array.isArray(st.trade_history_cycle)  ? st.trade_history_cycle  : [];
     const histM = Array.isArray(st.trade_history_manual) ? st.trade_history_manual : [];
+    const histN = Array.isArray(st.trade_history_news)   ? st.trade_history_news   : [];
     // Only *closed* (settled) trades belong in "history".  Pending
     // rows in trade_history_* are considered still active.
-    const closed = histC.concat(histM).filter(r => r && r.settled === true);
+    const closed = histC.concat(histM).concat(histN).filter(r => r && r.settled === true);
     // Newest first
     closed.sort((a, b) => (Date.parse(b.ts) || 0) - (Date.parse(a.ts) || 0));
     const total = closed.length;
