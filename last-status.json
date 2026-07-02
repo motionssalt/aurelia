@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T04:10:21.404Z",
+  "last_cycle": "2026-07-02T04:17:00.782Z",
   "balance": 9901.82,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 99.85,
+    "capital_remaining": 97.85,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 5,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3901300099,
+    "symbol": "frxEURAUD",
+    "placed_at": "2026-07-02T04:17:00.782Z"
+  },
   "next_cycle_eligible_at": 1782965477647,
   "trade_history_cycle": [
     {
@@ -821,6 +825,22 @@
       "pnl": 1.09,
       "ai_outcome_note": "The trade resulted in a win as price initially dipped, then rallied significantly before retracing, but ultimately closed slightly above the entry point.",
       "exit": 1.65159
+    },
+    {
+      "ts": "2026-07-02T04:17:00.782Z",
+      "path": "cycle",
+      "symbol": "frxEURAUD",
+      "direction": "call",
+      "stake": 2,
+      "expiry_sec": 1800,
+      "confidence": 0.75,
+      "rationale": "Strong bullish trend continuation across M10/M15 (rising EMAs, EMA20 above EMA50 widening, expanding ATR). Price in upper/middle Bollinger Bands, supporting upward momentum.",
+      "contract_id": 3901300099,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.65184,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1013,7 +1033,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3901300099,
+      "path": "cycle",
+      "symbol": "frxEURAUD",
+      "placed_at": "2026-07-02T04:17:00.782Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1023,94 +1051,6 @@
     "GEMINI_KEY_1": 1782964820559
   },
   "logs": [
-    {
-      "ts": "2026-07-02T01:25:21.868Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3891814539,
-        "symbol": "1HZ50V",
-        "placed_at": "2026-07-02T00:58:53.458Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:30:19.501Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T01:30:19.501Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:30:19.503Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T01:30:19.842Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=cq30U8MY"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:30:19.965Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T01:30:20.685Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:30:25.514Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T01:30:25.514Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 54545
-      }
-    },
-    {
-      "ts": "2026-07-02T01:35:13.051Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T01:35:13.050Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:35:13.052Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T01:35:13.449Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pW5yVgTq"
-      }
-    },
-    {
-      "ts": "2026-07-02T01:35:13.565Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T01:35:57.170Z",
       "level": "info",
@@ -2529,6 +2469,98 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 56244
+      }
+    },
+    {
+      "ts": "2026-07-02T04:15:24.671Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T04:15:24.671Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T04:15:24.672Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T04:15:25.235Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=N1iOoFgc"
+      }
+    },
+    {
+      "ts": "2026-07-02T04:15:25.579Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T04:16:06.878Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURAUD",
+        "conf": 0.75
+      }
+    },
+    {
+      "ts": "2026-07-02T04:16:06.962Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-02T04:16:07.544Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURAUD CALL",
+      "meta": {
+        "stake": 2,
+        "price": 2,
+        "payout": 3.45,
+        "spot": 1.65189
+      }
+    },
+    {
+      "ts": "2026-07-02T04:16:09.010Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3901300099",
+      "meta": {
+        "transaction_id": 7645279759,
+        "longcode": "Win payout if EUR/AUD is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-02T04:16:09.641Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURAUD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T04:16:09.790Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T04:16:11.612Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T04:17:00.781Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3901300099
       }
     }
   ],
