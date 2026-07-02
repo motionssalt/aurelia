@@ -144,8 +144,38 @@ async function checkPayoutThreshold(ws, norm, config) {
 function todayUTC() {
     return new Date().toISOString().slice(0, 10);
 }
+function yesterdayUTC() {
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - 1);
+    return d.toISOString().slice(0, 10);
+}
+
+/*
+  daily_stats lifecycle — v3.2 fix (BUG-2)
+  ------------------------------------------
+  Previously ensureDailyStats() reset state.daily_stats whenever the UTC
+  date rolled over. That meant the daily_summary task (fired by cron at
+  00:00 UTC of the NEW day) would run main() → ensureDailyStats() FIRST,
+  which nuked yesterday's counter to a fresh empty one BEFORE
+  runDailySummary() ever read it. The Telegram summary + daily_history
+  archive were therefore always 0/0/0.
+
+  The fix: ensureDailyStats() no longer resets on date change. Instead
+  it (a) creates the counter if missing, and (b) leaves an existing
+  counter alone regardless of its date. Rollover is a SEPARATE step
+  driven by applyDailyStat() — when a new trade lands on a UTC day that
+  is newer than the counter's date, we archive the stale counter into
+  daily_history (deduped by date) and start a fresh counter for today.
+  This means yesterday's data is safely preserved into daily_history
+  even in the (unlikely) case where cron misses a daily_summary. And
+  runDailySummary() knows to report yesterday's UTC date, reading from
+  daily_history if the pre-summary settleAllPending() has already
+  triggered the rollover — otherwise reading straight from daily_stats.
+*/
 function ensureDailyStats(state) {
-    if (!state.daily_stats || state.daily_stats.date !== todayUTC()) {
+    if (!state.daily_stats
+        || typeof state.daily_stats !== 'object'
+        || !state.daily_stats.date) {
         state.daily_stats = {
             date:    todayUTC(),
             trades:  0,
@@ -157,7 +187,46 @@ function ensureDailyStats(state) {
     }
     return state.daily_stats;
 }
+function _archiveDailyStats(state, snapshot) {
+    state.daily_history = Array.isArray(state.daily_history) ? state.daily_history : [];
+    const rec = {
+        date:      snapshot.date,
+        trades:    snapshot.trades || 0,
+        wins:      snapshot.wins   || 0,
+        losses:    snapshot.losses || 0,
+        pnl:       snapshot.pnl    || 0,
+        by_symbol: snapshot.by_symbol || {},
+    };
+    const i = state.daily_history.findIndex(h => h && h.date === rec.date);
+    if (i >= 0) state.daily_history[i] = rec;
+    else state.daily_history.push(rec);
+    if (state.daily_history.length > 60) {
+        state.daily_history = state.daily_history.slice(-60);
+    }
+}
+function rolloverDailyStatsIfNeeded(state) {
+    const today = todayUTC();
+    const ds = state.daily_stats;
+    if (ds && ds.date && ds.date !== today) {
+        // Preserve the stale day's counter into daily_history before we
+        // wipe it, so runDailySummary (and the mini-app's history view)
+        // can still see it even if the daily_summary task never fires.
+        _archiveDailyStats(state, ds);
+        state.daily_stats = {
+            date:    today,
+            trades:  0,
+            wins:    0,
+            losses:  0,
+            pnl:     0,
+            by_symbol: {},
+        };
+        Logger.info('daily_stats auto-rollover', { archived: ds.date, new: today });
+    }
+}
 function applyDailyStat(state, record) {
+    // Rollover BEFORE we mutate — new-day trades must land on a fresh
+    // counter, and yesterday's counter (if any) must be preserved.
+    rolloverDailyStatsIfNeeded(state);
     const ds = ensureDailyStats(state);
     ds.trades += 1;
     const pnl = Number(record.pnl || 0);
@@ -337,7 +406,7 @@ async function placeAndSettle(ws, norm, config, state, opts) {
         pnl = Number(poc.profit || 0);
         outcome = pnl > 0 ? 'win' : (pnl < 0 ? 'loss' : 'breakeven');
         entry = poc.entry_spot;
-        exit  = poc.exit_tick || poc.sell_spot;
+        exit  = _extractExitPrice(poc);
     } else {
         // Non-terminal (still open). Deriv usually populates entry_spot /
         // entry_tick as soon as the first tick after the buy is seen — grab
@@ -374,6 +443,38 @@ async function placeAndSettle(ws, norm, config, state, opts) {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   Extract exit price from a settled proposal_open_contract snapshot.
+
+   Deriv's new API deprecated sell_spot/sell_spot_time in favour of
+   exit_spot/exit_spot_time (see developers.deriv.com/comparison/
+   proposal-open-contract/ — breaking change #5). The old code checked
+   only `poc.exit_tick || poc.sell_spot`, both of which are frequently
+   undefined on modern settlement snapshots, leaving record.exit=null
+   for every won/lost trade (BUG-1).
+
+   We now check every documented variant, in preference order, and
+   coerce string display-values to numbers so the Telegram + mini-app
+   templates receive a plain numeric price they can render as-is.
+   ───────────────────────────────────────────────────────────────── */
+function _extractExitPrice(poc) {
+    if (!poc || typeof poc !== 'object') return undefined;
+    const candidates = [
+        poc.exit_spot,                  // new API primary field
+        poc.exit_tick,                  // legacy primary
+        poc.sell_spot,                  // deprecated but still emitted
+        poc.exit_spot_display_value,    // string-typed display variants
+        poc.exit_tick_display_value,
+        poc.sell_spot_display_value,
+    ];
+    for (const v of candidates) {
+        if (v == null || v === '') continue;
+        const n = Number(v);
+        if (Number.isFinite(n)) return n;
+    }
+    return undefined;
+}
+
+/* ─────────────────────────────────────────────────────────────────
    Settle a pending contract record. Mutates `pending` entry, returns
    { settled: bool, outcome, pnl, exit, entry } when terminal.
    ───────────────────────────────────────────────────────────────── */
@@ -407,7 +508,7 @@ async function settlePending(ws, pending) {
                 outcome: profit > 0 ? 'win' : profit < 0 ? 'loss' : 'breakeven',
                 pnl:     profit,
                 entry:   entryNum != null ? entryNum : poc.entry_spot,
-                exit:    poc.exit_tick || poc.sell_spot,
+                exit:    _extractExitPrice(poc),
             };
         }
         // Not terminal yet — but we may still have learned the entry.
@@ -835,48 +936,108 @@ async function runManual(ws, config, state, connOpts) {
      4. Reset state.daily_stats to today's empty counter.
    ───────────────────────────────────────────────────────────────── */
 async function runDailySummary(ws, config, state) {
-    const ds = ensureDailyStats(state);
-    const reportDate = ds.date;
+    /*
+      Report resolution — BUG-2 fix.
+      ------------------------------
+      The cron trigger fires at 00:00 UTC of the NEW day, so the day we
+      want to summarise is YESTERDAY (from the perspective of `now`).
+
+      Sources of truth, in preference order:
+        1. state.daily_stats — if its `date` matches yesterday, use it
+           directly. This is the happy path when no pending contract
+           settled during this same tick (i.e. rollover has not fired).
+        2. daily_history — if settleAllPending() OR applyDailyStat()
+           has already triggered rolloverDailyStatsIfNeeded() earlier
+           in this same tick, yesterday's counter now lives here.
+        3. Whatever's currently in state.daily_stats as a last-resort
+           fallback (its `date` field will still be reported honestly).
+
+      This is deliberately robust to arbitrary ordering of the tick's
+      internal steps: no matter which of settleAllPending /
+      applyDailyStat / ensureDailyStats fires first, the numbers we
+      report are the numbers that were accumulated for the day we're
+      reporting on.
+    */
+    const yday = yesterdayUTC();
+    let reportDate = yday;
+    let src = null;
+
+    if (state.daily_stats && state.daily_stats.date === yday) {
+        src = state.daily_stats;
+    } else if (Array.isArray(state.daily_history)) {
+        src = state.daily_history.find(h => h && h.date === yday) || null;
+    }
+    // Last-resort fallback: whatever's currently in daily_stats. Its
+    // date field is authoritative — we don't overwrite reportDate blindly.
+    if (!src) {
+        src = ensureDailyStats(state);
+        reportDate = src.date || yday;
+    }
+
+    const trades = Number(src.trades || 0);
+    const wins   = Number(src.wins   || 0);
+    const losses = Number(src.losses || 0);
+    const pnl    = Number(src.pnl    || 0);
+
+    Logger.info('runDailySummary — reporting', {
+        report_date: reportDate,
+        trades, wins, losses, pnl,
+        source: (src === state.daily_stats) ? 'daily_stats' : 'daily_history',
+    });
 
     try {
         await Telegram.send(Telegram.templates.dailySummary({
             date:   reportDate,
             mode:   state.account_mode || (config.account && config.account.mode) || 'demo',
-            trades: ds.trades,
-            wins:   ds.wins,
-            losses: ds.losses,
-            pnl:    ds.pnl,
+            trades,
+            wins,
+            losses,
+            pnl,
         }));
     } catch (e) {
         Logger.warn('dailySummary send failed', { error: e.message });
     }
 
-    // Archive
-    state.daily_history = Array.isArray(state.daily_history) ? state.daily_history : [];
-    state.daily_history.push({
-        date:   ds.date,
-        trades: ds.trades,
-        wins:   ds.wins,
-        losses: ds.losses,
-        pnl:    ds.pnl,
-        by_symbol: ds.by_symbol || {},
+    // Archive the summarised day into daily_history (deduped by date).
+    // If rolloverDailyStatsIfNeeded already archived it earlier this
+    // tick, _archiveDailyStats() overwrites the entry in-place, which
+    // is fine: same numbers, same date.
+    _archiveDailyStats(state, {
+        date:      reportDate,
+        trades,
+        wins,
+        losses,
+        pnl,
+        by_symbol: src.by_symbol || {},
     });
-    if (state.daily_history.length > 60) {
-        state.daily_history = state.daily_history.slice(-60);
-    }
 
-    // Reset (unless config disables it)
+    // Reset (unless config disables it). After the summary is sent, the
+    // live counter should reflect TODAY (the new UTC day) with a clean
+    // slate. We only replace state.daily_stats when it is still pointing
+    // at the reported (yesterday) day — otherwise a mid-day rollover has
+    // already produced today's fresh counter and we must not overwrite
+    // any trades that already landed on it.
     const resetOn = !config.daily_summary || config.daily_summary.reset_on_send !== false;
     if (resetOn) {
-        state.daily_stats = {
-            date:    todayUTC(),
-            trades:  0,
-            wins:    0,
-            losses:  0,
-            pnl:     0,
-            by_symbol: {},
-        };
-        Logger.info('daily_stats reset for new UTC day', { date: state.daily_stats.date });
+        const today = todayUTC();
+        if (!state.daily_stats
+            || state.daily_stats.date === reportDate
+            || !state.daily_stats.date) {
+            state.daily_stats = {
+                date:    today,
+                trades:  0,
+                wins:    0,
+                losses:  0,
+                pnl:     0,
+                by_symbol: {},
+            };
+            Logger.info('daily_stats reset for new UTC day', { date: today });
+        } else {
+            Logger.info('daily_stats already advanced past reported day — leaving intact', {
+                current: state.daily_stats.date,
+                reported: reportDate,
+            });
+        }
     }
 }
 
