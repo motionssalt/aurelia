@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T15:35:38.992Z",
+  "last_cycle": "2026-07-02T15:40:29.556Z",
   "balance": 9903.23,
   "currency": "USD",
   "account_mode": "demo",
@@ -1323,74 +1323,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T13:50:25.191Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T13:50:25.191Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:50:25.193Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:50:25.677Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=x3hLGP03"
-      }
-    },
-    {
-      "ts": "2026-07-02T13:50:25.760Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T13:50:25.792Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event detected",
-      "meta": {
-        "title": "Factory Orders m/m",
-        "country": "USD",
-        "impact": "Low",
-        "minutes_until": 10
-      }
-    },
-    {
-      "ts": "2026-07-02T13:50:44.673Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-02T13:50:44.685Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T13:50:45.187Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDJPY PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.31,
-        "spot": 160.937
-      }
-    },
     {
       "ts": "2026-07-02T13:50:45.366Z",
       "level": "trade",
@@ -2886,6 +2818,78 @@
     },
     {
       "ts": "2026-07-02T15:35:38.991Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3958039659,
+        "symbol": "frxAUDUSD",
+        "placed_at": "2026-07-02T15:32:30.862Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:23.156Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T15:40:23.155Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:23.158Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:40:23.497Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hhNVAe4j"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:23.636Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T15:40:24.137Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "MPC Member Mann Speaks"
+        ],
+        "countries": [
+          "GBP"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:29.554Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:29.554Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming 'MPC Member Mann Speaks' event is rated as Low Impact. Without further context on the expected tone or content of the speech, it does not provide a clear directional edge for GBP-related pairs, making a news-driven trade too speculative."
+      }
+    },
+    {
+      "ts": "2026-07-02T15:40:29.555Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
