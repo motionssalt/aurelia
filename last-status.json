@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-02T13:40:20.471Z",
-  "balance": 9904.94,
+  "last_cycle": "2026-07-02T13:45:25.402Z",
+  "balance": 9909.18,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 101.98,
+    "capital_remaining": 106.22,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 18,
-    "wins": 12,
+    "trades": 19,
+    "wins": 13,
     "losses": 6,
-    "pnl": 4.48,
-    "win_streak": 3,
+    "pnl": 6.22,
+    "win_streak": 4,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 3942221139,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-02T12:42:03.959Z"
-  },
-  "next_cycle_eligible_at": 1782995775503,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1782999977770,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1040,11 +1036,12 @@
       "confidence": 0.85,
       "rationale": "Price is extremely oversold across all timeframes (M5/M10/M15, outside lower BB, M15 percentile -0.27). M15 RSI is rising from oversold, indicating a potential bullish reversal. M5/M10 Doji candles suggest indecision after a strong fall.",
       "contract_id": 3942221139,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 160.745,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.74,
+      "ai_outcome_note": "After entry, the price successfully reversed upwards from oversold levels, steadily climbing to reach the winning exit target.",
+      "exit": 161.026
     }
   ],
   "trade_history_manual": [
@@ -1237,87 +1234,16 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 3942221139,
-      "path": "cycle",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-02T12:42:03.959Z",
-      "expiry_sec": 3600
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "OPENROUTER_KEY_2": 1782933624331,
-    "GEMINI_KEY_4": 1782962851629,
     "GEMINI_KEY_1": 1782964820559,
-    "GEMINI_KEY_2": 1782981922807
+    "GEMINI_KEY_2": 1782981922807,
+    "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T11:30:29.559Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T11:30:29.559Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:30:29.561Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:30:30.075Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ExPLGj8E"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:30:30.390Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:30:30.496Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:31:21.309Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURCAD",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-07-02T11:31:21.399Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-02T11:31:22.020Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURCAD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 1.62131
-      }
-    },
     {
       "ts": "2026-07-02T11:31:22.776Z",
       "level": "trade",
@@ -2768,14 +2694,70 @@
         "symbol": "frxUSDJPY",
         "placed_at": "2026-07-02T12:42:03.959Z"
       }
+    },
+    {
+      "ts": "2026-07-02T13:45:17.016Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T13:45:17.015Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:45:17.018Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:45:17.571Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Y3dN9zGK"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:45:17.678Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:45:18.309Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:45:25.401Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:45:25.402Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:45:25.402Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 52368
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-02",
-    "trades": 20,
-    "wins": 12,
+    "trades": 21,
+    "wins": 13,
     "losses": 8,
-    "pnl": 1.5,
+    "pnl": 3.24,
     "by_symbol": {
       "R_75": {
         "trades": 1,
@@ -2796,10 +2778,10 @@
         "pnl": 1.22
       },
       "frxUSDJPY": {
-        "trades": 3,
-        "wins": 0,
+        "trades": 4,
+        "wins": 1,
         "losses": 3,
-        "pnl": -5.5
+        "pnl": -3.76
       },
       "frxNZDUSD": {
         "trades": 1,
