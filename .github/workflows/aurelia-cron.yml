@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       task:
-        description: 'Task: cycle | manual | settle_only | daily_summary'
+        description: 'Task: cycle | manual | settle_only | daily_summary | calendar_fetch'
         required: false
         default: 'cycle'
       payload:
