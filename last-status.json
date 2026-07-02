@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T17:00:32.597Z",
+  "last_cycle": "2026-07-02T17:05:23.708Z",
   "balance": 9899.23,
   "currency": "USD",
   "account_mode": "demo",
@@ -1357,50 +1357,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T15:00:26.964Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T15:00:26.964Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:00:26.967Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:00:27.397Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uCs65AZp"
-      }
-    },
-    {
-      "ts": "2026-07-02T15:00:27.508Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:00:27.552Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T15:01:03.629Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURCHF",
-        "conf": 0.75
-      }
-    },
     {
       "ts": "2026-07-02T15:01:03.673Z",
       "level": "warn",
@@ -2852,6 +2808,50 @@
     },
     {
       "ts": "2026-07-02T17:00:32.597Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3965120279,
+        "symbol": "frxGBPJPY",
+        "placed_at": "2026-07-02T16:52:34.362Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:05:22.208Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T17:05:22.207Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:05:22.210Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:05:22.771Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ja5ijAuX"
+      }
+    },
+    {
+      "ts": "2026-07-02T17:05:23.069Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:05:23.707Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T17:05:23.708Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
