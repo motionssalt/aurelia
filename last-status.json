@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T19:25:15.685Z",
+  "last_cycle": "2026-07-02T19:30:28.837Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1398,74 +1398,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-02T17:10:27.887Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3965120279,
-        "symbol": "frxGBPJPY",
-        "placed_at": "2026-07-02T16:52:34.362Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:15:21.902Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T17:15:21.901Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:15:21.904Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:15:22.286Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aV70cYk2"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:15:22.394Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:15:22.920Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T17:15:22.921Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3965120279,
-        "symbol": "frxGBPJPY",
-        "placed_at": "2026-07-02T16:52:34.362Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:20:23.999Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T17:20:23.999Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T17:20:24.001Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-02T17:20:24.326Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -2848,6 +2780,69 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:30:27.763Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T19:30:27.763Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:30:27.766Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:30:28.363Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RvpBwjsj"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:30:28.671Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:30:28.782Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:30:28.835Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-02T19:30:28.835Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-02T19:30:28.837Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T19:30:28.837Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3950,9 +3945,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783017021955,
+  "_calendar_last_fetch": 1783020628781,
   "_calendar_fetch_history": [
-    1783017021955
+    1783020628781
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
