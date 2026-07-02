@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T13:20:33.781Z",
+  "last_cycle": "2026-07-02T13:25:33.962Z",
   "balance": 9904.94,
   "currency": "USD",
   "account_mode": "demo",
@@ -1255,64 +1255,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T11:10:18.344Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=00yOCTk5"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:10:18.468Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:10:18.969Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:10:18.969Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3932193999,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-02T10:51:51.196Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:15:20.920Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T11:15:20.920Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:15:20.923Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T11:15:21.423Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TCTslihI"
-      }
-    },
-    {
-      "ts": "2026-07-02T11:15:21.752Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-02T11:15:22.504Z",
       "level": "info",
@@ -2755,6 +2697,69 @@
     },
     {
       "ts": "2026-07-02T13:20:33.781Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3942221139,
+        "symbol": "frxUSDJPY",
+        "placed_at": "2026-07-02T12:42:03.959Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:25:26.911Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T13:25:26.911Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:25:26.913Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:25:27.477Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=07bh6Z4P"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:25:27.786Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:25:28.457Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event detected",
+      "meta": {
+        "title": "Manufacturing PMI",
+        "country": "CAD",
+        "impact": "Low",
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-02T13:25:33.961Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-02T13:25:33.961Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T13:25:33.962Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
