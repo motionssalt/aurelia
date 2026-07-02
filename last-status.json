@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T14:40:23.957Z",
+  "last_cycle": "2026-07-02T14:45:30.151Z",
   "balance": 9902.92,
   "currency": "USD",
   "account_mode": "demo",
@@ -1297,50 +1297,6 @@
     "GEMINI_KEY_3": 1783008918154
   },
   "logs": [
-    {
-      "ts": "2026-07-02T12:40:18.796Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1MHCrk2M"
-      }
-    },
-    {
-      "ts": "2026-07-02T12:40:18.957Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:40:23.627Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:40:23.627Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T12:41:11.676Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-07-02T12:41:11.691Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-07-02T12:41:12.315Z",
       "level": "trade",
@@ -2834,6 +2790,55 @@
     },
     {
       "ts": "2026-07-02T14:40:23.957Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3952083119,
+        "symbol": "frxEURCHF",
+        "placed_at": "2026-07-02T14:28:24.858Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:45:28.060Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T14:45:28.059Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:45:28.062Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:45:28.641Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=M5jmuCTv"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:45:28.944Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T14:45:30.150Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 3951925059,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-02T14:26:47.390Z",
+        "event_title": "Natural Gas Storage"
+      }
+    },
+    {
+      "ts": "2026-07-02T14:45:30.151Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
