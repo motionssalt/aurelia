@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-02T08:10:33.885Z",
+  "last_cycle": "2026-07-02T08:17:00.664Z",
   "balance": 9900.2,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 98.23,
+    "capital_remaining": 95.73,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 11,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 3918840379,
+    "symbol": "frxAUDJPY",
+    "placed_at": "2026-07-02T08:17:00.664Z"
+  },
   "next_cycle_eligible_at": 1782979885640,
   "trade_history_cycle": [
     {
@@ -923,6 +927,22 @@
       "pnl": -1.5,
       "ai_outcome_note": "The price initially rallied significantly above the entry but then reversed, steadily declining below the entry and exit levels to result in a loss.",
       "exit": 0.85513
+    },
+    {
+      "ts": "2026-07-02T08:17:00.664Z",
+      "path": "cycle",
+      "symbol": "frxAUDJPY",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.95,
+      "rationale": "Extreme oversold conditions across M5/M10/M15 (M15 RSI < 13, price low in lower BB), reinforced by bullish reversal candle patterns (Hammer, Bullish Engulfing) on M10, indicating a high probability of a bullish bounce.",
+      "contract_id": 3918840379,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 111.27,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1115,7 +1135,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 3918840379,
+      "path": "cycle",
+      "symbol": "frxAUDJPY",
+      "placed_at": "2026-07-02T08:17:00.664Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1125,104 +1153,6 @@
     "GEMINI_KEY_2": 1782981922807
   },
   "logs": [
-    {
-      "ts": "2026-07-02T05:25:14.369Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 3903599859,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-02T04:57:00.844Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T05:30:19.118Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T05:30:19.117Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T05:30:19.120Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T05:30:19.549Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LLW30BmD"
-      }
-    },
-    {
-      "ts": "2026-07-02T05:30:19.671Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T05:30:23.831Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T05:30:23.832Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 55941
-      }
-    },
-    {
-      "ts": "2026-07-02T05:35:19.284Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T05:35:19.284Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T05:35:19.286Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T05:35:19.609Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=SEEIl3ph"
-      }
-    },
-    {
-      "ts": "2026-07-02T05:35:19.713Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T05:35:48.932Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.8
-      }
-    },
-    {
-      "ts": "2026-07-02T05:35:48.947Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
     {
       "ts": "2026-07-02T05:35:49.431Z",
       "level": "trade",
@@ -2631,6 +2561,110 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 51756
+      }
+    },
+    {
+      "ts": "2026-07-02T08:15:20.731Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-02T08:15:20.730Z"
+      }
+    },
+    {
+      "ts": "2026-07-02T08:15:20.732Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T08:15:21.232Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yhzD7hdx"
+      }
+    },
+    {
+      "ts": "2026-07-02T08:15:21.562Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T08:16:06.363Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxAUDJPY",
+        "conf": 0.95
+      }
+    },
+    {
+      "ts": "2026-07-02T08:16:06.443Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-02T08:16:07.101Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxAUDJPY CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.31,
+        "spot": 111.261
+      }
+    },
+    {
+      "ts": "2026-07-02T08:16:08.588Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=3918840379",
+      "meta": {
+        "transaction_id": 7678803079,
+        "longcode": "Win payout if AUD/JPY is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-02T08:16:09.149Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxAUDJPY @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T08:16:09.326Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T08:16:11.126Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-02T08:16:11.728Z",
+      "level": "warn",
+      "msg": "Telegram sendPhoto failed",
+      "meta": {
+        "json": {
+          "ok": false,
+          "error_code": 400,
+          "description": "Bad Request: can't parse entities: Unsupported start tag \"\" at byte offset 100"
+        }
+      }
+    },
+    {
+      "ts": "2026-07-02T08:17:00.663Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 3918840379
       }
     }
   ],
