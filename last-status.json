@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T13:55:16.973Z",
+  "last_cycle": "2026-07-03T14:00:31.601Z",
   "balance": 9880.05,
   "currency": "USD",
   "account_mode": "demo",
@@ -1528,64 +1528,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T11:45:18.641Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Bank Holiday"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Holiday"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-03T11:45:25.979Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_3\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:45:25.979Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming 'Bank Holiday' for USD is a liquidity event and does not provide a clear directional edge for price movement, which is a critical requirement for a news-driven trade. Therefore, it is prudent to skip trading on this event."
-      }
-    },
-    {
-      "ts": "2026-07-03T11:45:25.980Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4045266419,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-03T11:11:57.431Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:50:23.726Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T11:50:23.726Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:50:23.728Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T11:50:24.080Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3027,6 +2969,50 @@
     },
     {
       "ts": "2026-07-03T13:55:16.972Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4059166319,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-03T13:41:56.402Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:00:30.845Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T14:00:30.845Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:00:30.847Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:00:31.279Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=mCMkJlEB"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:00:31.448Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:00:31.600Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:00:31.601Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
