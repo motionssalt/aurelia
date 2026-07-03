@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T10:15:16.330Z",
+  "last_cycle": "2026-07-03T10:20:21.771Z",
   "balance": 9885.51,
   "currency": "USD",
   "account_mode": "demo",
@@ -1460,60 +1460,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T08:20:22.339Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T08:20:22.807Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8ROhVFMY"
-      }
-    },
-    {
-      "ts": "2026-07-03T08:20:23.078Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T08:20:23.155Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Final Services PMI"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 10
-      }
-    },
-    {
-      "ts": "2026-07-03T08:20:36.667Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-03T08:20:36.667Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The 'Final Services PMI' event has a 'Low' impact and the forecast (48.8) is only marginally higher than the previous (48.7). This minor expected change and low impact do not provide a clear directional edge for GBP, making a trade highly speculative."
-      }
-    },
-    {
       "ts": "2026-07-03T08:20:36.668Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -2913,6 +2859,50 @@
     },
     {
       "ts": "2026-07-03T10:15:16.329Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4039683339,
+        "symbol": "frxGBPCHF",
+        "placed_at": "2026-07-03T10:04:48.891Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T10:20:20.472Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T10:20:20.472Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T10:20:20.475Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T10:20:20.914Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=roUx9h8C"
+      }
+    },
+    {
+      "ts": "2026-07-03T10:20:21.147Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T10:20:21.770Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T10:20:21.770Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
