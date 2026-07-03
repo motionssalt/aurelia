@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T07:25:26.686Z",
+  "last_cycle": "2026-07-03T07:31:39.019Z",
   "balance": 9890.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 87.31,
+    "capital_remaining": 84.81,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 32,
@@ -1387,7 +1387,19 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4026114739,
+      "path": "news",
+      "symbol": "frxEURGBP",
+      "placed_at": "2026-07-03T07:31:39.019Z",
+      "expiry_sec": 900,
+      "event_title": "Italian Services PMI",
+      "event_bundle": [
+        "Italian Services PMI"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1397,98 +1409,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T05:05:19.359Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:05:19.360Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:10:22.241Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T05:10:22.241Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:10:22.243Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:10:22.578Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jcrDUBY2"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:10:22.691Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:10:22.724Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:10:22.725Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:15:20.519Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T05:15:20.519Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:15:20.521Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:15:21.157Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=bBdIG7Pi"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:15:21.480Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:15:21.590Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:15:21.591Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T05:20:22.061Z",
       "level": "info",
@@ -2855,6 +2775,122 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:30:22.966Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T07:30:22.966Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:22.968Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:30:23.344Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hAttxGNa"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:23.526Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:30:23.581Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "Italian Services PMI"
+        ],
+        "countries": [
+          "EUR"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:45.794Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURGBP",
+        "conf": 0.6
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:45.836Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:46.300Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURGBP CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.17,
+        "spot": 0.8568
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:47.694Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4026114739",
+      "meta": {
+        "transaction_id": 7885495659,
+        "longcode": "Win payout if EUR/GBP is strictly higher than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-03T07:30:48.096Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:30:48.200Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:30:50.019Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:31:39.018Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4026114739
+      }
+    },
+    {
+      "ts": "2026-07-03T07:31:39.019Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3126,9 +3162,37 @@
         "Spanish Services PMI"
       ],
       "exit": 1.14525
+    },
+    {
+      "ts": "2026-07-03T07:31:39.019Z",
+      "path": "news",
+      "symbol": "frxEURGBP",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 900,
+      "confidence": 0.6,
+      "rationale": "I expect a 'call' on frxEURGBP because the Italian Services PMI forecast (50.3) is an improvement over the previous (49.4), indicating positive sentiment for the EUR. This aligns with EURGBP's strong bullish trend across M5, M10, and M15, characterized by rising EMAs, price in the upper/middle Bollinger Band, and expanding ATR, suggesting further upward momentum.",
+      "contract_id": 4026114739,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 0.8568,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "Italian Services PMI",
+      "event_bundle": [
+        "Italian Services PMI"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4026114739,
+    "symbol": "frxEURGBP",
+    "placed_at": "2026-07-03T07:31:39.019Z",
+    "event_title": "Italian Services PMI",
+    "event_bundle": [
+      "Italian Services PMI"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
