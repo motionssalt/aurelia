@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T07:20:24.890Z",
+  "last_cycle": "2026-07-03T07:25:26.686Z",
   "balance": 9890.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 87.31,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 31,
+    "trades": 32,
     "wins": 16,
-    "losses": 15,
-    "pnl": -11.19,
+    "losses": 16,
+    "pnl": -12.69,
     "win_streak": 0,
-    "loss_streak": 4,
+    "loss_streak": 5,
     "halted": false,
     "halt_reason": null
   },
@@ -1387,19 +1387,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4024199259,
-      "path": "news",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-03T07:06:24.420Z",
-      "expiry_sec": 900,
-      "event_title": "Spanish Services PMI",
-      "event_bundle": [
-        "Spanish Services PMI"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1409,55 +1397,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T05:00:26.911Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:00:26.912Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:00:26.912Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:05:18.254Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T05:05:18.254Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:05:18.255Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:05:18.815Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YB6IyUWz"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:05:19.222Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T05:05:19.359Z",
       "level": "info",
@@ -2870,20 +2809,72 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:25:19.329Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T07:25:19.329Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:25:19.331Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:25:19.757Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ukyf7dCV"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:25:19.859Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:25:26.684Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:25:26.685Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:25:26.686Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-03",
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
-    "losses": 1,
-    "pnl": -2.5,
+    "losses": 2,
+    "pnl": -4,
     "by_symbol": {
       "frxEURAUD": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
         "pnl": -2.5
+      },
+      "frxEURUSD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
       }
     }
   },
@@ -3125,26 +3116,19 @@
       "confidence": 0.6,
       "rationale": "The Spanish Services PMI is forecast at 51.0, an increase from the previous 50.1. A positive Services PMI indicates economic expansion, which is bullish for the EUR. frxEURUSD shows a bullish trend across M5, M10, and M15 timeframes with rising and widening EMAs, suggesting potential for upward continuation if the news supports a stronger EUR.",
       "contract_id": 4024199259,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.14529,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -1.5,
+      "ai_outcome_note": "Despite initial gains, the price ultimately fell below the entry point of 1.14529, leading to an exit at 1.14525 for a loss.",
       "event_title": "Spanish Services PMI",
       "event_bundle": [
         "Spanish Services PMI"
-      ]
+      ],
+      "exit": 1.14525
     }
   ],
-  "news_open_position": {
-    "contract_id": 4024199259,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-03T07:06:24.420Z",
-    "event_title": "Spanish Services PMI",
-    "event_bundle": [
-      "Spanish Services PMI"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
