@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T12:55:28.030Z",
+  "last_cycle": "2026-07-03T13:02:04.649Z",
   "balance": 9880.51,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 92.74,
+    "capital_remaining": 91.24,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 5,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4055315759,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-03T13:02:04.649Z"
+  },
   "next_cycle_eligible_at": 1783083381596,
   "trade_history_cycle": [
     {
@@ -1280,6 +1284,22 @@
       "pnl": -2.5,
       "ai_outcome_note": "Despite an initial favorable dip, the price reversed course and climbed above the entry point, leading to the recorded loss.",
       "exit": 1.42043
+    },
+    {
+      "ts": "2026-07-03T13:02:04.649Z",
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "direction": "put",
+      "stake": 1.5,
+      "expiry_sec": 1800,
+      "confidence": 0.68,
+      "rationale": "Strong bearish alignment across M5/M10/M15: price in lower BB third (percentile ~0.12-0.33), EMAs falling with EMA50 above EMA20 (bearish structure), RSI neutral-falling, ATR contracting. Recent session losses suggest caution; small stake with 30m expiry for mean-reversion/continuation play.",
+      "contract_id": 4055315759,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14465,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1472,148 +1492,25 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4055315759,
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-03T13:02:04.649Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "OPENROUTER_KEY_2": 1782933624331,
-    "GEMINI_KEY_2": 1783081843884,
-    "GEMINI_KEY_1": 1783081843884,
-    "GEMINI_KEY_4": 1783081843884
+    "GEMINI_KEY_2": 1783092635544,
+    "GEMINI_KEY_1": 1783092635544,
+    "GEMINI_KEY_4": 1783092635544,
+    "GEMINI_KEY_3": 1783092635544
   },
   "logs": [
-    {
-      "ts": "2026-07-03T10:35:15.010Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:35:15.550Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:35:15.550Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4039683339,
-        "symbol": "frxGBPCHF",
-        "placed_at": "2026-07-03T10:04:48.891Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:40:20.144Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T10:40:20.144Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:40:20.146Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:40:20.477Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hFIRa0eE"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:40:20.574Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:40:21.091Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:40:21.091Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4039683339,
-        "symbol": "frxGBPCHF",
-        "placed_at": "2026-07-03T10:04:48.891Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:45:15.012Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T10:45:15.011Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:45:15.014Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:45:15.399Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JUp0xT45"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:45:15.528Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:45:16.102Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:45:16.103Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4039683339,
-        "symbol": "frxGBPCHF",
-        "placed_at": "2026-07-03T10:04:48.891Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:50:24.283Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T10:50:24.283Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T10:50:24.285Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T10:50:24.852Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uroJVrt1"
-      }
-    },
     {
       "ts": "2026-07-03T10:50:25.249Z",
       "level": "network",
@@ -2984,6 +2881,142 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 53567
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:30.144Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T13:00:30.143Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:30.146Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:00:30.447Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=bQKv9Cyw"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:30.588Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:00:30.620Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:00:39.790Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:48.038Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:51.517Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:55.299Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:00:55.299Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:01:11.995Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-03T13:01:12.029Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-03T13:01:12.124Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD PUT",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.54,
+        "spot": 1.14465
+      }
+    },
+    {
+      "ts": "2026-07-03T13:01:13.583Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4055315759",
+      "meta": {
+        "transaction_id": 7941493739,
+        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-03T13:01:13.911Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:01:13.992Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:01:16.175Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:02:04.649Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4055315759
       }
     }
   ],
