@@ -1,20 +1,20 @@
 {
-  "last_cycle": "2026-07-03T15:05:28.077Z",
-  "balance": 9877.09,
+  "last_cycle": "2026-07-03T15:10:24.006Z",
+  "balance": 9879.63,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 89.32,
+    "capital_remaining": 91.86,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 8,
-    "wins": 3,
+    "trades": 9,
+    "wins": 4,
     "losses": 5,
-    "pnl": -6.68,
-    "win_streak": 1,
+    "pnl": -5.64,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
@@ -1545,18 +1545,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4065748499,
-      "path": "news",
-      "symbol": "frxEURGBP",
-      "placed_at": "2026-07-03T14:51:37.418Z",
-      "expiry_sec": 900,
-      "event_title": "BOE Gov Bailey Speaks",
-      "event_bundle": [
-        "German Buba President Nagel Speaks",
-        "BOE Gov Bailey Speaks"
-      ]
-    },
-    {
       "contract_id": 4065933599,
       "path": "cycle",
       "symbol": "frxGBPAUD",
@@ -1573,62 +1561,6 @@
     "GEMINI_KEY_3": 1783092635544
   },
   "logs": [
-    {
-      "ts": "2026-07-03T13:00:55.299Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T13:01:11.995Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-03T13:01:12.029Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T13:01:12.124Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 1.14465
-      }
-    },
-    {
-      "ts": "2026-07-03T13:01:13.583Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4055315759",
-      "meta": {
-        "transaction_id": 7941493739,
-        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-03T13:01:13.911Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T13:01:13.992Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T13:01:16.175Z",
       "level": "info",
@@ -3105,14 +3037,64 @@
         "symbol": "frxGBPAUD",
         "placed_at": "2026-07-03T14:53:29.101Z"
       }
+    },
+    {
+      "ts": "2026-07-03T15:10:18.485Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T15:10:18.484Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T15:10:18.487Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:10:18.886Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=V8dwjomd"
+      }
+    },
+    {
+      "ts": "2026-07-03T15:10:19.011Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:10:24.004Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:10:24.005Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:10:24.006Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4065933599,
+        "symbol": "frxGBPAUD",
+        "placed_at": "2026-07-03T14:53:29.101Z"
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-03",
-    "trades": 11,
-    "wins": 3,
+    "trades": 12,
+    "wins": 4,
     "losses": 8,
-    "pnl": -13.18,
+    "pnl": -12.14,
     "by_symbol": {
       "frxEURAUD": {
         "trades": 1,
@@ -3127,10 +3109,10 @@
         "pnl": -0.46
       },
       "frxEURGBP": {
-        "trades": 1,
-        "wins": 0,
+        "trades": 2,
+        "wins": 1,
         "losses": 1,
-        "pnl": -2.5
+        "pnl": -1.46
       },
       "frxEURCAD": {
         "trades": 3,
@@ -3444,28 +3426,20 @@
       "confidence": 0.7,
       "rationale": "The M15 timeframe for frxEURGBP shows a bearish Evening Star candle pattern, falling RSI, and price in the lower third of Bollinger Bands, indicating a potential bearish reversal. This technical setup is likely to be reinforced by the upcoming simultaneous speeches from BOE Gov Bailey (Medium Impact) and German Buba President Nagel (Low Impact). Given the higher anticipated impact of the BOE Governor's speech, any market interpretation that strengthens GBP relative to EUR (e.g., a hawkish Bailey or a relatively dovish Nagel) would drive EURGBP lower, aligning with the bearish technical signals.",
       "contract_id": 4065748499,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 0.85695,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 1.04,
+      "ai_outcome_note": "After initial sideways movement and a slight increase, the price experienced a significant downward move, falling below the entry and exit points, securing a win.",
       "event_title": "BOE Gov Bailey Speaks",
       "event_bundle": [
         "German Buba President Nagel Speaks",
         "BOE Gov Bailey Speaks"
-      ]
+      ],
+      "exit": 0.8568
     }
   ],
-  "news_open_position": {
-    "contract_id": 4065748499,
-    "symbol": "frxEURGBP",
-    "placed_at": "2026-07-03T14:51:37.418Z",
-    "event_title": "BOE Gov Bailey Speaks",
-    "event_bundle": [
-      "German Buba President Nagel Speaks",
-      "BOE Gov Bailey Speaks"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
