@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T19:45:52.156Z",
+  "last_cycle": "2026-07-03T19:50:47.009Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,85 +1666,10 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783116324524
+    "OPENROUTER_KEY_2": 1783117231738,
+    "OPENROUTER_KEY_1": 1783117231738
   },
   "logs": [
-    {
-      "ts": "2026-07-03T17:50:28.000Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:50:39.287Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env â skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:51:22.843Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-03T17:51:22.927Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T17:51:23.559Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 1.14405
-      }
-    },
-    {
-      "ts": "2026-07-03T17:51:24.346Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4082837699",
-      "meta": {
-        "transaction_id": 7994358759,
-        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-03T17:51:24.903Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:51:25.047Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:51:27.966Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:52:16.792Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out â returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4082837699
-      }
-    },
     {
       "ts": "2026-07-03T17:55:17.909Z",
       "level": "info",
@@ -3120,6 +3045,76 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:50:19.921Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T19:50:19.921Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:50:19.923Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:50:20.488Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=bkbqzHB9"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:50:20.723Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:50:20.794Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:50:31.741Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:50:45.018Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "terminated"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:50:45.018Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:50:46.556Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:50:46.556Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
       }
     }
   ],
