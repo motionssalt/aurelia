@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T20:55:56.379Z",
+  "last_cycle": "2026-07-03T21:00:48.877Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,68 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T19:15:19.971Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env â skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:15:58.665Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-03T19:15:58.683Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T19:15:59.160Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.68,
-        "spot": 1.33541
-      }
-    },
-    {
-      "ts": "2026-07-03T19:15:59.736Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4091264899",
-      "meta": {
-        "transaction_id": 8010762859,
-        "longcode": "Win payout if GBP/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-03T19:16:00.087Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:16:00.188Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:16:01.986Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T19:16:50.416Z",
       "level": "warn",
       "msg": "Trade settlement timed out â returning best-effort snapshot",
@@ -3106,6 +3044,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:00:25.228Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T21:00:25.228Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:00:25.230Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:00:25.578Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MDWVetqe"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:00:25.714Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:00:25.748Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:00:33.837Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:00:48.876Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:00:48.877Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with no clear directional bias meeting the required confidence threshold. Recent session performance (3 wins, 8 losses) and current drawdown suggest caution. All symbols exhibit conflicting signals across timeframes (e.g., bullish patterns on lower timeframes vs bearish structure on higher timeframes, or vice versa), making reliable prediction difficult. Best to wait for clearer confluence."
       }
     }
   ],
