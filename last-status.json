@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T19:18:01.021Z",
+  "last_cycle": "2026-07-03T19:20:48.106Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1677,70 +1677,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T17:25:14.337Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lCJLweMi"
-      }
-    },
-    {
-      "ts": "2026-07-03T17:25:14.442Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:25:14.478Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:25:19.517Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env â skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T17:25:47.054Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-03T17:25:47.246Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T17:25:47.687Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.58,
-        "spot": 1.14404
-      }
-    },
-    {
-      "ts": "2026-07-03T17:25:47.803Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4080386619",
-      "meta": {
-        "transaction_id": 7989654819,
-        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
       "ts": "2026-07-03T17:25:48.335Z",
       "level": "info",
       "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
@@ -3127,6 +3063,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:20:23.859Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T19:20:23.859Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:20:23.861Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:20:24.292Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=saCCM9my"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:20:24.488Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:20:25.089Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:20:34.289Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T19:20:48.105Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T19:20:48.106Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. Recent session shows mixed results with 5 wins and 6 losses, indicating choppy conditions. Most symbols show conflicting signals across timeframes (e.g., frxEURUSD has doji on M5/M10 but falling EMAs; frxGBPUSD has hammer on M5/M10 but price outside lower BB on M5 and middle on M10; frxUSDJPY shows rising EMAs but evening star on M15; synthetic indices show mixed RSI/BB positions). Volatility is generally contracting, reducing edge. Best to wait for clearer alignment."
       }
     }
   ],
