@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T22:20:59.379Z",
+  "last_cycle": "2026-07-03T22:25:46.846Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,83 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783126225725
+    "OPENROUTER_KEY_1": 1783126526936
   },
   "logs": [
-    {
-      "ts": "2026-07-03T20:30:01.295Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T20:30:01.295Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T20:30:01.297Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T20:30:01.726Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WACEesuC"
-      }
-    },
-    {
-      "ts": "2026-07-03T20:30:01.948Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T20:30:10.471Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env Ã¢ÂÂ skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T20:30:36.380Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-03T20:30:36.380Z",
-      "level": "info",
-      "msg": "AI declined manual trade",
-      "meta": {
-        "rationale": "Strong oversold bounce setup: M5 RSI oversold_falling (26.94), price outside lower BB (percentile -0.02 M10, 0.09 M5), doji reversal candles on M5/M10/M15, EMAs falling but narrowing gap (50_above_20_narrowing on M15), contracting ATR on M15. Multiple timeframe confluence for mean reversion from extreme oversold."
-      }
-    },
-    {
-      "ts": "2026-07-03T20:35:20.386Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T20:35:20.386Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T20:35:20.388Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T20:35:20.907Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=asJr5SQA"
-      }
-    },
     {
       "ts": "2026-07-03T20:35:21.199Z",
       "level": "network",
@@ -3096,6 +3022,77 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T22:25:14.253Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T22:25:14.253Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T22:25:14.255Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T22:25:14.980Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NjWJV9aM"
+      }
+    },
+    {
+      "ts": "2026-07-03T22:25:15.254Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T22:25:15.327Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T22:25:26.939Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T22:25:28.605Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T22:25:28.605Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T22:25:46.845Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-03T22:25:46.845Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (e.g., bullish patterns in downtrends, bearish patterns in uptrends) with RSI in neutral zones and expanding ATR increasing volatility risk. Synthetic indices (R_10, R_25, R_50, R_75, R_100, 1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) exhibit mixed signals with no clear directional edge. Recent session performance (4 wins, 7 losses) and conflicting candle patterns (e.g., morning star in downtrends, evening star in uptrends) suggest low probability of success. Best to wait for clearer trend alignment or oversold/overbought extremes with confirming momentum."
       }
     }
   ],
