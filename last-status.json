@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T23:10:55.210Z",
+  "last_cycle": "2026-07-03T23:15:57.566Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,79 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783127730180
+    "OPENROUTER_KEY_2": 1783129521607
   },
   "logs": [
-    {
-      "ts": "2026-07-03T21:20:23.945Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:20:24.328Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kve2v433"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:20:24.491Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:20:24.545Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:20:35.267Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env â skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:21:04.194Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:21:04.194Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 5 wins / 6 losses with choppy outcomes. Most symbols show conflicting signals across M5/M10/M15 (e.g., EURUSD bearish structure but RSI rising; GBPUSD oversold but failing to bounce; USDJPY overbought but strong uptrend intact). Volatility regimes are mixed (expanding/contracting) without clear directional conviction. Stake sizing discipline and recent PnL volatility warrant waiting for a cleaner alignment of trend, momentum, and mean-reversion signals before committing capital."
-      }
-    },
-    {
-      "ts": "2026-07-03T21:25:13.994Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T21:25:13.994Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:25:13.996Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:25:14.405Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=gDCVqY4g"
-      }
-    },
     {
       "ts": "2026-07-03T21:25:14.537Z",
       "level": "network",
@@ -3094,6 +3024,78 @@
     },
     {
       "ts": "2026-07-03T23:10:55.210Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:15:14.687Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T23:15:14.687Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:15:14.691Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:15:15.072Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YKsgahEH"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:15:15.169Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:15:15.206Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:15:21.610Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:15:22.964Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:15:22.964Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:15:57.565Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-03T23:15:57.565Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
       "meta": {
