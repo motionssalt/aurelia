@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-03T16:52:03.918Z",
-  "balance": 9879.87,
+  "last_cycle": "2026-07-03T16:55:15.375Z",
+  "balance": 9877.37,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1613,71 +1613,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T14:50:21.308Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:50:21.364Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "German Buba President Nagel Speaks",
-          "BOE Gov Bailey Speaks"
-        ],
-        "countries": [
-          "EUR",
-          "GBP"
-        ],
-        "impacts": [
-          "Low",
-          "Medium"
-        ],
-        "minutes_until": 10
-      }
-    },
-    {
-      "ts": "2026-07-03T14:50:43.314Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURGBP",
-        "conf": 0.7
-      }
-    },
-    {
-      "ts": "2026-07-03T14:50:43.350Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T14:50:43.868Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURGBP PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 0.85695
-      }
-    },
-    {
-      "ts": "2026-07-03T14:50:45.420Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4065748499",
-      "meta": {
-        "transaction_id": 7961551419,
-        "longcode": "Win payout if EUR/GBP is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
       "ts": "2026-07-03T14:50:45.848Z",
       "level": "info",
       "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
@@ -3126,6 +3061,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4077196539
+      }
+    },
+    {
+      "ts": "2026-07-03T16:55:14.464Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T16:55:14.464Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T16:55:14.466Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:55:14.753Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pn4H1Cfi"
+      }
+    },
+    {
+      "ts": "2026-07-03T16:55:14.841Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:55:15.373Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:55:15.374Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4077196539,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-03T16:52:03.917Z"
       }
     }
   ],
