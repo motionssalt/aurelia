@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-03T17:20:24.865Z",
-  "balance": 9877.37,
+  "last_cycle": "2026-07-03T17:22:47.075Z",
+  "balance": 9881.61,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 89.6,
+    "capital_remaining": 93.84,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 12,
-    "wins": 5,
+    "trades": 13,
+    "wins": 6,
     "losses": 7,
-    "pnl": -7.9,
-    "win_streak": 1,
+    "pnl": -6.16,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4077196539,
-    "symbol": "frxEURAUD",
-    "placed_at": "2026-07-03T16:52:03.917Z"
-  },
-  "next_cycle_eligible_at": 1783097175270,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783099420138,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1397,11 +1393,12 @@
       "confidence": 0.85,
       "rationale": "Extreme oversold conditions across all timeframes, particularly M15 (BB percentile 0.02), with low RSI values (34-36), indicating a high probability of a bullish bounce or mean reversion despite the prevailing bearish trend.",
       "contract_id": 4077196539,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.64864,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.74,
+      "ai_outcome_note": "Price immediately rallied above entry and held higher levels, validating the oversold bounce thesis despite later volatility.",
+      "exit": 1.64898
     }
   ],
   "trade_history_manual": [
@@ -1594,15 +1591,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4077196539,
-      "path": "cycle",
-      "symbol": "frxEURAUD",
-      "placed_at": "2026-07-03T16:52:03.917Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1612,70 +1601,6 @@
     "GEMINI_KEY_1": 1783104038845
   },
   "logs": [
-    {
-      "ts": "2026-07-03T15:10:18.485Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T15:10:18.484Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:10:18.487Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:10:18.886Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=V8dwjomd"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:10:19.011Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:10:24.004Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:10:24.005Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:10:24.006Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4065933599,
-        "symbol": "frxGBPAUD",
-        "placed_at": "2026-07-03T14:53:29.101Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:15:19.425Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T15:15:19.424Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:15:19.427Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T15:15:20.001Z",
       "level": "network",
@@ -3077,20 +3002,78 @@
         "symbol": "frxEURAUD",
         "placed_at": "2026-07-03T16:52:03.917Z"
       }
+    },
+    {
+      "ts": "2026-07-03T17:22:38.968Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T17:22:38.968Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:22:38.970Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:39.561Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ddByqeAe"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:22:39.909Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:40.791Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:42.805Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:42.806Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:42.986Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:22:45.918Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-03",
-    "trades": 15,
-    "wins": 5,
+    "trades": 16,
+    "wins": 6,
     "losses": 10,
-    "pnl": -14.4,
+    "pnl": -12.66,
     "by_symbol": {
       "frxEURAUD": {
-        "trades": 2,
-        "wins": 1,
+        "trades": 3,
+        "wins": 2,
         "losses": 1,
-        "pnl": -0.76
+        "pnl": 0.98
       },
       "frxEURUSD": {
         "trades": 2,
