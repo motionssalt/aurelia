@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T09:05:19.917Z",
+  "last_cycle": "2026-07-03T09:10:31.559Z",
   "balance": 9885.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1425,67 +1425,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T07:05:16.431Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8MuRf7EO"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:05:16.617Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T07:05:16.680Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Spanish Services PMI"
-        ],
-        "countries": [
-          "EUR"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 10
-      }
-    },
-    {
-      "ts": "2026-07-03T07:05:33.461Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-03T07:05:33.501Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T07:05:33.580Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.42,
-        "spot": 1.14528
-      }
-    },
     {
       "ts": "2026-07-03T07:05:33.738Z",
       "level": "trade",
@@ -2951,6 +2890,50 @@
     },
     {
       "ts": "2026-07-03T09:05:19.916Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4032417679,
+        "symbol": "frxEURCAD",
+        "placed_at": "2026-07-03T08:43:31.556Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:10:30.143Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T09:10:30.143Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:10:30.146Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:10:30.632Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yEi09X6A"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:10:30.911Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:10:31.558Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:10:31.559Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
