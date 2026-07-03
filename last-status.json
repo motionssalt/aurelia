@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T20:36:14.961Z",
+  "last_cycle": "2026-07-03T20:41:15.375Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,105 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783119934698
+    "OPENROUTER_KEY_1": 1783120226968
   },
   "logs": [
-    {
-      "ts": "2026-07-03T18:50:19.938Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T18:50:19.938Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:50:19.941Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:50:20.352Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vhtL1U8G"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:50:20.468Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:50:21.069Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:50:21.069Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4087122759,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-03T18:36:40.336Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:55:17.561Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T18:55:17.561Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:55:17.563Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:55:18.148Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uwxy3NJ7"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:55:18.531Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:55:19.153Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:55:19.154Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4087122759,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-03T18:36:40.336Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T19:00:24.003Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T19:00:24.002Z"
-      }
-    },
     {
       "ts": "2026-07-03T19:00:24.005Z",
       "level": "network",
@@ -3105,6 +3009,99 @@
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
       }
+    },
+    {
+      "ts": "2026-07-03T20:40:19.304Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T20:40:19.304Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:40:19.306Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:40:19.637Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=doaW8kE0"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:40:19.771Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:40:19.809Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:40:19.893Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T20:40:19.893Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:40:19.894Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:40:26.972Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:40:29.057Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:40:29.057Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:41:15.375Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:41:15.375Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. EURUSD shows bearish structure but recent whipsaw losses (3 consecutive EURUSD trades with 2 losses) and mixed signals (M5 doji at lower BB but EMAs falling). GBPUSD has bearish alignment but recent put loss at 19:16. USDJPY shows bullish trend with narrowing EMA gap but no clear reversal signal. Synthetic indices (R_10, R_25, R_50, R_75, R_100) show either overbought (R_25) or unclear direction. Cross pairs (EURJPY, GBPJPY, etc.) lack confluence. Session capital at 100 with -1.5 PnL and 18.5 buffer to stop-loss; forcing a trade risks breaching risk limits. Best to wait for cleaner setup."
+      }
     }
   ],
   "daily_stats": {
@@ -4347,9 +4344,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783107326733,
+  "_calendar_last_fetch": 1783111219809,
   "_calendar_fetch_history": [
-    1783107326733
+    1783111219809
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
