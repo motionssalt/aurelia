@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T21:47:03.617Z",
+  "last_cycle": "2026-07-03T21:51:10.345Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,88 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783124206915,
-    "OPENROUTER_KEY_2": 1783124206915
+    "OPENROUTER_KEY_1": 1783124437922
   },
   "logs": [
-    {
-      "ts": "2026-07-03T19:55:14.392Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:55:14.422Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:55:21.164Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env Ã¢ÂÂ skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:55:21.165Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:55:23.442Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed Ã¢ÂÂ benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-03T19:55:23.443Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T19:55:49.803Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURJPY",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-03T19:55:49.804Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURJPY disabled in config"
-      }
-    },
-    {
-      "ts": "2026-07-03T20:00:27.376Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T20:00:27.375Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T20:00:27.379Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T20:00:27.869Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kXUw2zRo"
-      }
-    },
     {
       "ts": "2026-07-03T20:00:28.127Z",
       "level": "network",
@@ -3097,6 +3018,83 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: Unexpected end of JSON input"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:50:23.760Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T21:50:23.760Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:50:23.763Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:50:24.259Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=j3eVSTAR"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:50:24.557Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:50:24.654Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:50:37.926Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:50:37.926Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:50:40.224Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T21:50:40.224Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T21:51:10.344Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-03T21:51:10.344Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with no clear directional bias meeting the threshold for a trade. Recent session performance (4 wins, 7 losses) and conflicting technical indicators across major pairs suggest staying flat."
       }
     }
   ],
