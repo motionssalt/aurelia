@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T09:00:30.695Z",
+  "last_cycle": "2026-07-03T09:05:19.917Z",
   "balance": 9885.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1425,84 +1425,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T07:00:34.450Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Spanish Services PMI"
-        ],
-        "countries": [
-          "EUR"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 14
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:38.539Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed â benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:39.577Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_2\" failed â benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:42.133Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed â benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:48.643Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:48.643Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming Spanish Services PMI event has a 'Low' impact rating. Low impact economic news events typically do not provide a clear or sustained directional edge, making it difficult to justify a news-driven trade."
-      }
-    },
-    {
-      "ts": "2026-07-03T07:00:48.643Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T07:05:15.788Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T07:05:15.787Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T07:05:15.790Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T07:05:16.431Z",
       "level": "network",
@@ -2969,6 +2891,73 @@
         "symbol": "frxEURCAD",
         "placed_at": "2026-07-03T08:43:31.556Z"
       }
+    },
+    {
+      "ts": "2026-07-03T09:05:18.461Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T09:05:18.460Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:05:18.463Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:05:18.925Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QjRjLw0w"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:05:19.167Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:05:19.791Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:05:19.915Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T09:05:19.915Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T09:05:19.916Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T09:05:19.916Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4032417679,
+        "symbol": "frxEURCAD",
+        "placed_at": "2026-07-03T08:43:31.556Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4153,9 +4142,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783065916157,
+  "_calendar_last_fetch": 1783069519791,
   "_calendar_fetch_history": [
-    1783065916157
+    1783069519791
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
