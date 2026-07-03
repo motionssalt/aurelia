@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T17:30:24.955Z",
+  "last_cycle": "2026-07-03T17:35:15.031Z",
   "balance": 9880.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -1630,70 +1630,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T15:30:22.547Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T15:30:22.547Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:30:22.549Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:30:22.999Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=7N9bgeFe"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:30:23.136Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:30:23.174Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:31:38.122Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURGBP",
-        "conf": 0.85
-      }
-    },
-    {
-      "ts": "2026-07-03T15:31:38.123Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:31:38.123Z",
-      "level": "warn",
-      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:31:38.124Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T15:31:38.396Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3091,6 +3027,73 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-03T17:26:39.964Z"
       }
+    },
+    {
+      "ts": "2026-07-03T17:35:13.838Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T17:35:13.838Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:35:13.842Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:35:14.130Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=EEMvJOHY"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:35:14.358Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:35:14.988Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:35:15.029Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T17:35:15.029Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:35:15.031Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:35:15.031Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4080386619,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-03T17:26:39.964Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4333,9 +4336,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783096225050,
+  "_calendar_last_fetch": 1783100114988,
   "_calendar_fetch_history": [
-    1783096225050
+    1783100114988
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
