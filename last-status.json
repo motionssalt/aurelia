@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T17:45:36.972Z",
+  "last_cycle": "2026-07-03T17:52:16.793Z",
   "balance": 9880.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 92.34,
+    "capital_remaining": 90.84,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 14,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4082837699,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-03T17:52:16.792Z"
+  },
   "next_cycle_eligible_at": 1783100600359,
   "trade_history_cycle": [
     {
@@ -1416,6 +1420,22 @@
       "pnl": -1.5,
       "ai_outcome_note": "Price initially dropped below entry but then rallied strongly above 1.14404, closing at 1.14412 and invalidating the bearish thesis.",
       "exit": 1.14412
+    },
+    {
+      "ts": "2026-07-03T17:52:16.792Z",
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "direction": "call",
+      "stake": 1.5,
+      "expiry_sec": 1800,
+      "confidence": 0.65,
+      "rationale": "M5 shows bullish reversal signals: Morning Star pattern, price at lower BB third (percentile 0.13) with RSI neutral-rising from oversold, EMA20 rising while EMA50 falling (narrowing bearish gap). M10/M15 confirm oversold bounce potential with RSI neutral-rising and price in lower/middle BB. Recent EURUSD put loss at 17:26 suggests mean reversion. Contracting ATR across timeframes supports directional move. Small stake for 30m expiry.",
+      "contract_id": 4082837699,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14405,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1608,7 +1628,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4082837699,
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-03T17:52:16.792Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1618,108 +1646,6 @@
     "OPENROUTER_KEY_1": 1783109720857
   },
   "logs": [
-    {
-      "ts": "2026-07-03T15:45:17.750Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=X5Gr5UJ0"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:45:17.951Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:45:18.540Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:45:18.540Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4069755719,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-03T15:32:29.933Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:50:22.693Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T15:50:22.693Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:50:22.697Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:50:23.219Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IOFbd5Kv"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:50:23.529Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:50:24.194Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:50:24.194Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4069755719,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-03T15:32:29.933Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:55:19.766Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T15:55:19.766Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:55:19.768Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T15:55:20.329Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=o2lblyWo"
-      }
-    },
-    {
-      "ts": "2026-07-03T15:55:20.521Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T15:55:21.137Z",
       "level": "info",
@@ -3068,6 +2994,110 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (EMA crosses narrowing/widening inconsistently, RSI neutral with no clear directional edge, price mostly in middle BB bands). Recent session has 4 consecutive losses with negative PnL (-7.66), win rate only 42.8%. Volatility contracting across most pairs (ATR ratios <0.9). Best candidate frxEURUSD M5 shows doji at upper BB but M10/M15 show falling EMAs and widening bearish crosses — conflicting directional bias. Risk management dictates skipping until clearer trend alignment emerges."
+      }
+    },
+    {
+      "ts": "2026-07-03T17:50:26.985Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T17:50:26.985Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:50:26.987Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:50:27.585Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sg2eacE1"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:50:27.905Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:50:28.000Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:50:39.287Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:51:22.843Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-03T17:51:22.927Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-03T17:51:23.559Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD CALL",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.54,
+        "spot": 1.14405
+      }
+    },
+    {
+      "ts": "2026-07-03T17:51:24.346Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4082837699",
+      "meta": {
+        "transaction_id": 7994358759,
+        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-03T17:51:24.903Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:51:25.047Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:51:27.966Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:52:16.792Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4082837699
       }
     }
   ],
