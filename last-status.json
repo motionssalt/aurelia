@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T06:25:16.048Z",
+  "last_cycle": "2026-07-03T06:31:28.364Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-02T00:55:58.490Z",
     "capital_start": 100,
-    "capital_remaining": 91.31,
+    "capital_remaining": 88.81,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 30,
@@ -1387,7 +1387,19 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4021526059,
+      "path": "news",
+      "symbol": "frxEURAUD",
+      "placed_at": "2026-07-03T06:31:28.363Z",
+      "expiry_sec": 1200,
+      "event_title": "French Industrial Production m/m",
+      "event_bundle": [
+        "French Industrial Production m/m"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1397,101 +1409,6 @@
     "GEMINI_KEY_4": 1783024241576
   },
   "logs": [
-    {
-      "ts": "2026-07-03T03:50:18.373Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:50:18.637Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QOhPJmvq"
-      }
-    },
-    {
-      "ts": "2026-07-03T03:50:18.753Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:50:18.789Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:50:18.789Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:55:17.162Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T03:55:17.162Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T03:55:17.164Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:55:17.640Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ccblwm3U"
-      }
-    },
-    {
-      "ts": "2026-07-03T03:55:17.931Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:55:18.008Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:55:18.320Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-03T03:55:18.320Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-03T03:55:18.321Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T03:55:18.321Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T04:00:24.949Z",
       "level": "info",
@@ -2737,6 +2654,122 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:30:19.779Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T06:30:19.779Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:19.781Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:30:20.164Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0U3BLtbD"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:20.306Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:30:20.338Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "French Industrial Production m/m"
+        ],
+        "countries": [
+          "EUR"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:36.607Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURAUD",
+        "conf": 0.6
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:36.622Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:37.104Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURAUD PUT",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.24,
+        "spot": 1.64897
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:38.160Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4021526059",
+      "meta": {
+        "transaction_id": 7876785139,
+        "longcode": "Win payout if EUR/AUD is strictly lower than entry spot at 20 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-03T06:30:38.491Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURAUD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:30:38.567Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:30:40.552Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:31:28.363Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4021526059
+      }
+    },
+    {
+      "ts": "2026-07-03T06:31:28.364Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -2953,9 +2986,37 @@
       "ai_outcome_note": "The price action, after an initial rally, ultimately declined to close below the entry, resulting in a win for the put trade.",
       "event_title": "Natural Gas Storage",
       "exit": 0.80242
+    },
+    {
+      "ts": "2026-07-03T06:31:28.363Z",
+      "path": "news",
+      "symbol": "frxEURAUD",
+      "direction": "put",
+      "stake": 2.5,
+      "expiry_sec": 1200,
+      "confidence": 0.6,
+      "rationale": "The upcoming French Industrial Production m/m is forecast at -0.3%, a significant drop from the previous 0.1%. This indicates a contraction in industrial output, which is bearish for the EUR. frxEURAUD shows strong bearish technicals across M5/M10/M15, with falling EMAs and price currently in or outside the lower Bollinger Band, aligning with a 'put' direction.",
+      "contract_id": 4021526059,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.64896,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "French Industrial Production m/m",
+      "event_bundle": [
+        "French Industrial Production m/m"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4021526059,
+    "symbol": "frxEURAUD",
+    "placed_at": "2026-07-03T06:31:28.363Z",
+    "event_title": "French Industrial Production m/m",
+    "event_bundle": [
+      "French Industrial Production m/m"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
