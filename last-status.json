@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T06:50:21.653Z",
+  "last_cycle": "2026-07-03T06:55:23.463Z",
   "balance": 9891.77,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 88.81,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 30,
+    "trades": 31,
     "wins": 16,
-    "losses": 14,
-    "pnl": -8.69,
+    "losses": 15,
+    "pnl": -11.19,
     "win_streak": 0,
-    "loss_streak": 3,
+    "loss_streak": 4,
     "halted": false,
     "halt_reason": null
   },
@@ -1387,19 +1387,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4021526059,
-      "path": "news",
-      "symbol": "frxEURAUD",
-      "placed_at": "2026-07-03T06:31:28.363Z",
-      "expiry_sec": 1200,
-      "event_title": "French Industrial Production m/m",
-      "event_bundle": [
-        "French Industrial Production m/m"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1409,60 +1397,6 @@
     "GEMINI_KEY_4": 1783024241576
   },
   "logs": [
-    {
-      "ts": "2026-07-03T04:20:25.189Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T04:20:25.188Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:20:25.190Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:20:25.643Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ue9dQdmw"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:20:25.918Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:20:26.011Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:20:26.012Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:25:14.191Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T04:25:14.191Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:25:14.193Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T04:25:14.543Z",
       "level": "network",
@@ -2802,106 +2736,71 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:55:18.032Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T06:55:18.032Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:55:18.034Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:55:18.533Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Z8TRgBDG"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:55:18.726Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:55:18.864Z",
+      "level": "info",
+      "msg": "daily_stats auto-rollover",
+      "meta": {
+        "archived": "2026-07-02",
+        "new": "2026-07-03"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:55:23.461Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:55:23.462Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:55:23.462Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
-    "date": "2026-07-02",
-    "trades": 32,
-    "wins": 16,
-    "losses": 16,
-    "pnl": -11.67,
+    "date": "2026-07-03",
+    "trades": 1,
+    "wins": 0,
+    "losses": 1,
+    "pnl": -2.5,
     "by_symbol": {
-      "R_75": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.5
-      },
-      "1HZ100V": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.48
-      },
-      "1HZ50V": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.22
-      },
-      "frxUSDJPY": {
-        "trades": 5,
-        "wins": 1,
-        "losses": 4,
-        "pnl": -6.26
-      },
-      "frxNZDUSD": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.04
-      },
-      "frxEURCHF": {
-        "trades": 4,
-        "wins": 0,
-        "losses": 4,
-        "pnl": -10
-      },
       "frxEURAUD": {
-        "trades": 3,
-        "wins": 3,
-        "losses": 0,
-        "pnl": 4.28
-      },
-      "frxGBPUSD": {
-        "trades": 2,
-        "wins": 2,
-        "losses": 0,
-        "pnl": 2.58
-      },
-      "frxUSDCHF": {
-        "trades": 5,
-        "wins": 4,
-        "losses": 1,
-        "pnl": 4.25
-      },
-      "frxEURGBP": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -4
-      },
-      "frxAUDJPY": {
-        "trades": 2,
-        "wins": 2,
-        "losses": 0,
-        "pnl": 3.62
-      },
-      "frxEURCAD": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.04
-      },
-      "frxAUDUSD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      },
-      "frxGBPCAD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      },
-      "frxGBPJPY": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.04
-      },
-      "frxUSDCAD": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
@@ -2944,11 +2843,108 @@
     },
     {
       "date": "2026-07-02",
-      "trades": 0,
-      "wins": 0,
-      "losses": 0,
-      "pnl": 0,
-      "by_symbol": {}
+      "trades": 32,
+      "wins": 16,
+      "losses": 16,
+      "pnl": -11.67,
+      "by_symbol": {
+        "R_75": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.5
+        },
+        "1HZ100V": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.48
+        },
+        "1HZ50V": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.22
+        },
+        "frxUSDJPY": {
+          "trades": 5,
+          "wins": 1,
+          "losses": 4,
+          "pnl": -6.26
+        },
+        "frxNZDUSD": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.04
+        },
+        "frxEURCHF": {
+          "trades": 4,
+          "wins": 0,
+          "losses": 4,
+          "pnl": -10
+        },
+        "frxEURAUD": {
+          "trades": 3,
+          "wins": 3,
+          "losses": 0,
+          "pnl": 4.28
+        },
+        "frxGBPUSD": {
+          "trades": 2,
+          "wins": 2,
+          "losses": 0,
+          "pnl": 2.58
+        },
+        "frxUSDCHF": {
+          "trades": 5,
+          "wins": 4,
+          "losses": 1,
+          "pnl": 4.25
+        },
+        "frxEURGBP": {
+          "trades": 2,
+          "wins": 0,
+          "losses": 2,
+          "pnl": -4
+        },
+        "frxAUDJPY": {
+          "trades": 2,
+          "wins": 2,
+          "losses": 0,
+          "pnl": 3.62
+        },
+        "frxEURCAD": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.04
+        },
+        "frxAUDUSD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        },
+        "frxGBPCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        },
+        "frxGBPJPY": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.04
+        },
+        "frxUSDCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        }
+      }
     }
   ],
   "manual_session": {
@@ -3029,26 +3025,19 @@
       "confidence": 0.6,
       "rationale": "The upcoming French Industrial Production m/m is forecast at -0.3%, a significant drop from the previous 0.1%. This indicates a contraction in industrial output, which is bearish for the EUR. frxEURAUD shows strong bearish technicals across M5/M10/M15, with falling EMAs and price currently in or outside the lower Bollinger Band, aligning with a 'put' direction.",
       "contract_id": 4021526059,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.64896,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -2.5,
+      "ai_outcome_note": "The price moved against the 'put' direction, generally rising after entry and closing above the entry level at exit, resulting in a loss.",
       "event_title": "French Industrial Production m/m",
       "event_bundle": [
         "French Industrial Production m/m"
-      ]
+      ],
+      "exit": 1.64958
     }
   ],
-  "news_open_position": {
-    "contract_id": 4021526059,
-    "symbol": "frxEURAUD",
-    "placed_at": "2026-07-03T06:31:28.363Z",
-    "event_title": "French Industrial Production m/m",
-    "event_bundle": [
-      "French Industrial Production m/m"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
