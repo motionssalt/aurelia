@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T08:35:15.204Z",
+  "last_cycle": "2026-07-03T08:40:18.605Z",
   "balance": 9887.77,
   "currency": "USD",
   "account_mode": "demo",
@@ -1397,56 +1397,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T06:30:36.607Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURAUD",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-03T06:30:36.622Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T06:30:37.104Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURAUD PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.24,
-        "spot": 1.64897
-      }
-    },
-    {
-      "ts": "2026-07-03T06:30:38.160Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4021526059",
-      "meta": {
-        "transaction_id": 7876785139,
-        "longcode": "Win payout if EUR/AUD is strictly lower than entry spot at 20 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-03T06:30:38.491Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURAUD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:30:38.567Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T06:30:40.552Z",
       "level": "info",
@@ -2960,6 +2910,46 @@
     },
     {
       "ts": "2026-07-03T08:35:15.203Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:40:18.095Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T08:40:18.094Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T08:40:18.097Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:40:18.452Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iuf4Mps4"
+      }
+    },
+    {
+      "ts": "2026-07-03T08:40:18.569Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:40:18.604Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:40:18.604Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
