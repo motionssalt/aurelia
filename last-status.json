@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T17:05:23.914Z",
+  "last_cycle": "2026-07-03T17:10:21.563Z",
   "balance": 9877.37,
   "currency": "USD",
   "account_mode": "demo",
@@ -1613,59 +1613,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T14:55:19.481Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T14:55:19.480Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:55:19.483Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:55:19.979Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lDYTB0ZZ"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:55:20.342Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:55:21.574Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4065748499,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-03T14:51:37.418Z",
-        "event_title": "BOE Gov Bailey Speaks",
-        "event_bundle": [
-          "German Buba President Nagel Speaks",
-          "BOE Gov Bailey Speaks"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-03T14:55:21.575Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4065933599,
-        "symbol": "frxGBPAUD",
-        "placed_at": "2026-07-03T14:53:29.101Z"
-      }
-    },
-    {
       "ts": "2026-07-03T15:00:30.755Z",
       "level": "info",
       "msg": "Tick start",
@@ -3097,6 +3044,50 @@
     },
     {
       "ts": "2026-07-03T17:05:23.914Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4077196539,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-03T16:52:03.917Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:10:20.166Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T17:10:20.166Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:10:20.169Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:10:20.658Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wK5cETa3"
+      }
+    },
+    {
+      "ts": "2026-07-03T17:10:20.855Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:10:21.562Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T17:10:21.562Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
