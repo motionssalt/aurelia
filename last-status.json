@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T13:35:21.019Z",
+  "last_cycle": "2026-07-03T13:41:56.402Z",
   "balance": 9881.55,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 93.78,
+    "capital_remaining": 92.28,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 6,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4059166319,
+    "symbol": "frxGBPUSD",
+    "placed_at": "2026-07-03T13:41:56.402Z"
+  },
   "next_cycle_eligible_at": 1783085775248,
   "trade_history_cycle": [
     {
@@ -1297,6 +1301,22 @@
       "pnl": 1.04,
       "ai_outcome_note": "The price initially consolidated and moved slightly against the put, but then experienced a strong bearish drop, closing below entry for a win.",
       "exit": 1.14431
+    },
+    {
+      "ts": "2026-07-03T13:41:56.402Z",
+      "path": "cycle",
+      "symbol": "frxGBPUSD",
+      "direction": "call",
+      "stake": 1.5,
+      "expiry_sec": 1200,
+      "confidence": 0.85,
+      "rationale": "Extreme oversold conditions on M15 (price at 0.01 percentile of BB) at strong support levels across all timeframes, indicating a high probability of a bullish bounce.",
+      "contract_id": 4059166319,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.33503,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1489,7 +1509,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4059166319,
+      "path": "cycle",
+      "symbol": "frxGBPUSD",
+      "placed_at": "2026-07-03T13:41:56.402Z",
+      "expiry_sec": 1200
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1499,100 +1527,6 @@
     "GEMINI_KEY_3": 1783092635544
   },
   "logs": [
-    {
-      "ts": "2026-07-03T11:20:27.128Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:20:27.888Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:20:27.889Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4045266419,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-03T11:11:57.431Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:25:17.549Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T11:25:17.549Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:25:17.551Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:25:17.927Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Vcxc2a9J"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:25:18.033Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:25:18.624Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:25:18.625Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4045266419,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-03T11:11:57.431Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:30:22.102Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T11:30:22.102Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:30:22.104Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T11:30:22.509Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Ea99SRTU"
-      }
-    },
-    {
-      "ts": "2026-07-03T11:30:22.647Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T11:30:23.283Z",
       "level": "info",
@@ -3001,6 +2935,104 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 54229
+      }
+    },
+    {
+      "ts": "2026-07-03T13:40:18.310Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T13:40:18.310Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:40:18.312Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:40:18.753Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=b3AV9jsR"
+      }
+    },
+    {
+      "ts": "2026-07-03T13:40:18.873Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:40:18.911Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:41:03.818Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxGBPUSD",
+        "conf": 0.85
+      }
+    },
+    {
+      "ts": "2026-07-03T13:41:03.865Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-03T13:41:04.370Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxGBPUSD CALL",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.54,
+        "spot": 1.33502
+      }
+    },
+    {
+      "ts": "2026-07-03T13:41:04.972Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4059166319",
+      "meta": {
+        "transaction_id": 7948845519,
+        "longcode": "Win payout if GBP/USD is strictly higher than entry spot at 20 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-03T13:41:05.448Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:41:05.540Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:41:07.310Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T13:41:56.401Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4059166319
       }
     }
   ],
