@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T15:00:32.954Z",
+  "last_cycle": "2026-07-03T15:05:28.077Z",
   "balance": 9877.09,
   "currency": "USD",
   "account_mode": "demo",
@@ -1574,50 +1574,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T13:00:30.588Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T13:00:30.620Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T13:00:39.790Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T13:00:48.038Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T13:00:51.517Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T13:00:55.299Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
       "ts": "2026-07-03T13:00:55.299Z",
       "level": "warn",
       "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
@@ -3089,6 +3045,59 @@
     },
     {
       "ts": "2026-07-03T15:00:32.953Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4065933599,
+        "symbol": "frxGBPAUD",
+        "placed_at": "2026-07-03T14:53:29.101Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T15:05:25.018Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T15:05:25.018Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T15:05:25.020Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:05:25.515Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vnKOmi9V"
+      }
+    },
+    {
+      "ts": "2026-07-03T15:05:25.832Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T15:05:28.076Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4065748499,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-03T14:51:37.418Z",
+        "event_title": "BOE Gov Bailey Speaks",
+        "event_bundle": [
+          "German Buba President Nagel Speaks",
+          "BOE Gov Bailey Speaks"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-03T15:05:28.076Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
