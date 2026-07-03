@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T20:25:51.624Z",
+  "last_cycle": "2026-07-03T20:30:36.770Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,55 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T18:35:47.013Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4087122759",
-      "meta": {
-        "transaction_id": 8002712699,
-        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-03T18:35:47.491Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:35:47.611Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:35:50.926Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:36:40.336Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out â returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4087122759
-      }
-    },
-    {
-      "ts": "2026-07-03T18:40:19.751Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T18:40:19.751Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:40:19.753Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T18:40:20.221Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3103,6 +3054,58 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:30:01.295Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T20:30:01.295Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:30:01.297Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:30:01.726Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WACEesuC"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:30:01.948Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:30:10.471Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:30:36.380Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxAUDUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-03T20:30:36.380Z",
+      "level": "info",
+      "msg": "AI declined manual trade",
+      "meta": {
+        "rationale": "Strong oversold bounce setup: M5 RSI oversold_falling (26.94), price outside lower BB (percentile -0.02 M10, 0.09 M5), doji reversal candles on M5/M10/M15, EMAs falling but narrowing gap (50_above_20_narrowing on M15), contracting ATR on M15. Multiple timeframe confluence for mean reversion from extreme oversold."
       }
     }
   ],
