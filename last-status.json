@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T23:25:34.978Z",
+  "last_cycle": "2026-07-03T23:30:38.242Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,65 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T21:35:34.473Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-03T21:35:34.473Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes, choppy price action, or recent losses on similar setups. Best to wait for clearer trend alignment or reversal confirmation."
-      }
-    },
-    {
-      "ts": "2026-07-03T21:40:24.661Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T21:40:24.661Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:40:24.663Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:40:25.117Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PKsOFc0S"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:40:25.416Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:40:25.518Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:40:25.653Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
       "ts": "2026-07-03T21:40:25.653Z",
       "level": "info",
       "msg": "Calendar refreshed",
@@ -3100,6 +3041,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows mixed results with 4 wins and 7 losses. Current market conditions show conflicting signals: some pairs show oversold/overbought extremes but with weak reversal confirmation, others show trend continuation but with expanding ATR and widening EMA gaps reducing reliability. No single symbol demonstrates strong multi-timeframe alignment with favorable risk/reward given the 15-minute minimum expiry constraint."
+      }
+    },
+    {
+      "ts": "2026-07-03T23:30:21.105Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T23:30:21.104Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:30:21.107Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:30:21.469Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aAEnlQPP"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:30:21.631Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:30:21.688Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:30:30.154Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:30:38.241Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-03T23:30:38.242Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes, choppy price action, or recent losses on similar setups. Best to wait for clearer confluence."
       }
     }
   ],
