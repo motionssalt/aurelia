@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T08:15:32.238Z",
+  "last_cycle": "2026-07-03T08:20:36.668Z",
   "balance": 9887.77,
   "currency": "USD",
   "account_mode": "demo",
@@ -1397,60 +1397,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T06:10:20.143Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:10:20.613Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ntlcAgX4"
-      }
-    },
-    {
-      "ts": "2026-07-03T06:10:20.831Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:10:20.889Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:10:20.890Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:15:15.946Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T06:15:15.946Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T06:15:15.948Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T06:15:16.413Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Fap6C5Jh"
-      }
-    },
     {
       "ts": "2026-07-03T06:15:16.581Z",
       "level": "network",
@@ -2944,6 +2890,74 @@
     },
     {
       "ts": "2026-07-03T08:15:32.238Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:20:22.336Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T08:20:22.336Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T08:20:22.339Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:20:22.807Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8ROhVFMY"
+      }
+    },
+    {
+      "ts": "2026-07-03T08:20:23.078Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T08:20:23.155Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "Final Services PMI"
+        ],
+        "countries": [
+          "GBP"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 10
+      }
+    },
+    {
+      "ts": "2026-07-03T08:20:36.667Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_4\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T08:20:36.667Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The 'Final Services PMI' event has a 'Low' impact and the forecast (48.8) is only marginally higher than the previous (48.7). This minor expected change and low impact do not provide a clear directional edge for GBP, making a trade highly speculative."
+      }
+    },
+    {
+      "ts": "2026-07-03T08:20:36.668Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
