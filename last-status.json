@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T20:20:37.059Z",
+  "last_cycle": "2026-07-03T20:25:51.624Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,70 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T18:35:20.191Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:35:20.304Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-03T18:35:20.304Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:35:20.305Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:35:28.359Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env â skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:35:45.793Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-03T18:35:45.858Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T18:35:46.410Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 1.144
-      }
-    },
-    {
       "ts": "2026-07-03T18:35:47.013Z",
       "level": "trade",
       "msg": "Trade placed: contract_id=4087122759",
@@ -3109,6 +3045,64 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with no clear directional bias meeting entry criteria. Recent session performance (-1.5 PnL, 1 win/5 losses) and conflicting technical signals across major pairs suggest staying flat."
+      }
+    },
+    {
+      "ts": "2026-07-03T20:25:19.955Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T20:25:19.955Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:25:19.957Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:25:20.344Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XHP70NqI"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:25:20.527Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:25:20.595Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:25:30.463Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:25:51.623Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-03T20:25:51.623Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
       }
     }
   ],
