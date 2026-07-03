@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-03T14:40:20.890Z",
-  "balance": 9878.55,
+  "last_cycle": "2026-07-03T14:45:54.223Z",
+  "balance": 9881.09,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T08:41:04.645Z",
     "capital_start": 100,
-    "capital_remaining": 90.78,
+    "capital_remaining": 93.32,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 7,
-    "wins": 2,
+    "trades": 8,
+    "wins": 3,
     "losses": 5,
-    "pnl": -7.72,
-    "win_streak": 0,
-    "loss_streak": 1,
+    "pnl": -6.68,
+    "win_streak": 1,
+    "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4062126379,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-03T14:12:07.334Z"
-  },
-  "next_cycle_eligible_at": 1783087575462,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783089977947,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1329,11 +1325,12 @@
       "confidence": 0.85,
       "rationale": "Strong bullish trend showing signs of exhaustion: M10/M15 price in upper Bollinger Band (0.80-0.88 percentile), coupled with bearish reversal candle patterns (Evening Star on M10, Shooting Star on M15). M15 EMA cross is narrowing, indicating weakening bullish momentum. Betting on a bearish reversal from overbought.",
       "contract_id": 4062126379,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 161.242,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.04,
+      "ai_outcome_note": "The trade won because, despite a significant counter-trend rally, the price eventually declined below the entry point to the profitable exit level.",
+      "exit": 161.235
     }
   ],
   "trade_history_manual": [
@@ -1526,15 +1523,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4062126379,
-      "path": "cycle",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-03T14:12:07.334Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1544,74 +1533,6 @@
     "GEMINI_KEY_3": 1783092635544
   },
   "logs": [
-    {
-      "ts": "2026-07-03T12:25:24.934Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T12:25:24.934Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4051603659,
-        "symbol": "frxUSDCAD",
-        "placed_at": "2026-07-03T12:22:20.040Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T12:30:27.761Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T12:30:27.761Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T12:30:27.763Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T12:30:28.296Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3AMHndjd"
-      }
-    },
-    {
-      "ts": "2026-07-03T12:30:28.622Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T12:30:28.927Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T12:30:28.927Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4051603659,
-        "symbol": "frxUSDCAD",
-        "placed_at": "2026-07-03T12:22:20.040Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T12:35:19.760Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T12:35:19.760Z"
-      }
-    },
     {
       "ts": "2026-07-03T12:35:19.762Z",
       "level": "network",
@@ -3011,14 +2932,93 @@
         "symbol": "frxUSDJPY",
         "placed_at": "2026-07-03T14:12:07.334Z"
       }
+    },
+    {
+      "ts": "2026-07-03T14:45:17.283Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T14:45:17.283Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:45:17.285Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:45:17.761Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UR1geNgx"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:45:17.852Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:45:29.073Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T14:45:29.074Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 2,
+        "titles": [
+          "German Buba President Nagel Speaks",
+          "BOE Gov Bailey Speaks"
+        ],
+        "countries": [
+          "EUR",
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Medium"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-03T14:45:54.222Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T14:45:54.222Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming simultaneous speeches by German Buba President Nagel (EUR, Low Impact) and BOE Gov Bailey (GBP, Medium Impact) do not provide a clear directional edge. Without information on whether the speakers will adopt a hawkish or dovish stance, it is impossible to determine the likely market reaction for EUR or GBP. The differing impact levels (Medium for GBP, Low for EUR) could lead to conflicting or ambiguous net effects on cross pairs like EURGBP, and even for individual pairs like GBPUSD or EURUSD, the direction is speculative without knowing the content of the speeches. Therefore, there is no clear directional edge to justify a trade."
+      }
+    },
+    {
+      "ts": "2026-07-03T14:45:54.223Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 23724
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-03",
-    "trades": 10,
-    "wins": 2,
+    "trades": 11,
+    "wins": 3,
     "losses": 8,
-    "pnl": -14.22,
+    "pnl": -13.18,
     "by_symbol": {
       "frxEURAUD": {
         "trades": 1,
@@ -3061,6 +3061,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.5
+      },
+      "frxUSDJPY": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.04
       }
     }
   },
