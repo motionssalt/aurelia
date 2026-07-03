@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T01:30:19.756Z",
+  "last_cycle": "2026-07-03T01:35:20.834Z",
   "balance": 9894.27,
   "currency": "USD",
   "account_mode": "demo",
@@ -1398,52 +1398,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-02T22:50:27.430Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T22:55:19.536Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-02T22:55:19.536Z"
-      }
-    },
-    {
-      "ts": "2026-07-02T22:55:19.538Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T22:55:19.872Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=puKiOLxn"
-      }
-    },
-    {
-      "ts": "2026-07-02T22:55:20.201Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T22:55:20.309Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-02T22:55:20.310Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-02T23:00:23.183Z",
       "level": "info",
       "msg": "Tick start",
@@ -2757,6 +2711,68 @@
     },
     {
       "ts": "2026-07-03T01:30:19.755Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T01:35:19.944Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T01:35:19.944Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T01:35:19.946Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T01:35:20.438Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=q0knONkt"
+      }
+    },
+    {
+      "ts": "2026-07-03T01:35:20.728Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T01:35:20.832Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "RatingDog Services PMI"
+        ],
+        "countries": [
+          "CNY"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 10
+      }
+    },
+    {
+      "ts": "2026-07-03T01:35:20.832Z",
+      "level": "info",
+      "msg": "News Mode: no symbol mapping for any event in bundle",
+      "meta": {
+        "countries": [
+          "CNY"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-03T01:35:20.833Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
