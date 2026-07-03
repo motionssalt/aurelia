@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-03T11:11:57.431Z",
-  "balance": 9885.51,
+  "last_cycle": "2026-07-03T11:15:21.039Z",
+  "balance": 9883.01,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1477,73 +1477,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T09:00:30.694Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4032417679,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-03T08:43:31.556Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T09:05:18.461Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T09:05:18.460Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T09:05:18.463Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T09:05:18.925Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QjRjLw0w"
-      }
-    },
-    {
-      "ts": "2026-07-03T09:05:19.167Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T09:05:19.791Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T09:05:19.915Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-03T09:05:19.915Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-03T09:05:19.916Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T09:05:19.916Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
@@ -2937,6 +2870,73 @@
       "meta": {
         "contract_id": 4045266419
       }
+    },
+    {
+      "ts": "2026-07-03T11:15:19.515Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T11:15:19.515Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T11:15:19.517Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T11:15:19.866Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=bfHJQ6Cq"
+      }
+    },
+    {
+      "ts": "2026-07-03T11:15:20.211Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T11:15:20.984Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T11:15:21.038Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T11:15:21.038Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T11:15:21.038Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T11:15:21.039Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4045266419,
+        "symbol": "frxEURCAD",
+        "placed_at": "2026-07-03T11:11:57.431Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4133,9 +4133,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783073424058,
+  "_calendar_last_fetch": 1783077320984,
   "_calendar_fetch_history": [
-    1783073424058
+    1783077320984
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
