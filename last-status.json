@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-03T07:06:24.421Z",
-  "balance": 9891.77,
+  "last_cycle": "2026-07-03T07:10:19.054Z",
+  "balance": 9890.27,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1410,46 +1410,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T04:50:23.226Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T04:50:23.226Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:50:23.228Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:50:23.707Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=BXj9QxAb"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:50:24.038Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:50:24.148Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:50:24.149Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T04:55:14.141Z",
       "level": "info",
       "msg": "Tick start",
@@ -2845,6 +2805,54 @@
     },
     {
       "ts": "2026-07-03T07:06:24.420Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:10:18.034Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T07:10:18.033Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:10:18.036Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:10:18.349Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Yd0gu1Hy"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:10:18.468Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:10:19.053Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4024199259,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-03T07:06:24.420Z",
+        "event_title": "Spanish Services PMI",
+        "event_bundle": [
+          "Spanish Services PMI"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-03T07:10:19.054Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
