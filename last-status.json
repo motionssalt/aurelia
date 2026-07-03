@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-03T07:31:39.019Z",
-  "balance": 9890.27,
+  "last_cycle": "2026-07-03T07:35:21.393Z",
+  "balance": 9887.77,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1409,46 +1409,6 @@
     "GEMINI_KEY_1": 1783071035816
   },
   "logs": [
-    {
-      "ts": "2026-07-03T05:20:22.061Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T05:20:22.061Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:20:22.063Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:20:22.505Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fWmjfZmz"
-      }
-    },
-    {
-      "ts": "2026-07-03T05:20:22.760Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:20:22.833Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T05:20:22.833Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-03T05:25:16.100Z",
       "level": "info",
@@ -2888,6 +2848,54 @@
     },
     {
       "ts": "2026-07-03T07:31:39.019Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:35:20.363Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T07:35:20.362Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:35:20.365Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:35:20.750Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Kg6oVMhN"
+      }
+    },
+    {
+      "ts": "2026-07-03T07:35:20.863Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T07:35:21.392Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4026114739,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-03T07:31:39.019Z",
+        "event_title": "Italian Services PMI",
+        "event_bundle": [
+          "Italian Services PMI"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-03T07:35:21.392Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
