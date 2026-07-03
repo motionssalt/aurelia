@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T23:45:39.695Z",
+  "last_cycle": "2026-07-03T23:51:35.702Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,88 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T21:51:10.344Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-03T21:51:10.344Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with no clear directional bias meeting the threshold for a trade. Recent session performance (4 wins, 7 losses) and conflicting technical indicators across major pairs suggest staying flat."
-      }
-    },
-    {
-      "ts": "2026-07-03T21:55:17.406Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T21:55:17.406Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:55:17.409Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:55:17.872Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=a65xKdxy"
-      }
-    },
-    {
-      "ts": "2026-07-03T21:55:18.242Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:55:18.435Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:55:31.213Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T21:55:48.502Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-03T21:55:48.502Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (mixed EMA trends, RSI neutral, price in middle Bollinger Bands) with no clear directional bias. Volatility indices (R_10, R_25, R_50, R_75, R_100) show overbought/oversold extremes but lack confirmation from candle patterns or trend alignment. Recent session shows 5 losses vs 4 wins with alternating outcomes, suggesting choppy conditions. Best to wait for clearer trend development or reversal confirmation."
-      }
-    },
-    {
-      "ts": "2026-07-03T22:00:29.010Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T22:00:29.010Z"
-      }
-    },
-    {
       "ts": "2026-07-03T22:00:29.012Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3104,6 +3022,85 @@
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
       }
+    },
+    {
+      "ts": "2026-07-03T23:50:20.486Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T23:50:20.486Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:50:20.488Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:50:20.961Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hx0bZ3SQ"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:50:21.244Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:50:21.326Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:50:21.728Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T23:50:21.729Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:50:21.730Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:50:34.090Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T23:51:35.701Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-03T23:51:35.701Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows mixed results with 4 wins and 7 losses. Current market conditions show conflicting signals across major pairs (EURUSD, GBPUSD, USDJPY) with no clear directional bias. Volatility indices (R_10, R_25, R_50, R_75, R_100) show overbought/oversold extremes but lack confirmation. Synthetic indices (1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) show mixed EMA structures and RSI neutrality. Best course is to wait for clearer trend alignment or reversal confirmation."
+      }
     }
   ],
   "daily_stats": {
@@ -4346,9 +4343,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783118718996,
+  "_calendar_last_fetch": 1783122621326,
   "_calendar_fetch_history": [
-    1783118718996
+    1783122621326
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
