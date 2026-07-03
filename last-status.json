@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-03T06:31:28.364Z",
-  "balance": 9894.27,
+  "last_cycle": "2026-07-03T06:35:15.464Z",
+  "balance": 9891.77,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1410,46 +1410,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T04:00:24.949Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T04:00:24.948Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:00:24.951Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:00:25.320Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Ck01lUQh"
-      }
-    },
-    {
-      "ts": "2026-07-03T04:00:25.442Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:00:25.477Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T04:00:25.478Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T04:05:15.482Z",
       "level": "info",
       "msg": "Tick start",
@@ -2767,6 +2727,54 @@
     },
     {
       "ts": "2026-07-03T06:31:28.364Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:35:14.492Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T06:35:14.492Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:35:14.494Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:35:14.800Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IUsMLKQd"
+      }
+    },
+    {
+      "ts": "2026-07-03T06:35:14.913Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T06:35:15.463Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4021526059,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-03T06:31:28.363Z",
+        "event_title": "French Industrial Production m/m",
+        "event_bundle": [
+          "French Industrial Production m/m"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-03T06:35:15.464Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
