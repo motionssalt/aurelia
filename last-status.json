@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T16:25:20.873Z",
+  "last_cycle": "2026-07-03T16:30:25.117Z",
   "balance": 9875.63,
   "currency": "USD",
   "account_mode": "demo",
@@ -1596,73 +1596,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T14:20:30.870Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:20:30.911Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-03T14:20:30.911Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:20:30.912Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:20:30.913Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4062126379,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-03T14:12:07.334Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:25:15.459Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T14:25:15.459Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:25:15.461Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T14:25:15.829Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IvhWBbHx"
-      }
-    },
-    {
-      "ts": "2026-07-03T14:25:16.028Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T14:25:16.593Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3125,6 +3058,73 @@
         "symbol": "frxEURAUD",
         "placed_at": "2026-07-03T16:12:13.402Z"
       }
+    },
+    {
+      "ts": "2026-07-03T16:30:23.948Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T16:30:23.948Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T16:30:23.950Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:30:24.403Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=l2OnLQdA"
+      }
+    },
+    {
+      "ts": "2026-07-03T16:30:24.523Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:30:25.050Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:30:25.114Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-03T16:30:25.115Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-03T16:30:25.116Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T16:30:25.116Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4073535279,
+        "symbol": "frxEURAUD",
+        "placed_at": "2026-07-03T16:12:13.402Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4367,9 +4367,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783092324107,
+  "_calendar_last_fetch": 1783096225050,
   "_calendar_fetch_history": [
-    1783092324107
+    1783096225050
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
