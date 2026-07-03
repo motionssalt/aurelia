@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T20:30:36.770Z",
+  "last_cycle": "2026-07-03T20:36:14.961Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,83 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783118722486
+    "OPENROUTER_KEY_2": 1783119934698
   },
   "logs": [
-    {
-      "ts": "2026-07-03T18:40:20.221Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OxotxyeN"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:40:20.420Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:40:21.014Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:40:21.014Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4087122759,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-03T18:36:40.336Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:45:22.963Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T18:45:22.962Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:45:22.965Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:45:23.496Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vyjTsl7F"
-      }
-    },
-    {
-      "ts": "2026-07-03T18:45:23.754Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:45:24.437Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T18:45:24.437Z",
-      "level": "info",
-      "msg": "Cycle position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4087122759,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-03T18:36:40.336Z"
-      }
-    },
     {
       "ts": "2026-07-03T18:50:19.938Z",
       "level": "info",
@@ -3106,6 +3032,78 @@
       "msg": "AI declined manual trade",
       "meta": {
         "rationale": "Strong oversold bounce setup: M5 RSI oversold_falling (26.94), price outside lower BB (percentile -0.02 M10, 0.09 M5), doji reversal candles on M5/M10/M15, EMAs falling but narrowing gap (50_above_20_narrowing on M15), contracting ATR on M15. Multiple timeframe confluence for mean reversion from extreme oversold."
+      }
+    },
+    {
+      "ts": "2026-07-03T20:35:20.386Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T20:35:20.386Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:35:20.388Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:35:20.907Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=asJr5SQA"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:35:21.199Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:35:21.308Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:35:34.701Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:35:37.967Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-03T20:35:37.967Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T20:36:14.959Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-03T20:36:14.960Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
       }
     }
   ],
