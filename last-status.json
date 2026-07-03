@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-03T18:05:17.308Z",
+  "last_cycle": "2026-07-03T18:10:28.801Z",
   "balance": 9878.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -1647,55 +1647,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T16:10:29.311Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T16:10:29.409Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T16:10:41.865Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-03T16:11:19.037Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURAUD",
-        "conf": 0.9
-      }
-    },
-    {
-      "ts": "2026-07-03T16:11:19.115Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-03T16:11:19.676Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURAUD PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.24,
-        "spot": 1.64921
-      }
-    },
-    {
       "ts": "2026-07-03T16:11:21.306Z",
       "level": "trade",
       "msg": "Trade placed: contract_id=4073535279",
@@ -3094,6 +3045,50 @@
     },
     {
       "ts": "2026-07-03T18:05:17.308Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4082837699,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-03T17:52:16.792Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T18:10:27.115Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-03T18:10:27.114Z"
+      }
+    },
+    {
+      "ts": "2026-07-03T18:10:27.117Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T18:10:27.693Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PCKjoTqE"
+      }
+    },
+    {
+      "ts": "2026-07-03T18:10:28.024Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T18:10:28.800Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-03T18:10:28.800Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
