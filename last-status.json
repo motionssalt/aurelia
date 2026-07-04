@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T10:10:31.175Z",
+  "last_cycle": "2026-07-04T10:15:29.202Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,110 +1666,10 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783168830344,
-    "OPENROUTER_KEY_2": 1783168830344
+    "OPENROUTER_KEY_1": 1783169128272,
+    "OPENROUTER_KEY_2": 1783169128272
   },
   "logs": [
-    {
-      "ts": "2026-07-04T08:40:44.099Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:40:44.099Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:40:44.755Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-04T08:40:44.756Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:41:09.187Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-04T08:41:09.187Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURUSD disabled in config"
-      }
-    },
-    {
-      "ts": "2026-07-04T08:45:22.523Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T08:45:22.523Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T08:45:22.525Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:45:23.004Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=T6yaUiDU"
-      }
-    },
-    {
-      "ts": "2026-07-04T08:45:23.309Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:45:23.420Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:45:37.546Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T08:45:54.794Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-04T08:45:54.794Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (mixed EMA trends, neutral RSI, choppy price action in middle Bollinger Bands). Volatility indices (R_10, R_25, R_50, R_75, R_100) are in downtrends with widening EMA50>EMA20 gaps but lack clear reversal patterns. Synthetic indices (1HZ10V-1HZ100V) show mixed EMA crosses and neutral RSI. Recent session has 5 wins / 6 losses with alternating outcomes, suggesting low edge. Capital remaining is 100 with no clear directional bias. Best to wait for cleaner confluence."
-      }
-    },
     {
       "ts": "2026-07-04T08:50:25.312Z",
       "level": "info",
@@ -3059,6 +2959,105 @@
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
       }
+    },
+    {
+      "ts": "2026-07-04T10:15:16.352Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T10:15:16.352Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:16.354Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:16.742Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pFrCWqgX"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:16.965Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:17.036Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:17.138Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:17.138Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:17.139Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:28.276Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:28.276Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:28.480Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:28.480Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:15:28.715Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:15:28.715Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
     }
   ],
   "daily_stats": {
@@ -4301,9 +4300,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783156226820,
+  "_calendar_last_fetch": 1783160117036,
   "_calendar_fetch_history": [
-    1783156226820
+    1783160117036
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
