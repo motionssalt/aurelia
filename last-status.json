@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T05:35:44.427Z",
+  "last_cycle": "2026-07-04T05:40:50.124Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,83 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783152032585
+    "OPENROUTER_KEY_1": 1783152628806
   },
   "logs": [
-    {
-      "ts": "2026-07-04T03:40:59.128Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals between timeframes, choppy price action in middle Bollinger bands, or weak trend alignment. Recent session performance (5 wins, 6 losses) also suggests caution. Best to wait for clearer directional conviction."
-      }
-    },
-    {
-      "ts": "2026-07-04T03:45:14.398Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T03:45:14.398Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T03:45:14.400Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:45:14.753Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=J7NnbSlW"
-      }
-    },
-    {
-      "ts": "2026-07-04T03:45:14.842Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:45:14.882Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:45:21.205Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:45:33.463Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-04T03:45:33.464Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURUSD disabled in config"
-      }
-    },
-    {
-      "ts": "2026-07-04T03:50:28.167Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T03:50:28.167Z"
-      }
-    },
     {
       "ts": "2026-07-04T03:50:28.170Z",
       "level": "network",
@@ -3103,6 +3029,78 @@
     },
     {
       "ts": "2026-07-04T05:35:44.426Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:40:19.394Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T05:40:19.394Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:40:19.396Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:40:19.827Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dSSMYbGy"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:40:20.015Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:40:20.068Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:40:28.809Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:40:31.134Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:40:31.134Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:40:50.123Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.62
+      }
+    },
+    {
+      "ts": "2026-07-04T05:40:50.123Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
       "meta": {
