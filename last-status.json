@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T06:30:35.187Z",
+  "last_cycle": "2026-07-04T06:35:46.315Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,74 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783155631990,
     "OPENROUTER_KEY_2": 1783155631990
   },
   "logs": [
-    {
-      "ts": "2026-07-04T04:35:38.853Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-04T04:40:18.680Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T04:40:18.679Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T04:40:18.682Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T04:40:19.010Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LmwMl38c"
-      }
-    },
-    {
-      "ts": "2026-07-04T04:40:19.140Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T04:40:19.176Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T04:40:26.022Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T04:40:26.022Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T04:41:17.782Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.65
-      }
-    },
     {
       "ts": "2026-07-04T04:41:17.782Z",
       "level": "info",
@@ -3104,6 +3039,68 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-04T06:35:19.644Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T06:35:19.644Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T06:35:19.647Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T06:35:20.163Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=26GpenXO"
+      }
+    },
+    {
+      "ts": "2026-07-04T06:35:20.499Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T06:35:20.606Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T06:35:34.244Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T06:35:34.244Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T06:35:46.314Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-04T06:35:46.314Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. Most symbols show conflicting signals across timeframes (e.g., bullish patterns in downtrends, bearish patterns in uptrends), mixed EMA alignments, and RSI in neutral zones without clear momentum. Recent session performance (3 wins, 7 losses) and choppy price action across majors and synthetics suggest low edge. Capital preservation prioritized."
       }
     }
   ],
