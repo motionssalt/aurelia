@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T03:40:59.128Z",
+  "last_cycle": "2026-07-04T03:45:33.464Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,65 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-04T01:50:24.424Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:50:24.525Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:50:24.570Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 110
-      }
-    },
-    {
-      "ts": "2026-07-04T01:50:24.570Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 110,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-04T01:50:24.571Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:50:38.490Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:50:53.050Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-04T01:50:53.051Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURUSD disabled in config"
-      }
-    },
-    {
       "ts": "2026-07-04T01:55:21.242Z",
       "level": "info",
       "msg": "Tick start",
@@ -3098,6 +3039,64 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals between timeframes, choppy price action in middle Bollinger bands, or weak trend alignment. Recent session performance (5 wins, 6 losses) also suggests caution. Best to wait for clearer directional conviction."
+      }
+    },
+    {
+      "ts": "2026-07-04T03:45:14.398Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T03:45:14.398Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T03:45:14.400Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:45:14.753Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=J7NnbSlW"
+      }
+    },
+    {
+      "ts": "2026-07-04T03:45:14.842Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:45:14.882Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:45:21.205Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:45:33.463Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-04T03:45:33.464Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
       }
     }
   ],
