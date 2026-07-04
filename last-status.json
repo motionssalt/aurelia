@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T10:30:35.298Z",
+  "last_cycle": "2026-07-04T10:35:35.247Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,86 +1666,10 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783170033791,
-    "OPENROUTER_KEY_2": 1783170033791
+    "OPENROUTER_KEY_1": 1783170334313,
+    "OPENROUTER_KEY_2": 1783170334313
   },
   "logs": [
-    {
-      "ts": "2026-07-04T09:05:19.752Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T09:05:33.977Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T09:05:33.977Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T09:05:34.211Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-04T09:05:34.211Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T09:05:34.409Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-04T09:05:34.410Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-04T09:10:25.871Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T09:10:25.871Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T09:10:25.873Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T09:10:26.402Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HEPjrlc7"
-      }
-    },
-    {
-      "ts": "2026-07-04T09:10:26.714Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-04T09:10:26.820Z",
       "level": "info",
@@ -3050,6 +2974,82 @@
     },
     {
       "ts": "2026-07-04T10:30:34.910Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:35:19.062Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T10:35:19.062Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:35:19.064Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:19.537Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NA5mf97J"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:35:19.827Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:19.925Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:34.316Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:34.316Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:34.501Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:35:34.502Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T10:35:34.681Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-04T10:35:34.681Z",
       "level": "error",
       "msg": "AI decision failed",
       "meta": {
