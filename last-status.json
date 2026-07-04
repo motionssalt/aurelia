@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T22:55:17.151Z",
+  "last_cycle": "2026-07-04T23:00:32.637Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1671,46 +1671,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-04T20:20:25.268Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T20:20:25.618Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=01cA18T2"
-      }
-    },
-    {
-      "ts": "2026-07-04T20:20:25.734Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T20:20:25.763Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T20:20:25.763Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T20:25:17.031Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T20:25:17.030Z"
-      }
-    },
-    {
       "ts": "2026-07-04T20:25:17.033Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3010,70 +2970,64 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-04T23:00:31.726Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T23:00:31.726Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T23:00:31.728Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T23:00:32.138Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pmW0QJaM"
+      }
+    },
+    {
+      "ts": "2026-07-04T23:00:32.277Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T23:00:32.306Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-03",
+        "trades": 20,
+        "wins": 7,
+        "losses": 13,
+        "pnl": -16.12,
+        "source": "daily_stats"
+      }
+    },
+    {
+      "ts": "2026-07-04T23:00:32.636Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-07-04"
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-07-03",
-    "trades": 20,
-    "wins": 7,
-    "losses": 13,
-    "pnl": -16.12,
-    "by_symbol": {
-      "frxEURAUD": {
-        "trades": 3,
-        "wins": 2,
-        "losses": 1,
-        "pnl": 0.98
-      },
-      "frxEURUSD": {
-        "trades": 5,
-        "wins": 2,
-        "losses": 3,
-        "pnl": -2.42
-      },
-      "frxEURGBP": {
-        "trades": 3,
-        "wins": 1,
-        "losses": 2,
-        "pnl": -2.96
-      },
-      "frxEURCAD": {
-        "trades": 3,
-        "wins": 1,
-        "losses": 2,
-        "pnl": -3.26
-      },
-      "frxGBPCHF": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.5
-      },
-      "frxUSDCAD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      },
-      "frxGBPUSD": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -3
-      },
-      "frxUSDJPY": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.04
-      },
-      "frxGBPAUD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      }
-    }
+    "date": "2026-07-04",
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "pnl": 0,
+    "by_symbol": {}
   },
   "daily_history": [
     {
@@ -3206,6 +3160,69 @@
           "pnl": 1.04
         },
         "frxUSDCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        }
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "trades": 20,
+      "wins": 7,
+      "losses": 13,
+      "pnl": -16.12,
+      "by_symbol": {
+        "frxEURAUD": {
+          "trades": 3,
+          "wins": 2,
+          "losses": 1,
+          "pnl": 0.98
+        },
+        "frxEURUSD": {
+          "trades": 5,
+          "wins": 2,
+          "losses": 3,
+          "pnl": -2.42
+        },
+        "frxEURGBP": {
+          "trades": 3,
+          "wins": 1,
+          "losses": 2,
+          "pnl": -2.96
+        },
+        "frxEURCAD": {
+          "trades": 3,
+          "wins": 1,
+          "losses": 2,
+          "pnl": -3.26
+        },
+        "frxGBPCHF": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.5
+        },
+        "frxUSDCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        },
+        "frxGBPUSD": {
+          "trades": 2,
+          "wins": 0,
+          "losses": 2,
+          "pnl": -3
+        },
+        "frxUSDJPY": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.04
+        },
+        "frxGBPAUD": {
           "trades": 1,
           "wins": 0,
           "losses": 1,
