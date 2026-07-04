@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T02:50:51.774Z",
+  "last_cycle": "2026-07-04T02:55:40.961Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,102 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783140029130
+    "OPENROUTER_KEY_1": 1783142723986
   },
   "logs": [
-    {
-      "ts": "2026-07-04T00:55:20.317Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Pz2zGdtN"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:55:20.627Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:55:20.730Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:55:34.090Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:55:47.212Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURJPY",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-04T00:55:47.213Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURJPY disabled in config"
-      }
-    },
-    {
-      "ts": "2026-07-04T01:00:30.054Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T01:00:30.054Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T01:00:30.056Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:00:30.649Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZO7m2Vbd"
-      }
-    },
-    {
-      "ts": "2026-07-04T01:00:30.991Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:00:31.089Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:00:44.488Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:01:22.680Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
     {
       "ts": "2026-07-04T01:01:22.680Z",
       "level": "info",
@@ -3104,6 +3011,101 @@
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
       }
+    },
+    {
+      "ts": "2026-07-04T02:55:17.393Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T02:55:17.393Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:17.395Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:17.733Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dWVuQ4BE"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:17.814Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:17.843Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:17.892Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 110
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:17.892Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 110,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:17.893Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:23.989Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:25.745Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:25.745Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:55:40.960Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-04T02:55:40.961Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
+      }
     }
   ],
   "daily_stats": {
@@ -4346,9 +4348,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783129824525,
+  "_calendar_last_fetch": 1783133717843,
   "_calendar_fetch_history": [
-    1783129824525
+    1783133717843
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
