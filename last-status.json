@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T02:10:34.794Z",
+  "last_cycle": "2026-07-04T02:15:39.815Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1666,74 +1666,9 @@
     "GEMINI_KEY_4": 1783092635544,
     "GEMINI_KEY_3": 1783092635544,
     "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_1": 1783140029130,
     "OPENROUTER_KEY_2": 1783140029130
   },
   "logs": [
-    {
-      "ts": "2026-07-04T00:15:16.225Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:15:25.642Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:15:50.996Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-04T00:15:50.996Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "symbol frxEURUSD disabled in config"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:20:24.411Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T00:20:24.411Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:20:24.414Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:20:24.951Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sJMr2lZT"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:20:25.296Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:20:25.412Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-04T00:20:39.240Z",
       "level": "warn",
@@ -3111,6 +3046,68 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:15:18.323Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T02:15:18.323Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:15:18.326Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:15:18.659Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RJzXHNkw"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:15:18.807Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:15:18.835Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:15:25.452Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:15:25.453Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:15:39.814Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:15:39.815Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (mixed EMA trends, RSI neutral, price in middle BB bands) with doji patterns indicating indecision. Synthetic indices (R_10, R_25) show oversold conditions but with falling RSI and widening bearish EMA gaps, suggesting continued downside risk rather than clear reversal. Recent session shows 5 losses vs 4 wins with alternating outcomes, indicating choppy conditions. Capital remaining is 100 with no clear edge. Best to wait for stronger trend alignment or clearer reversal signals."
       }
     }
   ],
