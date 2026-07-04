@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T05:05:47.041Z",
+  "last_cycle": "2026-07-04T05:11:01.036Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,64 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-04T03:10:46.350Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols. Most forex pairs show conflicting signals across timeframes (e.g., bullish M5 vs bearish M15), mixed RSI states, and lack clear trend alignment. Synthetic indices (R_10, R_25, R_50, R_75, R_100, 1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) show oversold/overbought extremes but with falling RSI momentum and widening EMA gaps suggesting trend continuation rather than reversal. Recent session performance (4 wins, 7 losses) and lack of clean confluence warrant skipping."
-      }
-    },
-    {
-      "ts": "2026-07-04T03:15:19.906Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T03:15:19.905Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T03:15:19.907Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:15:20.505Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=n575b21c"
-      }
-    },
-    {
-      "ts": "2026-07-04T03:15:20.798Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:15:20.892Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:15:33.630Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T03:15:52.617Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
       "ts": "2026-07-04T03:15:52.617Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
@@ -3106,6 +3048,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. Most symbols show conflicting signals across timeframes (e.g., bullish patterns in downtrends, bearish patterns in uptrends) or choppy/range-bound conditions with contracting ATR. Recent session performance (4 wins, 7 losses) and lack of clear trend alignment across M5/M10/M15 warrant staying flat."
+      }
+    },
+    {
+      "ts": "2026-07-04T05:10:20.871Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T05:10:20.871Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:10:20.873Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:10:21.398Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=t9VOd5lz"
+      }
+    },
+    {
+      "ts": "2026-07-04T05:10:21.674Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:10:21.761Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:10:33.053Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T05:11:01.035Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-04T05:11:01.036Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. All symbols show mixed or conflicting signals across timeframes (e.g., bullish patterns in bearish trends, overbought/oversold extremes without clear reversal confirmation, expanding ATR adding noise). Recent session performance (5 wins, 7 losses) and lack of a clean, multi-timeframe aligned signal warrant skipping to preserve capital."
       }
     }
   ],
