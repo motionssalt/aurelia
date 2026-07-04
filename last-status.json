@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T01:30:50.850Z",
+  "last_cycle": "2026-07-04T01:35:48.126Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,63 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T23:30:38.241Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-03T23:30:38.242Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes, choppy price action, or recent losses on similar setups. Best to wait for clearer confluence."
-      }
-    },
-    {
-      "ts": "2026-07-03T23:35:17.566Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-03T23:35:17.565Z"
-      }
-    },
-    {
-      "ts": "2026-07-03T23:35:17.569Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T23:35:17.940Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3i9KmKCY"
-      }
-    },
-    {
-      "ts": "2026-07-03T23:35:18.027Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T23:35:18.056Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-03T23:35:24.301Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-03T23:35:38.581Z",
       "level": "info",
       "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
@@ -3109,6 +3052,64 @@
     },
     {
       "ts": "2026-07-04T01:30:50.850Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-04T01:35:20.960Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T01:35:20.960Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T01:35:20.962Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T01:35:21.492Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=v8nXlcXE"
+      }
+    },
+    {
+      "ts": "2026-07-04T01:35:21.926Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T01:35:22.031Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T01:35:35.706Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T01:35:48.125Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-04T01:35:48.125Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
       "meta": {
