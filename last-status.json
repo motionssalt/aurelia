@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T08:20:51.191Z",
+  "last_cycle": "2026-07-04T08:25:51.054Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,60 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-04T06:30:34.814Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-04T06:35:19.644Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T06:35:19.644Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T06:35:19.647Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T06:35:20.163Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=26GpenXO"
-      }
-    },
-    {
-      "ts": "2026-07-04T06:35:20.499Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T06:35:20.606Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T06:35:34.244Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T06:35:34.244Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-04T06:35:46.314Z",
       "level": "info",
       "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
@@ -3098,6 +3044,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-04T08:25:18.453Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T08:25:18.453Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T08:25:18.455Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T08:25:18.966Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FtbGljGd"
+      }
+    },
+    {
+      "ts": "2026-07-04T08:25:19.282Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T08:25:19.377Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T08:25:33.191Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T08:25:51.053Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-04T08:25:51.054Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (e.g., bullish patterns in downtrends, bearish patterns in uptrends) with RSI in neutral zones and mixed EMA/Bollinger Band signals. Synthetic indices (R_10, R_25, R_50, R_75, R_100) show consistent downtrends but lack clear reversal catalysts. Volatility indices (1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) are in uptrends but overbought with shooting star/evening star patterns suggesting exhaustion rather than clean entries. Recent session shows 5 wins / 6 losses with alternating directions on same symbols, indicating choppy conditions. Best to wait for clearer trend alignment or reversal confirmation."
       }
     }
   ],
