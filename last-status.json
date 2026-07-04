@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T01:55:46.110Z",
+  "last_cycle": "2026-07-04T02:01:11.608Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,64 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-03T23:55:42.870Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes, mixed trend structures, or are in choppy/consolidation phases. Recent trade history shows alternating wins/losses with no clear edge. Best to preserve capital and wait for a cleaner alignment."
-      }
-    },
-    {
-      "ts": "2026-07-04T00:00:26.654Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T00:00:26.653Z"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:00:26.656Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:00:27.083Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lIqhm6Vq"
-      }
-    },
-    {
-      "ts": "2026-07-04T00:00:27.257Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:00:27.316Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:00:35.999Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T00:01:12.125Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDJPY",
-        "conf": 0.68
-      }
-    },
-    {
       "ts": "2026-07-04T00:01:12.125Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
@@ -3116,6 +3058,64 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Most forex pairs show conflicting signals (mixed EMA trends, neutral RSI, choppy BB positions). Synthetic indices (R_10, R_25, R_50, R_75, R_100, 1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) exhibit either oversold/overbought extremes with weak reversal confirmation or strong trends against mean-reversion logic. Recent session performance (3 wins, 8 losses) and conflicting candle patterns (doji, morning/evening stars on same symbols across timeframes) further reduce confidence. Best to wait for clearer trend alignment or cleaner reversal signals."
+      }
+    },
+    {
+      "ts": "2026-07-04T02:00:28.113Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T02:00:28.113Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:00:28.115Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:00:28.635Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iaTjCW2J"
+      }
+    },
+    {
+      "ts": "2026-07-04T02:00:28.950Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:00:29.050Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:00:43.656Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T02:01:11.607Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-04T02:01:11.608Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
       }
     }
   ],
