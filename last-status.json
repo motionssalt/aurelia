@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-04T03:15:52.617Z",
+  "last_cycle": "2026-07-04T03:21:03.835Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,63 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-04T01:25:26.230Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:25:26.710Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kqMxplOx"
-      }
-    },
-    {
-      "ts": "2026-07-04T01:25:27.005Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:25:27.109Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:25:41.354Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-04T01:26:18.003Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-04T01:26:18.003Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols. Most forex pairs show conflicting signals across timeframes (e.g., bullish patterns on lower TFs vs bearish structure on higher TFs, or vice versa). Volatility indices (R_10, R_25, R_50, R_75, R_100, 1HZ10V, 1HZ25V, 1HZ50V, 1HZ75V, 1HZ100V) exhibit mixed EMA crosses, RSI in neutral zones, and price near BB middles without clear directional bias. Recent session P&L is negative (-6.72) with multiple losses, suggesting caution. No symbol meets the threshold for a high-probability trade with clear multi-timeframe alignment and favorable risk/reward."
-      }
-    },
-    {
-      "ts": "2026-07-04T01:30:22.796Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-04T01:30:22.796Z"
-      }
-    },
-    {
       "ts": "2026-07-04T01:30:22.798Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3096,6 +3039,64 @@
     },
     {
       "ts": "2026-07-04T03:15:52.617Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "symbol frxEURUSD disabled in config"
+      }
+    },
+    {
+      "ts": "2026-07-04T03:20:22.743Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-04T03:20:22.743Z"
+      }
+    },
+    {
+      "ts": "2026-07-04T03:20:22.746Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:20:23.103Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1k6hYUqF"
+      }
+    },
+    {
+      "ts": "2026-07-04T03:20:23.222Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:20:23.272Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:20:29.554Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-04T03:21:03.833Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-04T03:21:03.834Z",
       "level": "info",
       "msg": "AI chose to skip this tick",
       "meta": {
