@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T01:15:35.811Z",
+  "last_cycle": "2026-07-06T01:20:29.491Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,66 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-05T22:45:15.245Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:45:15.246Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:50:22.655Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-05T22:50:22.655Z"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:50:22.657Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:50:23.000Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hH6C0i76"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:50:23.156Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:50:23.196Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:50:23.197Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:55:25.038Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-05T22:55:25.038Z"
-      }
-    },
-    {
       "ts": "2026-07-05T22:55:25.040Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3083,6 +3023,82 @@
     },
     {
       "ts": "2026-07-06T01:15:35.811Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:20:25.157Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T01:20:25.156Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:20:25.159Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:20:25.513Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HDZvBwhJ"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:20:25.645Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:20:25.676Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "ANZ Job Advertisements m/m"
+        ],
+        "countries": [
+          "AUD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 10
+      }
+    },
+    {
+      "ts": "2026-07-06T01:20:26.162Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:20:29.489Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxAUDUSD",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-06T01:20:29.490Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "FRX master gate disabled"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:20:29.491Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
