@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T09:45:17.233Z",
+  "last_cycle": "2026-07-06T09:50:29.434Z",
   "balance": 9874.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,50 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T07:25:19.854Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T07:25:19.854Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T07:25:19.856Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T07:25:20.352Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2Sos2PMI"
-      }
-    },
-    {
-      "ts": "2026-07-06T07:25:20.519Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T07:25:22.848Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
-      "ts": "2026-07-06T07:25:23.743Z",
-      "level": "warn",
-      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
-      "meta": {
-        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
-      }
-    },
-    {
       "ts": "2026-07-06T07:25:24.341Z",
       "level": "warn",
       "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
@@ -3134,6 +3090,46 @@
     },
     {
       "ts": "2026-07-06T09:45:17.233Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:50:28.604Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T09:50:28.604Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:50:28.607Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:50:29.121Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VWrRHMF3"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:50:29.360Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:50:29.433Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:50:29.433Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
