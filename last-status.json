@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T17:50:32.357Z",
+  "last_cycle": "2026-07-06T17:55:20.063Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,68 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T15:20:47.722Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "BOC Business Outlook Survey"
-        ],
-        "countries": [
-          "CAD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-06T15:21:08.773Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURCAD",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-06T15:21:08.852Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-06T15:21:09.387Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURCAD CALL",
-      "meta": {
-        "stake": 0.5,
-        "price": 0.5,
-        "payout": 0.8,
-        "spot": 1.62331
-      }
-    },
-    {
-      "ts": "2026-07-06T15:21:10.461Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4421964199",
-      "meta": {
-        "transaction_id": 8643952659,
-        "longcode": "Win payout if EUR/CAD is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-06T15:21:11.031Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURCAD @ 5m",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-06T15:21:11.179Z",
       "level": "info",
       "msg": "[chart] launching Puppeteer",
@@ -3052,6 +2990,46 @@
     },
     {
       "ts": "2026-07-06T17:50:32.357Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:55:19.209Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T17:55:19.209Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T17:55:19.211Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:55:19.729Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZCaNNjbf"
+      }
+    },
+    {
+      "ts": "2026-07-06T17:55:19.971Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:55:20.063Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:55:20.063Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
