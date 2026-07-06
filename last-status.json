@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T10:55:21.521Z",
+  "last_cycle": "2026-07-06T11:00:43.104Z",
   "balance": 9874.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,67 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T08:25:15.055Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T08:25:15.326Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TfFUb0pb"
-      }
-    },
-    {
-      "ts": "2026-07-06T08:25:15.467Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T08:25:15.505Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 3,
-        "titles": [
-          "Sentix Investor Confidence",
-          "Construction PMI",
-          "Housing Equity Withdrawal q/q"
-        ],
-        "countries": [
-          "EUR",
-          "GBP"
-        ],
-        "impacts": [
-          "Low",
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
-    {
-      "ts": "2026-07-06T08:25:30.976Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.7
-      }
-    },
-    {
-      "ts": "2026-07-06T08:25:30.994Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
       "ts": "2026-07-06T08:25:31.874Z",
       "level": "trade",
       "msg": "Proposal accepted frxEURUSD CALL",
@@ -3090,6 +3029,46 @@
     },
     {
       "ts": "2026-07-06T10:55:21.521Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T11:00:42.284Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T11:00:42.284Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T11:00:42.286Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T11:00:42.768Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8fSu8Tpy"
+      }
+    },
+    {
+      "ts": "2026-07-06T11:00:43.026Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T11:00:43.103Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T11:00:43.104Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
