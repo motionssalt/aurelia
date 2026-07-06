@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T17:40:29.600Z",
+  "last_cycle": "2026-07-06T17:45:21.831Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,82 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T15:10:32.281Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JXOeZvaR"
-      }
-    },
-    {
-      "ts": "2026-07-06T15:10:32.452Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T15:10:32.602Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4418499339,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-06T14:46:30.832Z",
-        "event_title": "FOMC Member Waller Speaks",
-        "event_bundle": [
-          "FOMC Member Waller Speaks"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-06T15:10:32.603Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T15:15:28.156Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T15:15:28.156Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T15:15:28.158Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T15:15:28.724Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=M6IcYir4"
-      }
-    },
-    {
-      "ts": "2026-07-06T15:15:29.076Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T15:15:29.808Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4418499339,
-        "symbol": "frxUSDCHF",
-        "placed_at": "2026-07-06T14:46:30.832Z",
-        "event_title": "FOMC Member Waller Speaks",
-        "event_bundle": [
-          "FOMC Member Waller Speaks"
-        ]
-      }
-    },
-    {
       "ts": "2026-07-06T15:15:29.808Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3068,6 +2992,69 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:45:20.674Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T17:45:20.674Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T17:45:20.676Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:45:21.215Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PwEsbvcT"
+      }
+    },
+    {
+      "ts": "2026-07-06T17:45:21.557Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:45:21.653Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:45:21.829Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-06T17:45:21.829Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-06T17:45:21.830Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T17:45:21.831Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3972,7 +3959,7 @@
       "country": "JPY",
       "date": "2026-07-08T01:00:00-04:00",
       "impact": "Low",
-      "forecast": "44.6",
+      "forecast": "44.3",
       "previous": "43.6"
     },
     {
@@ -4028,7 +4015,7 @@
       "country": "USD",
       "date": "2026-07-08T15:00:00-04:00",
       "impact": "Low",
-      "forecast": "17.6B",
+      "forecast": "16.9B",
       "previous": "20.7B"
     },
     {
@@ -4044,7 +4031,7 @@
       "country": "GBP",
       "date": "2026-07-08T19:01:00-04:00",
       "impact": "Low",
-      "forecast": "-32%",
+      "forecast": "-31%",
       "previous": "-35%"
     },
     {
@@ -4068,7 +4055,7 @@
       "country": "CNY",
       "date": "2026-07-08T21:30:00-04:00",
       "impact": "Low",
-      "forecast": "4.2%",
+      "forecast": "4.1%",
       "previous": "3.9%"
     },
     {
@@ -4076,7 +4063,7 @@
       "country": "EUR",
       "date": "2026-07-09T02:00:00-04:00",
       "impact": "Low",
-      "forecast": "14.2B",
+      "forecast": "14.9B",
       "previous": "14.5B"
     },
     {
@@ -4124,7 +4111,7 @@
       "country": "USD",
       "date": "2026-07-09T10:00:00-04:00",
       "impact": "Low",
-      "forecast": "4.20M",
+      "forecast": "4.19M",
       "previous": "4.17M"
     },
     {
@@ -4196,7 +4183,7 @@
       "country": "EUR",
       "date": "2026-07-10T04:00:00-04:00",
       "impact": "Low",
-      "forecast": "-0.2%",
+      "forecast": "-0.1%",
       "previous": "0.5%"
     },
     {
@@ -4212,7 +4199,7 @@
       "country": "CAD",
       "date": "2026-07-10T08:30:00-04:00",
       "impact": "High",
-      "forecast": "10.0K",
+      "forecast": "11.2K",
       "previous": "87.8K"
     },
     {
@@ -4228,7 +4215,7 @@
       "country": "CAD",
       "date": "2026-07-10T08:30:00-04:00",
       "impact": "Low",
-      "forecast": "0.5%",
+      "forecast": "1.0%",
       "previous": "-7.6%"
     },
     {
@@ -4240,9 +4227,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783356032438,
+  "_calendar_last_fetch": 1783359921652,
   "_calendar_fetch_history": [
-    1783356032438
+    1783359921652
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
