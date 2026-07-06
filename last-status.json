@@ -1,20 +1,20 @@
 {
-  "last_cycle": "2026-07-06T06:15:20.456Z",
-  "balance": 9876.65,
+  "last_cycle": "2026-07-06T06:20:27.705Z",
+  "balance": 9879.15,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 98.5,
+    "capital_remaining": 101,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 0,
-    "wins": 0,
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0,
-    "win_streak": 0,
+    "pnl": 1,
+    "win_streak": 1,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
@@ -1659,19 +1659,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4370798159,
-      "path": "news",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-06T05:46:36.722Z",
-      "expiry_sec": 1800,
-      "event_title": "German Factory Orders m/m",
-      "event_bundle": [
-        "German Factory Orders m/m"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1681,58 +1669,6 @@
     "OPENROUTER_KEY_2": 1783176640468
   },
   "logs": [
-    {
-      "ts": "2026-07-06T03:45:25.400Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T03:45:25.512Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T03:45:25.513Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T03:50:23.542Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T03:50:23.542Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T03:50:23.544Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T03:50:23.961Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=y3rlKpRJ"
-      }
-    },
-    {
-      "ts": "2026-07-06T03:50:24.061Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T03:50:24.092Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-06T03:50:24.093Z",
       "level": "info",
@@ -3091,15 +3027,77 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:20:22.816Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T06:20:22.816Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T06:20:22.818Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:20:23.261Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9p6cyOG5"
+      }
+    },
+    {
+      "ts": "2026-07-06T06:20:23.411Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:20:23.548Z",
+      "level": "info",
+      "msg": "daily_stats auto-rollover",
+      "meta": {
+        "archived": "2026-07-05",
+        "new": "2026-07-06"
+      }
+    },
+    {
+      "ts": "2026-07-06T06:20:27.703Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:20:27.704Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:20:27.704Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
-    "date": "2026-07-05",
-    "trades": 0,
-    "wins": 0,
+    "date": "2026-07-06",
+    "trades": 1,
+    "wins": 1,
     "losses": 0,
-    "pnl": 0,
-    "by_symbol": {}
+    "pnl": 1,
+    "by_symbol": {
+      "frxEURUSD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1
+      }
+    }
   },
   "daily_history": [
     {
@@ -3309,6 +3307,14 @@
       "losses": 0,
       "pnl": 0,
       "by_symbol": {}
+    },
+    {
+      "date": "2026-07-05",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
     }
   ],
   "manual_session": {
@@ -3474,26 +3480,19 @@
       "confidence": 0.6,
       "rationale": "I anticipate that the German Factory Orders m/m data will come in below the forecast of 1.1%, indicating a weaker-than-expected recovery in German manufacturing. This negative surprise, despite the low impact rating, will likely exert bearish pressure on the EUR, aligning with the strong bearish technical signals observed on frxEURUSD across the M5, M10, and M15 timeframes, including falling EMAs, EMA50 above EMA20, and price positioned in the lower third of the Bollinger Bands.",
       "contract_id": 4370798159,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.14303,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 1,
+      "ai_outcome_note": "Despite initial adverse movement, the price ultimately dropped significantly below the entry point, allowing for a profitable exit on this put trade.",
       "event_title": "German Factory Orders m/m",
       "event_bundle": [
         "German Factory Orders m/m"
-      ]
+      ],
+      "exit": 1.14243
     }
   ],
-  "news_open_position": {
-    "contract_id": 4370798159,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-06T05:46:36.722Z",
-    "event_title": "German Factory Orders m/m",
-    "event_bundle": [
-      "German Factory Orders m/m"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
