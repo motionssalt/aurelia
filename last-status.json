@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:50:31.369Z",
+  "last_cycle": "2026-07-06T08:55:24.179Z",
   "balance": 9874.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1684,46 +1684,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T06:35:16.017Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:35:16.018Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:40:25.341Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T06:40:25.341Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:40:25.343Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:40:25.670Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2QxT5mpy"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:40:25.818Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-06T06:40:25.849Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3226,6 +3186,56 @@
     },
     {
       "ts": "2026-07-06T08:50:31.369Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:55:22.634Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T08:55:22.634Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:55:22.636Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:55:23.144Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=c9kTExwa"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:55:23.445Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:55:24.178Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4382710179,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-06T08:26:24.783Z",
+        "event_title": "Sentix Investor Confidence",
+        "event_bundle": [
+          "Sentix Investor Confidence",
+          "Construction PMI",
+          "Housing Equity Withdrawal q/q"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-06T08:55:24.178Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
