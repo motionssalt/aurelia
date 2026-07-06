@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:55:24.179Z",
+  "last_cycle": "2026-07-06T09:00:40.633Z",
   "balance": 9874.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 96,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 2,
+    "trades": 3,
     "wins": 1,
-    "losses": 1,
-    "pnl": -1.5,
+    "losses": 2,
+    "pnl": -4,
     "win_streak": 0,
-    "loss_streak": 1,
+    "loss_streak": 2,
     "halted": false,
     "halt_reason": null
   },
@@ -1659,21 +1659,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4382710179,
-      "path": "news",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-06T08:26:24.783Z",
-      "expiry_sec": 1800,
-      "event_title": "Sentix Investor Confidence",
-      "event_bundle": [
-        "Sentix Investor Confidence",
-        "Construction PMI",
-        "Housing Equity Withdrawal q/q"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1683,64 +1669,6 @@
     "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-06T06:40:25.849Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:40:25.849Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:45:17.470Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T06:45:17.470Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:45:17.473Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:45:17.953Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=mSex1PeD"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:45:18.170Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:45:18.277Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Unemployment Rate"
-        ],
-        "countries": [
-          "CHF"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
     {
       "ts": "2026-07-06T06:45:21.844Z",
       "level": "info",
@@ -3239,20 +3167,66 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:00:36.066Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T09:00:36.066Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:00:36.068Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:00:36.443Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=v7Pep76C"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:00:36.607Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:00:40.631Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:00:40.632Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:00:40.632Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-06",
-    "trades": 2,
+    "trades": 3,
     "wins": 1,
-    "losses": 1,
-    "pnl": -1.5,
+    "losses": 2,
+    "pnl": -4,
     "by_symbol": {
       "frxEURUSD": {
-        "trades": 1,
+        "trades": 2,
         "wins": 1,
-        "losses": 0,
-        "pnl": 1
+        "losses": 1,
+        "pnl": -1.5
       },
       "frxEURCHF": {
         "trades": 1,
@@ -3685,30 +3659,21 @@
       "confidence": 0.7,
       "rationale": "The Sentix Investor Confidence (EUR) forecast is better than the previous, indicating improved sentiment for the Euro. This positive news, combined with frxEURUSD's extremely oversold condition (price outside the lower Bollinger Band on M15), is likely to trigger a bullish bounce.",
       "contract_id": 4382710179,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.14177,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -2.5,
+      "ai_outcome_note": "The price initially moved favorably after entry, but then reversed and ultimately closed slightly below the entry point, resulting in a loss.",
       "event_title": "Sentix Investor Confidence",
       "event_bundle": [
         "Sentix Investor Confidence",
         "Construction PMI",
         "Housing Equity Withdrawal q/q"
-      ]
+      ],
+      "exit": 1.14176
     }
   ],
-  "news_open_position": {
-    "contract_id": 4382710179,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-06T08:26:24.783Z",
-    "event_title": "Sentix Investor Confidence",
-    "event_bundle": [
-      "Sentix Investor Confidence",
-      "Construction PMI",
-      "Housing Equity Withdrawal q/q"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
