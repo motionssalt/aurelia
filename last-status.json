@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T09:10:25.340Z",
+  "last_cycle": "2026-07-06T09:15:15.680Z",
   "balance": 9874.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,50 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T06:50:44.380Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURCHF @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:50:44.449Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:50:46.461Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:50:46.958Z",
-      "level": "warn",
-      "msg": "Telegram sendPhoto failed",
-      "meta": {
-        "json": {
-          "ok": false,
-          "error_code": 400,
-          "description": "Bad Request: can't parse entities: Unsupported start tag \"=\" at byte offset 376"
-        }
-      }
-    },
-    {
-      "ts": "2026-07-06T06:51:34.926Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4375333399
-      }
-    },
-    {
-      "ts": "2026-07-06T06:51:34.927Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-06T06:55:21.240Z",
       "level": "info",
       "msg": "Tick start",
@@ -3186,6 +3142,46 @@
     },
     {
       "ts": "2026-07-06T09:10:25.339Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:15:15.144Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T09:15:15.144Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:15:15.147Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:15:15.531Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Iv89IVEh"
+      }
+    },
+    {
+      "ts": "2026-07-06T09:15:15.643Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:15:15.679Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T09:15:15.680Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
