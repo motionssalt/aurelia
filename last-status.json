@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:10:30.295Z",
+  "last_cycle": "2026-07-06T08:15:29.516Z",
   "balance": 9876.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -1665,107 +1665,10 @@
     "GEMINI_KEY_BACKUP": 1782390139617,
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
-    "GEMINI_KEY_1": 1783331721168,
     "OPENROUTER_KEY_2": 1783176640468,
     "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-06T05:46:36.723Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:50:23.724Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T05:50:23.724Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:50:23.726Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:50:24.223Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nEZYX4YS"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:50:24.475Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:50:24.667Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4370798159,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-06T05:46:36.722Z",
-        "event_title": "German Factory Orders m/m",
-        "event_bundle": [
-          "German Factory Orders m/m"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-06T05:50:24.668Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:55:18.456Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T05:55:18.455Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:55:18.458Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:55:18.861Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RQ1cezaJ"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:55:18.971Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:55:19.084Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4370798159,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-06T05:46:36.722Z",
-        "event_title": "German Factory Orders m/m",
-        "event_bundle": [
-          "German Factory Orders m/m"
-        ]
-      }
-    },
     {
       "ts": "2026-07-06T05:55:19.085Z",
       "level": "info",
@@ -3150,6 +3053,108 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:15:17.427Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T08:15:17.426Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:17.429Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:15:17.851Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=xRvjNVDh"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:18.015Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:15:18.066Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:15:18.118Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 74
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:18.118Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 74,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:18.119Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 3,
+        "titles": [
+          "Sentix Investor Confidence",
+          "Construction PMI",
+          "Housing Equity Withdrawal q/q"
+        ],
+        "countries": [
+          "EUR",
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:20.380Z",
+      "level": "warn",
+      "msg": "All keys benched; trying least-recently-benched \"GEMINI_KEY_1\" anyway",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:15:29.515Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:29.516Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming news events for GBP (Construction PMI and Housing Equity Withdrawal q/q) are conflicting, with one being positive and the other negative, both having a 'Low' impact. While Sentix Investor Confidence for EUR is positive, the mixed signals for GBP prevent a clear net directional edge for EURGBP or any other GBP-related pair. The low impact of all events further reduces confidence in a strong, predictable market reaction."
+      }
+    },
+    {
+      "ts": "2026-07-06T08:15:29.516Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4183,9 +4188,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783321834845,
+  "_calendar_last_fetch": 1783325718066,
   "_calendar_fetch_history": [
-    1783321834845
+    1783325718066
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
