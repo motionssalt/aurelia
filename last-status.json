@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T00:50:40.108Z",
+  "last_cycle": "2026-07-06T00:55:23.251Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,66 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-05T22:20:30.285Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:20:30.785Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=C19AraYN"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:20:31.115Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:20:31.214Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:20:31.214Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:25:13.745Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-05T22:25:13.745Z"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:25:13.747Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:25:14.052Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qNrJ7SLy"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:25:14.214Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-05T22:25:14.254Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3053,6 +2993,85 @@
     },
     {
       "ts": "2026-07-06T00:50:40.107Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T00:55:15.909Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T00:55:15.909Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T00:55:15.911Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T00:55:16.468Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pFFmv1WB"
+      }
+    },
+    {
+      "ts": "2026-07-06T00:55:16.700Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T00:55:16.772Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 2,
+        "titles": [
+          "MI Inflation Gauge m/m",
+          "ANZ Commodity Prices m/m"
+        ],
+        "countries": [
+          "AUD",
+          "NZD"
+        ],
+        "impacts": [
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-06T00:55:17.947Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T00:55:23.250Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "symbol": "",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-06T00:55:23.250Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "Simultaneous low-impact releases (MI Inflation Gauge m/m for AUD and ANZ Commodity Prices m/m for NZD) conflict with no clear net directional edge. AUD data (prev -0.3%) suggests AUD weakness while NZD data (prev +0.7%) suggests NZD strength, creating opposing forces on AUD/NZD crosses. Technicals show mixed signals: AUDUSD in middle BB with EMA50>EMA20 narrowing (bearish structure but RSI rising), NZDUSD in lower BB with falling EMAs and evening star pattern (bearish). No high-conviction setup aligns with a clear fundamental bias from these specific low-impact events."
+      }
+    },
+    {
+      "ts": "2026-07-06T00:55:23.251Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
