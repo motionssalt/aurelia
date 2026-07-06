@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:15:29.516Z",
+  "last_cycle": "2026-07-06T08:20:51.768Z",
   "balance": 9876.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,68 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T05:55:19.085Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:00:41.877Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T06:00:41.876Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:00:41.879Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:00:42.413Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=swYZpwGv"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:00:42.736Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:00:43.405Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4370798159,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-06T05:46:36.722Z",
-        "event_title": "German Factory Orders m/m",
-        "event_bundle": [
-          "German Factory Orders m/m"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-06T06:00:43.406Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:05:16.647Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T06:05:16.647Z"
-      }
-    },
-    {
       "ts": "2026-07-06T06:05:16.649Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3152,6 +3090,79 @@
     },
     {
       "ts": "2026-07-06T08:15:29.516Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:20:33.150Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T08:20:33.149Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:20:33.152Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:20:33.686Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=i9bHsrfR"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:20:34.013Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:20:34.119Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 3,
+        "titles": [
+          "Sentix Investor Confidence",
+          "Construction PMI",
+          "Housing Equity Withdrawal q/q"
+        ],
+        "countries": [
+          "EUR",
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-06T08:20:51.766Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:20:51.766Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The GBP news events (Construction PMI and Housing Equity Withdrawal q/q) have conflicting directional implications (one bullish, one bearish) and are both rated as 'Low' impact. This prevents a clear net directional edge for GBP. While Sentix Investor Confidence is bullish for EUR, the overall combined effect of all three simultaneous low-impact events does not provide a sufficiently clear directional edge for frxEURGBP to justify a trade."
+      }
+    },
+    {
+      "ts": "2026-07-06T08:20:51.767Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
