@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T01:10:30.646Z",
+  "last_cycle": "2026-07-06T01:15:35.811Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,66 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-05T22:40:32.836Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:40:33.289Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OuGq1WXv"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:40:33.540Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:40:33.618Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:40:33.619Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:45:14.738Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-05T22:45:14.738Z"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:45:14.740Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-05T22:45:15.099Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GM2kxU1w"
-      }
-    },
-    {
-      "ts": "2026-07-05T22:45:15.216Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-05T22:45:15.245Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3069,6 +3009,80 @@
     },
     {
       "ts": "2026-07-06T01:10:30.645Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:15:19.248Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T01:15:19.248Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:15:19.251Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:15:19.680Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3Z2tNVR9"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:15:19.788Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:15:19.819Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "ANZ Job Advertisements m/m"
+        ],
+        "countries": [
+          "AUD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-06T01:15:20.360Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T01:15:35.810Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-06T01:15:35.810Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The ANZ Job Advertisements m/m event is Low impact with no forecast provided, making directional edge unclear. AUD pairs show mixed signals: frxAUDUSD has falling EMAs and neutral RSI, frxEURAUD has rising EMAs and doji candles indicating indecision, frxAUDJPY is overbought at upper Bollinger Band with rising EMAs. No clear news-driven directional bias exists for any AUD pair."
+      }
+    },
+    {
+      "ts": "2026-07-06T01:15:35.811Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
