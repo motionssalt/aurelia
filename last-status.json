@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-06T15:22:02.837Z",
-  "balance": 9878.6,
+  "last_cycle": "2026-07-06T15:25:24.032Z",
+  "balance": 9878.1,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1682,46 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T13:10:35.403Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:10:35.507Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:10:35.508Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:15:25.109Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T13:15:25.109Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T13:15:25.111Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:15:25.516Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lgkAsvkp"
-      }
-    },
-    {
       "ts": "2026-07-06T13:15:25.661Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3199,6 +3159,54 @@
     },
     {
       "ts": "2026-07-06T15:22:02.836Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:25:22.370Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T15:25:22.369Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T15:25:22.372Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:25:22.899Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=JBSHGEmt"
+      }
+    },
+    {
+      "ts": "2026-07-06T15:25:23.358Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:25:24.031Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4421964199,
+        "symbol": "frxEURCAD",
+        "placed_at": "2026-07-06T15:22:02.836Z",
+        "event_title": "BOC Business Outlook Survey",
+        "event_bundle": [
+          "BOC Business Outlook Survey"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-06T15:25:24.031Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
