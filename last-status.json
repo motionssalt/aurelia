@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T14:50:33.611Z",
+  "last_cycle": "2026-07-06T14:55:16.781Z",
   "balance": 9874.29,
   "currency": "USD",
   "account_mode": "demo",
@@ -1682,46 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T12:35:24.555Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T12:35:24.555Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T12:35:24.557Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T12:35:25.017Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DuG3UHyP"
-      }
-    },
-    {
-      "ts": "2026-07-06T12:35:25.331Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T12:35:25.453Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T12:35:25.454Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-06T12:40:29.754Z",
       "level": "info",
       "msg": "Tick start",
@@ -3139,6 +3099,54 @@
     },
     {
       "ts": "2026-07-06T14:50:33.611Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T14:55:16.126Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T14:55:16.126Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T14:55:16.129Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T14:55:16.524Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VD54NUw5"
+      }
+    },
+    {
+      "ts": "2026-07-06T14:55:16.670Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T14:55:16.780Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4418499339,
+        "symbol": "frxUSDCHF",
+        "placed_at": "2026-07-06T14:46:30.832Z",
+        "event_title": "FOMC Member Waller Speaks",
+        "event_bundle": [
+          "FOMC Member Waller Speaks"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-06T14:55:16.780Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
