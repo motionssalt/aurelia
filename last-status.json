@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T06:45:21.846Z",
+  "last_cycle": "2026-07-06T06:51:34.927Z",
   "balance": 9879.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 101,
+    "capital_remaining": 98.5,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 1,
@@ -1659,7 +1659,19 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4375333399,
+      "path": "news",
+      "symbol": "frxEURCHF",
+      "placed_at": "2026-07-06T06:51:34.926Z",
+      "expiry_sec": 1800,
+      "event_title": "Unemployment Rate",
+      "event_bundle": [
+        "Unemployment Rate"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1669,106 +1681,6 @@
     "OPENROUTER_KEY_2": 1783176640468
   },
   "logs": [
-    {
-      "ts": "2026-07-06T04:15:18.724Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:15:18.724Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:20:27.915Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T04:20:27.915Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T04:20:27.916Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:20:28.350Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=grpUKc27"
-      }
-    },
-    {
-      "ts": "2026-07-06T04:20:28.543Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:20:28.594Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:20:28.595Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:25:14.783Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T04:25:14.783Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T04:25:14.785Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:25:15.180Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ANsJDEof"
-      }
-    },
-    {
-      "ts": "2026-07-06T04:25:15.275Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:25:15.304Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:25:15.305Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T04:30:30.190Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T04:30:30.190Z"
-      }
-    },
     {
       "ts": "2026-07-06T04:30:30.192Z",
       "level": "network",
@@ -3091,6 +3003,134 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:24.718Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T06:50:24.718Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:24.720Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:25.136Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6NbvQtj3"
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:25.256Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:25.299Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "Unemployment Rate"
+        ],
+        "countries": [
+          "CHF"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 10
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:42.116Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURCHF",
+        "conf": 0.7
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:42.136Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:42.604Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURCHF PUT",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.24,
+        "spot": 0.92015
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:43.979Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4375333399",
+      "meta": {
+        "transaction_id": 8555124539,
+        "longcode": "Win payout if EUR/CHF is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-06T06:50:44.380Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURCHF @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:44.449Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:46.461Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T06:50:46.958Z",
+      "level": "warn",
+      "msg": "Telegram sendPhoto failed",
+      "meta": {
+        "json": {
+          "ok": false,
+          "error_code": 400,
+          "description": "Bad Request: can't parse entities: Unsupported start tag \"=\" at byte offset 376"
+        }
+      }
+    },
+    {
+      "ts": "2026-07-06T06:51:34.926Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4375333399
+      }
+    },
+    {
+      "ts": "2026-07-06T06:51:34.927Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3499,9 +3539,37 @@
         "German Factory Orders m/m"
       ],
       "exit": 1.14243
+    },
+    {
+      "ts": "2026-07-06T06:51:34.926Z",
+      "path": "news",
+      "symbol": "frxEURCHF",
+      "direction": "put",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.7,
+      "rationale": "The frxEURCHF pair is extremely overbought across M10 and M15 timeframes, with price significantly outside the upper Bollinger Band and RSI in the overbought zone. While the upcoming CHF Unemployment Rate is a low-impact event with a forecast matching the previous (3.1%), a neutral or slightly better-than-expected outcome (actual <= 3.1%) could trigger a technical correction, leading to a strengthening of CHF and a subsequent fall in EURCHF.",
+      "contract_id": 4375333399,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 0.92015,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "Unemployment Rate",
+      "event_bundle": [
+        "Unemployment Rate"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4375333399,
+    "symbol": "frxEURCHF",
+    "placed_at": "2026-07-06T06:51:34.926Z",
+    "event_title": "Unemployment Rate",
+    "event_bundle": [
+      "Unemployment Rate"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
