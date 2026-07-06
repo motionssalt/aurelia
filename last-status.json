@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T22:55:22.738Z",
+  "last_cycle": "2026-07-06T23:00:36.711Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,46 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T20:15:15.614Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:15:15.614Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:20:26.120Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T20:20:26.120Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T20:20:26.122Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:20:26.605Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kLFIFEWa"
-      }
-    },
-    {
-      "ts": "2026-07-06T20:20:26.699Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-06T20:20:26.731Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3006,6 +2966,56 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:00:35.710Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T23:00:35.709Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T23:00:35.712Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:00:36.160Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QUrgzh8f"
+      }
+    },
+    {
+      "ts": "2026-07-06T23:00:36.318Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:00:36.355Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-05",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "source": "daily_history"
+      }
+    },
+    {
+      "ts": "2026-07-06T23:00:36.710Z",
+      "level": "info",
+      "msg": "daily_stats already advanced past reported day — leaving intact",
+      "meta": {
+        "current": "2026-07-06",
+        "reported": "2026-07-05"
+      }
     }
   ],
   "daily_stats": {
