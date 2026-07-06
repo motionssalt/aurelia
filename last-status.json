@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:20:51.768Z",
+  "last_cycle": "2026-07-06T08:26:24.784Z",
   "balance": 9876.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 98.5,
+    "capital_remaining": 96,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 2,
@@ -1659,7 +1659,21 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4382710179,
+      "path": "news",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-06T08:26:24.783Z",
+      "expiry_sec": 1800,
+      "event_title": "Sentix Investor Confidence",
+      "event_bundle": [
+        "Sentix Investor Confidence",
+        "Construction PMI",
+        "Housing Equity Withdrawal q/q"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1669,117 +1683,6 @@
     "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-06T06:05:16.649Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:05:16.986Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=BpxeqEWF"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:05:17.156Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:05:17.725Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:05:17.798Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 74
-      }
-    },
-    {
-      "ts": "2026-07-06T06:05:17.798Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 74,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:05:17.799Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4370798159,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-06T05:46:36.722Z",
-        "event_title": "German Factory Orders m/m",
-        "event_bundle": [
-          "German Factory Orders m/m"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-06T06:05:17.800Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:10:26.573Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T06:10:26.573Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:10:26.576Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:10:26.982Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=bmCZELQR"
-      }
-    },
-    {
-      "ts": "2026-07-06T06:10:27.165Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T06:10:27.332Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4370798159,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-06T05:46:36.722Z",
-        "event_title": "German Factory Orders m/m",
-        "event_bundle": [
-          "German Factory Orders m/m"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-06T06:10:27.333Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-06T06:15:19.062Z",
       "level": "info",
@@ -3166,6 +3069,127 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:25:15.052Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T08:25:15.052Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:15.055Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:25:15.326Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TfFUb0pb"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:15.467Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:25:15.505Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 3,
+        "titles": [
+          "Sentix Investor Confidence",
+          "Construction PMI",
+          "Housing Equity Withdrawal q/q"
+        ],
+        "countries": [
+          "EUR",
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:30.976Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.7
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:30.994Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:31.874Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.24,
+        "spot": 1.14177
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:32.730Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4382710179",
+      "meta": {
+        "transaction_id": 8568608079,
+        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-06T08:25:33.194Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:25:33.275Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:25:35.067Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:26:24.783Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4382710179
+      }
+    },
+    {
+      "ts": "2026-07-06T08:26:24.784Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3601,9 +3625,41 @@
         "Unemployment Rate"
       ],
       "exit": 0.92019
+    },
+    {
+      "ts": "2026-07-06T08:26:24.783Z",
+      "path": "news",
+      "symbol": "frxEURUSD",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.7,
+      "rationale": "The Sentix Investor Confidence (EUR) forecast is better than the previous, indicating improved sentiment for the Euro. This positive news, combined with frxEURUSD's extremely oversold condition (price outside the lower Bollinger Band on M15), is likely to trigger a bullish bounce.",
+      "contract_id": 4382710179,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14177,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "Sentix Investor Confidence",
+      "event_bundle": [
+        "Sentix Investor Confidence",
+        "Construction PMI",
+        "Housing Equity Withdrawal q/q"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4382710179,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-06T08:26:24.783Z",
+    "event_title": "Sentix Investor Confidence",
+    "event_bundle": [
+      "Sentix Investor Confidence",
+      "Construction PMI",
+      "Housing Equity Withdrawal q/q"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
