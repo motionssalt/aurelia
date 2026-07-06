@@ -1,20 +1,20 @@
 {
-  "last_cycle": "2026-07-06T15:35:27.185Z",
-  "balance": 9878.1,
+  "last_cycle": "2026-07-06T15:40:35.386Z",
+  "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 99.95,
+    "capital_remaining": 100.75,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 6,
-    "wins": 4,
+    "trades": 7,
+    "wins": 5,
     "losses": 2,
-    "pnl": 0.45,
-    "win_streak": 3,
+    "pnl": 0.75,
+    "win_streak": 4,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
@@ -1659,19 +1659,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4421964199,
-      "path": "news",
-      "symbol": "frxEURCAD",
-      "placed_at": "2026-07-06T15:22:02.836Z",
-      "expiry_sec": 900,
-      "event_title": "BOC Business Outlook Survey",
-      "event_bundle": [
-        "BOC Business Outlook Survey"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1681,57 +1669,6 @@
     "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-06T13:30:41.523Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T13:30:41.523Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T13:30:41.525Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:30:41.985Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Z3GZpyWs"
-      }
-    },
-    {
-      "ts": "2026-07-06T13:30:42.372Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:30:42.474Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:30:42.511Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 74
-      }
-    },
-    {
-      "ts": "2026-07-06T13:30:42.512Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 74,
-        "trigger": "scheduled"
-      }
-    },
     {
       "ts": "2026-07-06T13:30:42.513Z",
       "level": "info",
@@ -3231,14 +3168,60 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:40:27.849Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T15:40:27.849Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T15:40:27.852Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:40:28.373Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=905mlXh6"
+      }
+    },
+    {
+      "ts": "2026-07-06T15:40:28.605Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:40:35.384Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:40:35.385Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T15:40:35.386Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-06",
-    "trades": 6,
-    "wins": 4,
+    "trades": 7,
+    "wins": 5,
     "losses": 2,
-    "pnl": 0.45,
+    "pnl": 0.75,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 2,
@@ -3269,6 +3252,12 @@
         "wins": 1,
         "losses": 0,
         "pnl": 1.81
+      },
+      "frxEURCAD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 0.3
       }
     }
   },
@@ -3781,26 +3770,19 @@
       "confidence": 0.6,
       "rationale": "The BOC Business Outlook Survey is a low-impact event, but a cautious or negative outlook for Canadian businesses could lead to a minor weakening of the CAD, supporting a 'call' on frxEURCAD. This aligns with M5's oversold RSI (36.23) and price near the lower Bollinger Band (0.06 percentile), indicating a potential bounce.",
       "contract_id": 4421964199,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.62333,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 0.3,
+      "ai_outcome_note": "The price initially rose significantly after entry, then declined but exited slightly above the entry point, securing a win.",
       "event_title": "BOC Business Outlook Survey",
       "event_bundle": [
         "BOC Business Outlook Survey"
-      ]
+      ],
+      "exit": 1.62348
     }
   ],
-  "news_open_position": {
-    "contract_id": 4421964199,
-    "symbol": "frxEURCAD",
-    "placed_at": "2026-07-06T15:22:02.836Z",
-    "event_title": "BOC Business Outlook Survey",
-    "event_bundle": [
-      "BOC Business Outlook Survey"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
