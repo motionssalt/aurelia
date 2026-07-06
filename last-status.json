@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T03:10:30.846Z",
+  "last_cycle": "2026-07-06T03:15:20.184Z",
   "balance": 9878.15,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,65 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T00:45:22.481Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "MI Inflation Gauge m/m",
-          "ANZ Commodity Prices m/m"
-        ],
-        "countries": [
-          "AUD",
-          "NZD"
-        ],
-        "impacts": [
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-06T00:45:24.805Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T00:45:31.910Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDUSD",
-        "conf": 0.55
-      }
-    },
-    {
-      "ts": "2026-07-06T00:45:31.911Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "FRX master gate disabled"
-      }
-    },
-    {
-      "ts": "2026-07-06T00:45:31.911Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T00:50:31.692Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T00:50:31.692Z"
-      }
-    },
-    {
       "ts": "2026-07-06T00:50:31.694Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3104,6 +3045,46 @@
     },
     {
       "ts": "2026-07-06T03:10:30.846Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T03:15:19.097Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T03:15:19.097Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T03:15:19.099Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T03:15:19.737Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zONdEJs6"
+      }
+    },
+    {
+      "ts": "2026-07-06T03:15:20.086Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T03:15:20.183Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T03:15:20.184Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
