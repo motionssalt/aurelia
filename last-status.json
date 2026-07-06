@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T07:20:30.471Z",
+  "last_cycle": "2026-07-06T07:25:27.580Z",
   "balance": 9876.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 98.5,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 1,
+    "trades": 2,
     "wins": 1,
-    "losses": 0,
-    "pnl": 1,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "losses": 1,
+    "pnl": -1.5,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
@@ -1659,111 +1659,17 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4375333399,
-      "path": "news",
-      "symbol": "frxEURCHF",
-      "placed_at": "2026-07-06T06:51:34.926Z",
-      "expiry_sec": 1800,
-      "event_title": "Unemployment Rate",
-      "event_bundle": [
-        "Unemployment Rate"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
-    "GEMINI_KEY_4": 1783092635544,
-    "GEMINI_KEY_3": 1783092635544,
-    "GEMINI_KEY_1": 1783104038845,
-    "OPENROUTER_KEY_2": 1783176640468
+    "GEMINI_KEY_4": 1783331721168,
+    "GEMINI_KEY_3": 1783331721168,
+    "GEMINI_KEY_1": 1783331721168,
+    "OPENROUTER_KEY_2": 1783176640468,
+    "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-06T05:00:46.617Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:00:46.779Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 74
-      }
-    },
-    {
-      "ts": "2026-07-06T05:00:46.780Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 74,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:00:46.780Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:00:46.781Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:05:13.944Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T05:05:13.944Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:05:13.946Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:05:14.352Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=35XQ43su"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:05:14.457Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:05:14.488Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:05:14.488Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:10:33.447Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T05:10:33.447Z"
-      }
-    },
     {
       "ts": "2026-07-06T05:10:33.449Z",
       "level": "network",
@@ -3182,20 +3088,110 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:19.854Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T07:25:19.854Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:19.856Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:20.352Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2Sos2PMI"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:20.519Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:22.848Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:23.743Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_3\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:24.341Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_4\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:25.431Z",
+      "level": "warn",
+      "msg": "Gemini key \"GEMINI_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    },
+    {
+      "ts": "2026-07-06T07:25:25.431Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:27.578Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:27.579Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T07:25:27.579Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-06",
-    "trades": 1,
+    "trades": 2,
     "wins": 1,
-    "losses": 0,
-    "pnl": 1,
+    "losses": 1,
+    "pnl": -1.5,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 1,
         "wins": 1,
         "losses": 0,
         "pnl": 1
+      },
+      "frxEURCHF": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -2.5
       }
     }
   },
@@ -3601,26 +3597,19 @@
       "confidence": 0.7,
       "rationale": "The frxEURCHF pair is extremely overbought across M10 and M15 timeframes, with price significantly outside the upper Bollinger Band and RSI in the overbought zone. While the upcoming CHF Unemployment Rate is a low-impact event with a forecast matching the previous (3.1%), a neutral or slightly better-than-expected outcome (actual <= 3.1%) could trigger a technical correction, leading to a strengthening of CHF and a subsequent fall in EURCHF.",
       "contract_id": 4375333399,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.92015,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -2.5,
+      "ai_outcome_note": "Price initially dipped but then rallied strongly above the entry level, invalidating the overbought reversal thesis and causing the put option to expire worthless.",
       "event_title": "Unemployment Rate",
       "event_bundle": [
         "Unemployment Rate"
-      ]
+      ],
+      "exit": 0.92019
     }
   ],
-  "news_open_position": {
-    "contract_id": 4375333399,
-    "symbol": "frxEURCHF",
-    "placed_at": "2026-07-06T06:51:34.926Z",
-    "event_title": "Unemployment Rate",
-    "event_bundle": [
-      "Unemployment Rate"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
