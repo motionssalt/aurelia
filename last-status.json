@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T23:10:32.863Z",
+  "last_cycle": "2026-07-06T23:15:44.966Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,60 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T20:35:20.857Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:35:21.309Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZziYMjhK"
-      }
-    },
-    {
-      "ts": "2026-07-06T20:35:21.632Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:35:21.731Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:35:21.732Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:40:37.499Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T20:40:37.499Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T20:40:37.502Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T20:40:38.013Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VomMuovw"
-      }
-    },
-    {
       "ts": "2026-07-06T20:40:38.383Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3019,6 +2965,81 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:15:29.642Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T23:15:29.642Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T23:15:29.644Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:15:30.134Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iUWok3HT"
+      }
+    },
+    {
+      "ts": "2026-07-06T23:15:30.538Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T23:15:30.644Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 2,
+        "titles": [
+          "Average Cash Earnings y/y",
+          "Household Spending y/y"
+        ],
+        "countries": [
+          "JPY"
+        ],
+        "impacts": [
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 14
+      }
+    },
+    {
+      "ts": "2026-07-06T23:15:44.192Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxGBPJPY",
+        "conf": 0.7
+      }
+    },
+    {
+      "ts": "2026-07-06T23:15:44.293Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-06T23:15:44.415Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "ContractBuyValidationError: Trading on forex contracts with duration less than 5 hours is not available from 21:00:00 to 23:59:59",
+        "stack": "Error: ContractBuyValidationError: Trading on forex contracts with duration less than 5 hours is not available from 21:00:00 to 23:59:59\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
+      }
     }
   ],
   "daily_stats": {
