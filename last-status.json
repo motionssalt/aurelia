@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-06T13:51:57.907Z",
-  "balance": 9875.75,
+  "last_cycle": "2026-07-06T13:55:25.184Z",
+  "balance": 9874.25,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1682,49 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T11:25:27.535Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 74,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-06T11:25:27.536Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T11:25:27.537Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T11:30:32.112Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-06T11:30:32.112Z"
-      }
-    },
-    {
-      "ts": "2026-07-06T11:30:32.114Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T11:30:32.510Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rA4i0Is2"
-      }
-    },
-    {
       "ts": "2026-07-06T11:30:32.690Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3086,6 +3043,54 @@
     },
     {
       "ts": "2026-07-06T13:51:57.907Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T13:55:23.666Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T13:55:23.666Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T13:55:23.668Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T13:55:24.130Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=5TcWnF5u"
+      }
+    },
+    {
+      "ts": "2026-07-06T13:55:24.398Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T13:55:25.183Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4413361459,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-06T13:51:57.906Z",
+        "event_title": "ISM Services PMI",
+        "event_bundle": [
+          "ISM Services PMI"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-06T13:55:25.183Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
