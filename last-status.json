@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T16:10:32.641Z",
+  "last_cycle": "2026-07-06T16:15:17.832Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1670,52 +1670,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T13:51:03.850Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.54,
-        "spot": 1.33479
-      }
-    },
-    {
-      "ts": "2026-07-06T13:51:04.466Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4413361459",
-      "meta": {
-        "transaction_id": 8627404339,
-        "longcode": "Win payout if GBP/USD is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-06T13:51:05.104Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:51:05.257Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:51:07.354Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T13:51:57.906Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4413361459
-      }
-    },
-    {
       "ts": "2026-07-06T13:51:57.907Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3149,6 +3103,46 @@
     },
     {
       "ts": "2026-07-06T16:10:32.640Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T16:15:16.945Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T16:15:16.945Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T16:15:16.948Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T16:15:17.577Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ms0ZjbI9"
+      }
+    },
+    {
+      "ts": "2026-07-06T16:15:17.758Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T16:15:17.831Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T16:15:17.832Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
