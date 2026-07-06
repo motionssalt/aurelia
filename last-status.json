@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-06T08:00:40.011Z",
+  "last_cycle": "2026-07-06T08:05:20.427Z",
   "balance": 9876.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -1671,62 +1671,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-06T05:45:16.382Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:45:16.774Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=f3ybbxgQ"
-      }
-    },
-    {
-      "ts": "2026-07-06T05:45:17.067Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-06T05:45:17.166Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "German Factory Orders m/m"
-        ],
-        "countries": [
-          "EUR"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-06T05:45:44.401Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-06T05:45:44.441Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
       "ts": "2026-07-06T05:45:44.909Z",
       "level": "trade",
       "msg": "Proposal accepted frxEURUSD PUT",
@@ -3169,6 +3113,46 @@
     },
     {
       "ts": "2026-07-06T08:00:40.010Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:05:19.398Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-06T08:05:19.398Z"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:05:19.400Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:05:19.989Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QQaav1Z7"
+      }
+    },
+    {
+      "ts": "2026-07-06T08:05:20.328Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:05:20.426Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-06T08:05:20.426Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
