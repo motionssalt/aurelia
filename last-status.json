@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T08:50:34.552Z",
+  "last_cycle": "2026-07-07T08:55:16.506Z",
   "balance": 9867.57,
   "currency": "USD",
   "account_mode": "demo",
@@ -1698,58 +1698,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T06:25:24.759Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:30:36.819Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T06:30:36.819Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:36.821Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:30:37.230Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zYa1zVUf"
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:37.438Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:30:37.500Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "French Trade Balance"
-        ],
-        "countries": [
-          "EUR"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 14
-      }
-    },
-    {
       "ts": "2026-07-07T06:30:58.610Z",
       "level": "info",
       "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
@@ -3120,6 +3068,50 @@
     },
     {
       "ts": "2026-07-07T08:50:34.551Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4502413759,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-07T08:40:46.839Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T08:55:15.522Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T08:55:15.522Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T08:55:15.524Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T08:55:15.856Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=brJqCwkk"
+      }
+    },
+    {
+      "ts": "2026-07-07T08:55:15.968Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T08:55:16.505Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T08:55:16.505Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
