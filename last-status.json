@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T10:55:41.983Z",
+  "last_cycle": "2026-07-07T11:00:42.906Z",
   "balance": 9870.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 97.4,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 4,
+    "trades": 5,
     "wins": 2,
-    "losses": 2,
-    "pnl": -1.1,
+    "losses": 3,
+    "pnl": -2.6,
     "win_streak": 0,
-    "loss_streak": 1,
+    "loss_streak": 2,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4511979799,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-07T10:26:33.052Z"
-  },
-  "next_cycle_eligible_at": 1783419094949,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783422099516,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1533,11 +1529,12 @@
       "confidence": 0.68,
       "rationale": "Strong bearish confluence across M5/M10/M15: price in upper BB third (percentile 0.81 M5, 0.58 M10, 0.58 M15), falling EMAs with EMA50 above EMA20 narrowing, RSI neutral-rising but losing momentum near 53-54, contracting ATR. Price at 1.14293 near resistance 1.14293/1.14301. Consistent downtrend structure favors put continuation from recent win at 09:52.",
       "contract_id": 4511979799,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.14292,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price rallied above entry and resistance at 1.14301, invalidating the bearish confluence and triggering a loss as bulls regained control.",
+      "exit": 1.1433
     }
   ],
   "trade_history_manual": [
@@ -1730,112 +1727,16 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4511979799,
-      "path": "cycle",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-07T10:26:33.052Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_1": 1783425920040
+    "OPENROUTER_KEY_2": 1783431040008
   },
   "logs": [
-    {
-      "ts": "2026-07-07T09:10:36.879Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:10:36.880Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 56763
-      }
-    },
-    {
-      "ts": "2026-07-07T09:15:23.932Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:15:23.932Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:15:23.934Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:15:24.467Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jSX0VrJO"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:15:24.761Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:15:24.857Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 3,
-        "titles": [
-          "BOE Financial Stability Report",
-          "FPC Meeting Minutes",
-          "FPC Statement"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low",
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-07T09:15:26.154Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:15:32.505Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "symbol": "",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-07T09:15:32.506Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The three simultaneous GBP events (BOE Financial Stability Report, FPC Meeting Minutes, FPC Statement) are all low-impact and likely to contain overlapping or conflicting signals about financial stability policy. With no high-impact catalyst (e.g., rate decision, inflation data) and mixed technicals across GBP pairs (frxEURGBP oversold/bearish, frxGBPUSD neutral/mixed, frxGBPJPY neutral), there is no clear directional edge to justify a news-driven trade."
-      }
-    },
     {
       "ts": "2026-07-07T09:15:41.827Z",
       "level": "warn",
@@ -3329,14 +3230,82 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T10:26:33.052Z"
       }
+    },
+    {
+      "ts": "2026-07-07T11:00:38.726Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:00:38.726Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:00:38.729Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:39.201Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vHnjs3Kh"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:00:39.380Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:40.008Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:40.514Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:00:40.514Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:42.904Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:42.905Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:00:42.906Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 56610
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 8,
+    "trades": 9,
     "wins": 3,
-    "losses": 5,
-    "pnl": -8.43,
+    "losses": 6,
+    "pnl": -9.93,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3351,10 +3320,10 @@
         "pnl": -1.5
       },
       "frxEURUSD": {
-        "trades": 3,
+        "trades": 4,
         "wins": 2,
-        "losses": 1,
-        "pnl": -2.24
+        "losses": 2,
+        "pnl": -3.74
       },
       "frxEURGBP": {
         "trades": 2,
