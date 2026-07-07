@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T18:15:31.293Z",
+  "last_cycle": "2026-07-07T18:20:59.106Z",
   "balance": 9864.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -1976,60 +1976,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T16:20:41.547Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=61DwW9Kb"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:20:41.861Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:20:42.884Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:20:43.994Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:20:43.995Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:20:43.995Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 58074
-      }
-    },
-    {
-      "ts": "2026-07-07T16:25:17.936Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T16:25:17.936Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:25:17.938Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T16:25:18.448Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3418,6 +3364,62 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 56335
+      }
+    },
+    {
+      "ts": "2026-07-07T18:20:37.646Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T18:20:37.646Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:20:37.649Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:20:38.197Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=puWvQiUs"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:20:38.495Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:20:38.576Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:20:46.328Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:20:59.105Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:20:59.106Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. Recent session shows 5 consecutive losses with mixed directional signals. Most pairs show conflicting timeframe signals (e.g., M5 bullish vs M15 bearish), contracting ATR reducing momentum reliability, and price near middle Bollinger Bands without clear directional bias. Key levels (supports/resistances) are being tested but without confirming patterns or volume. Forcing a trade in this choppy, post-loss-streak environment violates risk discipline."
       }
     }
   ],
