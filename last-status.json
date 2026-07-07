@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T15:45:23.872Z",
+  "last_cycle": "2026-07-07T15:50:31.860Z",
   "balance": 9866.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -1913,65 +1913,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T14:00:51.454Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 75,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:00:51.455Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "RCM/TIPP Economic Optimism"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-07T14:00:54.658Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:01:20.023Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:01:20.024Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming RCM/TIPP Economic Optimism event is a low-impact USD sentiment survey with a modest forecast increase (45.0 vs 42.5 previous). Low-impact sentiment data rarely generates a clear, tradable directional move in major FX pairs within a 15-minute window, and none of the USD pairs (frxEURUSD, frxGBPUSD, frxUSDJPY, frxUSDCAD, frxUSDCHF, frxAUDUSD, frxNZDUSD) show a decisive technical bias that aligns with a specific USD-strength or USD-weakness thesis ahead of this release. Therefore, no trade offers a sufficient edge."
-      }
-    },
-    {
-      "ts": "2026-07-07T14:01:20.024Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4531411019,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T13:47:53.088Z"
-      }
-    },
-    {
       "ts": "2026-07-07T14:05:16.573Z",
       "level": "info",
       "msg": "Tick start",
@@ -3475,6 +3416,58 @@
     },
     {
       "ts": "2026-07-07T15:45:23.871Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4541111739,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T15:22:34.505Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:50:30.825Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:50:30.825Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:50:30.828Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:50:31.372Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QdGPkNLU"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:50:31.593Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:50:31.859Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4542995999,
+        "symbol": "frxNZDUSD",
+        "placed_at": "2026-07-07T15:41:35.614Z",
+        "event_title": "GDT Price Index",
+        "event_bundle": [
+          "GDT Price Index"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T15:50:31.859Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
