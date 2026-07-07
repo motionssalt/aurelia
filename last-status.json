@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T17:30:39.567Z",
+  "last_cycle": "2026-07-07T17:35:19.595Z",
   "balance": 9865.75,
   "currency": "USD",
   "account_mode": "demo",
@@ -1970,56 +1970,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T15:40:41.390Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:40:44.077Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxNZDUSD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:44.159Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:44.749Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxNZDUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.6,
-        "spot": 0.56867
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:44.962Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4542995999",
-      "meta": {
-        "transaction_id": 8874167359,
-        "longcode": "Win payout if NZD/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:45.531Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T15:40:45.675Z",
       "level": "info",
       "msg": "[chart] launching Puppeteer",
@@ -3439,6 +3389,50 @@
     },
     {
       "ts": "2026-07-07T17:30:39.567Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4552469379,
+        "symbol": "frxGBPCAD",
+        "placed_at": "2026-07-07T17:26:28.040Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:35:18.333Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T17:35:18.333Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:35:18.336Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:35:18.830Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ykbHO5qO"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:35:19.030Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:35:19.594Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:35:19.594Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
