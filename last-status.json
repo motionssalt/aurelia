@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-07T12:30:42.605Z",
-  "balance": 9868.07,
+  "last_cycle": "2026-07-07T12:35:43.413Z",
+  "balance": 9872.33,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 95.41,
+    "capital_remaining": 99.67,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 7,
-    "wins": 4,
-    "losses": 3,
-    "pnl": -0.59,
-    "win_streak": 2,
-    "loss_streak": 0,
+    "trades": 9,
+    "wins": 5,
+    "losses": 4,
+    "pnl": -0.33,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4522682659,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-07T12:18:02.306Z"
-  },
-  "next_cycle_eligible_at": 1783426288099,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783427780655,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1584,11 +1580,12 @@
       "confidence": 0.65,
       "rationale": "Strong oversold bounce setup on frxUSDJPY: M5 price outside lower BB (percentile -0.002) with RSI neutral-falling (38.96) but EMA20 above EMA50 narrowing, both rising. M10/M15 confirm price in lower BB third with falling EMAs but RSI neutral-falling, suggesting exhaustion. Contracting ATR on M10/M15 supports directional reversal. Price at 161.862 near support 161.817 with resistance at 161.943. Recent EURUSD call wins show mean reversion bias in session. Small stake for 15m expiry.",
       "contract_id": 4522682659,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 161.862,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price initially rose but then broke below entry and support at 161.817, declining steadily to 161.778, invalidating the oversold bounce thesis.",
+      "exit": 161.801
     }
   ],
   "trade_history_manual": [
@@ -1781,27 +1778,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4522538939,
-      "path": "news",
-      "symbol": "frxUSDCAD",
-      "placed_at": "2026-07-07T12:16:39.371Z",
-      "expiry_sec": 900,
-      "event_title": "Trade Balance",
-      "event_bundle": [
-        "Trade Balance",
-        "Trade Balance"
-      ]
-    },
-    {
-      "contract_id": 4522682659,
-      "path": "cycle",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-07T12:18:02.306Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1811,102 +1788,6 @@
     "OPENROUTER_KEY_2": 1783435259481
   },
   "logs": [
-    {
-      "ts": "2026-07-07T10:45:18.321Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "FOMC Member Bowman Speaks"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-07T10:45:20.405Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:45:23.883Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:45:23.883Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "FOMC Member Bowman Speaks is a low-impact event unlikely to generate a clear directional move in USD pairs. Current technicals across EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, and NZDUSD show mixed/neutral signals with contracting ATR, providing no high-confidence news-driven edge."
-      }
-    },
-    {
-      "ts": "2026-07-07T10:45:23.884Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4511979799,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T10:26:33.052Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:50:33.484Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T10:50:33.484Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:50:33.486Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:50:33.888Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QGeUdi0w"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:50:34.056Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:50:34.339Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "FOMC Member Bowman Speaks"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
     {
       "ts": "2026-07-07T10:50:36.481Z",
       "level": "warn",
@@ -3395,14 +3276,80 @@
         "symbol": "frxUSDJPY",
         "placed_at": "2026-07-07T12:18:02.306Z"
       }
+    },
+    {
+      "ts": "2026-07-07T12:35:19.902Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T12:35:19.901Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:35:19.904Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:20.378Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3o4649pe"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:35:20.496Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:21.074Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:41.366Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:41.726Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:43.411Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:43.412Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:35:43.413Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 37242
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 11,
-    "wins": 5,
-    "losses": 6,
-    "pnl": -7.92,
+    "trades": 13,
+    "wins": 6,
+    "losses": 7,
+    "pnl": -7.66,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3429,6 +3376,18 @@
         "pnl": -0.69
       },
       "frxGBPUSD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
+      },
+      "frxUSDCAD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.76
+      },
+      "frxUSDJPY": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
@@ -4117,28 +4076,20 @@
       "confidence": 0.65,
       "rationale": "Simultaneous CAD Trade Balance (forecast 2.8B vs prev 2.7B) and USD Trade Balance (forecast -78.3B vs prev -55.9B). The widening deficit) both release at 08:30. CAD data is marginally positive (small surplus improvement) while USD data shows significantly widening deficit — a net CAD-positive / USD-negative fundamental impulse. Technically, frxUSDCAD M5 shows price at upper BB extreme (percentile 0.95), RSI 67 neutral-rising but overextended, doji candle signaling indecision at resistance 1.4218, and EMA20 above EMA50 narrowing — classic exhaustion setup for a pullback. Expect knee-jerk CAD strength / USD weakness on the combined release to push USDCAD lower.",
       "contract_id": 4522538939,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.42181,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 1.76,
+      "ai_outcome_note": "Price initially dropped below entry confirming the bearish thesis, then rallied back above entry but expired at 1.42137, still below the 1.42181 entry for a winning put.",
       "event_title": "Trade Balance",
       "event_bundle": [
         "Trade Balance",
         "Trade Balance"
-      ]
+      ],
+      "exit": 1.42137
     }
   ],
-  "news_open_position": {
-    "contract_id": 4522538939,
-    "symbol": "frxUSDCAD",
-    "placed_at": "2026-07-07T12:16:39.371Z",
-    "event_title": "Trade Balance",
-    "event_bundle": [
-      "Trade Balance",
-      "Trade Balance"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
