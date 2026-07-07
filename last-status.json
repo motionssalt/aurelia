@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T06:35:15.232Z",
+  "last_cycle": "2026-07-07T06:40:33.455Z",
   "balance": 9867.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -1682,66 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T04:20:33.732Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:25:14.684Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:25:14.684Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:25:14.687Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:25:15.094Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=BUNAQqDf"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:25:15.242Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:25:15.270Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:25:15.271Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:30:39.890Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:30:39.889Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:30:39.892Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T04:30:40.345Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3201,6 +3141,77 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:40:32.740Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T06:40:32.739Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:40:32.742Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:40:33.105Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1ukzKaUy"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:40:33.260Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:40:33.380Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:40:33.453Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T06:40:33.453Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:40:33.454Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4491298979,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T06:31:49.874Z",
+        "event_title": "French Trade Balance",
+        "event_bundle": [
+          "French Trade Balance"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T06:40:33.454Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4492,9 +4503,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783402527061,
+  "_calendar_last_fetch": 1783406433379,
   "_calendar_fetch_history": [
-    1783402527061
+    1783406433379
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
