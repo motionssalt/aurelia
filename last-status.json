@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-07T15:50:31.860Z",
-  "balance": 9866.56,
+  "last_cycle": "2026-07-07T15:55:36.931Z",
+  "balance": 9869.15,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 93.9,
+    "capital_remaining": 96.49,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 16,
-    "wins": 8,
+    "trades": 17,
+    "wins": 9,
     "losses": 8,
-    "pnl": -3.1,
-    "win_streak": 1,
+    "pnl": -2.01,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4541111739,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-07T15:22:34.505Z"
-  },
-  "next_cycle_eligible_at": 1783437098094,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783439779845,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1686,11 +1682,12 @@
       "confidence": 0.72,
       "rationale": "Strong bearish confluence across M5/M10/M15: price in lower BB third (M5: 0.22, M10: 0.11, M15: 0.06), falling EMAs with EMA50 above EMA20 (M5/M15 widening, M10 narrowing), RSI neutral-falling across all timeframes, doji on M5/M10 signaling indecision at support. Price at 1.14271 near key support 1.14239 with resistance at 1.14419. Recent put win at 14:51 confirms bearish structure. 30m expiry allows trend development.",
       "contract_id": 4541111739,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.14279,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.09,
+      "ai_outcome_note": "Price initially rallied against the put but reversed sharply in the final candles, breaking below entry and key support at 1.14239 to secure the win.",
+      "exit": 1.14255
     }
   ],
   "trade_history_manual": [
@@ -1885,13 +1882,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4541111739,
-      "path": "cycle",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-07T15:22:34.505Z",
-      "expiry_sec": 1800
-    },
-    {
       "contract_id": 4542995999,
       "path": "news",
       "symbol": "frxNZDUSD",
@@ -1912,74 +1902,6 @@
     "OPENROUTER_KEY_2": 1783447840773
   },
   "logs": [
-    {
-      "ts": "2026-07-07T14:05:16.573Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T14:05:16.572Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:05:16.575Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:05:16.892Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6IXzLSKO"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:05:16.997Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:05:17.623Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "RCM/TIPP Economic Optimism"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
-    {
-      "ts": "2026-07-07T14:05:19.115Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:05:27.936Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:05:27.937Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming RCM/TIPP Economic Optimism event for USD is low impact with a modest forecast increase (45.0 vs 42.5 previous). While a better-than-expected reading could provide mild USD support, the low impact rating and small forecast delta do not offer a clear directional edge sufficient to overcome current technical ambiguity across USD pairs. EURUSD shows mixed signals with EMA20 above EMA50 widening on M5 but EMA50 above EMA20 on M15, RSI neutral-falling, and price in lower BB third. USDJPY is overbought outside upper BB with RSI neutral-rising but EMAs falling on higher timeframes. USDCAD shows morning star on M10 but EMAs falling with EMA50 above EMA20. USDCHF is outside upper BB with rising RSI but falling EMAs. No single USD pair presents a high-confidence news-driven setup given the event's low tier and conflicting technicals."
-      }
-    },
     {
       "ts": "2026-07-07T14:05:27.938Z",
       "level": "info",
@@ -3475,14 +3397,76 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T15:22:34.505Z"
       }
+    },
+    {
+      "ts": "2026-07-07T15:55:18.937Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:55:18.936Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:55:18.939Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:55:19.422Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ZF1WgI9F"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:55:19.678Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:55:20.984Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:55:36.929Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:55:36.930Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4542995999,
+        "symbol": "frxNZDUSD",
+        "placed_at": "2026-07-07T15:41:35.614Z",
+        "event_title": "GDT Price Index",
+        "event_bundle": [
+          "GDT Price Index"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T15:55:36.930Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 42915
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 20,
-    "wins": 9,
+    "trades": 21,
+    "wins": 10,
     "losses": 11,
-    "pnl": -10.43,
+    "pnl": -9.34,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3497,10 +3481,10 @@
         "pnl": -0.4
       },
       "frxEURUSD": {
-        "trades": 10,
-        "wins": 5,
+        "trades": 11,
+        "wins": 6,
         "losses": 5,
-        "pnl": -5.28
+        "pnl": -4.19
       },
       "frxEURGBP": {
         "trades": 2,
