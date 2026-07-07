@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:35:35.209Z",
+  "last_cycle": "2026-07-07T21:41:10.761Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,62 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:50:42.999Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:52:00.746Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-07T19:52:00.747Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "WS not open (state=3)"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:52:00.748Z",
-      "level": "warn",
-      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:52:00.748Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:52:01.175Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=R5U8RaZG"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:52:01.505Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:52:01.505Z",
-      "level": "network",
-      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T19:52:01.624Z",
       "level": "trade",
       "msg": "Proposal accepted frxEURUSD PUT",
@@ -3540,6 +3484,62 @@
       "meta": {
         "error": "ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.",
         "stack": "Error: ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:40:32.140Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T21:40:32.140Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:40:32.142Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:40:32.520Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OAE3r4mX"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:40:32.696Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:40:32.810Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:40:39.220Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:41:10.759Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:41:10.760Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. Recent session shows 6 losses in last 8 trades with choppy price action across majors. EURUSD bearish structure has broken down (last put win was lucky close). GBPUSD/GBPJPY/GBPCAD show conflicting signals across timeframes. JPY pairs in strong uptrends but recent call/put attempts failed at resistance/support. Cross-pairs (EURAUD, GBPAUD, AUDCAD) lack clear directional bias with mixed EMA/RSI/BB signals. ATR expanding on many pairs increases noise. Best to wait for cleaner trend or reversal confirmation."
       }
     }
   ],
