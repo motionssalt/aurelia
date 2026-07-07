@@ -1,21 +1,21 @@
 {
-  "last_cycle": "2026-07-07T07:00:46.450Z",
-  "balance": 9867.4,
+  "last_cycle": "2026-07-07T07:05:31.420Z",
+  "balance": 9871.57,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 89.25,
+    "capital_remaining": 93.42,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 10,
-    "wins": 5,
+    "trades": 11,
+    "wins": 6,
     "losses": 5,
-    "pnl": -8.25,
-    "win_streak": 0,
-    "loss_streak": 3,
+    "pnl": -6.58,
+    "win_streak": 1,
+    "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
@@ -1659,19 +1659,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4491298979,
-      "path": "news",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-07T06:31:49.874Z",
-      "expiry_sec": 1800,
-      "event_title": "French Trade Balance",
-      "event_bundle": [
-        "French Trade Balance"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1681,54 +1669,6 @@
     "GEMINI_KEY_1": 1783412116857
   },
   "logs": [
-    {
-      "ts": "2026-07-07T04:45:30.826Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:45:30.826Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:45:30.827Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:50:33.073Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:50:33.072Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:50:33.076Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:50:33.525Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Rle7xXI9"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:50:33.825Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T04:50:33.934Z",
       "level": "info",
@@ -3229,14 +3169,60 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:05:22.551Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T07:05:22.551Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T07:05:22.554Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:05:23.107Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YMHuwmEL"
+      }
+    },
+    {
+      "ts": "2026-07-07T07:05:23.439Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:05:31.419Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:05:31.419Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:05:31.420Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 3,
-    "wins": 0,
+    "trades": 4,
+    "wins": 1,
     "losses": 3,
-    "pnl": -9,
+    "pnl": -7.33,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3251,10 +3237,10 @@
         "pnl": -1.5
       },
       "frxEURUSD": {
-        "trades": 1,
-        "wins": 0,
+        "trades": 2,
+        "wins": 1,
         "losses": 1,
-        "pnl": -5
+        "pnl": -3.33
       }
     }
   },
@@ -3897,26 +3883,19 @@
       "confidence": 0.6,
       "rationale": "The French Trade Balance forecast indicates a larger deficit, which is fundamentally bearish for the EUR. Given frxEURUSD's strong existing bearish trend, characterized by falling EMAs, EMA50 above EMA20, and price consistently in the lower Bollinger Band across M5, M10, and M15 timeframes, a negative outcome from the 'French Trade Balance' event is likely to reinforce this downward pressure, supporting a put trade.",
       "contract_id": 4491298979,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.14295,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 1.67,
+      "ai_outcome_note": "The price initially moved against the put, then fluctuated, eventually closing just one pip below the entry point to secure a marginal win.",
       "event_title": "French Trade Balance",
       "event_bundle": [
         "French Trade Balance"
-      ]
+      ],
+      "exit": 1.14294
     }
   ],
-  "news_open_position": {
-    "contract_id": 4491298979,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-07T06:31:49.874Z",
-    "event_title": "French Trade Balance",
-    "event_bundle": [
-      "French Trade Balance"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
