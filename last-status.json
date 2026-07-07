@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T11:05:34.812Z",
+  "last_cycle": "2026-07-07T11:12:06.467Z",
   "balance": 9870.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 97.4,
+    "capital_remaining": 95.9,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 5,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4516444639,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-07T11:12:06.467Z"
+  },
   "next_cycle_eligible_at": 1783422099516,
   "trade_history_cycle": [
     {
@@ -1535,6 +1539,22 @@
       "pnl": -1.5,
       "ai_outcome_note": "Price rallied above entry and resistance at 1.14301, invalidating the bearish confluence and triggering a loss as bulls regained control.",
       "exit": 1.1433
+    },
+    {
+      "ts": "2026-07-07T11:12:06.467Z",
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "direction": "call",
+      "stake": 1.5,
+      "expiry_sec": 1800,
+      "confidence": 0.65,
+      "rationale": "M5 shows bullish structure: EMA20 above EMA50 (widening), both rising, RSI neutral-rising (59.6), price at upper BB (0.82) but with contracting ATR. M10/M15 show EMA50 above EMA20 narrowing with RSI neutral-rising, suggesting potential bullish crossover. Recent put loss at 10:26 indicates failed bearish continuation at resistance 1.14301. Price holding above EMAs on M5 with rising momentum favors call for mean reversion bounce.",
+      "contract_id": 4516444639,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14335,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1727,7 +1747,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4516444639,
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-07T11:12:06.467Z",
+      "expiry_sec": 1800
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1737,142 +1765,6 @@
     "OPENROUTER_KEY_2": 1783431040008
   },
   "logs": [
-    {
-      "ts": "2026-07-07T09:20:31.798Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:20:31.798Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:20:31.800Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:20:32.259Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1XlOCc1K"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:20:32.478Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:20:33.119Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 3,
-        "titles": [
-          "BOE Financial Stability Report",
-          "FPC Meeting Minutes",
-          "FPC Statement"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low",
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-07T09:20:34.043Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:20:55.673Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURGBP",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-07T09:20:55.674Z",
-      "level": "info",
-      "msg": "News Mode: trade blocked by symbol conflict",
-      "meta": {
-        "symbol": "frxEURGBP",
-        "conflict_kind": "pending",
-        "conflict_by": "cycle"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:20:55.675Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4505741219,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-07T09:16:55.523Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:25:14.509Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:25:14.508Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:25:14.511Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:25:14.842Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zq24M52R"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:25:14.955Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:25:15.552Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 3,
-        "titles": [
-          "BOE Financial Stability Report",
-          "FPC Meeting Minutes",
-          "FPC Statement"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Low",
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
     {
       "ts": "2026-07-07T09:25:16.316Z",
       "level": "warn",
@@ -3294,6 +3186,110 @@
       "meta": {
         "error": "ContractBuyValidationError: Please enter a stake amount that's at least 0.50.",
         "stack": "Error: ContractBuyValidationError: Please enter a stake amount that's at least 0.50.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:10:36.801Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:10:36.801Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:10:36.805Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:10:37.203Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=8eOl1oRO"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:10:37.512Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:10:37.608Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:10:47.171Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:11:12.370Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-07T11:11:12.454Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T11:11:12.612Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD CALL",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.59,
+        "spot": 1.14335
+      }
+    },
+    {
+      "ts": "2026-07-07T11:11:12.889Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4516444639",
+      "meta": {
+        "transaction_id": 8823683699,
+        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-07T11:11:13.458Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:11:13.598Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:11:16.974Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:12:06.467Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4516444639
       }
     }
   ],
