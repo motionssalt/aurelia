@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T14:01:20.025Z",
+  "last_cycle": "2026-07-07T14:05:27.938Z",
   "balance": 9871.61,
   "currency": "USD",
   "account_mode": "demo",
@@ -1851,76 +1851,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T12:15:18.004Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:15:40.656Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxUSDCAD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:40.676Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:41.281Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxUSDCAD PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.26,
-        "spot": 1.42179
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:42.847Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4522538939",
-      "meta": {
-        "transaction_id": 8835214519,
-        "longcode": "Win payout if USD/CAD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:43.289Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxUSDCAD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:15:43.397Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:15:45.196Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:16:39.371Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4522538939
-      }
-    },
-    {
       "ts": "2026-07-07T12:16:45.346Z",
       "level": "warn",
       "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
@@ -3373,6 +3303,84 @@
     },
     {
       "ts": "2026-07-07T14:01:20.024Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4531411019,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T13:47:53.088Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:16.573Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T14:05:16.572Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:16.575Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:05:16.892Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6IXzLSKO"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:16.997Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:05:17.623Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "RCM/TIPP Economic Optimism"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:19.115Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:05:27.936Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:27.937Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming RCM/TIPP Economic Optimism event for USD is low impact with a modest forecast increase (45.0 vs 42.5 previous). While a better-than-expected reading could provide mild USD support, the low impact rating and small forecast delta do not offer a clear directional edge sufficient to overcome current technical ambiguity across USD pairs. EURUSD shows mixed signals with EMA20 above EMA50 widening on M5 but EMA50 above EMA20 on M15, RSI neutral-falling, and price in lower BB third. USDJPY is overbought outside upper BB with RSI neutral-rising but EMAs falling on higher timeframes. USDCAD shows morning star on M10 but EMAs falling with EMA50 above EMA20. USDCHF is outside upper BB with rising RSI but falling EMAs. No single USD pair presents a high-confidence news-driven setup given the event's low tier and conflicting technicals."
+      }
+    },
+    {
+      "ts": "2026-07-07T14:05:27.938Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
