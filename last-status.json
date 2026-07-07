@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T15:00:43.632Z",
+  "last_cycle": "2026-07-07T15:05:24.088Z",
   "balance": 9867.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -1885,74 +1885,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T13:20:38.564Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:20:44.943Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:21:23.584Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURJPY",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-07T13:21:23.626Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T13:21:24.124Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURJPY CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.6,
-        "spot": 185.106
-      }
-    },
-    {
-      "ts": "2026-07-07T13:21:25.254Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4528851719",
-      "meta": {
-        "transaction_id": 8847211279,
-        "longcode": "Win payout if EUR/JPY is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T13:21:25.677Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURJPY @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:21:25.805Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:21:27.906Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T13:22:16.969Z",
       "level": "warn",
       "msg": "Trade settlement timed out — returning best-effort snapshot",
@@ -3446,6 +3378,73 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T14:51:51.820Z"
       }
+    },
+    {
+      "ts": "2026-07-07T15:05:23.541Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:05:23.541Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:05:23.543Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:05:23.815Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oE59XJlx"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:05:23.915Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:05:24.036Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:05:24.085Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T15:05:24.085Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:05:24.087Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:05:24.087Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4537930539,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T14:51:51.820Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4503,7 +4502,7 @@
     {
       "title": "RCM/TIPP Economic Optimism",
       "country": "USD",
-      "date": "2026-07-07T10:10:00-04:00",
+      "date": "2026-07-07T10:04:00-04:00",
       "impact": "Low",
       "forecast": "45.0",
       "previous": "42.5"
@@ -4511,7 +4510,7 @@
     {
       "title": "GDT Price Index",
       "country": "NZD",
-      "date": "2026-07-07T10:50:00-04:00",
+      "date": "2026-07-07T11:50:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "-2.8%"
@@ -4609,7 +4608,7 @@
       "country": "USD",
       "date": "2026-07-08T10:30:00-04:00",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "-1.0M",
       "previous": "-3.8M"
     },
     {
@@ -4845,9 +4844,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783432851418,
+  "_calendar_last_fetch": 1783436724036,
   "_calendar_fetch_history": [
-    1783432851418
+    1783436724036
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
