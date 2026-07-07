@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:15:33.641Z",
+  "last_cycle": "2026-07-07T21:21:09.137Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,66 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:25:53.572Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxAUDUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.62,
-        "spot": 0.69252
-      }
-    },
-    {
-      "ts": "2026-07-07T19:25:54.178Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4563577719",
-      "meta": {
-        "transaction_id": 8913551819,
-        "longcode": "Win payout if AUD/USD is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T19:25:54.686Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxAUDUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:54.806Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:56.947Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:26:45.370Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4563577719
-      }
-    },
-    {
-      "ts": "2026-07-07T19:30:38.496Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T19:30:38.496Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:30:38.499Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T19:30:38.948Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3536,6 +3476,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. EURUSD shows mixed signals with RSI rising on M5 but falling on M15, price in lower BB third but EMAs falling across all timeframes. GBPUSD has oversold RSI on M5 but neutral on higher timeframes. USDJPY shows bullish structure but recent call loss at resistance. Cross pairs (EURGBP, EURAUD, GBPAUD) show conflicting EMA alignments and RSI divergences. Session has 6 losses in last 10 trades with -8.34 PnL, suggesting reduced edge. Best to wait for clearer multi-timeframe alignment."
+      }
+    },
+    {
+      "ts": "2026-07-07T21:20:32.146Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T21:20:32.146Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:20:32.149Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:20:32.426Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WxnwWKOl"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:20:32.555Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:20:32.600Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:20:37.434Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:21:09.136Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:21:09.136Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. Recent session shows 6 losses in last 10 trades with choppy, conflicting signals across symbols. EURUSD has mixed signals (M5 RSI rising but price outside lower BB, M10/M15 bearish). GBPUSD M5 shows oversold bounce potential but M10/M15 remain bearish. USDJPY bullish structure but recent call loss at resistance. Cross-pairs (EURGBP, GBPAUD, GBPCHF) show expanding ATR with indecision patterns (doji, outside BB). Volatility expansion without clear directional conviction across majors. Best to preserve capital and wait for cleaner multi-timeframe alignment."
       }
     }
   ],
