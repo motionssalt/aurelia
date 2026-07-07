@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T08:55:16.506Z",
+  "last_cycle": "2026-07-07T09:00:39.997Z",
   "balance": 9867.57,
   "currency": "USD",
   "account_mode": "demo",
@@ -1698,56 +1698,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T06:30:58.610Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.6
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:58.661Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:58.780Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.17,
-        "spot": 1.14294
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:59.368Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4491298979",
-      "meta": {
-        "transaction_id": 8776301299,
-        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T06:30:59.794Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:30:59.902Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T06:31:01.648Z",
       "level": "info",
       "msg": "[chart] screenshot captured",
@@ -3112,6 +3062,50 @@
     },
     {
       "ts": "2026-07-07T08:55:16.505Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4502413759,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-07T08:40:46.839Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:00:39.062Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T09:00:39.062Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:00:39.064Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:00:39.411Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hT5DMD6J"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:00:39.507Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:00:39.996Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:00:39.996Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
