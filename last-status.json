@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T15:10:43.084Z",
+  "last_cycle": "2026-07-07T15:15:32.662Z",
   "balance": 9869.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -1874,64 +1874,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T13:30:37.367Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:30:37.649Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NDWNCBaJ"
-      }
-    },
-    {
-      "ts": "2026-07-07T13:30:37.793Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:30:38.321Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:30:38.322Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4528851719,
-        "symbol": "frxEURJPY",
-        "placed_at": "2026-07-07T13:22:16.969Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T13:35:16.206Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T13:35:16.206Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T13:35:16.209Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:35:16.524Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LLXXDuvJ"
-      }
-    },
-    {
       "ts": "2026-07-07T13:35:16.679Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3427,6 +3369,63 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 55010
+      }
+    },
+    {
+      "ts": "2026-07-07T15:15:17.137Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:15:17.136Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:15:17.140Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:15:17.429Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RXeax4IK"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:15:17.560Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:15:17.593Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:15:22.795Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:15:32.662Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T15:15:32.662Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Mixed signals, choppy price action, and recent losses on EURUSD/GBP pairs suggest low edge. Best to wait for clearer trend or reversal confirmation."
       }
     }
   ],
