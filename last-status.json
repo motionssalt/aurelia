@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T06:15:16.365Z",
+  "last_cycle": "2026-07-07T06:20:37.199Z",
   "balance": 9869.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 91.75,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 9,
+    "trades": 10,
     "wins": 5,
-    "losses": 4,
-    "pnl": -3.25,
+    "losses": 5,
+    "pnl": -8.25,
     "win_streak": 0,
-    "loss_streak": 2,
+    "loss_streak": 3,
     "halted": false,
     "halt_reason": null
   },
@@ -1659,20 +1659,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4488006079,
-      "path": "news",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-07T05:46:27.466Z",
-      "expiry_sec": 1800,
-      "event_title": "German Industrial Production m/m",
-      "event_bundle": [
-        "German Industrial Production m/m",
-        "Halifax HPI m/m"
-      ]
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1682,63 +1669,6 @@
     "GEMINI_KEY_1": 1783412116857
   },
   "logs": [
-    {
-      "ts": "2026-07-07T03:55:22.943Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4479832399,
-        "symbol": "frxAUDJPY",
-        "placed_at": "2026-07-07T03:26:35.656Z",
-        "event_title": "30-y Bond Auction",
-        "event_bundle": [
-          "30-y Bond Auction"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-07T03:55:22.944Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:00:43.946Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:00:43.945Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:00:43.948Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:00:44.455Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4LwsWhO5"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:00:44.791Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:00:45.052Z",
-      "level": "info",
-      "msg": "daily_stats auto-rollover",
-      "meta": {
-        "archived": "2026-07-06",
-        "new": "2026-07-07"
-      }
-    },
     {
       "ts": "2026-07-07T04:00:50.838Z",
       "level": "info",
@@ -3181,14 +3111,60 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:20:32.178Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T06:20:32.177Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:20:32.180Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:20:32.592Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9VCVAYch"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:20:32.748Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:20:37.197Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:20:37.198Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:20:37.198Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 2,
+    "trades": 3,
     "wins": 0,
-    "losses": 2,
-    "pnl": -4,
+    "losses": 3,
+    "pnl": -9,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3201,6 +3177,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.5
+      },
+      "frxEURUSD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -5
       }
     }
   },
@@ -3821,28 +3803,20 @@
       "confidence": 0.7,
       "rationale": "The forecast for German Industrial Production m/m (EUR) is significantly lower than the previous figure, indicating a weakening economic outlook for the Eurozone. This negative news for the EUR, combined with strong existing bearish technical signals across M5, M10, and M15 for frxEURUSD (falling EMAs, RSI oversold and falling, price in lower Bollinger Bands), suggests a high probability of further downward movement for the pair.",
       "contract_id": 4488006079,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.14293,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -5,
+      "ai_outcome_note": "The price initially surged against the put position, then dipped below entry, but ultimately rebounded above the entry point, causing the loss.",
       "event_title": "German Industrial Production m/m",
       "event_bundle": [
         "German Industrial Production m/m",
         "Halifax HPI m/m"
-      ]
+      ],
+      "exit": 1.14303
     }
   ],
-  "news_open_position": {
-    "contract_id": 4488006079,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-07T05:46:27.466Z",
-    "event_title": "German Industrial Production m/m",
-    "event_bundle": [
-      "German Industrial Production m/m",
-      "Halifax HPI m/m"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
