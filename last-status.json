@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T20:51:10.640Z",
+  "last_cycle": "2026-07-07T20:55:42.002Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,60 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:01:30.999Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:01:32.793Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:02:21.625Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4560944479
-      }
-    },
-    {
-      "ts": "2026-07-07T19:05:30.575Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T19:05:30.575Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:05:30.577Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:05:31.027Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CRM2UXRy"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:05:31.282Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:05:31.933Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T19:05:31.934Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
@@ -3541,6 +3487,63 @@
       "meta": {
         "error": "ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.",
         "stack": "Error: ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:55:18.945Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T20:55:18.945Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:55:18.948Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:55:19.287Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aTltl9hc"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:55:19.472Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:55:19.509Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:55:24.568Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:55:42.001Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T20:55:42.001Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. EURUSD shows conflicting signals: M5 RSI rising (30.85) with price in lower BB third (0.125) and doji, but EMAs falling with widening gap. M10/M15 show RSI neutral-falling and price in lower BB third. Recent session has 6 losses in last 9 trades with only 2 wins, indicating poor signal quality. USDJPY has bullish structure (EMA20>EMA50 widening, price upper BB third 0.86) but M15 ATR expanding and recent call loss at 16:56. GBPUSD shows oversold bounce potential (M5 RSI 40.54, price middle BB 0.345) but EMAs falling with narrowing gap. AUDUSD M5 RSI 38.26 neutral-falling, price middle BB 0.35. No symbol shows clear multi-timeframe alignment with favorable risk/reward. Best to wait for cleaner setup."
       }
     }
   ],
