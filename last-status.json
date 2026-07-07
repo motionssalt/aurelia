@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-07T19:40:36.572Z",
-  "balance": 9862.34,
+  "last_cycle": "2026-07-07T19:45:21.627Z",
+  "balance": 9864.96,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 89.68,
+    "capital_remaining": 92.3,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 25,
-    "wins": 11,
+    "trades": 26,
+    "wins": 12,
     "losses": 14,
-    "pnl": -8.82,
-    "win_streak": 1,
+    "pnl": -7.7,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4563577719,
-    "symbol": "frxAUDUSD",
-    "placed_at": "2026-07-07T19:26:45.371Z"
-  },
-  "next_cycle_eligible_at": 1783452090562,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783453577576,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1822,11 +1818,12 @@
       "confidence": 0.68,
       "rationale": "Strong oversold mean-reversion setup on frxAUDUSD: M5/M10/M15 all show RSI oversold (23-28) and falling, price at or outside lower Bollinger Band (percentile 0.10 to -0.11), EMAs falling with EMA50 above EMA20 widening bearish structure. M15 hammer candle confirms potential reversal. ATR expanding on all timeframes supports volatility for bounce. Multi-timeframe oversold confluence at key support 0.69214 with contracting ATR on M15 suggests exhaustion. Small stake for 15m expiry aligns with M15 reversal signal.",
       "contract_id": 4563577719,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 0.69255,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.12,
+      "ai_outcome_note": "Price initially rallied above entry but then declined sharply to test key support at 0.69214 before recovering to close above entry at expiry, validating the mean-reversion thesis.",
+      "exit": 0.69299
     }
   ],
   "trade_history_manual": [
@@ -2019,15 +2016,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4563577719,
-      "path": "cycle",
-      "symbol": "frxAUDUSD",
-      "placed_at": "2026-07-07T19:26:45.371Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2037,62 +2026,6 @@
     "OPENROUTER_KEY_1": 1783453842127
   },
   "logs": [
-    {
-      "ts": "2026-07-07T17:40:30.935Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:40:30.935Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4552469379,
-        "symbol": "frxGBPCAD",
-        "placed_at": "2026-07-07T17:26:28.040Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T17:45:20.487Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T17:45:20.486Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T17:45:20.489Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:45:20.956Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=fz4MFqJy"
-      }
-    },
-    {
-      "ts": "2026-07-07T17:45:21.272Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:45:22.255Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:45:35.441Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T17:45:35.442Z",
       "level": "info",
@@ -3485,14 +3418,68 @@
         "symbol": "frxAUDUSD",
         "placed_at": "2026-07-07T19:26:45.371Z"
       }
+    },
+    {
+      "ts": "2026-07-07T19:45:17.027Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T19:45:17.027Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T19:45:17.030Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:45:17.343Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FGN2wdy2"
+      }
+    },
+    {
+      "ts": "2026-07-07T19:45:17.490Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:45:18.088Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:45:21.625Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:45:21.626Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:45:21.627Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 55949
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 29,
-    "wins": 12,
+    "trades": 30,
+    "wins": 13,
     "losses": 17,
-    "pnl": -16.15,
+    "pnl": -15.03,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3559,6 +3546,12 @@
         "wins": 0,
         "losses": 1,
         "pnl": -1.5
+      },
+      "frxAUDUSD": {
+        "trades": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl": 1.12
       }
     }
   },
