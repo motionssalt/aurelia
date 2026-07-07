@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T06:40:33.455Z",
+  "last_cycle": "2026-07-07T06:45:17.105Z",
   "balance": 9867.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -1682,49 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T04:30:40.345Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GUBmFPTT"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:30:40.689Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:30:40.938Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:30:41.028Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 75
-      }
-    },
-    {
-      "ts": "2026-07-07T04:30:41.029Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 75,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:30:41.030Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T04:30:41.030Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3209,6 +3166,54 @@
     },
     {
       "ts": "2026-07-07T06:40:33.454Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:45:15.961Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T06:45:15.961Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:45:15.963Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:45:16.342Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=afkAl9uA"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:45:16.504Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:45:17.104Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4491298979,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T06:31:49.874Z",
+        "event_title": "French Trade Balance",
+        "event_bundle": [
+          "French Trade Balance"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T06:45:17.105Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
