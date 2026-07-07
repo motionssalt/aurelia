@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T17:26:28.041Z",
-  "balance": 9867.25,
+  "last_cycle": "2026-07-07T17:30:39.567Z",
+  "balance": 9865.75,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1970,58 +1970,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T15:40:38.894Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:40:39.373Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1ZKVWgmp"
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:39.693Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:40:40.364Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "GDT Price Index"
-        ],
-        "countries": [
-          "NZD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-07T15:40:40.773Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:40:41.390Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
       "ts": "2026-07-07T15:40:41.390Z",
       "level": "warn",
       "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
@@ -3453,6 +3401,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4552469379
+      }
+    },
+    {
+      "ts": "2026-07-07T17:30:37.989Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T17:30:37.988Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:30:37.991Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:30:38.526Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DYBXC08d"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:30:38.900Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:30:39.566Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:30:39.567Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4552469379,
+        "symbol": "frxGBPCAD",
+        "placed_at": "2026-07-07T17:26:28.040Z"
       }
     }
   ],
