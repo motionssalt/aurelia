@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T10:40:32.893Z",
+  "last_cycle": "2026-07-07T10:45:23.885Z",
   "balance": 9870.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -1749,72 +1749,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T08:50:33.559Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:50:33.559Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:50:33.561Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:50:33.921Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uhP2mIt7"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:50:34.036Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:50:34.551Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:50:34.551Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4502413759,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-07T08:40:46.839Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:55:15.522Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:55:15.522Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:55:15.524Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:55:15.856Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=brJqCwkk"
-      }
-    },
-    {
       "ts": "2026-07-07T08:55:15.968Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3283,6 +3217,84 @@
     },
     {
       "ts": "2026-07-07T10:40:32.892Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4511979799,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T10:26:33.052Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:17.522Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T10:45:17.522Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:17.524Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:45:17.917Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9dYEvoXa"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:18.076Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:45:18.321Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "FOMC Member Bowman Speaks"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:20.405Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:45:23.883Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:23.883Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "FOMC Member Bowman Speaks is a low-impact event unlikely to generate a clear directional move in USD pairs. Current technicals across EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, and NZDUSD show mixed/neutral signals with contracting ATR, providing no high-confidence news-driven edge."
+      }
+    },
+    {
+      "ts": "2026-07-07T10:45:23.884Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
