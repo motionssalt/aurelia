@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:11:01.183Z",
+  "last_cycle": "2026-07-07T21:15:33.641Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,64 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:25:21.091Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T19:25:21.090Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:25:21.093Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:21.557Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ap0QsYdU"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:25:21.821Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:21.922Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:31.758Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:25:52.888Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-07T19:25:52.944Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
       "ts": "2026-07-07T19:25:53.572Z",
       "level": "trade",
       "msg": "Proposal accepted frxAUDUSD CALL",
@@ -3538,6 +3480,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. Recent session shows 6 losses in last 8 trades with choppy, inconsistent price action across all symbols. EURUSD has conflicting signals (M5 RSI rising vs M10/M15 falling, price middle BB), GBPUSD shows oversold but EMAs falling with widening bearish cross, USDJPY bullish structure but M10 evening star reversal risk. All other pairs lack clear directional confluence across M5/M10/M15 with supporting candle patterns. Capital preservation dictates skipping until clearer trend emerges."
+      }
+    },
+    {
+      "ts": "2026-07-07T21:15:17.771Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T21:15:17.771Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:15:17.774Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:15:18.211Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2Kjekgui"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:15:18.361Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:15:18.406Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:15:23.333Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:15:33.640Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:15:33.641Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. EURUSD shows mixed signals with RSI rising on M5 but falling on M15, price in lower BB third but EMAs falling across all timeframes. GBPUSD has oversold RSI on M5 but neutral on higher timeframes. USDJPY shows bullish structure but recent call loss at resistance. Cross pairs (EURGBP, EURAUD, GBPAUD) show conflicting EMA alignments and RSI divergences. Session has 6 losses in last 10 trades with -8.34 PnL, suggesting reduced edge. Best to wait for clearer multi-timeframe alignment."
       }
     }
   ],
