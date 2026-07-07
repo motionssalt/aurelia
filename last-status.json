@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:21:09.137Z",
+  "last_cycle": "2026-07-07T21:25:33.688Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,88 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:30:38.948Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MRom381z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:30:39.126Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:30:39.732Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:30:39.732Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4563577719,
-        "symbol": "frxAUDUSD",
-        "placed_at": "2026-07-07T19:26:45.371Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:35:20.726Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T19:35:20.726Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:35:20.728Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:35:21.325Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CWzMk0dK"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:35:21.625Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:35:22.464Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:35:22.465Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4563577719,
-        "symbol": "frxAUDUSD",
-        "placed_at": "2026-07-07T19:26:45.371Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:40:35.302Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T19:40:35.302Z"
-      }
-    },
-    {
       "ts": "2026-07-07T19:40:35.305Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3533,6 +3451,86 @@
       "meta": {
         "reason": "No high-confidence setup found. Recent session shows 6 losses in last 10 trades with choppy, conflicting signals across symbols. EURUSD has mixed signals (M5 RSI rising but price outside lower BB, M10/M15 bearish). GBPUSD M5 shows oversold bounce potential but M10/M15 remain bearish. USDJPY bullish structure but recent call loss at resistance. Cross-pairs (EURGBP, GBPAUD, GBPCHF) show expanding ATR with indecision patterns (doji, outside BB). Volatility expansion without clear directional conviction across majors. Best to preserve capital and wait for cleaner multi-timeframe alignment."
       }
+    },
+    {
+      "ts": "2026-07-07T21:25:17.527Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T21:25:17.526Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:25:17.529Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:25:17.979Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IvTMVYQx"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:25:18.268Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:25:18.324Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:25:18.487Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-07T21:25:18.487Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:25:18.488Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:25:24.537Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:25:33.687Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T21:25:33.687Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. EURUSD shows mixed signals with RSI neutral-rising on M5 but oversold-falling on M10/M15, price in lower BB third but EMAs falling with widening gap. GBPUSD has hammer on M15 but RSI neutral-rising and price in lower third. USDJPY is overbought across timeframes with price outside upper BB. Other pairs show conflicting signals or lack clear directional conviction. Recent session performance (13 wins, 15 losses) and mixed outcomes suggest caution. No setup meets the threshold for a confident trade."
+      }
     }
   ],
   "daily_stats": {
@@ -4529,7 +4527,7 @@
       "previous": "0.4%"
     },
     {
-      "title": "Halifax HPI m/m",
+      "title": "Lloyds HPI m/m",
       "country": "GBP",
       "date": "2026-07-07T02:03:00-04:00",
       "impact": "Low",
@@ -4985,9 +4983,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783455643379,
+  "_calendar_last_fetch": 1783459518324,
   "_calendar_fetch_history": [
-    1783455643379
+    1783459518324
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
