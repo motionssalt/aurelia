@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T22:50:42.202Z",
+  "last_cycle": "2026-07-07T22:55:20.633Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2057,86 +2057,10 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_2": 1783473641455,
-    "OPENROUTER_KEY_1": 1783473641455
+    "OPENROUTER_KEY_2": 1783473920031,
+    "OPENROUTER_KEY_1": 1783473920031
   },
   "logs": [
-    {
-      "ts": "2026-07-07T21:15:17.774Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:15:18.211Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2Kjekgui"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:15:18.361Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:15:18.406Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:15:23.333Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:15:33.640Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:15:33.641Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. EURUSD shows mixed signals with RSI rising on M5 but falling on M15, price in lower BB third but EMAs falling across all timeframes. GBPUSD has oversold RSI on M5 but neutral on higher timeframes. USDJPY shows bullish structure but recent call loss at resistance. Cross pairs (EURGBP, EURAUD, GBPAUD) show conflicting EMA alignments and RSI divergences. Session has 6 losses in last 10 trades with -8.34 PnL, suggesting reduced edge. Best to wait for clearer multi-timeframe alignment."
-      }
-    },
-    {
-      "ts": "2026-07-07T21:20:32.146Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T21:20:32.146Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:20:32.149Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:20:32.426Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WxnwWKOl"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:20:32.555Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T21:20:32.600Z",
       "level": "info",
@@ -3465,6 +3389,82 @@
     },
     {
       "ts": "2026-07-07T22:50:41.793Z",
+      "level": "error",
+      "msg": "AI decision failed",
+      "meta": {
+        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:55:14.457Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T22:55:14.457Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:55:14.460Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:14.866Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=gDxSmkyE"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:55:14.976Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:15.005Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:20.033Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:20.034Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:20.192Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:55:20.192Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:55:20.304Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:55:20.305Z",
       "level": "error",
       "msg": "AI decision failed",
       "meta": {
