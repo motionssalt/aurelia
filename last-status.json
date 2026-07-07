@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T14:30:48.612Z",
+  "last_cycle": "2026-07-07T14:35:34.898Z",
   "balance": 9870.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -1868,74 +1868,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T12:40:40.052Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:40:40.151Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:40:51.459Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:40:58.657Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-07T12:40:58.743Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T12:40:59.343Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.59,
-        "spot": 1.14373
-      }
-    },
-    {
-      "ts": "2026-07-07T12:40:59.562Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4525072839",
-      "meta": {
-        "transaction_id": 8839977599,
-        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 30 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T12:41:00.128Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:41:00.364Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T12:41:02.439Z",
       "level": "info",
       "msg": "[chart] screenshot captured",
@@ -3371,6 +3303,86 @@
     },
     {
       "ts": "2026-07-07T14:30:48.611Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4535372359,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T14:27:10.733Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:24.778Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T14:35:24.778Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:24.780Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:35:25.279Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aPFAoMMn"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:25.627Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:35:25.899Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "GDT Price Index"
+        ],
+        "countries": [
+          "NZD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:26.343Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:35:34.896Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "symbol": "",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:34.896Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming GDT Price Index event for NZD has Low impact with a previous reading of -2.8%. Low-impact dairy auction data rarely generates sufficient directional volatility to overcome the current bearish technical structure on frxNZDUSD (falling EMAs, price in lower BB third, RSI neutral-falling across M10/M15). Without a clear fundamental catalyst for a sustained move, the risk of whipsaw around this minor event outweighs any potential edge."
+      }
+    },
+    {
+      "ts": "2026-07-07T14:35:34.897Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
