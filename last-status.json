@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T10:45:23.885Z",
+  "last_cycle": "2026-07-07T10:50:39.080Z",
   "balance": 9870.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -1749,72 +1749,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T08:55:15.968Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:55:16.505Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:55:16.505Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4502413759,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-07T08:40:46.839Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:00:39.062Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:00:39.062Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:00:39.064Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:00:39.411Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hT5DMD6J"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:00:39.507Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:00:39.996Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:00:39.996Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4502413759,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-07T08:40:46.839Z"
-      }
-    },
-    {
       "ts": "2026-07-07T09:05:17.038Z",
       "level": "info",
       "msg": "Tick start",
@@ -3295,6 +3229,82 @@
     },
     {
       "ts": "2026-07-07T10:45:23.884Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4511979799,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T10:26:33.052Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:50:33.484Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T10:50:33.484Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:50:33.486Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:50:33.888Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QGeUdi0w"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:50:34.056Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:50:34.339Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "FOMC Member Bowman Speaks"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-07T10:50:36.481Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:50:39.079Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:50:39.079Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:50:39.080Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
