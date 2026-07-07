@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T19:10:38.370Z",
+  "last_cycle": "2026-07-07T19:15:19.813Z",
   "balance": 9861.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -2021,46 +2021,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T17:15:23.587Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:15:24.158Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-07T17:15:24.158Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:15:27.148Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:15:27.148Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T17:15:27.202Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 75
-      }
-    },
-    {
       "ts": "2026-07-07T17:15:27.202Z",
       "level": "info",
       "msg": "Calendar refreshed",
@@ -3458,6 +3418,50 @@
     },
     {
       "ts": "2026-07-07T19:10:38.370Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4560944479,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-07T19:02:21.626Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T19:15:17.562Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T19:15:17.561Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T19:15:17.564Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:15:17.992Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KX5yZCLH"
+      }
+    },
+    {
+      "ts": "2026-07-07T19:15:18.188Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:15:19.812Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T19:15:19.813Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
