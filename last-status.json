@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T14:55:19.928Z",
+  "last_cycle": "2026-07-07T15:00:43.632Z",
   "balance": 9867.11,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,12 +10,12 @@
     "capital_remaining": 94.45,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 14,
+    "trades": 15,
     "wins": 7,
-    "losses": 7,
-    "pnl": -2.55,
+    "losses": 8,
+    "pnl": -4.05,
     "win_streak": 0,
-    "loss_streak": 2,
+    "loss_streak": 3,
     "halted": false,
     "halt_reason": null
   },
@@ -1868,17 +1868,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4536903379,
-      "path": "news",
-      "symbol": "frxNZDUSD",
-      "placed_at": "2026-07-07T14:41:55.875Z",
-      "expiry_sec": 900,
-      "event_title": "GDT Price Index",
-      "event_bundle": [
-        "GDT Price Index"
-      ]
-    },
-    {
       "contract_id": 4537930539,
       "path": "cycle",
       "symbol": "frxEURUSD",
@@ -1895,60 +1884,6 @@
     "OPENROUTER_KEY_1": 1783444843684
   },
   "logs": [
-    {
-      "ts": "2026-07-07T13:15:18.842Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:15:20.766Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:15:20.766Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:15:20.767Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 57579
-      }
-    },
-    {
-      "ts": "2026-07-07T13:20:37.865Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T13:20:37.864Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T13:20:37.867Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T13:20:38.335Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=r9zx4fCk"
-      }
-    },
-    {
-      "ts": "2026-07-07T13:20:38.506Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T13:20:38.564Z",
       "level": "info",
@@ -3455,14 +3390,70 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T14:51:51.820Z"
       }
+    },
+    {
+      "ts": "2026-07-07T15:00:39.383Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:00:39.383Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:00:39.386Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:00:39.829Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YmR82yNT"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:00:40.019Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:00:41.129Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:00:43.630Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:00:43.631Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:00:43.631Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4537930539,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T14:51:51.820Z"
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 18,
+    "trades": 19,
     "wins": 8,
-    "losses": 10,
-    "pnl": -9.88,
+    "losses": 11,
+    "pnl": -11.38,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3501,6 +3492,12 @@
         "pnl": 2.94
       },
       "frxUSDJPY": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
+      },
+      "frxNZDUSD": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
@@ -4232,26 +4229,19 @@
       "confidence": 0.55,
       "rationale": "GDT Price Index event (Low impact, previous -2.8%) likely to show continued dairy price weakness, pressuring NZD. Technical confluence supports downside: M5/M10/M15 all show falling EMAs with EMA50 above EMA20, RSI neutral-falling, price in lower BB third on M10/M15, expanding ATR, and evening star reversal pattern on M10. Price at 0.56885 near support 0.56868/0.56873 with resistances at 0.56911/0.56921.",
       "contract_id": 4536903379,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.56887,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -1.5,
+      "ai_outcome_note": "Price rallied immediately after entry, breaking above key resistance at 0.56911 and invalidating the bearish setup before eventually declining past entry but too late to salvage the trade.",
       "event_title": "GDT Price Index",
       "event_bundle": [
         "GDT Price Index"
-      ]
+      ],
+      "exit": 0.56892
     }
   ],
-  "news_open_position": {
-    "contract_id": 4536903379,
-    "symbol": "frxNZDUSD",
-    "placed_at": "2026-07-07T14:41:55.875Z",
-    "event_title": "GDT Price Index",
-    "event_bundle": [
-      "GDT Price Index"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
