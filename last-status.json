@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T18:25:39.118Z",
+  "last_cycle": "2026-07-07T18:30:57.058Z",
   "balance": 9864.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -1976,70 +1976,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T16:30:46.896Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GGWY8ZsV"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:30:47.203Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:30:47.306Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:30:56.496Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:31:27.268Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.78
-      }
-    },
-    {
-      "ts": "2026-07-07T16:31:27.349Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T16:31:27.474Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.57,
-        "spot": 1.14196
-      }
-    },
-    {
-      "ts": "2026-07-07T16:31:27.761Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4547646459",
-      "meta": {
-        "transaction_id": 8883041559,
-        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
       "ts": "2026-07-07T16:31:28.367Z",
       "level": "info",
       "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
@@ -3420,6 +3356,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes with contracting ATR and narrowing EMA gaps indicating indecision. Recent session has 5 consecutive losses, capital at 91.59 (down 8.41), nearing stop-loss threshold. Forcing a trade in choppy conditions risks further drawdown. Best to wait for clearer trend alignment or volatility expansion."
+      }
+    },
+    {
+      "ts": "2026-07-07T18:30:37.785Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T18:30:37.785Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:30:37.788Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:30:38.122Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zghiAGAy"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:30:38.330Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:30:38.441Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:30:43.976Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:30:57.057Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T18:30:57.058Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with contracting ATR, narrowing EMA crosses, and RSI mostly neutral. Recent session has 5 consecutive losses, indicating unfavorable conditions. Best to wait for clearer directional bias and stronger confluence."
       }
     }
   ],
