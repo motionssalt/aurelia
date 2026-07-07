@@ -1,20 +1,20 @@
 {
-  "last_cycle": "2026-07-07T13:55:19.152Z",
-  "balance": 9868.93,
+  "last_cycle": "2026-07-07T14:01:20.025Z",
+  "balance": 9871.61,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 96.27,
+    "capital_remaining": 98.95,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 11,
-    "wins": 6,
+    "trades": 12,
+    "wins": 7,
     "losses": 5,
-    "pnl": -0.73,
-    "win_streak": 1,
+    "pnl": 0.45,
+    "win_streak": 2,
     "loss_streak": 0,
     "halted": false,
     "halt_reason": null
@@ -1834,17 +1834,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4531258639,
-      "path": "news",
-      "symbol": "frxUSDCAD",
-      "placed_at": "2026-07-07T13:46:23.952Z",
-      "expiry_sec": 900,
-      "event_title": "Ivey PMI",
-      "event_bundle": [
-        "Ivey PMI"
-      ]
-    },
-    {
       "contract_id": 4531411019,
       "path": "cycle",
       "symbol": "frxEURUSD",
@@ -1858,148 +1847,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_1": 1783440633273
+    "OPENROUTER_KEY_2": 1783441849151
   },
   "logs": [
-    {
-      "ts": "2026-07-07T12:10:28.681Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:10:29.137Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-07T12:10:29.137Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:10:56.524Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:10:56.526Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "ADP Weekly Employment Change",
-          "ADP Weekly Employment Change"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 3
-      }
-    },
-    {
-      "ts": "2026-07-07T12:10:59.481Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:11:00.872Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-07T12:11:00.872Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:11:16.099Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T12:11:16.100Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The simultaneous release of two identical ADP Weekly Employment Change events (both Low impact, USD) provides no net directional edge — they are the same data point released twice, creating conflicting/neutral signal rather than a clear bias. Without a clear directional expectation from the news, no trade is justified."
-      }
-    },
-    {
-      "ts": "2026-07-07T12:11:16.100Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 11999
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:15.629Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T12:15:15.628Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:15.631Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:15:15.963Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NFxzRLby"
-      }
-    },
-    {
-      "ts": "2026-07-07T12:15:16.090Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T12:15:16.122Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "Trade Balance",
-          "Trade Balance"
-        ],
-        "countries": [
-          "CAD",
-          "USD"
-        ],
-        "impacts": [
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
     {
       "ts": "2026-07-07T12:15:18.004Z",
       "level": "warn",
@@ -3403,14 +3253,141 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T13:47:53.088Z"
       }
+    },
+    {
+      "ts": "2026-07-07T14:00:47.090Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T14:00:47.090Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:47.092Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:47.627Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hy3ng4uQ"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:47.961Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:49.151Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:49.775Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:49.776Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:51.417Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:51.418Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:00:51.454Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:51.454Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:51.455Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "RCM/TIPP Economic Optimism"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-07T14:00:54.658Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T14:01:20.023Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T14:01:20.024Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming RCM/TIPP Economic Optimism event is a low-impact USD sentiment survey with a modest forecast increase (45.0 vs 42.5 previous). Low-impact sentiment data rarely generates a clear, tradable directional move in major FX pairs within a 15-minute window, and none of the USD pairs (frxEURUSD, frxGBPUSD, frxUSDJPY, frxUSDCAD, frxUSDCHF, frxAUDUSD, frxNZDUSD) show a decisive technical bias that aligns with a specific USD-strength or USD-weakness thesis ahead of this release. Therefore, no trade offers a sufficient edge."
+      }
+    },
+    {
+      "ts": "2026-07-07T14:01:20.024Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4531411019,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T13:47:53.088Z"
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 15,
-    "wins": 7,
+    "trades": 16,
+    "wins": 8,
     "losses": 8,
-    "pnl": -8.06,
+    "pnl": -6.88,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3443,10 +3420,10 @@
         "pnl": -1.5
       },
       "frxUSDCAD": {
-        "trades": 1,
-        "wins": 1,
+        "trades": 2,
+        "wins": 2,
         "losses": 0,
-        "pnl": 1.76
+        "pnl": 2.94
       },
       "frxUSDJPY": {
         "trades": 1,
@@ -4159,26 +4136,19 @@
       "confidence": 0.65,
       "rationale": "Ivey PMI forecast (59.1) exceeds previous (58.2), signaling stronger Canadian economic activity which typically strengthens CAD. Since frxUSDCAD represents USD/CAD, a stronger CAD pushes the pair lower, favoring a put direction. Technicals align: price at lower Bollinger Band extreme (M5 percentile 0.002, M15 outside lower band), RSI oversold but falling (29.64), and EMAs falling with EMA50 above EMA20 narrowing — suggesting oversold bounce risk but fundamental CAD strength from the news event should sustain downside pressure.",
       "contract_id": 4531258639,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.42047,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": 1.18,
+      "ai_outcome_note": "Despite initial upside volatility, strong Canadian Ivey PMI data ultimately drove sustained CAD strength, pushing USD/CAD below entry to secure the put win.",
       "event_title": "Ivey PMI",
       "event_bundle": [
         "Ivey PMI"
-      ]
+      ],
+      "exit": 1.42032
     }
   ],
-  "news_open_position": {
-    "contract_id": 4531258639,
-    "symbol": "frxUSDCAD",
-    "placed_at": "2026-07-07T13:46:23.952Z",
-    "event_title": "Ivey PMI",
-    "event_bundle": [
-      "Ivey PMI"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
@@ -4782,9 +4752,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783428921399,
+  "_calendar_last_fetch": 1783432851418,
   "_calendar_fetch_history": [
-    1783428921399
+    1783432851418
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
