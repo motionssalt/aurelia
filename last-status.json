@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T10:16:56.055Z",
-  "balance": 9873.06,
+  "last_cycle": "2026-07-07T10:20:49.917Z",
+  "balance": 9871.56,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1733,58 +1733,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T08:20:30.004Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:20:30.005Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:25:20.781Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:25:20.780Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:25:20.783Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:25:21.253Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dOxYtsvz"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:25:21.592Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:25:21.697Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:25:21.697Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T08:30:39.199Z",
       "level": "info",
       "msg": "Tick start",
@@ -3241,6 +3189,71 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols. Most pairs show conflicting signals across timeframes, choppy price action in middle Bollinger Bands, or overbought/oversold extremes without clear reversal confirmation. Recent session PnL is flat (+0.4) with mixed win/loss record, favoring patience over forced entries."
+      }
+    },
+    {
+      "ts": "2026-07-07T10:20:32.376Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T10:20:32.376Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:20:32.379Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:20:32.663Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=MdSGk4jg"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:20:32.792Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:20:33.364Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4511094019,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-07T10:16:29.689Z",
+        "event_title": "BOE Gov Bailey Speaks",
+        "event_bundle": [
+          "BOE Gov Bailey Speaks"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T10:20:38.553Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:20:49.916Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T10:20:49.916Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals (e.g., rising EMAs but overbought RSI, or falling EMAs with price at lower BB support). Recent session has mixed win/loss pattern with no clear edge. Capital preservation favored."
       }
     }
   ],
