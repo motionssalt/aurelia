@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T12:00:48.894Z",
+  "last_cycle": "2026-07-07T12:05:34.544Z",
   "balance": 9869.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -1783,82 +1783,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T10:10:37.169Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:10:37.169Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 57780
-      }
-    },
-    {
-      "ts": "2026-07-07T10:15:25.807Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T10:15:25.807Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:15:25.810Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:15:26.246Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kE4kV0sy"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:15:26.476Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:15:26.554Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "BOE Gov Bailey Speaks"
-        ],
-        "countries": [
-          "GBP"
-        ],
-        "impacts": [
-          "Medium"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-07T10:15:27.594Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:15:37.663Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.65
-      }
-    },
-    {
       "ts": "2026-07-07T10:15:37.722Z",
       "level": "warn",
       "msg": "payout proposal failed; allowing trade",
@@ -3321,6 +3245,88 @@
     },
     {
       "ts": "2026-07-07T12:00:48.894Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4520114079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T11:52:02.583Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:21.756Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T12:05:21.756Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:21.758Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:05:22.065Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=e1MLCZcT"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:22.417Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:05:23.131Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 2,
+        "titles": [
+          "ADP Weekly Employment Change",
+          "ADP Weekly Employment Change"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:26.181Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:05:34.543Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "symbol": "",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:34.543Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "Both ADP Weekly Employment Change events are low impact with no forecast provided, creating no clear directional edge for USD. The simultaneous release of identical low-impact events without consensus estimates means the net effect is unpredictable and does not justify a news-driven trade."
+      }
+    },
+    {
+      "ts": "2026-07-07T12:05:34.544Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
