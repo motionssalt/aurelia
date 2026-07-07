@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:56:30.974Z",
+  "last_cycle": "2026-07-07T22:01:11.951Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,60 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T20:10:36.288Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:10:36.652Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HfH4KeHA"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:10:36.987Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:10:37.897Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:10:53.410Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:10:53.411Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:10:53.411Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 43802
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:21.539Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T20:15:21.539Z"
-      }
-    },
-    {
       "ts": "2026-07-07T20:15:21.542Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3533,6 +3479,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols. Most pairs show conflicting signals across timeframes (e.g., EURUSD bearish EMAs but RSI divergence, GBPUSD hammer on M5 but evening star on M15, USDJPY bullish trend but at upper BB with doji). Recent session performance (13W/15L, -8.34 PnL) and mixed outcomes suggest choppy conditions. Capital preservation favored over forced entry."
+      }
+    },
+    {
+      "ts": "2026-07-07T22:00:34.003Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T22:00:34.003Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:00:34.005Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:00:34.492Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4MYC93Ml"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:00:34.682Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:00:34.735Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:00:41.136Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:01:11.951Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T22:01:11.951Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes (e.g., bullish M5 vs bearish M15, or mixed EMA/RSI/BB signals). Recent session has 6 losses in last 10 trades with choppy price action. Best to wait for clearer multi-timeframe alignment."
       }
     }
   ],
