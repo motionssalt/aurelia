@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T09:16:55.524Z",
-  "balance": 9874.47,
+  "last_cycle": "2026-07-07T09:20:55.675Z",
+  "balance": 9871.97,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1715,74 +1715,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T06:55:15.275Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:55:15.587Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XUMRx3G3"
-      }
-    },
-    {
-      "ts": "2026-07-07T06:55:15.692Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T06:55:15.786Z",
-      "level": "info",
-      "msg": "News Mode: position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4491298979,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T06:31:49.874Z",
-        "event_title": "French Trade Balance",
-        "event_bundle": [
-          "French Trade Balance"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-07T06:55:15.787Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:00:44.769Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T07:00:44.769Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:00:44.771Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:00:45.300Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yCuXigNw"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:00:45.680Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T07:00:46.449Z",
       "level": "info",
       "msg": "News Mode: position open â waiting for settlement",
@@ -3128,6 +3060,92 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4505741219
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:31.798Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T09:20:31.798Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:31.800Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:20:32.259Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1XlOCc1K"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:32.478Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:20:33.119Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 3,
+        "titles": [
+          "BOE Financial Stability Report",
+          "FPC Meeting Minutes",
+          "FPC Statement"
+        ],
+        "countries": [
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 9
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:34.043Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:20:55.673Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURGBP",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:55.674Z",
+      "level": "info",
+      "msg": "News Mode: trade blocked by symbol conflict",
+      "meta": {
+        "symbol": "frxEURGBP",
+        "conflict_kind": "pending",
+        "conflict_by": "cycle"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:20:55.675Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4505741219,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-07T09:16:55.523Z"
       }
     }
   ],
