@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T22:01:11.951Z",
+  "last_cycle": "2026-07-07T22:06:33.105Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,117 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T20:15:21.542Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:15:22.051Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9cXnA5q1"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:22.334Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:15:22.419Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "API Weekly Statistical Bulletin"
-        ],
-        "countries": [
-          "USD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:24.892Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:15:43.860Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:43.861Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The upcoming API Weekly Statistical Bulletin is a low-impact USD event that historically does not produce a clear directional edge. reliable directional move. None of the USD pairs (frxEURUSD, frxGBPUSD, frxUSDJPY, frxAUDUSD, frxUSDCAD, frxUSDCHF, frxNZDUSD) show a news-driven setup with sufficient conviction to justify a trade. Technicals are mixed and the event's low impact means any reaction will likely be noise. Therefore, I am skipping this event."
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:51.839Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:15:59.506Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0.1
-      }
-    },
-    {
-      "ts": "2026-07-07T20:15:59.506Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. Multiple symbols show conflicting signals across timeframes (e.g., EURUSD M5 RSI rising but M10/M15 falling, USDJPY bullish EMAs but RSI overbought on M10, GBPUSD bearish M5 but recent win may indicate exhaustion). Session has 6 losses in last 10 trades with -9.2 PnL, capital at 90.8. Forcing a trade risks further drawdown. Best to wait for clearer multi-timeframe alignment."
-      }
-    },
-    {
-      "ts": "2026-07-07T20:20:42.514Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T20:20:42.514Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:20:42.516Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:20:42.972Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=j5SqJ1WV"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:20:43.324Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T20:20:43.379Z",
       "level": "info",
       "msg": "Fetching ForexFactory calendar...",
@@ -3536,6 +3425,105 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes (e.g., bullish M5 vs bearish M15, or mixed EMA/RSI/BB signals). Recent session has 6 losses in last 10 trades with choppy price action. Best to wait for clearer multi-timeframe alignment."
+      }
+    },
+    {
+      "ts": "2026-07-07T22:05:16.796Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T22:05:16.796Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:05:16.798Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:05:17.202Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=vDT7a9rF"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:05:17.337Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:05:17.434Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:05:22.498Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:06:32.100Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.72
+      }
+    },
+    {
+      "ts": "2026-07-07T22:06:32.101Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "WS not open (state=3)"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:06:32.102Z",
+      "level": "warn",
+      "msg": "Deriv: WS was stale before trade placement (state=3) — reconnecting before placing order",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:06:32.102Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:06:32.375Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ESCiQdTt"
+      }
+    },
+    {
+      "ts": "2026-07-07T22:06:32.502Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:06:32.502Z",
+      "level": "network",
+      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T22:06:32.567Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "ContractBuyValidationError: Trading on forex contracts with duration less than 5 hours is not available from 21:00:00 to 23:59:59",
+        "stack": "Error: ContractBuyValidationError: Trading on forex contracts with duration less than 5 hours is not available from 21:00:00 to 23:59:59\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
       }
     }
   ],
