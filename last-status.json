@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T03:20:48.135Z",
+  "last_cycle": "2026-07-07T03:26:35.657Z",
   "balance": 9878.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 100.75,
+    "capital_remaining": 98.25,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 7,
@@ -1659,7 +1659,19 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4479832399,
+      "path": "news",
+      "symbol": "frxAUDJPY",
+      "placed_at": "2026-07-07T03:26:35.656Z",
+      "expiry_sec": 1800,
+      "event_title": "30-y Bond Auction",
+      "event_bundle": [
+        "30-y Bond Auction"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1669,120 +1681,6 @@
     "GEMINI_KEY_2": 1783331721168
   },
   "logs": [
-    {
-      "ts": "2026-07-07T00:45:15.268Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T00:45:15.268Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:45:15.270Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:45:15.647Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=y80PT4Ty"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:45:15.765Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:45:15.794Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:45:15.795Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:50:36.714Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T00:50:36.714Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:50:36.716Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:50:37.034Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rfjz5pTG"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:50:37.363Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:50:37.478Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:50:37.479Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:55:21.745Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T00:55:21.745Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:55:21.747Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:55:22.231Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QPurd7mJ"
-      }
-    },
-    {
-      "ts": "2026-07-07T00:55:22.586Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T00:55:22.698Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T00:55:22.699Z",
       "level": "info",
@@ -3020,6 +2918,145 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:23.758Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T03:25:23.757Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:23.760Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:24.279Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Esk1zRVJ"
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:24.653Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:24.752Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:24.802Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:24.802Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:24.803Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "30-y Bond Auction"
+        ],
+        "countries": [
+          "JPY"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 10
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:40.391Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxAUDJPY",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:40.469Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:41.079Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxAUDJPY CALL",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.31,
+        "spot": 112.475
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:42.311Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4479832399",
+      "meta": {
+        "transaction_id": 8754425039,
+        "longcode": "Win payout if AUD/JPY is strictly higher than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-07T03:25:42.843Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxAUDJPY @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:43.004Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:25:46.835Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T03:26:35.656Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4479832399
+      }
+    },
+    {
+      "ts": "2026-07-07T03:26:35.657Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3586,9 +3623,37 @@
         "BOC Business Outlook Survey"
       ],
       "exit": 1.62348
+    },
+    {
+      "ts": "2026-07-07T03:26:35.656Z",
+      "path": "news",
+      "symbol": "frxAUDJPY",
+      "direction": "call",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.65,
+      "rationale": "The market for JPY pairs, particularly frxAUDJPY, is extremely oversold on M5/M15 (price outside lower BB, RSI ~21-25). While the upcoming 30-y Bond Auction is low impact, a neutral or slightly weaker-than-expected auction outcome could trigger a short-term JPY weakening, leading to a bullish bounce from these extreme oversold conditions.",
+      "contract_id": 4479832399,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 112.475,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "30-y Bond Auction",
+      "event_bundle": [
+        "30-y Bond Auction"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4479832399,
+    "symbol": "frxAUDJPY",
+    "placed_at": "2026-07-07T03:26:35.656Z",
+    "event_title": "30-y Bond Auction",
+    "event_bundle": [
+      "30-y Bond Auction"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
@@ -4192,9 +4257,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783391115458,
+  "_calendar_last_fetch": 1783394724752,
   "_calendar_fetch_history": [
-    1783391115458
+    1783394724752
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
