@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T09:20:55.675Z",
+  "last_cycle": "2026-07-07T09:25:19.442Z",
   "balance": 9871.97,
   "currency": "USD",
   "account_mode": "demo",
@@ -1715,72 +1715,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T07:00:46.449Z",
-      "level": "info",
-      "msg": "News Mode: position open â waiting for settlement",
-      "meta": {
-        "contract_id": 4491298979,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T06:31:49.874Z",
-        "event_title": "French Trade Balance",
-        "event_bundle": [
-          "French Trade Balance"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-07T07:00:46.449Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:05:22.551Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T07:05:22.551Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:05:22.554Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:05:23.107Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YMHuwmEL"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:05:23.439Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:05:31.419Z",
-      "level": "info",
-      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:05:31.419Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:05:31.420Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T07:10:34.903Z",
       "level": "info",
       "msg": "Tick start",
@@ -3140,6 +3074,88 @@
     },
     {
       "ts": "2026-07-07T09:20:55.675Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4505741219,
+        "symbol": "frxEURGBP",
+        "placed_at": "2026-07-07T09:16:55.523Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:14.509Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T09:25:14.508Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:14.511Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:25:14.842Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zq24M52R"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:14.955Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:25:15.552Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 3,
+        "titles": [
+          "BOE Financial Stability Report",
+          "FPC Meeting Minutes",
+          "FPC Statement"
+        ],
+        "countries": [
+          "GBP"
+        ],
+        "impacts": [
+          "Low",
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:16.316Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:25:19.441Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:19.441Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The three simultaneous GBP events (BOE Financial Stability Report, FPC Meeting Minutes, FPC Statement) are all low-impact and likely to produce conflicting or muted signals with no clear net directional edge for GBP pairs. Technicals on frxEURGBP show bearish continuation but the news catalyst is too weak to reliably amplify the move; frxGBPUSD and frxGBPJPY show mixed/neutral structures. Without a high-impact or clearly directional release, the risk of whipsaw outweighs any edge."
+      }
+    },
+    {
+      "ts": "2026-07-07T09:25:19.442Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
