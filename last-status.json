@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T06:25:24.759Z",
+  "last_cycle": "2026-07-07T06:31:49.874Z",
   "balance": 9869.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-03T21:45:48.740Z",
     "capital_start": 100,
-    "capital_remaining": 91.75,
+    "capital_remaining": 89.25,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 10,
@@ -1659,7 +1659,19 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4491298979,
+      "path": "news",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-07T06:31:49.874Z",
+      "expiry_sec": 1800,
+      "event_title": "French Trade Balance",
+      "event_bundle": [
+        "French Trade Balance"
+      ]
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1669,98 +1681,6 @@
     "GEMINI_KEY_1": 1783412116857
   },
   "logs": [
-    {
-      "ts": "2026-07-07T04:05:21.079Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:05:21.188Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:05:21.188Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:10:40.681Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:10:40.681Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:10:40.684Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:10:41.245Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CJyeviiJ"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:10:41.586Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:10:41.684Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:10:41.685Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:15:19.734Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:15:19.734Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:15:19.738Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:15:20.248Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Dvddbwor"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:15:20.592Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:15:20.694Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T04:15:20.695Z",
       "level": "info",
@@ -3157,6 +3077,122 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:30:36.819Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T06:30:36.819Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:36.821Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:30:37.230Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zYa1zVUf"
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:37.438Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:30:37.500Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "French Trade Balance"
+        ],
+        "countries": [
+          "EUR"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 14
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:58.610Z",
+      "level": "info",
+      "msg": "AI decision via gemini key \"GEMINI_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.6
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:58.661Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:58.780Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD PUT",
+      "meta": {
+        "stake": 2.5,
+        "price": 2.5,
+        "payout": 4.17,
+        "spot": 1.14294
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:59.368Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4491298979",
+      "meta": {
+        "transaction_id": 8776301299,
+        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-07T06:30:59.794Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:30:59.902Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:31:01.648Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T06:31:49.873Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4491298979
+      }
+    },
+    {
+      "ts": "2026-07-07T06:31:49.874Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -3814,9 +3850,37 @@
         "Halifax HPI m/m"
       ],
       "exit": 1.14303
+    },
+    {
+      "ts": "2026-07-07T06:31:49.874Z",
+      "path": "news",
+      "symbol": "frxEURUSD",
+      "direction": "put",
+      "stake": 2.5,
+      "expiry_sec": 1800,
+      "confidence": 0.6,
+      "rationale": "The French Trade Balance forecast indicates a larger deficit, which is fundamentally bearish for the EUR. Given frxEURUSD's strong existing bearish trend, characterized by falling EMAs, EMA50 above EMA20, and price consistently in the lower Bollinger Band across M5, M10, and M15 timeframes, a negative outcome from the 'French Trade Balance' event is likely to reinforce this downward pressure, supporting a put trade.",
+      "contract_id": 4491298979,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14295,
+      "pnl": 0,
+      "ai_outcome_note": null,
+      "event_title": "French Trade Balance",
+      "event_bundle": [
+        "French Trade Balance"
+      ]
     }
   ],
-  "news_open_position": null,
+  "news_open_position": {
+    "contract_id": 4491298979,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-07T06:31:49.874Z",
+    "event_title": "French Trade Balance",
+    "event_bundle": [
+      "French Trade Balance"
+    ]
+  },
   "news_scheduled_intents": [],
   "calendar_data": [
     {
