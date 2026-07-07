@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T11:12:06.467Z",
-  "balance": 9870.06,
+  "last_cycle": "2026-07-07T11:15:22.474Z",
+  "balance": 9868.56,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1766,52 +1766,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T09:25:16.316Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:25:19.441Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:25:19.441Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The three simultaneous GBP events (BOE Financial Stability Report, FPC Meeting Minutes, FPC Statement) are all low-impact and likely to produce conflicting or muted signals with no clear net directional edge for GBP pairs. Technicals on frxEURGBP show bearish continuation but the news catalyst is too weak to reliably amplify the move; frxGBPUSD and frxGBPJPY show mixed/neutral structures. Without a high-impact or clearly directional release, the risk of whipsaw outweighs any edge."
-      }
-    },
-    {
-      "ts": "2026-07-07T09:25:19.442Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4505741219,
-        "symbol": "frxEURGBP",
-        "placed_at": "2026-07-07T09:16:55.523Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:30:41.788Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:30:41.788Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:30:41.789Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T09:30:42.275Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3290,6 +3244,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4516444639
+      }
+    },
+    {
+      "ts": "2026-07-07T11:15:21.360Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:15:21.359Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:15:21.362Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:15:21.885Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6dpGYtb3"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:15:22.155Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:15:22.473Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:15:22.474Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4516444639,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T11:12:06.467Z"
       }
     }
   ],
