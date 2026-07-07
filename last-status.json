@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T21:50:49.150Z",
+  "last_cycle": "2026-07-07T21:56:30.974Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,68 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T20:00:42.475Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4566392939,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T19:52:54.106Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:05:19.051Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T20:05:19.050Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:05:19.053Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:05:19.576Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TpTl7awb"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:05:19.946Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:05:20.616Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T20:05:20.616Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4566392939,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T19:52:54.106Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T20:10:36.286Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T20:10:36.286Z"
-      }
-    },
-    {
       "ts": "2026-07-07T20:10:36.288Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3539,6 +3477,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. EURUSD shows oversold RSI (27-36) with price in lower BB third across all timeframes but EMAs falling with EMA50 above EMA20 widening - mixed signals. GBPUSD has evening star on M15 but RSI neutral-rising and price in lower BB third. USDJPY shows strong uptrend but price in upper BB third (0.84-0.89) with doji patterns suggesting exhaustion. Other pairs lack clear directional confluence with conflicting EMA/RSI/BB signals. Recent session shows 6 losses in last 10 trades with choppy outcomes. Capital remaining 91.66, distance to stop-loss 11.66 - preserving capital is priority."
+      }
+    },
+    {
+      "ts": "2026-07-07T21:55:26.529Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T21:55:26.529Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:55:26.531Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:55:27.088Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rT4F456b"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:55:27.439Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:55:27.549Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:55:37.441Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T21:56:30.973Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T21:56:30.973Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. Most pairs show conflicting signals across timeframes (e.g., EURUSD bearish EMAs but RSI divergence, GBPUSD hammer on M5 but evening star on M15, USDJPY bullish trend but at upper BB with doji). Recent session performance (13W/15L, -8.34 PnL) and mixed outcomes suggest choppy conditions. Capital preservation favored over forced entry."
       }
     }
   ],
