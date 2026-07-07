@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T11:00:42.906Z",
+  "last_cycle": "2026-07-07T11:05:34.812Z",
   "balance": 9870.06,
   "currency": "USD",
   "account_mode": "demo",
@@ -1738,76 +1738,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T09:15:41.827Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:16:02.271Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURGBP",
-        "conf": 0.78
-      }
-    },
-    {
-      "ts": "2026-07-07T09:16:02.375Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T09:16:02.958Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURGBP PUT",
-      "meta": {
-        "stake": 2.5,
-        "price": 2.5,
-        "payout": 4.12,
-        "spot": 0.85346
-      }
-    },
-    {
-      "ts": "2026-07-07T09:16:04.077Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4505741219",
-      "meta": {
-        "transaction_id": 8803608539,
-        "longcode": "Win payout if EUR/GBP is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T09:16:04.603Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURGBP @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:16:04.746Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:16:06.657Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:16:55.523Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4505741219
-      }
-    },
-    {
       "ts": "2026-07-07T09:20:31.798Z",
       "level": "info",
       "msg": "Tick start",
@@ -3297,6 +3227,73 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 56610
+      }
+    },
+    {
+      "ts": "2026-07-07T11:05:15.680Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:05:15.680Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:05:15.684Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:05:16.006Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qtZgeXZx"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:05:16.121Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:05:16.165Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:05:21.454Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:05:34.446Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.65
+      }
+    },
+    {
+      "ts": "2026-07-07T11:05:34.461Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T11:05:34.496Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "ContractBuyValidationError: Please enter a stake amount that's at least 0.50.",
+        "stack": "Error: ContractBuyValidationError: Please enter a stake amount that's at least 0.50.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
       }
     }
   ],
