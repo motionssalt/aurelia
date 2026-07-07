@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T20:22:05.570Z",
-  "balance": 9863.46,
+  "last_cycle": "2026-07-07T20:25:52.045Z",
+  "balance": 9861.96,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -2068,86 +2068,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_1": 1783453842127
+    "OPENROUTER_KEY_2": 1783464916572
   },
   "logs": [
-    {
-      "ts": "2026-07-07T18:30:57.058Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Market conditions show mixed signals with contracting ATR, narrowing EMA crosses, and RSI mostly neutral. Recent session has 5 consecutive losses, indicating unfavorable conditions. Best to wait for clearer directional bias and stronger confluence."
-      }
-    },
-    {
-      "ts": "2026-07-07T18:35:25.568Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T18:35:25.567Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T18:35:25.570Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:35:26.083Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=gv2HVRQ5"
-      }
-    },
-    {
-      "ts": "2026-07-07T18:35:26.404Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:35:26.513Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:35:35.840Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:36:15.390Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-07T18:36:15.484Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T18:36:16.060Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.61,
-        "spot": 1.14284
-      }
-    },
     {
       "ts": "2026-07-07T18:36:16.334Z",
       "level": "trade",
@@ -3544,6 +3467,90 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4569406179
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:13.447Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T20:25:13.447Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:13.449Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:25:13.854Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=X9VkyiBz"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:13.964Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:25:14.068Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "API Weekly Statistical Bulletin"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 5
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:16.572Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:25:16.852Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:52.044Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:25:52.044Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:25:52.045Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4569406179,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T20:22:05.569Z"
       }
     }
   ],
