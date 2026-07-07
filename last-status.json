@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T06:55:15.787Z",
+  "last_cycle": "2026-07-07T07:00:46.450Z",
   "balance": 9867.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -1682,58 +1682,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T04:40:37.088Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:45:17.741Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T04:45:17.741Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:45:17.743Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:45:18.247Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ECmBlWRq"
-      }
-    },
-    {
-      "ts": "2026-07-07T04:45:18.596Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T04:45:18.697Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Leading Indicators"
-        ],
-        "countries": [
-          "JPY"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
       "ts": "2026-07-07T04:45:30.826Z",
       "level": "info",
       "msg": "AI decision via gemini key \"GEMINI_KEY_1\"",
@@ -3230,6 +3178,54 @@
     },
     {
       "ts": "2026-07-07T06:55:15.787Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:00:44.769Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T07:00:44.769Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T07:00:44.771Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:00:45.300Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yCuXigNw"
+      }
+    },
+    {
+      "ts": "2026-07-07T07:00:45.680Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T07:00:46.449Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4491298979,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T06:31:49.874Z",
+        "event_title": "French Trade Balance",
+        "event_bundle": [
+          "French Trade Balance"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T07:00:46.449Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
