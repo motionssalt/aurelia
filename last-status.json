@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T18:10:32.782Z",
+  "last_cycle": "2026-07-07T18:15:31.293Z",
   "balance": 9864.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 91.59,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 22,
+    "trades": 23,
     "wins": 10,
-    "losses": 12,
-    "pnl": -6.91,
+    "losses": 13,
+    "pnl": -8.41,
     "win_streak": 0,
-    "loss_streak": 4,
+    "loss_streak": 5,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4554896979,
-    "symbol": "frxGBPJPY",
-    "placed_at": "2026-07-07T17:56:33.810Z"
-  },
-  "next_cycle_eligible_at": 1783446381503,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783448187627,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1771,11 +1767,12 @@
       "confidence": 0.68,
       "rationale": "Strong bearish confluence on frxGBPJPY: M15 evening star reversal pattern at resistance (216.838) with price in upper BB third (percentile 0.73), EMA50 above EMA20 widening bearish cross, both EMAs falling. M10 confirms price in upper BB (0.81) with EMA50 above EMA20 narrowing, RSI neutral-falling. M5 shows price at upper BB (0.70) with EMA50 above EMA20 narrowing, RSI neutral-falling. Contracting ATR across all timeframes supports directional move. Recent session losses on counter-trend calls suggest avoiding mean reversion; this aligns with bearish trend continuation from resistance.",
       "contract_id": 4554896979,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 216.506,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price immediately rallied above entry (216.506) and sustained above 216.50, invalidating the bearish thesis and causing the put to expire worthless.",
+      "exit": 216.535
     }
   ],
   "trade_history_manual": [
@@ -1968,15 +1965,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4554896979,
-      "path": "cycle",
-      "symbol": "frxGBPJPY",
-      "placed_at": "2026-07-07T17:56:33.810Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1986,89 +1975,6 @@
     "OPENROUTER_KEY_1": 1783453842127
   },
   "logs": [
-    {
-      "ts": "2026-07-07T16:11:00.983Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 75,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:11:00.984Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:11:00.984Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4544964799,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-07T16:02:13.165Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:15:15.135Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T16:15:15.135Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:15:15.137Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:15:15.620Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aF9dWxTn"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:15:15.765Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:15:16.328Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T16:15:16.328Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4544964799,
-        "symbol": "frxEURCAD",
-        "placed_at": "2026-07-07T16:02:13.165Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:20:40.982Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T16:20:40.982Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T16:20:40.984Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T16:20:41.547Z",
       "level": "network",
@@ -3436,14 +3342,91 @@
         "symbol": "frxGBPJPY",
         "placed_at": "2026-07-07T17:56:33.810Z"
       }
+    },
+    {
+      "ts": "2026-07-07T18:15:26.704Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T18:15:26.704Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:15:26.706Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:27.057Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=f2Imv1FG"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:15:27.380Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:28.437Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:31.122Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:31.123Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:31.291Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T18:15:31.291Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T18:15:31.292Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T18:15:31.292Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 56335
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 26,
+    "trades": 27,
     "wins": 11,
-    "losses": 15,
-    "pnl": -14.24,
+    "losses": 16,
+    "pnl": -15.74,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3500,6 +3483,12 @@
         "pnl": -1.5
       },
       "frxGBPCAD": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
+      },
+      "frxGBPJPY": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
@@ -4868,9 +4857,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783444527148,
+  "_calendar_last_fetch": 1783448131123,
   "_calendar_fetch_history": [
-    1783444527148
+    1783448131123
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
