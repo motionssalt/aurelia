@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T11:30:36.371Z",
+  "last_cycle": "2026-07-07T11:35:17.725Z",
   "balance": 9868.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -1766,51 +1766,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T09:40:50.710Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:41:15.711Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-07T09:41:15.712Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (e.g., M5 vs M15 trend disagreements, RSI neutral zones, price in middle Bollinger Bands). Recent session performance (5 wins, 6 losses) and current loss streak of 1 suggest caution. No clear directional edge with confluence across M5/M10/M15 for any symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T09:45:21.197Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T09:45:21.196Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:45:21.199Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:45:21.748Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HIFISg3k"
-      }
-    },
-    {
       "ts": "2026-07-07T09:45:22.049Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3288,6 +3243,50 @@
     },
     {
       "ts": "2026-07-07T11:30:36.370Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4516444639,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T11:12:06.467Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:35:16.480Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:35:16.479Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:35:16.482Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:35:16.984Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ybNgm22i"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:35:17.166Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:35:17.724Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:35:17.724Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
