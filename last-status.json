@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T16:25:38.878Z",
+  "last_cycle": "2026-07-07T16:32:19.928Z",
   "balance": 9870.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 97.59,
+    "capital_remaining": 96.09,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 19,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4547646459,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-07T16:32:19.928Z"
+  },
   "next_cycle_eligible_at": 1783441302069,
   "trade_history_cycle": [
     {
@@ -1705,6 +1709,22 @@
       "pnl": -1.5,
       "ai_outcome_note": "Price initially rose but then declined steadily below entry, breaking key support at 1.62114 and continuing lower to exit at 1.62064, invalidating the mean reversion thesis.",
       "exit": 1.62064
+    },
+    {
+      "ts": "2026-07-07T16:32:19.928Z",
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "direction": "put",
+      "stake": 1.5,
+      "expiry_sec": 900,
+      "confidence": 0.78,
+      "rationale": "Strong bearish confluence across M5/M10/M15: price in lower BB third (M5: 0.12, M10: 0.09, M15: 0.03), falling EMAs with EMA50 above EMA20 widening on M5/M15, RSI oversold/neutral-falling, contracting ATR. Price at 1.14188 near support 1.14181 with resistance at 1.14315. Recent put wins at 14:51/15:22 confirm bearish structure. 15m expiry aligns with M15 timeframe.",
+      "contract_id": 4547646459,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14196,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1897,7 +1917,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4547646459,
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-07T16:32:19.928Z",
+      "expiry_sec": 900
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1907,114 +1935,6 @@
     "OPENROUTER_KEY_1": 1783449043377
   },
   "logs": [
-    {
-      "ts": "2026-07-07T14:40:36.304Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:41:03.188Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxNZDUSD",
-        "conf": 0.55
-      }
-    },
-    {
-      "ts": "2026-07-07T14:41:03.254Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T14:41:03.866Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxNZDUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.52,
-        "spot": 0.56887
-      }
-    },
-    {
-      "ts": "2026-07-07T14:41:04.461Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4536903379",
-      "meta": {
-        "transaction_id": 8862568699,
-        "longcode": "Win payout if NZD/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T14:41:04.920Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:41:05.038Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:41:06.842Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:41:55.874Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4536903379
-      }
-    },
-    {
-      "ts": "2026-07-07T14:41:55.875Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4535372359,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T14:27:10.733Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:45:22.895Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T14:45:22.895Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:45:22.897Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:45:23.401Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=30IUDVNT"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:45:23.719Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T14:45:25.168Z",
       "level": "warn",
@@ -3433,6 +3353,110 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols. EURUSD shows oversold RSI (28) and price outside lower BB on M15, but EMAs remain bearish (EMA50 > EMA20 widening) with falling slopes across M5/M10/M15. GBPUSD similar bearish structure. USDJPY bullish engulfing on M15 but price in upper BB (percentile 0.73) with overbought risk. EURJPY oversold on M15 but strong downtrend intact. CHFJPY oversold RSI (27) with price outside lower BB on M15, but EMAs falling and bearish cross widening. CADJPY morning star on M5 but RSI neutral-falling and price middle BB. Recent session shows 4 losses in last 6 trades with choppy EURUSD behavior. Capital at 97.59, distance to stop-loss 17.59. Better to preserve capital and wait for clearer trend alignment or reversal confirmation."
+      }
+    },
+    {
+      "ts": "2026-07-07T16:30:46.333Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T16:30:46.333Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T16:30:46.335Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:30:46.896Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=GGWY8ZsV"
+      }
+    },
+    {
+      "ts": "2026-07-07T16:30:47.203Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:30:47.306Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:30:56.496Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:31:27.268Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.78
+      }
+    },
+    {
+      "ts": "2026-07-07T16:31:27.349Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T16:31:27.474Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD PUT",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.57,
+        "spot": 1.14196
+      }
+    },
+    {
+      "ts": "2026-07-07T16:31:27.761Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4547646459",
+      "meta": {
+        "transaction_id": 8883041559,
+        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-07T16:31:28.367Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:31:28.508Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:31:31.457Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T16:32:19.928Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4547646459
       }
     }
   ],
