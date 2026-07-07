@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T05:50:37.050Z",
+  "last_cycle": "2026-07-07T05:55:19.319Z",
   "balance": 9869.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -1683,54 +1683,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T03:30:41.251Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4479832399,
-        "symbol": "frxAUDJPY",
-        "placed_at": "2026-07-07T03:26:35.656Z",
-        "event_title": "30-y Bond Auction",
-        "event_bundle": [
-          "30-y Bond Auction"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-07T03:30:41.251Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T03:35:16.882Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T03:35:16.881Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T03:35:16.884Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T03:35:17.403Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UB2L5hBi"
-      }
-    },
-    {
-      "ts": "2026-07-07T03:35:17.645Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T03:35:18.248Z",
       "level": "info",
       "msg": "News Mode: position open — waiting for settlement",
@@ -3173,6 +3125,55 @@
     },
     {
       "ts": "2026-07-07T05:50:37.050Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:55:18.188Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T05:55:18.188Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T05:55:18.190Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:55:18.775Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=T5Y1uzS1"
+      }
+    },
+    {
+      "ts": "2026-07-07T05:55:19.085Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:55:19.318Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4488006079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T05:46:27.466Z",
+        "event_title": "German Industrial Production m/m",
+        "event_bundle": [
+          "German Industrial Production m/m",
+          "Halifax HPI m/m"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T05:55:19.319Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
