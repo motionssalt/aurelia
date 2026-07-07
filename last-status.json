@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T11:55:19.980Z",
+  "last_cycle": "2026-07-07T12:00:48.894Z",
   "balance": 9869.65,
   "currency": "USD",
   "account_mode": "demo",
@@ -1783,68 +1783,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T10:05:24.163Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:05:24.963Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:05:24.963Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4508990639,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T09:52:37.931Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:10:34.142Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T10:10:34.142Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:10:34.145Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:10:34.631Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=igtBVd1W"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:10:34.812Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:10:35.456Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:10:37.168Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T10:10:37.169Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3301,6 +3239,88 @@
     },
     {
       "ts": "2026-07-07T11:55:19.980Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4520114079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T11:52:02.583Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:37.997Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T12:00:37.997Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:38.000Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:00:38.388Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FCFeosXK"
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:38.519Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:00:39.028Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 2,
+        "titles": [
+          "ADP Weekly Employment Change",
+          "ADP Weekly Employment Change"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low",
+          "Low"
+        ],
+        "minutes_until": 13
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:40.571Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T12:00:48.893Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "symbol": "",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:48.893Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "Both ADP Weekly Employment Change events are low-impact with no forecast provided, making directional bias indeterminate; simultaneous identical releases create conflicting noise rather than a clear edge, so skipping is warranted."
+      }
+    },
+    {
+      "ts": "2026-07-07T12:00:48.894Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
