@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T22:55:20.633Z",
+  "last_cycle": "2026-07-07T23:00:34.370Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2062,48 +2062,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T21:20:32.600Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:20:37.434Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T21:21:09.136Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:21:09.136Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. Recent session shows 6 losses in last 10 trades with choppy, conflicting signals across symbols. EURUSD has mixed signals (M5 RSI rising but price outside lower BB, M10/M15 bearish). GBPUSD M5 shows oversold bounce potential but M10/M15 remain bearish. USDJPY bullish structure but recent call loss at resistance. Cross-pairs (EURGBP, GBPAUD, GBPCHF) show expanding ATR with indecision patterns (doji, outside BB). Volatility expansion without clear directional conviction across majors. Best to preserve capital and wait for cleaner multi-timeframe alignment."
-      }
-    },
-    {
-      "ts": "2026-07-07T21:25:17.527Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T21:25:17.526Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T21:25:17.529Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T21:25:17.979Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3469,6 +3427,56 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
+      }
+    },
+    {
+      "ts": "2026-07-07T23:00:33.040Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T23:00:33.040Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T23:00:33.042Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T23:00:33.557Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zu17QkV2"
+      }
+    },
+    {
+      "ts": "2026-07-07T23:00:33.837Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T23:00:33.918Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-06",
+        "trades": 7,
+        "wins": 5,
+        "losses": 2,
+        "pnl": 0.75,
+        "source": "daily_history"
+      }
+    },
+    {
+      "ts": "2026-07-07T23:00:34.370Z",
+      "level": "info",
+      "msg": "daily_stats already advanced past reported day — leaving intact",
+      "meta": {
+        "current": "2026-07-07",
+        "reported": "2026-07-06"
       }
     }
   ],
