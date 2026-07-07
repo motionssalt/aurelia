@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T11:52:02.584Z",
-  "balance": 9871.15,
+  "last_cycle": "2026-07-07T11:55:19.980Z",
+  "balance": 9869.65,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1783,72 +1783,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T10:00:41.700Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T10:00:41.700Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:00:41.703Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:00:42.057Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Fc6xCI85"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:00:42.385Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:00:43.143Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:00:43.143Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4508990639,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T09:52:37.931Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:05:23.363Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T10:05:23.363Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T10:05:23.365Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T10:05:23.841Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ukoZA8DF"
-      }
-    },
-    {
       "ts": "2026-07-07T10:05:24.163Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3307,6 +3241,73 @@
       "meta": {
         "contract_id": 4520114079
       }
+    },
+    {
+      "ts": "2026-07-07T11:55:18.959Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:55:18.958Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:55:18.961Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:55:19.295Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6PqjzTAz"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:55:19.416Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:55:19.921Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:55:19.978Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 75
+      }
+    },
+    {
+      "ts": "2026-07-07T11:55:19.978Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 75,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:55:19.979Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:55:19.980Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4520114079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T11:52:02.583Z"
+      }
     }
   ],
   "daily_stats": {
@@ -4624,9 +4625,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783421715911,
+  "_calendar_last_fetch": 1783425319921,
   "_calendar_fetch_history": [
-    1783421715911
+    1783425319921
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
