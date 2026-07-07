@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T09:35:22.526Z",
+  "last_cycle": "2026-07-07T09:41:15.712Z",
   "balance": 9871.97,
   "currency": "USD",
   "account_mode": "demo",
@@ -1704,58 +1704,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T07:20:32.532Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:20:32.569Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:20:32.569Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:25:14.067Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T07:25:14.067Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:25:14.070Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:25:14.401Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wAme29aA"
-      }
-    },
-    {
-      "ts": "2026-07-07T07:25:14.544Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T07:25:14.577Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T07:25:14.577Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3155,6 +3103,63 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 56884
+      }
+    },
+    {
+      "ts": "2026-07-07T09:40:39.926Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T09:40:39.926Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:40:39.929Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:40:40.463Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oqqvS7KD"
+      }
+    },
+    {
+      "ts": "2026-07-07T09:40:40.792Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:40:40.894Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:40:50.710Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T09:41:15.711Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T09:41:15.712Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (e.g., M5 vs M15 trend disagreements, RSI neutral zones, price in middle Bollinger Bands). Recent session performance (5 wins, 6 losses) and current loss streak of 1 suggest caution. No clear directional edge with confluence across M5/M10/M15 for any symbol."
       }
     }
   ],
