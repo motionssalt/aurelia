@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T05:46:27.467Z",
-  "balance": 9874.9,
+  "last_cycle": "2026-07-07T05:50:37.050Z",
+  "balance": 9869.9,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1683,48 +1683,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T03:26:35.656Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4479832399
-      }
-    },
-    {
-      "ts": "2026-07-07T03:26:35.657Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T03:30:39.896Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T03:30:39.896Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T03:30:39.898Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T03:30:40.291Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zaMmq4lT"
-      }
-    },
-    {
-      "ts": "2026-07-07T03:30:40.588Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T03:30:41.251Z",
       "level": "info",
       "msg": "News Mode: position open — waiting for settlement",
@@ -3166,6 +3124,55 @@
     },
     {
       "ts": "2026-07-07T05:46:27.466Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:50:35.893Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T05:50:35.893Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T05:50:35.895Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:50:36.352Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2KkFZtvD"
+      }
+    },
+    {
+      "ts": "2026-07-07T05:50:36.680Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T05:50:37.049Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4488006079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T05:46:27.466Z",
+        "event_title": "German Industrial Production m/m",
+        "event_bundle": [
+          "German Industrial Production m/m",
+          "Halifax HPI m/m"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T05:50:37.050Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
