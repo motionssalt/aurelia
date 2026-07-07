@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-07T15:41:35.615Z",
-  "balance": 9868.06,
+  "last_cycle": "2026-07-07T15:45:23.872Z",
+  "balance": 9866.56,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -1913,46 +1913,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T14:00:49.151Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:00:49.775Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-07T14:00:49.776Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:00:51.417Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:00:51.418Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T14:00:51.454Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 75
-      }
-    },
-    {
       "ts": "2026-07-07T14:00:51.454Z",
       "level": "info",
       "msg": "Calendar refreshed",
@@ -3463,6 +3423,58 @@
     },
     {
       "ts": "2026-07-07T15:41:35.614Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4541111739,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-07T15:22:34.505Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:45:21.959Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T15:45:21.959Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:45:21.963Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:45:22.471Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3jK7iTYd"
+      }
+    },
+    {
+      "ts": "2026-07-07T15:45:22.679Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T15:45:23.870Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4542995999,
+        "symbol": "frxNZDUSD",
+        "placed_at": "2026-07-07T15:41:35.614Z",
+        "event_title": "GDT Price Index",
+        "event_bundle": [
+          "GDT Price Index"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T15:45:23.871Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
