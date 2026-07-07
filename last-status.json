@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T17:15:27.204Z",
+  "last_cycle": "2026-07-07T17:21:52.916Z",
   "balance": 9867.25,
   "currency": "USD",
   "account_mode": "demo",
@@ -1938,81 +1938,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_2": 1783453523587
+    "OPENROUTER_KEY_1": 1783453842127
   },
   "logs": [
-    {
-      "ts": "2026-07-07T15:21:45.193Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:22:34.505Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4541111739
-      }
-    },
-    {
-      "ts": "2026-07-07T15:25:16.056Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T15:25:16.056Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T15:25:16.059Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:25:16.431Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=kG16stLm"
-      }
-    },
-    {
-      "ts": "2026-07-07T15:25:16.551Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:25:17.206Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T15:25:17.206Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4541111739,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-07T15:22:34.505Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T15:30:42.055Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T15:30:42.054Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T15:30:42.056Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T15:30:42.577Z",
       "level": "network",
@@ -3440,6 +3368,77 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 55742
+      }
+    },
+    {
+      "ts": "2026-07-07T17:20:32.385Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T17:20:32.385Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:20:32.388Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:20:32.894Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=m42uIsbd"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:20:33.249Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:20:33.339Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:20:42.130Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:20:44.240Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-07T17:20:44.241Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T17:21:52.916Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-07T17:21:52.916Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. All pairs show mixed/conflicting signals across timeframes with contracting ATR, narrowing EMA gaps, and RSI in neutral zones. Recent session shows 3 consecutive losses and 5 losses in last 7 trades, indicating poor market conditions for directional bets. Best course is to preserve capital and wait for clearer trend alignment."
       }
     }
   ],
