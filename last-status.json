@@ -1,30 +1,26 @@
 {
-  "last_cycle": "2026-07-07T11:40:31.389Z",
-  "balance": 9868.56,
+  "last_cycle": "2026-07-07T11:45:47.031Z",
+  "balance": 9871.15,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 95.9,
+    "capital_remaining": 98.49,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 5,
-    "wins": 2,
+    "trades": 6,
+    "wins": 3,
     "losses": 3,
-    "pnl": -2.6,
-    "win_streak": 0,
-    "loss_streak": 2,
+    "pnl": -1.51,
+    "win_streak": 1,
+    "loss_streak": 0,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4516444639,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-07T11:12:06.467Z"
-  },
-  "next_cycle_eligible_at": 1783422099516,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783424781965,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1550,11 +1546,12 @@
       "confidence": 0.65,
       "rationale": "M5 shows bullish structure: EMA20 above EMA50 (widening), both rising, RSI neutral-rising (59.6), price at upper BB (0.82) but with contracting ATR. M10/M15 show EMA50 above EMA20 narrowing with RSI neutral-rising, suggesting potential bullish crossover. Recent put loss at 10:26 indicates failed bearish continuation at resistance 1.14301. Price holding above EMAs on M5 with rising momentum favors call for mean reversion bounce.",
       "contract_id": 4516444639,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "win",
       "entry": 1.14335,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": 1.09,
+      "ai_outcome_note": "Price dipped below entry initially but found support near 1.14266, then rallied steadily above EMAs with rising momentum to close at 1.14351, confirming the bullish mean reversion thesis.",
+      "exit": 1.14351
     }
   ],
   "trade_history_manual": [
@@ -1747,15 +1744,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4516444639,
-      "path": "cycle",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-07T11:12:06.467Z",
-      "expiry_sec": 1800
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -1765,61 +1754,6 @@
     "OPENROUTER_KEY_2": 1783431040008
   },
   "logs": [
-    {
-      "ts": "2026-07-07T09:50:42.647Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:50:43.200Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zAhdanUa"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:50:43.483Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:50:43.579Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:50:43.664Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 75
-      }
-    },
-    {
-      "ts": "2026-07-07T09:50:43.664Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 75,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-07T09:50:43.665Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T09:50:53.105Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T09:51:43.970Z",
       "level": "info",
@@ -3295,14 +3229,68 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-07T11:12:06.467Z"
       }
+    },
+    {
+      "ts": "2026-07-07T11:45:20.808Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T11:45:20.807Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:45:20.810Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:45:21.381Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=qndRJTkk"
+      }
+    },
+    {
+      "ts": "2026-07-07T11:45:21.722Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:45:22.670Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:45:47.029Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:45:47.030Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T11:45:47.030Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 34935
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-07",
-    "trades": 9,
-    "wins": 3,
+    "trades": 10,
+    "wins": 4,
     "losses": 6,
-    "pnl": -9.93,
+    "pnl": -8.84,
     "by_symbol": {
       "frxAUDJPY": {
         "trades": 1,
@@ -3317,10 +3305,10 @@
         "pnl": -1.5
       },
       "frxEURUSD": {
-        "trades": 4,
-        "wins": 2,
+        "trades": 5,
+        "wins": 3,
         "losses": 2,
-        "pnl": -3.74
+        "pnl": -2.65
       },
       "frxEURGBP": {
         "trades": 2,
