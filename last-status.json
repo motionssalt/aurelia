@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T20:45:38.510Z",
+  "last_cycle": "2026-07-07T20:51:10.640Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,76 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T19:00:45.232Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3957b5xQ"
-      }
-    },
-    {
-      "ts": "2026-07-07T19:00:45.513Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:00:45.598Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:00:53.781Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T19:01:28.891Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-07T19:01:28.949Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-07T19:01:29.656Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.59,
-        "spot": 1.33585
-      }
-    },
-    {
-      "ts": "2026-07-07T19:01:30.347Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4560944479",
-      "meta": {
-        "transaction_id": 8908478219,
-        "longcode": "Win payout if GBP/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-07T19:01:30.871Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T19:01:30.999Z",
       "level": "info",
       "msg": "[chart] launching Puppeteer",
@@ -3539,6 +3469,73 @@
     },
     {
       "ts": "2026-07-07T20:45:37.987Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.",
+        "stack": "Error: ContractBuyValidationError: Trading is not available from 20:50:00 to 22:00:00.\n    at WebSocket.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:169:41)\n    at WebSocket.emit (node:events:519:28)\n    at Receiver.receiverOnMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/websocket.js:1239:20)\n    at Receiver.emit (node:events:519:28)\n    at Receiver.dataMessage (/home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:650:14)\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/receiver.js:584:12\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:309:9\n    at /home/runner/work/aurelia/aurelia/node_modules/ws/lib/permessage-deflate.js:392:7\n    at afterWrite (node:internal/streams/writable:710:5)\n    at onwrite (node:internal/streams/writable:688:7)"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:50:37.011Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T20:50:37.011Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:50:37.014Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:50:37.542Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=O1tHkp5q"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:50:37.891Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:50:38.004Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:50:47.933Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:51:09.904Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.72
+      }
+    },
+    {
+      "ts": "2026-07-07T20:51:09.994Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T20:51:10.119Z",
       "level": "error",
       "msg": "Tick failed",
       "meta": {
