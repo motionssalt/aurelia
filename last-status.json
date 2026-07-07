@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T20:10:53.412Z",
+  "last_cycle": "2026-07-07T20:15:59.507Z",
   "balance": 9863.46,
   "currency": "USD",
   "account_mode": "demo",
@@ -2044,83 +2044,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T18:15:27.380Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:15:28.437Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:15:31.122Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:15:31.123Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:15:31.291Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 75
-      }
-    },
-    {
-      "ts": "2026-07-07T18:15:31.291Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 75,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-07T18:15:31.292Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:15:31.292Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 56335
-      }
-    },
-    {
-      "ts": "2026-07-07T18:20:37.646Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T18:20:37.646Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T18:20:37.649Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T18:20:38.197Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=puWvQiUs"
-      }
-    },
-    {
       "ts": "2026-07-07T18:20:38.495Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3481,6 +3404,97 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 43802
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:21.539Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T20:15:21.539Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:21.542Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:15:22.051Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9cXnA5q1"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:22.334Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:15:22.419Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "API Weekly Statistical Bulletin"
+        ],
+        "countries": [
+          "USD"
+        ],
+        "impacts": [
+          "Low"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:24.892Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:15:43.860Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:43.861Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "The upcoming API Weekly Statistical Bulletin is a low-impact USD event that historically does not produce a clear directional edge. reliable directional move. None of the USD pairs (frxEURUSD, frxGBPUSD, frxUSDJPY, frxAUDUSD, frxUSDCAD, frxUSDCHF, frxNZDUSD) show a news-driven setup with sufficient conviction to justify a trade. Technicals are mixed and the event's low impact means any reaction will likely be noise. Therefore, I am skipping this event."
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:51.839Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T20:15:59.506Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0.1
+      }
+    },
+    {
+      "ts": "2026-07-07T20:15:59.506Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. Multiple symbols show conflicting signals across timeframes (e.g., EURUSD M5 RSI rising but M10/M15 falling, USDJPY bullish EMAs but RSI overbought on M10, GBPUSD bearish M5 but recent win may indicate exhaustion). Session has 6 losses in last 10 trades with -9.2 PnL, capital at 90.8. Forcing a trade risks further drawdown. Best to wait for clearer multi-timeframe alignment."
       }
     }
   ],
