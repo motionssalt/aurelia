@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-07T10:20:49.917Z",
+  "last_cycle": "2026-07-07T10:26:33.053Z",
   "balance": 9871.56,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 98.9,
+    "capital_remaining": 97.4,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 3,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4511979799,
+    "symbol": "frxEURUSD",
+    "placed_at": "2026-07-07T10:26:33.052Z"
+  },
   "next_cycle_eligible_at": 1783419094949,
   "trade_history_cycle": [
     {
@@ -1518,6 +1522,22 @@
       "pnl": 1.09,
       "ai_outcome_note": "Price initially rose above entry but then declined steadily, closing below entry at 1.14247 to secure the put win.",
       "exit": 1.14247
+    },
+    {
+      "ts": "2026-07-07T10:26:33.052Z",
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "direction": "put",
+      "stake": 1.5,
+      "expiry_sec": 1800,
+      "confidence": 0.68,
+      "rationale": "Strong bearish confluence across M5/M10/M15: price in upper BB third (percentile 0.81 M5, 0.58 M10, 0.58 M15), falling EMAs with EMA50 above EMA20 narrowing, RSI neutral-rising but losing momentum near 53-54, contracting ATR. Price at 1.14293 near resistance 1.14293/1.14301. Consistent downtrend structure favors put continuation from recent win at 09:52.",
+      "contract_id": 4511979799,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.14292,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -1721,6 +1741,13 @@
       "event_bundle": [
         "BOE Gov Bailey Speaks"
       ]
+    },
+    {
+      "contract_id": 4511979799,
+      "path": "cycle",
+      "symbol": "frxEURUSD",
+      "placed_at": "2026-07-07T10:26:33.052Z",
+      "expiry_sec": 1800
     }
   ],
   "ai_keys_bench": {
@@ -1732,100 +1759,6 @@
     "OPENROUTER_KEY_1": 1783425920040
   },
   "logs": [
-    {
-      "ts": "2026-07-07T08:30:39.199Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:30:39.199Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:30:39.201Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:30:39.529Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=a2qXXEOs"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:30:39.644Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:30:39.674Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:30:39.674Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:35:22.703Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:35:22.703Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:35:22.706Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:35:23.234Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Ld0D4bqC"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:35:23.577Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:35:23.671Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:35:23.671Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T08:38:51.970Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T08:38:51.970Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T08:38:51.973Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-07T08:38:52.569Z",
       "level": "network",
@@ -3254,6 +3187,118 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals (e.g., rising EMAs but overbought RSI, or falling EMAs with price at lower BB support). Recent session has mixed win/loss pattern with no clear edge. Capital preservation favored."
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:15.572Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-07T10:25:15.572Z"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:15.576Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:25:16.017Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4Q91dmzP"
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:16.122Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:25:16.753Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4511094019,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-07T10:16:29.689Z",
+        "event_title": "BOE Gov Bailey Speaks",
+        "event_bundle": [
+          "BOE Gov Bailey Speaks"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:21.449Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:25:41.874Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxEURUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:41.894Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:41.975Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxEURUSD PUT",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.59,
+        "spot": 1.14292
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:42.587Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4511979799",
+      "meta": {
+        "transaction_id": 8815272459,
+        "longcode": "Win payout if EUR/USD is strictly lower than entry spot at 30 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-07T10:25:42.977Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:25:43.062Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:25:44.861Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-07T10:26:33.052Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4511979799
       }
     }
   ],
