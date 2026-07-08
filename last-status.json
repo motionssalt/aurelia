@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:40:33.017Z",
+  "last_cycle": "2026-07-08T06:45:15.689Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,74 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:45:26.216Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:45:26.215Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:45:26.218Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:45:26.743Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=xyR51VXx"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:45:27.062Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:45:27.332Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Economy Watchers Sentiment"
-        ],
-        "countries": [
-          "JPY"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-08T04:45:29.457Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:46:16.052Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:46:16.052Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The Economy Watchers Sentiment event for JPY is low impact with a modest forecast improvement (44.3 vs 43.6 previous). While a better reading could strengthen JPY (lowering JPY pairs), the low impact rating and small forecast delta suggest insufficient directional edge for a high-confidence news trade. All JPY pairs (USDJPY, EURJPY, GBPJPY, AUDJPY) show bullish technical structure (rising EMAs, price in upper BB third, neutral-rising RSI) which conflicts with a potential JPY-strengthening move. Without clear news-driven directional conviction, skipping is appropriate."
-      }
-    },
-    {
       "ts": "2026-07-08T04:46:16.053Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
@@ -3725,6 +3657,63 @@
     },
     {
       "ts": "2026-07-08T06:40:33.017Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:45:15.076Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:45:15.076Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:45:15.079Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:45:15.422Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=39NoBXKr"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:45:15.521Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:45:15.562Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:45:15.687Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-08T06:45:15.688Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:45:15.688Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5304,9 +5293,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783489237604,
+  "_calendar_last_fetch": 1783493115562,
   "_calendar_fetch_history": [
-    1783489237604
+    1783493115562
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
