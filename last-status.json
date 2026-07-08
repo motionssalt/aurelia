@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T03:21:02.687Z",
+  "last_cycle": "2026-07-08T03:25:57.921Z",
   "balance": 9859.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -2146,66 +2146,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T01:35:21.041Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:35:21.041Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4587751399,
-        "symbol": "frxGBPUSD",
-        "placed_at": "2026-07-08T01:27:10.546Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:40:30.429Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T01:40:30.428Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:40:30.432Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:40:30.732Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=unYo4iV7"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:40:30.861Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:40:31.396Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:40:31.396Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4587751399,
-        "symbol": "frxGBPUSD",
-        "placed_at": "2026-07-08T01:27:10.546Z"
-      }
-    },
-    {
       "ts": "2026-07-08T01:45:19.921Z",
       "level": "info",
       "msg": "Tick start",
@@ -3661,6 +3601,62 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 3 consecutive losses with mixed win/loss pattern. Most symbols show conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish), overbought/oversold extremes without clear reversal patterns, or choppy price action near key levels. Volatility is generally contracting, reducing directional edge. Best to wait for cleaner multi-timeframe alignment and session stabilization."
+      }
+    },
+    {
+      "ts": "2026-07-08T03:25:21.054Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T03:25:21.054Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:25:21.057Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:25:21.588Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=piSlH2mW"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:25:21.946Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:25:22.060Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:25:31.605Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:25:57.920Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:25:57.920Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 3 consecutive losses with mixed win/loss pattern. Most symbols show conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish, or vice versa), contracting ATR reducing directional conviction, and price near key S/R levels with indecision candles (dojis, hammers). Forcing a trade in this choppy, low-volatility environment with a 3-loss streak risks further drawdown. Capital preservation takes priority."
       }
     }
   ],
