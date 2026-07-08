@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:55:17.204Z",
+  "last_cycle": "2026-07-08T07:00:40.328Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,52 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:55:15.013Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:55:15.012Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:55:15.015Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:55:15.307Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pjqtW6dT"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:55:15.386Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:55:15.514Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Economy Watchers Sentiment"
-        ],
-        "countries": [
-          "JPY"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
-    {
       "ts": "2026-07-08T04:55:16.320Z",
       "level": "warn",
       "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
@@ -3694,6 +3648,40 @@
     },
     {
       "ts": "2026-07-08T06:55:17.203Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:00:39.722Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T07:00:39.722Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T07:00:39.725Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:00:40.085Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AjimU1RB"
+      }
+    },
+    {
+      "ts": "2026-07-08T07:00:40.191Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:00:40.327Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
