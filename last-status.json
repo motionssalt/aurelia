@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:05:15.444Z",
+  "last_cycle": "2026-07-08T06:10:32.647Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2259,42 +2259,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:25:44.315Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes with narrowing EMA gaps, contracting ATR, and RSI in neutral zones. Recent session shows 5 consecutive losses with choppy price action. Best to wait for clearer directional confluence."
-      }
-    },
-    {
-      "ts": "2026-07-08T04:30:35.689Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:30:35.689Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:30:35.692Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:30:35.977Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=EIUPi8Nl"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:30:36.080Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T04:30:36.105Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3757,6 +3721,40 @@
         "symbol": "frxGBPUSD",
         "placed_at": "2026-07-08T06:02:16.060Z"
       }
+    },
+    {
+      "ts": "2026-07-08T06:10:31.568Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:10:31.568Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:10:31.572Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:10:32.011Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KD9Su7WL"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:10:32.108Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:10:32.646Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
