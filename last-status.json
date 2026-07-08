@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T04:30:43.405Z",
+  "last_cycle": "2026-07-08T04:35:43.900Z",
   "balance": 9856.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -2176,108 +2176,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_2": 1783494040762,
-    "OPENROUTER_KEY_1": 1783494040762
+    "OPENROUTER_KEY_2": 1783494040762
   },
   "logs": [
-    {
-      "ts": "2026-07-08T02:41:05.063Z",
-      "level": "info",
-      "msg": "In post-settlement cooldown",
-      "meta": {
-        "ms_remaining": 38185
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:20.056Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T02:45:20.055Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:20.058Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:45:20.568Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OODufKMc"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:20.886Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:45:20.989Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "RBNZ Press Conference"
-        ],
-        "countries": [
-          "NZD"
-        ],
-        "impacts": [
-          "High"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:21.392Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:45:25.647Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:25.647Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "RBNZ Press Conference in 15 minutes creates high uncertainty for NZDUSD. Technicals show strong overbought conditions (RSI 70-77, price at 97th percentile of Bollinger Bands) with widening EMA gap, suggesting exhaustion rather than clear directional bias. News could trigger volatile whipsaw in either direction. No clear edge for directional trade given conflicting technical exhaustion signals and unpredictable central bank messaging."
-      }
-    },
-    {
-      "ts": "2026-07-08T02:45:34.393Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:46:13.939Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:46:13.940Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals between timeframes (e.g., bullish M5 vs bearish M10/M15), RSI in neutral zones without clear momentum, price near Bollinger Band extremes suggesting mean reversion risk, and recent session losses indicate choppy conditions. Stake sizing would be too small relative to volatility for meaningful edge. Best to wait for clearer alignment."
-      }
-    },
     {
       "ts": "2026-07-08T02:50:35.831Z",
       "level": "info",
@@ -3660,6 +3561,92 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:20.968Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T04:35:20.967Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:20.970Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:21.517Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TqcbdW1D"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:21.857Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:21.974Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:22.365Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:22.365Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:22.366Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:31.590Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:31.591Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:35:43.899Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-08T04:35:43.900Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (EMA crosses narrowing/widening inconsistently, RSI neutral with no clear directional bias, price in middle BB bands). Session has 5 consecutive losses and capital_remaining only 84.24 (near stop_loss_threshold of 20). Forcing a trade risks hitting stop-loss. Best to wait for clearer confluence."
       }
     }
   ],
@@ -5210,9 +5197,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783481718911,
+  "_calendar_last_fetch": 1783485321974,
   "_calendar_fetch_history": [
-    1783481718911
+    1783485321974
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
