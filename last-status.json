@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T04:02:41.980Z",
-  "balance": 9858.4,
+  "last_cycle": "2026-07-08T04:05:17.334Z",
+  "balance": 9856.9,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -2191,50 +2191,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T02:16:07.005Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:16:07.005Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show conflicting signals across timeframes (e.g., bullish M5 vs bearish M15), overbought/oversold extremes without clear reversal patterns, or choppy price action near key levels. Recent session losses on forced entries reinforce skipping until a cleaner multi-timeframe alignment emerges."
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:34.810Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T02:20:34.810Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:34.813Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:20:35.355Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TOJ9e8Ei"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:35.502Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T02:20:35.534Z",
       "level": "info",
       "msg": "News Mode: no qualifying upcoming event this tick",
@@ -3678,6 +3634,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4594633939
+      }
+    },
+    {
+      "ts": "2026-07-08T04:05:16.181Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T04:05:16.180Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:05:16.183Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:05:16.586Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XElUFcqZ"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:05:16.783Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:05:17.333Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:05:17.334Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4594633939,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T04:02:41.980Z"
       }
     }
   ],
