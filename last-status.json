@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T08:20:33.427Z",
+  "last_cycle": "2026-07-08T08:25:14.936Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,44 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T05:36:33.130Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:36:33.130Z",
-      "level": "network",
-      "msg": "Deriv: WS reconnected before trade placement (recovered from state=3)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:36:33.571Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxEURUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.68,
-        "spot": 1.14169
-      }
-    },
-    {
-      "ts": "2026-07-08T05:36:34.123Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4599810079",
-      "meta": {
-        "transaction_id": 8983150899,
-        "longcode": "Win payout if EUR/USD is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-08T05:36:34.487Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxEURUSD @ 5m",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T05:36:34.580Z",
       "level": "info",
       "msg": "[chart] launching Puppeteer",
@@ -3634,6 +3596,40 @@
     },
     {
       "ts": "2026-07-08T08:20:33.426Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:25:14.436Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T08:25:14.435Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:25:14.438Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:25:14.802Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iGFCdPGA"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:25:14.905Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:25:14.935Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
