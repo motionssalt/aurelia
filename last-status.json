@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:10:32.647Z",
+  "last_cycle": "2026-07-08T06:15:18.336Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2259,40 +2259,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:30:36.105Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:30:40.765Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:30:42.084Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:30:42.084Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:30:43.056Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter returned empty text: no content returned"
-      }
-    },
-    {
       "ts": "2026-07-08T04:30:43.057Z",
       "level": "error",
       "msg": "AI decision failed",
@@ -3752,6 +3718,40 @@
     },
     {
       "ts": "2026-07-08T06:10:32.646Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:15:17.209Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:15:17.209Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:15:17.212Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:15:17.552Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=h079wfMf"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:15:17.718Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:15:18.335Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
