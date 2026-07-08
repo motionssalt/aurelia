@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T00:30:41.175Z",
+  "last_cycle": "2026-07-08T00:35:29.742Z",
   "balance": 9862.82,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 90.16,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 28,
+    "trades": 29,
     "wins": 13,
-    "losses": 15,
-    "pnl": -8.34,
-    "win_streak": 1,
-    "loss_streak": 0,
+    "losses": 16,
+    "pnl": -9.84,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4584550039,
-    "symbol": "frxEURUSD",
-    "placed_at": "2026-07-08T00:16:43.487Z"
-  },
-  "next_cycle_eligible_at": 1783456892012,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783470987099,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1873,11 +1869,12 @@
       "confidence": 0.68,
       "rationale": "Strong bearish confluence across M5/M10/M15: price in middle BB third but falling from upper third, EMAs falling with EMA50 above EMA20 narrowing (M5/M10) and widening (M15), RSI neutral-rising but from oversold levels, contracting ATR, doji on M5 signaling indecision at resistance. Price at 1.14056 near resistance 1.14084/1.14091 with support at 1.14032/1.14035. Recent put wins at 14:51/15:22/20:22 confirm bearish structure. 15m expiry aligns with M15 timeframe.",
       "contract_id": 4584550039,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.14051,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price initially dipped but rallied strongly above entry and key resistance at 1.14084, closing at 1.14096 for a loss.",
+      "exit": 1.14081
     }
   ],
   "trade_history_manual": [
@@ -2070,15 +2067,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4584550039,
-      "path": "cycle",
-      "symbol": "frxEURUSD",
-      "placed_at": "2026-07-08T00:16:43.487Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2088,70 +2077,6 @@
     "OPENROUTER_KEY_1": 1783478733170
   },
   "logs": [
-    {
-      "ts": "2026-07-07T23:05:23.581Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:05:23.582Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:05:23.711Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:05:23.711Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:05:24.038Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:05:24.039Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:10:41.145Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T23:10:41.144Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:10:41.147Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:10:41.610Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=iuwUiCit"
-      }
-    },
     {
       "ts": "2026-07-07T23:10:41.709Z",
       "level": "network",
@@ -3539,86 +3464,83 @@
         "symbol": "frxEURUSD",
         "placed_at": "2026-07-08T00:16:43.487Z"
       }
+    },
+    {
+      "ts": "2026-07-08T00:35:25.889Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T00:35:25.888Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:35:25.891Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:35:26.542Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=csOy9G5X"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:35:26.876Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:35:27.099Z",
+      "level": "info",
+      "msg": "daily_stats auto-rollover",
+      "meta": {
+        "archived": "2026-07-07",
+        "new": "2026-07-08"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:35:27.777Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:35:29.740Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:35:29.741Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:35:29.741Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 57358
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-07-07",
-    "trades": 32,
-    "wins": 14,
-    "losses": 18,
-    "pnl": -15.67,
+    "date": "2026-07-08",
+    "trades": 1,
+    "wins": 0,
+    "losses": 1,
+    "pnl": -1.5,
     "by_symbol": {
-      "frxAUDJPY": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -2.5
-      },
-      "frxEURJPY": {
-        "trades": 2,
-        "wins": 1,
-        "losses": 1,
-        "pnl": -0.4
-      },
       "frxEURUSD": {
-        "trades": 15,
-        "wins": 7,
-        "losses": 8,
-        "pnl": -7.83
-      },
-      "frxEURGBP": {
-        "trades": 2,
-        "wins": 1,
-        "losses": 1,
-        "pnl": -0.69
-      },
-      "frxGBPUSD": {
-        "trades": 2,
-        "wins": 1,
-        "losses": 1,
-        "pnl": -0.41
-      },
-      "frxUSDCAD": {
-        "trades": 2,
-        "wins": 2,
-        "losses": 0,
-        "pnl": 2.94
-      },
-      "frxUSDJPY": {
-        "trades": 2,
-        "wins": 0,
-        "losses": 2,
-        "pnl": -3
-      },
-      "frxNZDUSD": {
-        "trades": 2,
-        "wins": 1,
-        "losses": 1,
-        "pnl": -0.4
-      },
-      "frxEURCAD": {
         "trades": 1,
         "wins": 0,
         "losses": 1,
         "pnl": -1.5
-      },
-      "frxGBPCAD": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.5
-      },
-      "frxGBPJPY": {
-        "trades": 1,
-        "wins": 0,
-        "losses": 1,
-        "pnl": -1.5
-      },
-      "frxAUDUSD": {
-        "trades": 1,
-        "wins": 1,
-        "losses": 0,
-        "pnl": 1.12
       }
     }
   },
@@ -3881,6 +3803,87 @@
           "wins": 1,
           "losses": 0,
           "pnl": 0.3
+        }
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "trades": 32,
+      "wins": 14,
+      "losses": 18,
+      "pnl": -15.67,
+      "by_symbol": {
+        "frxAUDJPY": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -2.5
+        },
+        "frxEURJPY": {
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "pnl": -0.4
+        },
+        "frxEURUSD": {
+          "trades": 15,
+          "wins": 7,
+          "losses": 8,
+          "pnl": -7.83
+        },
+        "frxEURGBP": {
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "pnl": -0.69
+        },
+        "frxGBPUSD": {
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "pnl": -0.41
+        },
+        "frxUSDCAD": {
+          "trades": 2,
+          "wins": 2,
+          "losses": 0,
+          "pnl": 2.94
+        },
+        "frxUSDJPY": {
+          "trades": 2,
+          "wins": 0,
+          "losses": 2,
+          "pnl": -3
+        },
+        "frxNZDUSD": {
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "pnl": -0.4
+        },
+        "frxEURCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.5
+        },
+        "frxGBPCAD": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.5
+        },
+        "frxGBPJPY": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "pnl": -1.5
+        },
+        "frxAUDUSD": {
+          "trades": 1,
+          "wins": 1,
+          "losses": 0,
+          "pnl": 1.12
         }
       }
     }
