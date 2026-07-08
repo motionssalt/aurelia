@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T03:25:57.921Z",
+  "last_cycle": "2026-07-08T03:31:36.799Z",
   "balance": 9859.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 87.24,
+    "capital_remaining": 85.74,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 36,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4593095179,
+    "symbol": "frxNZDUSD",
+    "placed_at": "2026-07-08T03:31:36.798Z"
+  },
   "next_cycle_eligible_at": 1783478503248,
   "trade_history_cycle": [
     {
@@ -1943,6 +1947,22 @@
       "pnl": -1.5,
       "ai_outcome_note": "Price immediately rallied above entry to 1.33548, invalidating the bearish mean-reversion thesis and expiring above the 1.33507 strike for a put loss.",
       "exit": 1.33536
+    },
+    {
+      "ts": "2026-07-08T03:31:36.798Z",
+      "path": "cycle",
+      "symbol": "frxNZDUSD",
+      "direction": "call",
+      "stake": 1.5,
+      "expiry_sec": 900,
+      "confidence": 0.72,
+      "rationale": "Strong bullish confluence across M5/M10/M15: EMA20 above EMA50 widening on all timeframes, both EMAs rising, RSI neutral/overbought rising, price in upper BB third (M5: 0.81, M10: 0.89, M15: 0.91), ATR expanding on M10/M15. M10 bullish engulfing pattern confirms momentum. Price at 0.5706 near resistance 0.57051/0.57066 with room for breakout continuation. Session shows 3-loss streak but recent wins on AUDUSD call (19:26) and GBPUSD put (01:27) show directional bias works. 15m expiry aligns with M15 structure.",
+      "contract_id": 4593095179,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 0.57056,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -2135,7 +2155,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4593095179,
+      "path": "cycle",
+      "symbol": "frxNZDUSD",
+      "placed_at": "2026-07-08T03:31:36.798Z",
+      "expiry_sec": 900
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2145,122 +2173,6 @@
     "OPENROUTER_KEY_2": 1783488647261
   },
   "logs": [
-    {
-      "ts": "2026-07-08T01:45:19.921Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T01:45:19.921Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:19.923Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:20.342Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aHNrmfb0"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:20.521Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:21.094Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:23.397Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:23.398Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "Official Cash Rate",
-          "RBNZ Rate Statement"
-        ],
-        "countries": [
-          "NZD"
-        ],
-        "impacts": [
-          "High",
-          "High"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:24.304Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:27.043Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxNZDUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:27.084Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:27.554Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxNZDUSD CALL",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.52,
-        "spot": 0.56846
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:27.698Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4588563299",
-      "meta": {
-        "transaction_id": 8961784579,
-        "longcode": "Win payout if NZD/USD is strictly higher than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-08T01:45:28.054Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:45:28.151Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
     {
       "ts": "2026-07-08T01:45:30.114Z",
       "level": "info",
@@ -3657,6 +3569,110 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 3 consecutive losses with mixed win/loss pattern. Most symbols show conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish, or vice versa), contracting ATR reducing directional conviction, and price near key S/R levels with indecision candles (dojis, hammers). Forcing a trade in this choppy, low-volatility environment with a 3-loss streak risks further drawdown. Capital preservation takes priority."
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:31.790Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T03:30:31.790Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:31.794Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:32.192Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4l8fNnEe"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:32.354Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:32.382Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:37.692Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:45.761Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxNZDUSD",
+        "conf": 0.72
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:45.825Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:46.306Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxNZDUSD CALL",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.61,
+        "spot": 0.57057
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:46.420Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4593095179",
+      "meta": {
+        "transaction_id": 8970510159,
+        "longcode": "Win payout if NZD/USD is strictly higher than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-08T03:30:46.756Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxNZDUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:46.846Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:30:48.627Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:31:36.798Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4593095179
       }
     }
   ],
