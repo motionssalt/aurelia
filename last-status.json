@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:15:18.336Z",
+  "last_cycle": "2026-07-08T06:20:40.922Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 81.81,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 42,
+    "trades": 43,
     "wins": 18,
-    "losses": 24,
-    "pnl": -16.69,
-    "win_streak": 2,
-    "loss_streak": 0,
+    "losses": 25,
+    "pnl": -18.19,
+    "win_streak": 0,
+    "loss_streak": 1,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4601382939,
-    "symbol": "frxGBPUSD",
-    "placed_at": "2026-07-08T06:02:16.060Z"
-  },
-  "next_cycle_eligible_at": 1783490179379,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783491698172,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -2043,11 +2039,12 @@
       "confidence": 0.68,
       "rationale": "M10 morning_star reversal at support 1.33508 with price outside upper BB (percentile 1.13) suggesting overshoot exhaustion. M5/M10 show EMA20>EMA50 widening with both EMAs rising, RSI neutral_rising (62-65), ATR expanding. M15 shows EMA50>EMA20 narrowing with EMA20 rising/EMA50 falling, price upper BB third (0.98), ATR contracting. Multi-timeframe bullish structure at key support with contracting volatility on M15 favors mean reversion call. Recent GBPUSD call loss at 04:42 was at higher levels; current pullback to 1.33604 offers better risk/reward. 15m expiry aligns with M15 structure.",
       "contract_id": 4601382939,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.33603,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price failed to sustain above entry, dropping below 1.33603 immediately and closing at 1.33597 after brief recovery attempts.",
+      "exit": 1.33597
     }
   ],
   "trade_history_manual": [
@@ -2240,15 +2237,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4601382939,
-      "path": "cycle",
-      "symbol": "frxGBPUSD",
-      "placed_at": "2026-07-08T06:02:16.060Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2258,56 +2247,6 @@
     "OPENROUTER_KEY_2": 1783495844349
   },
   "logs": [
-    {
-      "ts": "2026-07-08T04:30:43.057Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:35:20.968Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:35:20.967Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:35:20.970Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:35:21.517Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TqcbdW1D"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:35:21.857Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:35:21.974Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:35:22.365Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 76
-      }
-    },
     {
       "ts": "2026-07-08T04:35:22.365Z",
       "level": "info",
@@ -3755,14 +3694,60 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:20:37.278Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:20:37.278Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:20:37.281Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:20:37.616Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XPB5CCS0"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:20:37.946Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:20:38.868Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:20:40.921Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:20:40.921Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
     "date": "2026-07-08",
-    "trades": 14,
+    "trades": 15,
     "wins": 5,
-    "losses": 9,
-    "pnl": -8.35,
+    "losses": 10,
+    "pnl": -9.85,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 6,
@@ -3777,10 +3762,10 @@
         "pnl": -1.5
       },
       "frxGBPUSD": {
-        "trades": 3,
+        "trades": 4,
         "wins": 1,
-        "losses": 2,
-        "pnl": -1.84
+        "losses": 3,
+        "pnl": -3.34
       },
       "frxNZDUSD": {
         "trades": 3,
