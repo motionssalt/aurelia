@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T05:06:50.591Z",
-  "balance": 9853.9,
+  "last_cycle": "2026-07-08T05:10:49.194Z",
+  "balance": 9852.4,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -10,12 +10,12 @@
     "capital_remaining": 79.74,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 39,
+    "trades": 40,
     "wins": 16,
-    "losses": 23,
-    "pnl": -17.26,
+    "losses": 24,
+    "pnl": -18.76,
     "win_streak": 0,
-    "loss_streak": 6,
+    "loss_streak": 7,
     "halted": false,
     "halt_reason": null
   },
@@ -2208,17 +2208,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4597470139,
-      "path": "news",
-      "symbol": "frxUSDJPY",
-      "placed_at": "2026-07-08T04:56:24.723Z",
-      "expiry_sec": 900,
-      "event_title": "Economy Watchers Sentiment",
-      "event_bundle": [
-        "Economy Watchers Sentiment"
-      ]
-    },
-    {
       "contract_id": 4598058079,
       "path": "cycle",
       "symbol": "frxEURUSD",
@@ -2235,62 +2224,6 @@
     "OPENROUTER_KEY_2": 1783495844349
   },
   "logs": [
-    {
-      "ts": "2026-07-08T03:25:21.588Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=piSlH2mW"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:25:21.946Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:25:22.060Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:25:31.605Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:25:57.920Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:25:57.920Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 3 consecutive losses with mixed win/loss pattern. Most symbols show conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish, or vice versa), contracting ATR reducing directional conviction, and price near key S/R levels with indecision candles (dojis, hammers). Forcing a trade in this choppy, low-volatility environment with a 3-loss streak risks further drawdown. Capital preservation takes priority."
-      }
-    },
-    {
-      "ts": "2026-07-08T03:30:31.790Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T03:30:31.790Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:30:31.794Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
     {
       "ts": "2026-07-08T03:30:32.192Z",
       "level": "network",
@@ -3737,14 +3670,70 @@
       "meta": {
         "contract_id": 4598058079
       }
+    },
+    {
+      "ts": "2026-07-08T05:10:34.521Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T05:10:34.521Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:10:34.524Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:10:34.977Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g9sIROTc"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:10:35.293Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:10:36.345Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:10:49.193Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:10:49.194Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:10:49.194Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4598058079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T05:06:50.591Z"
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-08",
-    "trades": 11,
+    "trades": 12,
     "wins": 3,
-    "losses": 8,
-    "pnl": -8.92,
+    "losses": 9,
+    "pnl": -10.42,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 4,
@@ -3769,6 +3758,12 @@
         "wins": 1,
         "losses": 2,
         "pnl": -1.98
+      },
+      "frxUSDJPY": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "pnl": -1.5
       }
     }
   },
@@ -4683,26 +4678,19 @@
       "confidence": 0.65,
       "rationale": "Economy Watchers Sentiment forecast (44.3) exceeds previous (43.6), signaling improved Japanese economic sentiment. This JPY-negative news should weaken JPY, pushing USDJPY higher. Technical confluence supports upside: M5/M10/M15 show rising EMAs (20>50), RSI neutral-rising, price in upper BB third, and contracting ATR indicating trend continuation potential. Morning session timing aligns with JPY news impact window.",
       "contract_id": 4597470139,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 162.389,
-      "pnl": 0,
-      "ai_outcome_note": null,
+      "pnl": -1.5,
+      "ai_outcome_note": "Price initially dropped below entry, then rallied above but ultimately reversed and closed below entry at 162.362, resulting in a loss for the call position.",
       "event_title": "Economy Watchers Sentiment",
       "event_bundle": [
         "Economy Watchers Sentiment"
-      ]
+      ],
+      "exit": 162.361
     }
   ],
-  "news_open_position": {
-    "contract_id": 4597470139,
-    "symbol": "frxUSDJPY",
-    "placed_at": "2026-07-08T04:56:24.723Z",
-    "event_title": "Economy Watchers Sentiment",
-    "event_bundle": [
-      "Economy Watchers Sentiment"
-    ]
-  },
+  "news_open_position": null,
   "news_scheduled_intents": [],
   "calendar_data": [
     {
