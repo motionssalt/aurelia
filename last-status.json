@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T03:45:14.638Z",
+  "last_cycle": "2026-07-08T03:50:32.131Z",
   "balance": 9858.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 85.74,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 36,
+    "trades": 37,
     "wins": 16,
-    "losses": 20,
-    "pnl": -12.76,
+    "losses": 21,
+    "pnl": -14.26,
     "win_streak": 0,
-    "loss_streak": 3,
+    "loss_streak": 4,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4593095179,
-    "symbol": "frxNZDUSD",
-    "placed_at": "2026-07-08T03:31:36.798Z"
-  },
-  "next_cycle_eligible_at": 1783478503248,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783482690502,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1958,11 +1954,12 @@
       "confidence": 0.72,
       "rationale": "Strong bullish confluence across M5/M10/M15: EMA20 above EMA50 widening on all timeframes, both EMAs rising, RSI neutral/overbought rising, price in upper BB third (M5: 0.81, M10: 0.89, M15: 0.91), ATR expanding on M10/M15. M10 bullish engulfing pattern confirms momentum. Price at 0.5706 near resistance 0.57051/0.57066 with room for breakout continuation. Session shows 3-loss streak but recent wins on AUDUSD call (19:26) and GBPUSD put (01:27) show directional bias works. 15m expiry aligns with M15 structure.",
       "contract_id": 4593095179,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 0.57056,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price initially dropped below entry and consolidated sideways for most of the duration before rallying above entry only in the final candles, too late for the 15m expiry.",
+      "exit": 0.57048
     }
   ],
   "trade_history_manual": [
@@ -2155,15 +2152,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4593095179,
-      "path": "cycle",
-      "symbol": "frxNZDUSD",
-      "placed_at": "2026-07-08T03:31:36.798Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2173,71 +2162,6 @@
     "OPENROUTER_KEY_2": 1783488647261
   },
   "logs": [
-    {
-      "ts": "2026-07-08T01:55:15.933Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4588563299,
-        "symbol": "frxNZDUSD",
-        "placed_at": "2026-07-08T01:46:18.265Z",
-        "event_title": "Official Cash Rate",
-        "event_bundle": [
-          "Official Cash Rate",
-          "RBNZ Rate Statement"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-08T01:55:15.934Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4588791739,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-08T01:51:56.575Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:00:39.396Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T02:00:39.396Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:00:39.398Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:00:39.797Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=saTsIjlw"
-      }
-    },
-    {
-      "ts": "2026-07-08T02:00:39.943Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:00:40.861Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:00:43.463Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {}
-    },
     {
       "ts": "2026-07-08T02:00:43.464Z",
       "level": "info",
@@ -3666,14 +3590,68 @@
         "symbol": "frxNZDUSD",
         "placed_at": "2026-07-08T03:31:36.798Z"
       }
+    },
+    {
+      "ts": "2026-07-08T03:50:29.843Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T03:50:29.843Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:50:29.845Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:50:30.306Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yGFYmN1F"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:50:30.417Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:50:30.950Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:50:32.130Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:50:32.131Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:50:32.131Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 58371
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-08",
-    "trades": 8,
+    "trades": 9,
     "wins": 3,
-    "losses": 5,
-    "pnl": -4.42,
+    "losses": 6,
+    "pnl": -5.92,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 3,
@@ -3694,10 +3672,10 @@
         "pnl": -0.34
       },
       "frxNZDUSD": {
-        "trades": 2,
+        "trades": 3,
         "wins": 1,
-        "losses": 1,
-        "pnl": -0.48
+        "losses": 2,
+        "pnl": -1.98
       }
     }
   },
