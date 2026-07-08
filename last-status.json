@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T08:05:28.800Z",
+  "last_cycle": "2026-07-08T08:10:43.314Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,43 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T05:30:41.731Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:30:48.000Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:31:03.982Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-08T05:31:03.983Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (EMA cross narrowing/widening inconsistently, RSI neutral-falling without clear oversold/overbought extremes, price in middle BB bands). Recent session performance is poor (17W/24L, -17.87 PnL) with multiple consecutive losses on EURUSD/GBPUSD. Volatility regimes are mostly contracting. Forcing a trade here risks further drawdown near stop-loss threshold (2.13 remaining)."
-      }
-    },
-    {
-      "ts": "2026-07-08T05:35:13.930Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T05:35:13.929Z"
-      }
-    },
-    {
       "ts": "2026-07-08T05:35:13.932Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3639,6 +3602,40 @@
     },
     {
       "ts": "2026-07-08T08:05:28.800Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:10:42.282Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T08:10:42.282Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:10:42.284Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:10:42.859Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=z2EHyeQG"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:10:43.183Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:10:43.314Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
