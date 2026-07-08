@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T01:51:56.575Z",
-  "balance": 9861.88,
+  "last_cycle": "2026-07-08T01:55:15.934Z",
+  "balance": 9860.38,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -2152,49 +2152,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T00:10:32.173Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:10:32.263Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:10:36.613Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:10:50.153Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-08T00:10:50.153Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. EURUSD shows mixed signals with RSI rising on M5/M10 but price in lower BB third; GBPUSD has RSI rising on M5/M10 but price in lower BB third; USDJPY is overbought across all timeframes with price at upper BB extreme; other pairs show conflicting EMA crosses, RSI divergences, or price at BB extremes without clear reversal patterns. Session has 15 losses vs 13 wins with recent volatility in outcomes. Waiting for clearer multi-timeframe alignment."
-      }
-    },
-    {
-      "ts": "2026-07-08T00:15:22.067Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T00:15:22.066Z"
-      }
-    },
-    {
       "ts": "2026-07-08T00:15:22.070Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3655,6 +3612,59 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4588791739
+      }
+    },
+    {
+      "ts": "2026-07-08T01:55:14.507Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T01:55:14.507Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:55:14.510Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:55:14.811Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=faXwTXTt"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:55:14.940Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:55:15.933Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4588563299,
+        "symbol": "frxNZDUSD",
+        "placed_at": "2026-07-08T01:46:18.265Z",
+        "event_title": "Official Cash Rate",
+        "event_bundle": [
+          "Official Cash Rate",
+          "RBNZ Rate Statement"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-08T01:55:15.934Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4588791739,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T01:51:56.575Z"
       }
     }
   ],
