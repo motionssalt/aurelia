@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T01:10:59.123Z",
+  "last_cycle": "2026-07-08T01:16:01.692Z",
   "balance": 9862.22,
   "currency": "USD",
   "account_mode": "demo",
@@ -2095,64 +2095,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T23:35:34.445Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:35:34.533Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:35:34.534Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:35:34.588Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:35:34.588Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:40:34.828Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T23:40:34.828Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:40:34.830Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:40:35.182Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VCdDVSfR"
-      }
-    },
-    {
       "ts": "2026-07-07T23:40:35.286Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3578,6 +3520,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols. Most pairs show conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish), choppy price action in middle Bollinger Bands, or overbought/oversold extremes without clear reversal patterns. Recent session performance (14W/17L, -10.44 PnL) and proximity to stop-loss (9.56 remaining) warrant extreme selectivity. Best candidates like frxEURUSD (mixed M5 bullish/M15 bearish), frxGBPUSD (M15 bearish engulfing but M5/M10 neutral), and frxEURAUD (oversold but falling EMAs) lack multi-timeframe alignment for >=900s expiry. Forcing a trade here risks further drawdown."
+      }
+    },
+    {
+      "ts": "2026-07-08T01:15:19.725Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T01:15:19.725Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:15:19.729Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:15:20.254Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=i5CBxaqY"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:15:20.595Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:15:20.690Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:15:30.076Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:16:01.691Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-08T01:16:01.691Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 17 losses vs 14 wins with multiple consecutive losses on EURUSD. Current market conditions show mixed signals with no clear directional bias meeting entry criteria. Capital preservation dictates skipping until higher probability setup emerges."
       }
     }
   ],
