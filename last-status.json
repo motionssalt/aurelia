@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T00:25:23.235Z",
+  "last_cycle": "2026-07-08T00:30:41.175Z",
   "balance": 9862.82,
   "currency": "USD",
   "account_mode": "demo",
@@ -2089,76 +2089,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T23:00:33.557Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=zu17QkV2"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:00:33.837Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:00:33.918Z",
-      "level": "info",
-      "msg": "runDailySummary — reporting",
-      "meta": {
-        "report_date": "2026-07-06",
-        "trades": 7,
-        "wins": 5,
-        "losses": 2,
-        "pnl": 0.75,
-        "source": "daily_history"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:00:34.370Z",
-      "level": "info",
-      "msg": "daily_stats already advanced past reported day — leaving intact",
-      "meta": {
-        "current": "2026-07-07",
-        "reported": "2026-07-06"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:05:18.551Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T23:05:18.551Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:05:18.554Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:05:18.907Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aEin2EvR"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:05:19.048Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:05:19.078Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T23:05:23.581Z",
       "level": "warn",
       "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
@@ -3535,6 +3465,73 @@
     },
     {
       "ts": "2026-07-08T00:25:23.234Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4584550039,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T00:16:43.487Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:30:39.471Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T00:30:39.471Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:30:39.473Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:30:40.003Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jDOpAJZu"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:30:40.357Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:30:40.978Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:30:41.173Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-08T00:30:41.173Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:30:41.174Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:30:41.174Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
@@ -4994,9 +4991,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783467038736,
+  "_calendar_last_fetch": 1783470640978,
   "_calendar_fetch_history": [
-    1783467038736
+    1783470640978
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
