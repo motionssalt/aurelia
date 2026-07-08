@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T01:30:43.048Z",
+  "last_cycle": "2026-07-08T01:35:21.042Z",
   "balance": 9860.72,
   "currency": "USD",
   "account_mode": "demo",
@@ -2123,46 +2123,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T23:50:27.959Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T23:50:27.959Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:50:27.962Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:50:28.439Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wzW50Wkx"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:50:28.639Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:50:28.694Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:50:34.925Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T23:50:34.926Z",
       "level": "warn",
       "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
@@ -3584,6 +3544,50 @@
     },
     {
       "ts": "2026-07-08T01:30:43.048Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4587751399,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-08T01:27:10.546Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:35:20.206Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T01:35:20.205Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:35:20.208Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:35:20.660Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=NrvLJmWX"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:35:20.879Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:35:21.041Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:35:21.041Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
