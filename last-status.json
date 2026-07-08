@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T04:05:17.334Z",
+  "last_cycle": "2026-07-08T04:10:31.457Z",
   "balance": 9856.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -2191,56 +2191,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T02:20:35.534Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:20:40.280Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T02:20:50.832Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxGBPUSD",
-        "conf": 0.68
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:50.850Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:50.911Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxGBPUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.55,
-        "spot": 1.33507
-      }
-    },
-    {
-      "ts": "2026-07-08T02:20:51.406Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4590052019",
-      "meta": {
-        "transaction_id": 8964665479,
-        "longcode": "Win payout if GBP/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
       "ts": "2026-07-08T02:20:51.829Z",
       "level": "info",
       "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
@@ -3672,6 +3622,50 @@
     },
     {
       "ts": "2026-07-08T04:05:17.334Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4594633939,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T04:02:41.980Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:10:30.478Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T04:10:30.478Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:10:30.481Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:10:30.857Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DnOiTN7B"
+      }
+    },
+    {
+      "ts": "2026-07-08T04:10:30.974Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:10:31.456Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T04:10:31.457Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
