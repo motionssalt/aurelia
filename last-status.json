@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T02:41:05.064Z",
+  "last_cycle": "2026-07-08T02:46:13.940Z",
   "balance": 9861.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -2146,96 +2146,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T00:46:21.010Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4585738439,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-08T00:42:03.283Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:50:29.147Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T00:50:29.147Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:50:29.150Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:50:29.543Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pyeDY477"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:50:29.721Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:50:30.312Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4585933899,
-        "symbol": "frxAUDUSD",
-        "placed_at": "2026-07-08T00:46:21.010Z",
-        "event_title": "RBA Assist Gov Hunter Speaks",
-        "event_bundle": [
-          "RBA Assist Gov Hunter Speaks"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-08T00:50:30.313Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4585738439,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-08T00:42:03.283Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:55:16.557Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T00:55:16.557Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:55:16.559Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:55:16.971Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WHMHcL9T"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:55:17.135Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T00:55:17.782Z",
       "level": "info",
       "msg": "News Mode: position open — waiting for settlement",
@@ -3634,6 +3544,96 @@
       "msg": "In post-settlement cooldown",
       "meta": {
         "ms_remaining": 38185
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:20.056Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T02:45:20.055Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:20.058Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:45:20.568Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=OODufKMc"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:20.886Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:45:20.989Z",
+      "level": "info",
+      "msg": "News Mode: qualifying event bundle detected",
+      "meta": {
+        "bundle_size": 1,
+        "titles": [
+          "RBNZ Press Conference"
+        ],
+        "countries": [
+          "NZD"
+        ],
+        "impacts": [
+          "High"
+        ],
+        "minutes_until": 15
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:21.392Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:45:25.647Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:25.647Z",
+      "level": "info",
+      "msg": "News Mode: AI chose to skip",
+      "meta": {
+        "reason": "RBNZ Press Conference in 15 minutes creates high uncertainty for NZDUSD. Technicals show strong overbought conditions (RSI 70-77, price at 97th percentile of Bollinger Bands) with widening EMA gap, suggesting exhaustion rather than clear directional bias. News could trigger volatile whipsaw in either direction. No clear edge for directional trade given conflicting technical exhaustion signals and unpredictable central bank messaging."
+      }
+    },
+    {
+      "ts": "2026-07-08T02:45:34.393Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:46:13.939Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "skip"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:46:13.940Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals between timeframes (e.g., bullish M5 vs bearish M10/M15), RSI in neutral zones without clear momentum, price near Bollinger Band extremes suggesting mean reversion risk, and recent session losses indicate choppy conditions. Stake sizing would be too small relative to volatility for meaningful edge. Best to wait for clearer alignment."
       }
     }
   ],
