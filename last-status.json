@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T05:37:24.511Z",
-  "balance": 9854.79,
+  "last_cycle": "2026-07-08T05:40:37.642Z",
+  "balance": 9853.29,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -2242,73 +2242,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T03:55:49.606Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip",
-        "conf": 0
-      }
-    },
-    {
-      "ts": "2026-07-08T03:55:49.607Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. All symbols show mixed/conflicting signals across timeframes (e.g., M5 bullish vs M15 bearish EMA crosses, RSI divergences, price near middle BB bands). Recent session performance (4-loss streak, 16W/21L) and choppy price action across majors suggest low edge. Best to wait for clearer trend alignment or volatility expansion."
-      }
-    },
-    {
-      "ts": "2026-07-08T04:00:41.962Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:00:41.962Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:00:41.964Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:00:42.444Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=EbZXH7HQ"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:00:42.786Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:00:42.891Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:00:52.141Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:01:49.556Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.65
-      }
-    },
-    {
       "ts": "2026-07-08T04:01:49.643Z",
       "level": "warn",
       "msg": "payout proposal failed; allowing trade",
@@ -3738,6 +3671,73 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4599810079
+      }
+    },
+    {
+      "ts": "2026-07-08T05:40:36.154Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T05:40:36.154Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:40:36.156Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:40:36.670Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=4yyfjtPW"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:40:36.972Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:40:37.604Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:40:37.640Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-08T05:40:37.640Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:40:37.641Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:40:37.641Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4599810079,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T05:37:24.510Z"
       }
     }
   ],
@@ -5315,9 +5315,9 @@
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783485321974,
+  "_calendar_last_fetch": 1783489237604,
   "_calendar_fetch_history": [
-    1783485321974
+    1783489237604
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
