@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T00:16:43.487Z",
-  "balance": 9864.32,
+  "last_cycle": "2026-07-08T00:20:31.571Z",
+  "balance": 9862.82,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -2089,44 +2089,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T22:55:14.460Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:55:14.866Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=gDxSmkyE"
-      }
-    },
-    {
-      "ts": "2026-07-07T22:55:14.976Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:55:15.005Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:55:20.033Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:55:20.034Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T22:55:20.192Z",
       "level": "warn",
       "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
@@ -3535,6 +3497,50 @@
       "msg": "Trade settlement timed out — returning best-effort snapshot",
       "meta": {
         "contract_id": 4584550039
+      }
+    },
+    {
+      "ts": "2026-07-08T00:20:30.038Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T00:20:30.037Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:20:30.040Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:20:30.567Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=877IYacV"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:20:30.939Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:20:31.570Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:20:31.570Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4584550039,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T00:16:43.487Z"
       }
     }
   ],
