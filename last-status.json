@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T02:35:22.112Z",
+  "last_cycle": "2026-07-08T02:41:05.064Z",
   "balance": 9861.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -10,21 +10,17 @@
     "capital_remaining": 88.74,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 34,
+    "trades": 35,
     "wins": 16,
-    "losses": 18,
-    "pnl": -9.76,
+    "losses": 19,
+    "pnl": -11.26,
     "win_streak": 0,
-    "loss_streak": 1,
+    "loss_streak": 2,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4590052019,
-    "symbol": "frxGBPUSD",
-    "placed_at": "2026-07-08T02:21:43.475Z"
-  },
-  "next_cycle_eligible_at": 1783476690027,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783478503248,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1941,11 +1937,12 @@
       "confidence": 0.68,
       "rationale": "M5 hammer + morning_star at support 1.33431 with RSI neutral_rising (52), price in middle BB (0.57). M10/M15 confirm oversold bounce structure: M10 hammer at support, M15 RSI neutral_rising (45) from oversold. EMA50>EMA20 narrowing across all TFs with both EMAs falling - bearish structure but narrowing gap suggests exhaustion. Recent GBPUSD put win at 01:27 confirms bearish session bias. Price at 1.3351 near resistance 1.33546/1.33552 with room to test support 1.33431. 15m expiry aligns with M15 mean reversion from resistance.",
       "contract_id": 4590052019,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.33507,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price immediately rallied above entry to 1.33548, invalidating the bearish mean-reversion thesis and expiring above the 1.33507 strike for a put loss.",
+      "exit": 1.33536
     }
   ],
   "trade_history_manual": [
@@ -2138,15 +2135,7 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [
-    {
-      "contract_id": 4590052019,
-      "path": "cycle",
-      "symbol": "frxGBPUSD",
-      "placed_at": "2026-07-08T02:21:43.475Z",
-      "expiry_sec": 900
-    }
-  ],
+  "pending_contracts": [],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2156,70 +2145,6 @@
     "OPENROUTER_KEY_1": 1783478733170
   },
   "logs": [
-    {
-      "ts": "2026-07-08T00:45:27.751Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxAUDUSD",
-        "conf": 0.65
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:27.817Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:28.289Z",
-      "level": "trade",
-      "msg": "Proposal accepted frxAUDUSD PUT",
-      "meta": {
-        "stake": 1.5,
-        "price": 1.5,
-        "payout": 2.44,
-        "spot": 0.69337
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:28.837Z",
-      "level": "trade",
-      "msg": "Trade placed: contract_id=4585933899",
-      "meta": {
-        "transaction_id": 8956645219,
-        "longcode": "Win payout if AUD/USD is strictly lower than entry spot at 15 minutes after contract start time."
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:29.407Z",
-      "level": "info",
-      "msg": "[chart] fetching 120 candles for frxAUDUSD @ 5m",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:45:29.537Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:45:31.343Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:46:21.009Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4585933899
-      }
-    },
     {
       "ts": "2026-07-08T00:46:21.010Z",
       "level": "info",
@@ -3656,14 +3581,68 @@
         "symbol": "frxGBPUSD",
         "placed_at": "2026-07-08T02:21:43.475Z"
       }
+    },
+    {
+      "ts": "2026-07-08T02:40:42.096Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T02:40:42.096Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:40:42.099Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:40:42.574Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QkHF6rl9"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:40:42.906Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:40:43.936Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:41:05.062Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:41:05.063Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:41:05.063Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 38185
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-08",
-    "trades": 6,
+    "trades": 7,
     "wins": 3,
-    "losses": 3,
-    "pnl": -1.42,
+    "losses": 4,
+    "pnl": -2.92,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 3,
@@ -3678,10 +3657,10 @@
         "pnl": -1.5
       },
       "frxGBPUSD": {
-        "trades": 1,
+        "trades": 2,
         "wins": 1,
-        "losses": 0,
-        "pnl": 1.16
+        "losses": 1,
+        "pnl": -0.34
       },
       "frxNZDUSD": {
         "trades": 1,
