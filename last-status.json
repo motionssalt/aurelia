@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:45:15.689Z",
+  "last_cycle": "2026-07-08T06:50:41.715Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,44 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:46:16.053Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4596652599,
-        "symbol": "frxGBPUSD",
-        "placed_at": "2026-07-08T04:42:07.332Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:38.583Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T04:50:38.583Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:38.587Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:50:39.140Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TxZ8f09T"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:39.470Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T04:50:39.707Z",
       "level": "info",
       "msg": "News Mode: qualifying event bundle detected",
@@ -3714,6 +3676,40 @@
     },
     {
       "ts": "2026-07-08T06:45:15.688Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:50:40.774Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:50:40.774Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:50:40.777Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:50:41.260Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=t1EBO9ll"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:50:41.610Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:50:41.715Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
