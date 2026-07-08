@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T02:30:45.904Z",
+  "last_cycle": "2026-07-08T02:35:22.112Z",
   "balance": 9861.4,
   "currency": "USD",
   "account_mode": "demo",
@@ -2157,58 +2157,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T00:45:17.560Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T00:45:17.560Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:17.563Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:45:18.005Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6NN96kGT"
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:18.284Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T00:45:18.941Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "RBA Assist Gov Hunter Speaks"
-        ],
-        "countries": [
-          "AUD"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 15
-      }
-    },
-    {
-      "ts": "2026-07-08T00:45:19.917Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T00:45:27.751Z",
       "level": "info",
       "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
@@ -3657,6 +3605,50 @@
     },
     {
       "ts": "2026-07-08T02:30:45.903Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4590052019,
+        "symbol": "frxGBPUSD",
+        "placed_at": "2026-07-08T02:21:43.475Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:35:20.561Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T02:35:20.561Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:35:20.564Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:35:21.117Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HIpW5g29"
+      }
+    },
+    {
+      "ts": "2026-07-08T02:35:21.449Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:35:22.111Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T02:35:22.111Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
