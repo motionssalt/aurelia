@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T00:50:30.313Z",
+  "last_cycle": "2026-07-08T00:55:17.783Z",
   "balance": 9859.82,
   "currency": "USD",
   "account_mode": "demo",
@@ -2117,48 +2117,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T23:25:19.836Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:25:19.836Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:25:20.036Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:25:20.036Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:25:20.211Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:25:20.211Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
       "ts": "2026-07-07T23:30:37.909Z",
       "level": "info",
       "msg": "Tick start",
@@ -3601,6 +3559,58 @@
     },
     {
       "ts": "2026-07-08T00:50:30.313Z",
+      "level": "info",
+      "msg": "Cycle position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4585738439,
+        "symbol": "frxEURUSD",
+        "placed_at": "2026-07-08T00:42:03.283Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:55:16.557Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T00:55:16.557Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:55:16.559Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:55:16.971Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WHMHcL9T"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:55:17.135Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:55:17.782Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4585933899,
+        "symbol": "frxAUDUSD",
+        "placed_at": "2026-07-08T00:46:21.010Z",
+        "event_title": "RBA Assist Gov Hunter Speaks",
+        "event_bundle": [
+          "RBA Assist Gov Hunter Speaks"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-08T00:55:17.783Z",
       "level": "info",
       "msg": "Cycle position open — waiting for settlement",
       "meta": {
