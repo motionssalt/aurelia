@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T08:45:22.759Z",
+  "last_cycle": "2026-07-08T08:50:37.291Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,44 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T05:50:36.036Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4599810079,
-        "symbol": "frxEURUSD",
-        "placed_at": "2026-07-08T05:37:24.510Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T05:55:18.394Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T05:55:18.394Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T05:55:18.397Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:55:18.872Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=X8SnI48v"
-      }
-    },
-    {
-      "ts": "2026-07-08T05:55:19.142Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T05:55:19.945Z",
       "level": "warn",
       "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
@@ -3624,6 +3586,40 @@
     },
     {
       "ts": "2026-07-08T08:45:22.759Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:50:36.219Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T08:50:36.219Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:50:36.221Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:50:36.787Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=aQx4i9uc"
+      }
+    },
+    {
+      "ts": "2026-07-08T08:50:37.120Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T08:50:37.290Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
