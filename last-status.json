@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T06:50:41.715Z",
+  "last_cycle": "2026-07-08T06:55:17.204Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,56 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T04:50:39.707Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 1,
-        "titles": [
-          "Economy Watchers Sentiment"
-        ],
-        "countries": [
-          "JPY"
-        ],
-        "impacts": [
-          "Low"
-        ],
-        "minutes_until": 9
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:41.367Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T04:50:49.255Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:49.256Z",
-      "level": "info",
-      "msg": "News Mode: AI chose to skip",
-      "meta": {
-        "reason": "The Economy Watchers Sentiment event for JPY is a low-impact release with a modest forecast improvement (44.3 vs 43.6 previous). While a better-than-expected reading could strengthen JPY (put on JPY pairs), the low impact rating and small forecast delta suggest insufficient directional edge to overcome current technical conditions. All JPY pairs (USDJPY, EURJPY, GBPJPY, AUDJPY) show price in the upper Bollinger Band third with RSI neutral-rising, indicating existing JPY weakness/USD strength momentum that may not reverse cleanly on this low-tier data. No clear news-driven directional conviction exists."
-      }
-    },
-    {
-      "ts": "2026-07-08T04:50:49.256Z",
-      "level": "info",
-      "msg": "Cycle position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4596652599,
-        "symbol": "frxGBPUSD",
-        "placed_at": "2026-07-08T04:42:07.332Z"
-      }
-    },
-    {
       "ts": "2026-07-08T04:55:15.013Z",
       "level": "info",
       "msg": "Tick start",
@@ -3710,6 +3660,40 @@
     },
     {
       "ts": "2026-07-08T06:50:41.715Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:55:16.635Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T06:55:16.634Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:55:16.637Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:55:17.028Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=b5C0NukQ"
+      }
+    },
+    {
+      "ts": "2026-07-08T06:55:17.152Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T06:55:17.203Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
