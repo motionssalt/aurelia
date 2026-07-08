@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T01:20:57.152Z",
+  "last_cycle": "2026-07-08T01:27:10.547Z",
   "balance": 9862.22,
   "currency": "USD",
   "account_mode": "demo",
@@ -7,7 +7,7 @@
     "active": true,
     "started_at": "2026-07-07T08:38:32.339Z",
     "capital_start": 100,
-    "capital_remaining": 89.56,
+    "capital_remaining": 88.06,
     "take_profit": 20,
     "stop_loss": 20,
     "trades": 31,
@@ -19,7 +19,11 @@
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": null,
+  "cycle_open_position": {
+    "contract_id": 4587751399,
+    "symbol": "frxGBPUSD",
+    "placed_at": "2026-07-08T01:27:10.546Z"
+  },
   "next_cycle_eligible_at": 1783472499950,
   "trade_history_cycle": [
     {
@@ -1892,6 +1896,22 @@
       "pnl": 0.9,
       "ai_outcome_note": "Price initially dropped below entry confirming bearish bias, then rallied back above entry but closed at 1.14079, still below the 1.14114 entry for a winning put.",
       "exit": 1.14079
+    },
+    {
+      "ts": "2026-07-08T01:27:10.546Z",
+      "path": "cycle",
+      "symbol": "frxGBPUSD",
+      "direction": "put",
+      "stake": 1.5,
+      "expiry_sec": 900,
+      "confidence": 0.68,
+      "rationale": "M15 evening_star reversal at resistance 1.33546/1.33552 with price in upper BB third (0.34), EMA50>EMA20 narrowing bearish cross, both EMAs falling, RSI neutral_rising from oversold, ATR contracting. M10 confirms upper BB (0.47) with EMA50>EMA20 narrowing, both EMAs falling. M5 shows price middle BB (0.51) but EMA50>EMA20 narrowing, RSI neutral_falling. Multi-timeframe bearish structure at key resistance with contracting volatility supports put. Session shows recent GBPUSD put win at 19:02 confirming bearish bias.",
+      "contract_id": 4587751399,
+      "settled": false,
+      "outcome": "pending",
+      "entry": 1.33499,
+      "pnl": 0,
+      "ai_outcome_note": null
     }
   ],
   "trade_history_manual": [
@@ -2084,7 +2104,15 @@
       "ai_outcome_note": "Despite initial volatility and dips below entry, the price ultimately recovered and closed above 0.9203, confirming the bullish bounce and resulting in a win."
     }
   ],
-  "pending_contracts": [],
+  "pending_contracts": [
+    {
+      "contract_id": 4587751399,
+      "path": "cycle",
+      "symbol": "frxGBPUSD",
+      "placed_at": "2026-07-08T01:27:10.546Z",
+      "expiry_sec": 900
+    }
+  ],
   "ai_keys_bench": {
     "GEMINI_KEY_THIRD": 1782390139617,
     "GEMINI_KEY_BACKUP": 1782390139617,
@@ -2094,116 +2122,6 @@
     "OPENROUTER_KEY_1": 1783478733170
   },
   "logs": [
-    {
-      "ts": "2026-07-07T23:40:41.307Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:40:41.307Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:40:41.567Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:40:41.567Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:40:41.636Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:40:41.637Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:45:20.969Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T23:45:20.969Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:45:20.972Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:45:21.440Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=WVS1NP9o"
-      }
-    },
-    {
-      "ts": "2026-07-07T23:45:21.702Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:45:21.777Z",
-      "level": "info",
-      "msg": "News Mode: qualifying event bundle detected",
-      "meta": {
-        "bundle_size": 2,
-        "titles": [
-          "Bank Lending y/y",
-          "Current Account"
-        ],
-        "countries": [
-          "JPY"
-        ],
-        "impacts": [
-          "Low",
-          "Low"
-        ],
-        "minutes_until": 5
-      }
-    },
-    {
-      "ts": "2026-07-07T23:45:23.146Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:45:23.146Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T23:45:23.569Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
-      "meta": {
-        "error": "openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
     {
       "ts": "2026-07-07T23:45:23.570Z",
       "level": "warn",
@@ -3565,6 +3483,110 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. Most symbols show mixed/conflicting signals across timeframes (e.g., EURUSD M5 bullish vs M10/M15 bearish, GBPUSD M5 bullish vs M10/M15 bearish, USDJPY overbought on M15, AUDUSD evening star on M15, EURAUD oversold but falling EMAs). Recent session performance (14W/17L, -10.44 PnL) and proximity to stop-loss (9.56 remaining) warrant extreme selectivity. No symbol meets the threshold for a clear, multi-timeframe aligned trade with favorable risk/reward."
+      }
+    },
+    {
+      "ts": "2026-07-08T01:25:18.663Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T01:25:18.663Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:25:18.666Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:25:19.035Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=3OgX6OeO"
+      }
+    },
+    {
+      "ts": "2026-07-08T01:25:19.148Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:25:19.204Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:25:23.977Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:26:18.162Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
+      "meta": {
+        "action": "trade",
+        "symbol": "frxGBPUSD",
+        "conf": 0.68
+      }
+    },
+    {
+      "ts": "2026-07-08T01:26:18.219Z",
+      "level": "warn",
+      "msg": "payout proposal failed; allowing trade",
+      "meta": {
+        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
+      }
+    },
+    {
+      "ts": "2026-07-08T01:26:18.699Z",
+      "level": "trade",
+      "msg": "Proposal accepted frxGBPUSD PUT",
+      "meta": {
+        "stake": 1.5,
+        "price": 1.5,
+        "payout": 2.66,
+        "spot": 1.33499
+      }
+    },
+    {
+      "ts": "2026-07-08T01:26:19.194Z",
+      "level": "trade",
+      "msg": "Trade placed: contract_id=4587751399",
+      "meta": {
+        "transaction_id": 8960193299,
+        "longcode": "Win payout if GBP/USD is strictly lower than entry spot at 15 minutes after contract start time."
+      }
+    },
+    {
+      "ts": "2026-07-08T01:26:19.554Z",
+      "level": "info",
+      "msg": "[chart] fetching 120 candles for frxGBPUSD @ 5m",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:26:19.636Z",
+      "level": "info",
+      "msg": "[chart] launching Puppeteer",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:26:21.694Z",
+      "level": "info",
+      "msg": "[chart] screenshot captured",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T01:27:10.546Z",
+      "level": "warn",
+      "msg": "Trade settlement timed out — returning best-effort snapshot",
+      "meta": {
+        "contract_id": 4587751399
       }
     }
   ],
