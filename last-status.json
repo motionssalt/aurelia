@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T03:10:58.486Z",
+  "last_cycle": "2026-07-08T03:15:26.760Z",
   "balance": 9859.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -2146,60 +2146,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T01:26:19.636Z",
-      "level": "info",
-      "msg": "[chart] launching Puppeteer",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:26:21.694Z",
-      "level": "info",
-      "msg": "[chart] screenshot captured",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:27:10.546Z",
-      "level": "warn",
-      "msg": "Trade settlement timed out — returning best-effort snapshot",
-      "meta": {
-        "contract_id": 4587751399
-      }
-    },
-    {
-      "ts": "2026-07-08T01:30:41.548Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T01:30:41.548Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:30:41.550Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:30:42.046Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=gZgiFYFh"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:30:42.381Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:30:42.999Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T01:30:43.047Z",
       "level": "info",
       "msg": "Calendar fetched",
@@ -3662,6 +3608,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals (e.g., bullish EMAs but bearish RSI/BB position, or vice versa), recent session has a 3-loss streak with mixed win/loss outcomes, and no clear multi-timeframe alignment with strong reversal or trend-continuation patterns. Capital preservation dictates skipping this cycle."
+      }
+    },
+    {
+      "ts": "2026-07-08T03:15:15.112Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T03:15:15.112Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:15:15.115Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:15:15.442Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pmBIwarh"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:15:15.551Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:15:15.578Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:15:19.761Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:15:26.759Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-08T03:15:26.760Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols. Multiple timeframes show conflicting signals (e.g., bullish M5 vs bearish M10/M15 on EURUSD, GBPUSD). Recent session performance shows 3 consecutive losses with choppy price action. Volatility is contracting on most pairs, reducing directional edge. Best to wait for clearer multi-timeframe alignment."
       }
     }
   ],
