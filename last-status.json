@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T03:00:51.932Z",
+  "last_cycle": "2026-07-08T03:05:57.532Z",
   "balance": 9859.9,
   "currency": "USD",
   "account_mode": "demo",
@@ -2154,74 +2154,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_2": 1783488647261,
-    "OPENROUTER_KEY_1": 1783488647261
+    "OPENROUTER_KEY_2": 1783488647261
   },
   "logs": [
-    {
-      "ts": "2026-07-08T01:20:32.947Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T01:20:32.947Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:20:32.949Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:20:33.522Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=tRAYQEO4"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:20:33.842Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:20:33.948Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:20:43.014Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T01:20:57.151Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_2\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T01:20:57.152Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found. Most symbols show mixed/conflicting signals across timeframes (e.g., EURUSD M5 bullish vs M10/M15 bearish, GBPUSD M5 bullish vs M10/M15 bearish, USDJPY overbought on M15, AUDUSD evening star on M15, EURAUD oversold but falling EMAs). Recent session performance (14W/17L, -10.44 PnL) and proximity to stop-loss (9.56 remaining) warrant extreme selectivity. No symbol meets the threshold for a clear, multi-timeframe aligned trade with favorable risk/reward."
-      }
-    },
-    {
-      "ts": "2026-07-08T01:25:18.663Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T01:25:18.663Z"
-      }
-    },
     {
       "ts": "2026-07-08T01:25:18.666Z",
       "level": "network",
@@ -3676,6 +3611,77 @@
       "msg": "AI decision failed",
       "meta": {
         "error": "All AI providers/keys failed; last error: openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:05:17.752Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T03:05:17.751Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:05:17.754Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:05:18.227Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=SnY2ozoY"
+      }
+    },
+    {
+      "ts": "2026-07-08T03:05:18.391Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:05:18.951Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4591331439,
+        "symbol": "frxNZDUSD",
+        "placed_at": "2026-07-08T02:51:35.220Z",
+        "event_title": "RBNZ Press Conference",
+        "event_bundle": [
+          "RBNZ Press Conference"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-08T03:05:25.019Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:05:25.019Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T03:05:57.531Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-08T03:05:57.531Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found across all symbols and timeframes. Recent session shows 2 consecutive losses with mixed signals. EURUSD shows bullish M5 structure (EMA20>EMA50 widening, RSI rising, price upper BB) but M10/M15 show bearish EMA crosses (50>20 narrowing) and RSI neutral-falling. GBPUSD has conflicting signals with M5 bullish (EMA20>EMA50 narrowing, RSI rising) but M10/M15 bearish (50>20 narrowing, EMAs falling). USDJPY shows bearish M5 (EMA20 falling, RSI falling, price lower BB) but M10/M15 bullish EMA alignment. AUDUSD has M5/M10/M15 bullish EMA alignment but overbought RSI on M10/M15 (75-70) with price at upper BB extremes. No clear multi-timeframe confluence with favorable risk/reward. Capital remaining 87.24, distance to stop loss 8.74 - preserving capital for better setups."
       }
     }
   ],
