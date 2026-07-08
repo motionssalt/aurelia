@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T00:05:29.239Z",
+  "last_cycle": "2026-07-08T00:10:50.154Z",
   "balance": 9864.32,
   "currency": "USD",
   "account_mode": "demo",
@@ -2061,60 +2061,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-07T22:40:47.589Z",
-      "level": "error",
-      "msg": "AI decision failed",
-      "meta": {
-        "error": "All AI providers/keys failed; last error: openrouter 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remain"
-      }
-    },
-    {
-      "ts": "2026-07-07T22:45:19.994Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-07T22:45:19.993Z"
-      }
-    },
-    {
-      "ts": "2026-07-07T22:45:19.996Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:45:20.430Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sIf2wNVG"
-      }
-    },
-    {
-      "ts": "2026-07-07T22:45:20.582Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:45:20.628Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:45:24.955Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-07T22:45:24.955Z",
-      "level": "warn",
-      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-07T22:45:25.091Z",
       "level": "warn",
       "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" failed — benching 150m",
@@ -3500,6 +3446,63 @@
       "msg": "AI chose to skip this tick",
       "meta": {
         "reason": "No high-confidence setup found. Multiple symbols show conflicting signals across timeframes (e.g., EURUSD bearish structure but recent losses on puts, USDJPY overbought on M10/M15, GBPUSD/GBPJPY mixed signals). Session has 13W/15L with recent volatility. Best to wait for clearer multi-timeframe alignment."
+      }
+    },
+    {
+      "ts": "2026-07-08T00:10:31.741Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T00:10:31.741Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:10:31.743Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:10:32.036Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TmJilmIS"
+      }
+    },
+    {
+      "ts": "2026-07-08T00:10:32.173Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:10:32.263Z",
+      "level": "info",
+      "msg": "News Mode: no qualifying upcoming event this tick",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:10:36.613Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T00:10:50.153Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {
+        "action": "skip",
+        "conf": 0
+      }
+    },
+    {
+      "ts": "2026-07-08T00:10:50.153Z",
+      "level": "info",
+      "msg": "AI chose to skip this tick",
+      "meta": {
+        "reason": "No high-confidence setup found. EURUSD shows mixed signals with RSI rising on M5/M10 but price in lower BB third; GBPUSD has RSI rising on M5/M10 but price in lower BB third; USDJPY is overbought across all timeframes with price at upper BB extreme; other pairs show conflicting EMA crosses, RSI divergences, or price at BB extremes without clear reversal patterns. Session has 15 losses vs 13 wins with recent volatility in outcomes. Waiting for clearer multi-timeframe alignment."
       }
     }
   ],
