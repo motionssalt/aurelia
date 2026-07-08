@@ -1,6 +1,6 @@
 {
-  "last_cycle": "2026-07-08T04:56:24.724Z",
-  "balance": 9855.4,
+  "last_cycle": "2026-07-08T05:00:59.290Z",
+  "balance": 9853.9,
   "currency": "USD",
   "account_mode": "demo",
   "cycle_session": {
@@ -10,21 +10,17 @@
     "capital_remaining": 81.24,
     "take_profit": 20,
     "stop_loss": 20,
-    "trades": 38,
+    "trades": 39,
     "wins": 16,
-    "losses": 22,
-    "pnl": -15.76,
+    "losses": 23,
+    "pnl": -17.26,
     "win_streak": 0,
-    "loss_streak": 5,
+    "loss_streak": 6,
     "halted": false,
     "halt_reason": null
   },
-  "cycle_open_position": {
-    "contract_id": 4596652599,
-    "symbol": "frxGBPUSD",
-    "placed_at": "2026-07-08T04:42:07.332Z"
-  },
-  "next_cycle_eligible_at": 1783484497745,
+  "cycle_open_position": null,
+  "next_cycle_eligible_at": 1783486903132,
   "trade_history_cycle": [
     {
       "ts": "2026-06-25T06:19:32.227Z",
@@ -1992,11 +1988,12 @@
       "confidence": 0.68,
       "rationale": "frxGBPUSD M15 shows bullish_engulfing + morning_star at support 1.33493 with RSI neutral_rising (50.1), EMA20 rising, EMA50 falling but gap narrowing (50_above_20_narrowing), price middle BB (0.66). M10 confirms EMA20/50 rising with narrowing gap, RSI neutral_falling but price above M15 support. M5 shows doji at support 1.33522 with EMA20/50 narrowing. Contracting ATR across all TFs. Recent GBPUSD put win at 01:27 but current structure favors bullish mean reversion from support. 15m expiry aligns with M15 reversal candles.",
       "contract_id": 4596652599,
-      "settled": false,
-      "outcome": "pending",
+      "settled": true,
+      "outcome": "loss",
       "entry": 1.33541,
-      "pnl": 0,
-      "ai_outcome_note": null
+      "pnl": -1.5,
+      "ai_outcome_note": "Price failed to sustain above entry, breaking support at 1.33522 and drifting lower to close at 1.33533, below the 1.33541 entry.",
+      "exit": 1.33533
     }
   ],
   "trade_history_manual": [
@@ -2191,13 +2188,6 @@
   ],
   "pending_contracts": [
     {
-      "contract_id": 4596652599,
-      "path": "cycle",
-      "symbol": "frxGBPUSD",
-      "placed_at": "2026-07-08T04:42:07.332Z",
-      "expiry_sec": 900
-    },
-    {
       "contract_id": 4597470139,
       "path": "news",
       "symbol": "frxUSDJPY",
@@ -2215,77 +2205,9 @@
     "GEMINI_KEY_4": 1783331721168,
     "GEMINI_KEY_3": 1783331721168,
     "GEMINI_KEY_1": 1783412116857,
-    "OPENROUTER_KEY_1": 1783495516320
+    "OPENROUTER_KEY_2": 1783495844349
   },
   "logs": [
-    {
-      "ts": "2026-07-08T03:10:33.175Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:10:40.686Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:10:40.687Z",
-      "level": "info",
-      "msg": "News Mode: no qualifying upcoming event this tick",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:10:46.699Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:10:58.485Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "skip"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:10:58.485Z",
-      "level": "info",
-      "msg": "AI chose to skip this tick",
-      "meta": {
-        "reason": "No high-confidence setup found across all symbols and timeframes. Most pairs show conflicting signals (e.g., bullish EMAs but bearish RSI/BB position, or vice versa), recent session has a 3-loss streak with mixed win/loss outcomes, and no clear multi-timeframe alignment with strong reversal or trend-continuation patterns. Capital preservation dictates skipping this cycle."
-      }
-    },
-    {
-      "ts": "2026-07-08T03:15:15.112Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T03:15:15.112Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:15:15.115Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T03:15:15.442Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=pmBIwarh"
-      }
-    },
-    {
-      "ts": "2026-07-08T03:15:15.551Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
     {
       "ts": "2026-07-08T03:15:15.578Z",
       "level": "info",
@@ -3700,14 +3622,90 @@
         "symbol": "frxGBPUSD",
         "placed_at": "2026-07-08T04:42:07.332Z"
       }
+    },
+    {
+      "ts": "2026-07-08T05:00:42.050Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T05:00:42.050Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:00:42.052Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:00:42.490Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=jAG1Z2PO"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:00:42.835Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:00:44.349Z",
+      "level": "warn",
+      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:00:44.956Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_2\" failed — benching 150m",
+      "meta": {
+        "error": "openrouter returned empty text: no content returned"
+      }
+    },
+    {
+      "ts": "2026-07-08T05:00:44.957Z",
+      "level": "warn",
+      "msg": "Provider \"openrouter\" key \"OPENROUTER_KEY_1\" benched; trying anyway as fallback",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:00:59.288Z",
+      "level": "info",
+      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T05:00:59.289Z",
+      "level": "info",
+      "msg": "News Mode: position open — waiting for settlement",
+      "meta": {
+        "contract_id": 4597470139,
+        "symbol": "frxUSDJPY",
+        "placed_at": "2026-07-08T04:56:24.723Z",
+        "event_title": "Economy Watchers Sentiment",
+        "event_bundle": [
+          "Economy Watchers Sentiment"
+        ]
+      }
+    },
+    {
+      "ts": "2026-07-08T05:00:59.289Z",
+      "level": "info",
+      "msg": "In post-settlement cooldown",
+      "meta": {
+        "ms_remaining": 43843
+      }
     }
   ],
   "daily_stats": {
     "date": "2026-07-08",
-    "trades": 10,
+    "trades": 11,
     "wins": 3,
-    "losses": 7,
-    "pnl": -7.42,
+    "losses": 8,
+    "pnl": -8.92,
     "by_symbol": {
       "frxEURUSD": {
         "trades": 4,
@@ -3722,10 +3720,10 @@
         "pnl": -1.5
       },
       "frxGBPUSD": {
-        "trades": 2,
+        "trades": 3,
         "wins": 1,
-        "losses": 1,
-        "pnl": -0.34
+        "losses": 2,
+        "pnl": -1.84
       },
       "frxNZDUSD": {
         "trades": 3,
