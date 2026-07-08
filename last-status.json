@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T22:55:18.778Z",
+  "last_cycle": "2026-07-08T23:00:48.124Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,46 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T19:45:17.310Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T19:50:40.188Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-08T19:50:40.188Z"
-      }
-    },
-    {
-      "ts": "2026-07-08T19:50:40.190Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T19:50:40.590Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=09WOQoCD"
-      }
-    },
-    {
-      "ts": "2026-07-08T19:50:40.714Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T19:50:40.750Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-08T19:55:23.882Z",
       "level": "info",
       "msg": "Tick start",
@@ -3613,6 +3573,56 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-08T23:00:46.576Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T23:00:46.576Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T23:00:46.579Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T23:00:47.219Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HuCJNWEu"
+      }
+    },
+    {
+      "ts": "2026-07-08T23:00:47.432Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T23:00:47.533Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-07",
+        "trades": 32,
+        "wins": 14,
+        "losses": 18,
+        "pnl": -15.67,
+        "source": "daily_history"
+      }
+    },
+    {
+      "ts": "2026-07-08T23:00:48.124Z",
+      "level": "info",
+      "msg": "daily_stats already advanced past reported day — leaving intact",
+      "meta": {
+        "current": "2026-07-08",
+        "reported": "2026-07-07"
+      }
     }
   ],
   "daily_stats": {
