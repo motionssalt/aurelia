@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-08T07:25:20.262Z",
+  "last_cycle": "2026-07-08T07:30:47.306Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,50 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-08T05:05:23.949Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:05:24.175Z",
-      "level": "info",
-      "msg": "News Mode: position open — waiting for settlement",
-      "meta": {
-        "contract_id": 4597470139,
-        "symbol": "frxUSDJPY",
-        "placed_at": "2026-07-08T04:56:24.723Z",
-        "event_title": "Economy Watchers Sentiment",
-        "event_bundle": [
-          "Economy Watchers Sentiment"
-        ]
-      }
-    },
-    {
-      "ts": "2026-07-08T05:05:32.974Z",
-      "level": "warn",
-      "msg": "Provider \"cloudflare\" has no key_registry or key_env — skipping",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-08T05:05:57.799Z",
-      "level": "info",
-      "msg": "AI decision via provider \"openrouter\" key \"OPENROUTER_KEY_1\"",
-      "meta": {
-        "action": "trade",
-        "symbol": "frxEURUSD",
-        "conf": 0.72
-      }
-    },
-    {
-      "ts": "2026-07-08T05:05:57.884Z",
-      "level": "warn",
-      "msg": "payout proposal failed; allowing trade",
-      "meta": {
-        "error": "InputValidationFailed: Input validation failed: Properties not allowed: symbol."
-      }
-    },
-    {
       "ts": "2026-07-08T05:05:58.006Z",
       "level": "trade",
       "msg": "Proposal accepted frxEURUSD PUT",
@@ -3660,6 +3616,40 @@
     },
     {
       "ts": "2026-07-08T07:25:20.261Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:30:46.315Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-08T07:30:46.314Z"
+      }
+    },
+    {
+      "ts": "2026-07-08T07:30:46.317Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:30:46.877Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=eWBhQHx3"
+      }
+    },
+    {
+      "ts": "2026-07-08T07:30:47.202Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-08T07:30:47.305Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
