@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-10T15:25:15.597Z",
+  "last_cycle": "2026-07-10T15:30:28.445Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-10T12:15:18.479Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-10T12:20:19.834Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-10T12:20:19.834Z"
-      }
-    },
-    {
-      "ts": "2026-07-10T12:20:19.836Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-10T12:20:20.267Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rahWJ9LM"
-      }
-    },
-    {
-      "ts": "2026-07-10T12:20:20.369Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-10T12:20:20.400Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-10T12:20:20.525Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 76
-      }
-    },
-    {
-      "ts": "2026-07-10T12:20:20.526Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 76,
-        "trigger": "scheduled"
-      }
-    },
-    {
       "ts": "2026-07-10T12:20:20.526Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3610,6 +3553,63 @@
     },
     {
       "ts": "2026-07-10T15:25:15.597Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-10T15:30:27.294Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-10T15:30:27.294Z"
+      }
+    },
+    {
+      "ts": "2026-07-10T15:30:27.297Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-10T15:30:27.973Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1LYaGHAk"
+      }
+    },
+    {
+      "ts": "2026-07-10T15:30:28.293Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-10T15:30:28.402Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-10T15:30:28.444Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 76
+      }
+    },
+    {
+      "ts": "2026-07-10T15:30:28.444Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 76,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-10T15:30:28.444Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5191,15 +5191,15 @@
     {
       "title": "Fed Monetary Policy Report",
       "country": "USD",
-      "date": "2026-07-10T11:00:00-04:00",
+      "date": "2026-07-10T11:08:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": ""
     }
   ],
-  "_calendar_last_fetch": 1783693527597,
+  "_calendar_last_fetch": 1783697428402,
   "_calendar_fetch_history": [
-    1783693527597
+    1783697428402
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
