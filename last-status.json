@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-13T18:50:28.413Z",
+  "last_cycle": "2026-07-13T18:55:21.403Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-13T15:40:31.313Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-13T15:40:31.534Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 98
-      }
-    },
-    {
-      "ts": "2026-07-13T15:40:31.534Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 98,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-13T15:40:31.534Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-13T15:45:15.855Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-13T15:45:15.854Z"
-      }
-    },
-    {
-      "ts": "2026-07-13T15:45:15.858Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-13T15:45:16.315Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lzeeJ9P1"
-      }
-    },
-    {
-      "ts": "2026-07-13T15:45:16.424Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-13T15:45:16.456Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3613,6 +3556,63 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-13T18:55:20.666Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-13T18:55:20.665Z"
+      }
+    },
+    {
+      "ts": "2026-07-13T18:55:20.668Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-13T18:55:21.019Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=QPkOnrQG"
+      }
+    },
+    {
+      "ts": "2026-07-13T18:55:21.138Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-13T18:55:21.258Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-13T18:55:21.401Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 98
+      }
+    },
+    {
+      "ts": "2026-07-13T18:55:21.402Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 98,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-13T18:55:21.402Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4637,20 +4637,20 @@
       "previous": ""
     },
     {
+      "title": "Federal Budget Balance",
+      "country": "USD",
+      "date": "2026-07-13T13:59:00-04:00",
+      "impact": "Low",
+      "forecast": "-135.8B",
+      "previous": "-292.6B"
+    },
+    {
       "title": "MPC Member Pill Speaks",
       "country": "GBP",
       "date": "2026-07-13T14:00:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": ""
-    },
-    {
-      "title": "Federal Budget Balance",
-      "country": "USD",
-      "date": "2026-07-13T14:00:00-04:00",
-      "impact": "Low",
-      "forecast": "-135.8B",
-      "previous": "-292.6B"
     },
     {
       "title": "NZIER Business Confidence",
@@ -5397,9 +5397,9 @@
       "previous": "4.6%"
     }
   ],
-  "_calendar_last_fetch": 1783965029830,
+  "_calendar_last_fetch": 1783968921258,
   "_calendar_fetch_history": [
-    1783965029830
+    1783968921258
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
