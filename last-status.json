@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-15T08:20:29.552Z",
+  "last_cycle": "2026-07-15T08:25:21.554Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-15T05:10:27.938Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T05:15:17.850Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-15T05:15:17.850Z"
-      }
-    },
-    {
-      "ts": "2026-07-15T05:15:17.851Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T05:15:18.321Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sSbiyAXJ"
-      }
-    },
-    {
-      "ts": "2026-07-15T05:15:18.849Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T05:15:19.047Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T05:20:25.000Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-15T05:20:25.000Z"
-      }
-    },
-    {
-      "ts": "2026-07-15T05:20:25.003Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-15T05:20:25.494Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3610,6 +3556,63 @@
     },
     {
       "ts": "2026-07-15T08:20:29.552Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T08:25:20.734Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-15T08:25:20.734Z"
+      }
+    },
+    {
+      "ts": "2026-07-15T08:25:20.736Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T08:25:21.103Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=V9QWWJRR"
+      }
+    },
+    {
+      "ts": "2026-07-15T08:25:21.420Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T08:25:21.516Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T08:25:21.553Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 99
+      }
+    },
+    {
+      "ts": "2026-07-15T08:25:21.553Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 99,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-15T08:25:21.554Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -4957,17 +4960,9 @@
       "previous": "1.3%"
     },
     {
-      "title": "Industrial Production m/m",
-      "country": "EUR",
-      "date": "2026-07-15T05:00:00-04:00",
-      "impact": "Low",
-      "forecast": "0.3%",
-      "previous": "0.1%"
-    },
-    {
       "title": "M2 Money Supply y/y",
       "country": "CNY",
-      "date": "2026-07-15T05:33:00-04:00",
+      "date": "2026-07-15T03:00:00-04:00",
       "impact": "Low",
       "forecast": "8.5%",
       "previous": "8.6%"
@@ -4975,10 +4970,18 @@
     {
       "title": "New Loans",
       "country": "CNY",
-      "date": "2026-07-15T05:33:00-04:00",
+      "date": "2026-07-15T03:01:00-04:00",
       "impact": "Low",
       "forecast": "1950B",
       "previous": "520B"
+    },
+    {
+      "title": "Industrial Production m/m",
+      "country": "EUR",
+      "date": "2026-07-15T05:00:00-04:00",
+      "impact": "Low",
+      "forecast": "0.3%",
+      "previous": "0.1%"
     },
     {
       "title": "German 30-y Bond Auction",
@@ -5421,9 +5424,9 @@
       "previous": "4.6%"
     }
   ],
-  "_calendar_last_fetch": 1784100316435,
+  "_calendar_last_fetch": 1784103921516,
   "_calendar_fetch_history": [
-    1784100316435
+    1784103921516
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
