@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-15T02:05:20.304Z",
+  "last_cycle": "2026-07-15T02:10:33.612Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,70 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-14T23:00:29.024Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-14T23:00:29.023Z"
-      }
-    },
-    {
-      "ts": "2026-07-14T23:00:29.026Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-14T23:00:29.707Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DlUlYokA"
-      }
-    },
-    {
-      "ts": "2026-07-14T23:00:30.031Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-14T23:00:30.137Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-14T23:00:30.168Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 99
-      }
-    },
-    {
-      "ts": "2026-07-14T23:00:30.168Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 99,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-14T23:00:30.168Z",
-      "level": "info",
-      "msg": "runDailySummary — reporting",
-      "meta": {
-        "report_date": "2026-07-13",
-        "trades": 0,
-        "wins": 0,
-        "losses": 0,
-        "pnl": 0,
-        "source": "daily_stats"
-      }
-    },
-    {
       "ts": "2026-07-14T23:00:30.741Z",
       "level": "info",
       "msg": "daily_stats reset for new UTC day",
@@ -3622,6 +3558,63 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-15T02:10:32.514Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-15T02:10:32.514Z"
+      }
+    },
+    {
+      "ts": "2026-07-15T02:10:32.516Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T02:10:32.974Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=rregDKQt"
+      }
+    },
+    {
+      "ts": "2026-07-15T02:10:33.300Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T02:10:33.401Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-15T02:10:33.610Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 99
+      }
+    },
+    {
+      "ts": "2026-07-15T02:10:33.611Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 99,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-15T02:10:33.611Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4904,7 +4897,7 @@
     {
       "title": "New Home Prices m/m",
       "country": "CNY",
-      "date": "2026-07-14T21:30:00-04:00",
+      "date": "2026-07-14T21:45:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "-0.20%"
@@ -5430,9 +5423,9 @@
       "previous": "4.6%"
     }
   ],
-  "_calendar_last_fetch": 1784077521913,
+  "_calendar_last_fetch": 1784081433401,
   "_calendar_fetch_history": [
-    1784077521913
+    1784081433401
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
