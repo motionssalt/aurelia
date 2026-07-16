@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-16T02:05:15.234Z",
+  "last_cycle": "2026-07-16T02:10:26.793Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,47 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-15T23:00:27.330Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-15T23:00:27.330Z"
-      }
-    },
-    {
-      "ts": "2026-07-15T23:00:27.332Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T23:00:27.876Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ALHMqKBf"
-      }
-    },
-    {
-      "ts": "2026-07-15T23:00:28.071Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-15T23:00:28.126Z",
-      "level": "info",
-      "msg": "runDailySummary — reporting",
-      "meta": {
-        "report_date": "2026-07-14",
-        "trades": 0,
-        "wins": 0,
-        "losses": 0,
-        "pnl": 0,
-        "source": "daily_stats"
-      }
-    },
-    {
       "ts": "2026-07-15T23:00:28.555Z",
       "level": "info",
       "msg": "daily_stats reset for new UTC day",
@@ -3619,6 +3578,40 @@
     },
     {
       "ts": "2026-07-16T02:05:15.234Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-16T02:10:26.043Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-16T02:10:26.043Z"
+      }
+    },
+    {
+      "ts": "2026-07-16T02:10:26.045Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-16T02:10:26.480Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PoTFxlSU"
+      }
+    },
+    {
+      "ts": "2026-07-16T02:10:26.730Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-16T02:10:26.793Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
