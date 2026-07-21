@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-21T08:35:16.311Z",
+  "last_cycle": "2026-07-21T08:40:20.840Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-21T05:25:25.151Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-21T05:30:24.321Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-21T05:30:24.321Z"
-      }
-    },
-    {
-      "ts": "2026-07-21T05:30:24.323Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-21T05:30:25.014Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=UH8nCTRX"
-      }
-    },
-    {
-      "ts": "2026-07-21T05:30:25.481Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-21T05:30:25.602Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-21T05:30:25.853Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 69
-      }
-    },
-    {
-      "ts": "2026-07-21T05:30:25.853Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 69,
-        "trigger": "scheduled"
-      }
-    },
-    {
       "ts": "2026-07-21T05:30:25.854Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3613,6 +3556,63 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-21T08:40:19.425Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-21T08:40:19.425Z"
+      }
+    },
+    {
+      "ts": "2026-07-21T08:40:19.426Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-21T08:40:20.085Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nqCKeJxR"
+      }
+    },
+    {
+      "ts": "2026-07-21T08:40:20.393Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-21T08:40:20.487Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-21T08:40:20.839Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 69
+      }
+    },
+    {
+      "ts": "2026-07-21T08:40:20.839Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 69,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-21T08:40:20.840Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4813,12 +4813,12 @@
       "previous": "4.9%"
     },
     {
-      "title": "Foreign Direct Investment ytd/y",
-      "country": "CNY",
-      "date": "2026-07-21T02:02:00-04:00",
+      "title": "German ZEW Economic Sentiment",
+      "country": "EUR",
+      "date": "2026-07-21T05:00:00-04:00",
       "impact": "Low",
-      "forecast": "",
-      "previous": "-8.6%"
+      "forecast": "15.1",
+      "previous": "10.5"
     },
     {
       "title": "ZEW Economic Sentiment",
@@ -4827,14 +4827,6 @@
       "impact": "Low",
       "forecast": "11.2",
       "previous": "9.5"
-    },
-    {
-      "title": "German ZEW Economic Sentiment",
-      "country": "EUR",
-      "date": "2026-07-21T05:00:00-04:00",
-      "impact": "Low",
-      "forecast": "15.1",
-      "previous": "10.5"
     },
     {
       "title": "German Buba President Nagel Speaks",
@@ -4931,6 +4923,14 @@
       "impact": "Low",
       "forecast": "3.0%",
       "previous": "3.1%"
+    },
+    {
+      "title": "Foreign Direct Investment ytd/y",
+      "country": "CNY",
+      "date": "2026-07-22T02:02:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "-8.6%"
     },
     {
       "title": "HPI y/y",
@@ -5229,9 +5229,9 @@
       "previous": "580K"
     }
   ],
-  "_calendar_last_fetch": 1784619317845,
+  "_calendar_last_fetch": 1784623220487,
   "_calendar_fetch_history": [
-    1784619317845
+    1784623220487
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
