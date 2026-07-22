@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T15:15:44.046Z",
+  "last_cycle": "2026-07-22T15:20:51.080Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,34 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T11:50:25.926Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T11:50:25.926Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T11:50:25.928Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T11:50:26.447Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=cLjVOvtV"
-      }
-    },
-    {
-      "ts": "2026-07-22T11:50:26.734Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-22T11:50:26.835Z",
       "level": "info",
       "msg": "Fetching ForexFactory calendar...",
@@ -3673,6 +3645,37 @@
     },
     {
       "ts": "2026-07-22T15:15:43.605Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "WS open timeout",
+        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:20:29.834Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T15:20:29.833Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:20:29.837Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T15:20:30.495Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=ddxdgkX3"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:20:50.503Z",
       "level": "error",
       "msg": "Tick failed",
       "meta": {
