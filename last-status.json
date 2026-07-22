@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T17:10:42.613Z",
+  "last_cycle": "2026-07-22T17:15:39.721Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,32 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T13:25:22.181Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T13:25:23.311Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T13:30:17.976Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T13:30:17.976Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T13:30:17.978Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-22T13:30:18.762Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3736,6 +3710,37 @@
     },
     {
       "ts": "2026-07-22T17:10:42.149Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "WS open timeout",
+        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:15:18.742Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T17:15:18.742Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:15:18.744Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T17:15:19.206Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wSII1Zsy"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:15:39.215Z",
       "level": "error",
       "msg": "Tick failed",
       "meta": {
