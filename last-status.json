@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T15:10:53.681Z",
+  "last_cycle": "2026-07-22T15:15:44.046Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,32 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T11:45:20.012Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T11:45:20.450Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=xoUDtRp3"
-      }
-    },
-    {
-      "ts": "2026-07-22T11:45:20.615Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T11:45:20.678Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-22T11:50:25.926Z",
       "level": "info",
       "msg": "Tick start",
@@ -3673,6 +3647,37 @@
         "status": 0,
         "error": "fetch failed",
         "retry_after_ms": 1500
+      }
+    },
+    {
+      "ts": "2026-07-22T15:15:23.146Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T15:15:23.146Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:15:23.148Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T15:15:23.595Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=q8He6lRt"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:15:43.605Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "WS open timeout",
+        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
       }
     }
   ],
