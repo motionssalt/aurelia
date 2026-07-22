@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T15:50:19.348Z",
+  "last_cycle": "2026-07-22T15:55:47.041Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,34 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T12:15:22.856Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T12:20:22.881Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T12:20:22.881Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T12:20:22.883Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T12:20:23.443Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hYc94kYC"
-      }
-    },
-    {
       "ts": "2026-07-22T12:20:23.761Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3701,6 +3673,37 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-22T15:55:25.948Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T15:55:25.948Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:55:25.950Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T15:55:26.458Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oE1fANQd"
+      }
+    },
+    {
+      "ts": "2026-07-22T15:55:46.471Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "WS open timeout",
+        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
+      }
     }
   ],
   "daily_stats": {
