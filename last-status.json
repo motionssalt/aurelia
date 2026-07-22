@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T17:50:20.848Z",
+  "last_cycle": "2026-07-22T17:55:23.621Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,68 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T14:10:18.623Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T14:10:18.623Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T14:10:18.626Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T14:10:18.885Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=tQvDUQ0i"
-      }
-    },
-    {
-      "ts": "2026-07-22T14:10:38.893Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "WS open timeout",
-        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
-      }
-    },
-    {
-      "ts": "2026-07-22T14:15:31.713Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T14:15:31.713Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T14:15:31.716Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T14:15:32.280Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=n5NPTZ0u"
-      }
-    },
-    {
-      "ts": "2026-07-22T14:15:52.292Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "WS open timeout",
-        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
-      }
-    },
-    {
       "ts": "2026-07-22T14:20:23.269Z",
       "level": "info",
       "msg": "Tick start",
@@ -3733,6 +3671,63 @@
     },
     {
       "ts": "2026-07-22T17:50:20.848Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T17:55:22.406Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T17:55:22.406Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:55:22.408Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T17:55:22.947Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9OrTVTd1"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:55:23.277Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T17:55:23.378Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T17:55:23.619Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 70
+      }
+    },
+    {
+      "ts": "2026-07-22T17:55:23.619Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 70,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-22T17:55:23.620Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5368,9 +5363,9 @@
       "previous": "580K"
     }
   ],
-  "_calendar_last_fetch": 1784739322506,
+  "_calendar_last_fetch": 1784742923378,
   "_calendar_fetch_history": [
-    1784739322506
+    1784742923378
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
