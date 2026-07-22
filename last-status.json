@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T05:35:22.001Z",
+  "last_cycle": "2026-07-22T05:40:16.669Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T02:25:20.010Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T02:30:19.293Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T02:30:19.293Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T02:30:19.295Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T02:30:19.693Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nqILTZWA"
-      }
-    },
-    {
-      "ts": "2026-07-22T02:30:19.820Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T02:30:19.853Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T02:30:19.885Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 69
-      }
-    },
-    {
-      "ts": "2026-07-22T02:30:19.885Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 69,
-        "trigger": "scheduled"
-      }
-    },
-    {
       "ts": "2026-07-22T02:30:19.886Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3613,6 +3556,63 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-22T05:40:16.075Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T05:40:16.075Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T05:40:16.078Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T05:40:16.440Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=daEbnljk"
+      }
+    },
+    {
+      "ts": "2026-07-22T05:40:16.574Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T05:40:16.610Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T05:40:16.668Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 70
+      }
+    },
+    {
+      "ts": "2026-07-22T05:40:16.668Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 70,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-22T05:40:16.668Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4821,20 +4821,20 @@
       "previous": "4.9%"
     },
     {
-      "title": "German ZEW Economic Sentiment",
-      "country": "EUR",
-      "date": "2026-07-21T05:00:00-04:00",
-      "impact": "Low",
-      "forecast": "15.1",
-      "previous": "10.5"
-    },
-    {
       "title": "ZEW Economic Sentiment",
       "country": "EUR",
       "date": "2026-07-21T05:00:00-04:00",
       "impact": "Low",
       "forecast": "11.2",
       "previous": "9.5"
+    },
+    {
+      "title": "German ZEW Economic Sentiment",
+      "country": "EUR",
+      "date": "2026-07-21T05:00:00-04:00",
+      "impact": "Low",
+      "forecast": "15.1",
+      "previous": "10.5"
     },
     {
       "title": "German Buba President Nagel Speaks",
@@ -4955,6 +4955,14 @@
       "impact": "Low",
       "forecast": "-2.0M",
       "previous": "-1.7M"
+    },
+    {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "date": "2026-07-22T15:00:00-04:00",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": ""
     },
     {
       "title": "Employment Change",
@@ -5237,9 +5245,9 @@
       "previous": "580K"
     }
   ],
-  "_calendar_last_fetch": 1784694925102,
+  "_calendar_last_fetch": 1784698816610,
   "_calendar_fetch_history": [
-    1784694925102
+    1784698816610
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
