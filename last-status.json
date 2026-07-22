@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T19:15:21.753Z",
+  "last_cycle": "2026-07-22T19:20:27.812Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,45 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T15:55:26.458Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oE1fANQd"
-      }
-    },
-    {
-      "ts": "2026-07-22T15:55:46.471Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "WS open timeout",
-        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
-      }
-    },
-    {
-      "ts": "2026-07-22T16:00:39.745Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T16:00:39.745Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T16:00:39.747Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T16:00:40.246Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=B7t5FETv"
-      }
-    },
-    {
       "ts": "2026-07-22T16:00:40.556Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3656,6 +3617,40 @@
     },
     {
       "ts": "2026-07-22T19:15:21.752Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T19:20:26.740Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T19:20:26.740Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T19:20:26.742Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T19:20:27.406Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KbTjtVje"
+      }
+    },
+    {
+      "ts": "2026-07-22T19:20:27.708Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T19:20:27.811Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
