@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T18:35:18.757Z",
+  "last_cycle": "2026-07-22T18:40:23.669Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,47 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T15:10:30.763Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T15:10:30.763Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T15:10:30.766Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T15:10:31.323Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=LqD0kaNY"
-      }
-    },
-    {
-      "ts": "2026-07-22T15:10:51.333Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "WS open timeout",
-        "stack": "Error: WS open timeout\n    at Timeout.<anonymous> (/home/runner/work/aurelia/aurelia/deriv.js:213:20)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)"
-      }
-    },
-    {
-      "ts": "2026-07-22T15:10:51.659Z",
-      "level": "warn",
-      "msg": "Telegram sendMessage transient failure — retrying once",
-      "meta": {
-        "status": 0,
-        "error": "fetch failed",
-        "retry_after_ms": 1500
-      }
-    },
-    {
       "ts": "2026-07-22T15:15:23.146Z",
       "level": "info",
       "msg": "Tick start",
@@ -3690,6 +3649,40 @@
     },
     {
       "ts": "2026-07-22T18:35:18.756Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T18:40:23.152Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-22T18:40:23.152Z"
+      }
+    },
+    {
+      "ts": "2026-07-22T18:40:23.155Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T18:40:23.514Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hrDL5Owp"
+      }
+    },
+    {
+      "ts": "2026-07-22T18:40:23.623Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-22T18:40:23.668Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
