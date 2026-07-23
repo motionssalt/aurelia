@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-23T22:55:20.430Z",
+  "last_cycle": "2026-07-23T23:00:27.681Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,68 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-23T19:45:16.581Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-23T19:50:16.762Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-23T19:50:16.762Z"
-      }
-    },
-    {
-      "ts": "2026-07-23T19:50:16.764Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-23T19:50:17.038Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=sGNV19Ro"
-      }
-    },
-    {
-      "ts": "2026-07-23T19:50:17.184Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-23T19:50:17.285Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-23T19:55:17.896Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-23T19:55:17.895Z"
-      }
-    },
-    {
-      "ts": "2026-07-23T19:55:17.899Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-23T19:55:18.354Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=x1UrrGhx"
-      }
-    },
-    {
       "ts": "2026-07-23T19:55:18.570Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3613,10 +3551,82 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-23T23:00:25.997Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-23T23:00:25.996Z"
+      }
+    },
+    {
+      "ts": "2026-07-23T23:00:25.999Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-23T23:00:26.518Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=IMjHe6ih"
+      }
+    },
+    {
+      "ts": "2026-07-23T23:00:26.834Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-23T23:00:26.935Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-23T23:00:27.164Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 70
+      }
+    },
+    {
+      "ts": "2026-07-23T23:00:27.164Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 70,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-23T23:00:27.165Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-22",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "source": "daily_stats"
+      }
+    },
+    {
+      "ts": "2026-07-23T23:00:27.680Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-07-23"
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-07-22",
+    "date": "2026-07-23",
     "trades": 0,
     "wins": 0,
     "losses": 0,
@@ -4103,6 +4113,14 @@
     },
     {
       "date": "2026-07-21",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
+    },
+    {
+      "date": "2026-07-22",
       "trades": 0,
       "wins": 0,
       "losses": 0,
@@ -5253,9 +5271,9 @@
       "previous": "580K"
     }
   ],
-  "_calendar_last_fetch": 1784843728409,
+  "_calendar_last_fetch": 1784847626935,
   "_calendar_fetch_history": [
-    1784843728409
+    1784847626935
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
