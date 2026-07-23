@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-22T23:55:22.708Z",
+  "last_cycle": "2026-07-23T00:00:26.775Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,40 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-22T20:45:26.565Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-22T20:45:26.565Z"
-      }
-    },
-    {
-      "ts": "2026-07-22T20:45:26.568Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T20:45:27.057Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=PUeWkJfL"
-      }
-    },
-    {
-      "ts": "2026-07-22T20:45:27.377Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-22T20:45:27.480Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-22T20:50:24.535Z",
       "level": "info",
       "msg": "Tick start",
@@ -3622,6 +3588,40 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-23T00:00:25.989Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-23T00:00:25.989Z"
+      }
+    },
+    {
+      "ts": "2026-07-23T00:00:25.992Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-23T00:00:26.350Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=oFEM91em"
+      }
+    },
+    {
+      "ts": "2026-07-23T00:00:26.670Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-23T00:00:26.775Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4120,7 +4120,7 @@
     }
   ],
   "manual_session": {
-    "date": "2026-07-22",
+    "date": "2026-07-23",
     "active": true,
     "capital_start": 200,
     "capital_remaining": 200,
