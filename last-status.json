@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-27T22:10:26.492Z",
+  "last_cycle": "2026-07-27T22:15:19.908Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-27T19:00:26.993Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T19:00:27.120Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 91
-      }
-    },
-    {
-      "ts": "2026-07-27T19:00:27.121Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 91,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-27T19:00:27.121Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T19:05:17.641Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-27T19:05:17.641Z"
-      }
-    },
-    {
-      "ts": "2026-07-27T19:05:17.644Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T19:05:18.120Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9RpV8WaG"
-      }
-    },
-    {
-      "ts": "2026-07-27T19:05:18.453Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-27T19:05:18.567Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3610,6 +3553,63 @@
     },
     {
       "ts": "2026-07-27T22:10:26.491Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T22:15:18.871Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-27T22:15:18.871Z"
+      }
+    },
+    {
+      "ts": "2026-07-27T22:15:18.872Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T22:15:19.437Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=mec4tXZR"
+      }
+    },
+    {
+      "ts": "2026-07-27T22:15:19.736Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T22:15:19.827Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T22:15:19.908Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 92
+      }
+    },
+    {
+      "ts": "2026-07-27T22:15:19.908Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 92,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-27T22:15:19.908Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5033,7 +5033,7 @@
       "country": "AUD",
       "date": "2026-07-29T21:30:00-04:00",
       "impact": "Low",
-      "forecast": "-0.5%",
+      "forecast": "-0.7%",
       "previous": "-1.1%"
     },
     {
@@ -5089,7 +5089,7 @@
       "country": "CHF",
       "date": "2026-07-30T03:00:00-04:00",
       "impact": "Low",
-      "forecast": "100.7",
+      "forecast": "100.9",
       "previous": "101.2"
     },
     {
@@ -5097,7 +5097,7 @@
       "country": "EUR",
       "date": "2026-07-30T03:00:00-04:00",
       "impact": "Low",
-      "forecast": "3.1%",
+      "forecast": "3.2%",
       "previous": "3.2%"
     },
     {
@@ -5129,7 +5129,7 @@
       "country": "EUR",
       "date": "2026-07-30T05:00:00-04:00",
       "impact": "Low",
-      "forecast": "5.1%",
+      "forecast": "5.0%",
       "previous": "5.0%"
     },
     {
@@ -5201,7 +5201,7 @@
       "country": "USD",
       "date": "2026-07-30T08:30:00-04:00",
       "impact": "High",
-      "forecast": "2.3%",
+      "forecast": "2.0%",
       "previous": "2.0%"
     },
     {
@@ -5209,7 +5209,7 @@
       "country": "USD",
       "date": "2026-07-30T08:30:00-04:00",
       "impact": "High",
-      "forecast": "0.1%",
+      "forecast": "0.2%",
       "previous": "0.3%"
     },
     {
@@ -5217,7 +5217,7 @@
       "country": "USD",
       "date": "2026-07-30T08:30:00-04:00",
       "impact": "Medium",
-      "forecast": "3.7%",
+      "forecast": "4.1%",
       "previous": "3.6%"
     },
     {
@@ -5225,7 +5225,7 @@
       "country": "USD",
       "date": "2026-07-30T08:30:00-04:00",
       "impact": "Medium",
-      "forecast": "206K",
+      "forecast": "201K",
       "previous": "187K"
     },
     {
@@ -5273,7 +5273,7 @@
       "country": "JPY",
       "date": "2026-07-30T19:50:00-04:00",
       "impact": "Low",
-      "forecast": "0.7%",
+      "forecast": "1.0%",
       "previous": "0.5%"
     },
     {
@@ -5281,7 +5281,7 @@
       "country": "JPY",
       "date": "2026-07-30T19:50:00-04:00",
       "impact": "Low",
-      "forecast": "2.8%",
+      "forecast": "3.1%",
       "previous": "5.3%"
     },
     {
@@ -5289,7 +5289,7 @@
       "country": "AUD",
       "date": "2026-07-30T21:30:00-04:00",
       "impact": "Low",
-      "forecast": "0.3%",
+      "forecast": "0.5%",
       "previous": "0.4%"
     },
     {
@@ -5305,7 +5305,7 @@
       "country": "CNY",
       "date": "2026-07-30T21:30:00-04:00",
       "impact": "Low",
-      "forecast": "49.9",
+      "forecast": "50.1",
       "previous": "50.3"
     },
     {
@@ -5345,7 +5345,7 @@
       "country": "JPY",
       "date": "2026-07-31T01:00:00-04:00",
       "impact": "Low",
-      "forecast": "13.2%",
+      "forecast": "12.7%",
       "previous": "33.9%"
     },
     {
@@ -5361,7 +5361,7 @@
       "country": "GBP",
       "date": "2026-07-31T02:00:00-04:00",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "0.1%",
       "previous": "0.0%"
     },
     {
@@ -5369,7 +5369,7 @@
       "country": "CHF",
       "date": "2026-07-31T02:30:00-04:00",
       "impact": "Low",
-      "forecast": "3.2%",
+      "forecast": "3.1%",
       "previous": "3.5%"
     },
     {
@@ -5409,7 +5409,7 @@
       "country": "EUR",
       "date": "2026-07-31T05:00:00-04:00",
       "impact": "Low",
-      "forecast": "0.1%",
+      "forecast": "0.3%",
       "previous": "0.0%"
     },
     {
@@ -5441,7 +5441,7 @@
       "country": "USD",
       "date": "2026-07-31T09:45:00-04:00",
       "impact": "Low",
-      "forecast": "57.5",
+      "forecast": "55.9",
       "previous": "56.7"
     },
     {
@@ -5449,7 +5449,7 @@
       "country": "USD",
       "date": "2026-07-31T10:00:00-04:00",
       "impact": "Medium",
-      "forecast": "54.2",
+      "forecast": "53.9",
       "previous": "54.4"
     },
     {
@@ -5461,9 +5461,9 @@
       "previous": "4.2%"
     }
   ],
-  "_calendar_last_fetch": 1785186635022,
+  "_calendar_last_fetch": 1785190519827,
   "_calendar_fetch_history": [
-    1785186635022
+    1785190519827
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
