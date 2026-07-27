@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-27T15:45:20.119Z",
+  "last_cycle": "2026-07-27T15:50:25.996Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-27T12:35:28.125Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T12:35:28.197Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 90
-      }
-    },
-    {
-      "ts": "2026-07-27T12:35:28.197Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 90,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-07-27T12:35:28.197Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T12:40:20.030Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-27T12:40:20.030Z"
-      }
-    },
-    {
-      "ts": "2026-07-27T12:40:20.032Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-27T12:40:20.504Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=yCqGNeSt"
-      }
-    },
-    {
-      "ts": "2026-07-27T12:40:20.759Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-27T12:40:20.855Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3613,6 +3556,63 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-27T15:50:24.117Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-27T15:50:24.117Z"
+      }
+    },
+    {
+      "ts": "2026-07-27T15:50:24.120Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T15:50:24.700Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DuzKJxUe"
+      }
+    },
+    {
+      "ts": "2026-07-27T15:50:25.496Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T15:50:25.898Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-27T15:50:25.995Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 91
+      }
+    },
+    {
+      "ts": "2026-07-27T15:50:25.995Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 91,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-27T15:50:25.996Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -4789,6 +4789,14 @@
       "previous": "-4.5%"
     },
     {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "date": "2026-07-27T14:50:00-04:00",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": ""
+    },
+    {
       "title": "BRC Shop Price Index y/y",
       "country": "GBP",
       "date": "2026-07-27T19:01:00-04:00",
@@ -5445,9 +5453,9 @@
       "previous": "4.2%"
     }
   ],
-  "_calendar_last_fetch": 1785163524925,
+  "_calendar_last_fetch": 1785167425898,
   "_calendar_fetch_history": [
-    1785163524925
+    1785167425898
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
