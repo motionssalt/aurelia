@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-28T23:00:25.137Z",
+  "last_cycle": "2026-07-28T23:05:19.390Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,40 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-28T19:50:33.153Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:50:33.323Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:55:29.920Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-28T19:55:29.920Z"
-      }
-    },
-    {
-      "ts": "2026-07-28T19:55:29.922Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:55:30.398Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=FimOTmB7"
-      }
-    },
-    {
       "ts": "2026-07-28T19:55:30.750Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3623,6 +3589,40 @@
       "meta": {
         "date": "2026-07-28"
       }
+    },
+    {
+      "ts": "2026-07-28T23:05:18.758Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-28T23:05:18.758Z"
+      }
+    },
+    {
+      "ts": "2026-07-28T23:05:18.760Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-28T23:05:19.121Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=HjWebokt"
+      }
+    },
+    {
+      "ts": "2026-07-28T23:05:19.357Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-28T23:05:19.390Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
