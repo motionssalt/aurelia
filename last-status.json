@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-28T22:55:23.291Z",
+  "last_cycle": "2026-07-28T23:00:25.137Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,48 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-28T19:45:22.153Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=s5v4LBZQ"
-      }
-    },
-    {
-      "ts": "2026-07-28T19:45:22.419Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:45:22.495Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:50:32.394Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-28T19:50:32.394Z"
-      }
-    },
-    {
-      "ts": "2026-07-28T19:50:32.397Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-28T19:50:32.872Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2A8XQdmX"
-      }
-    },
-    {
       "ts": "2026-07-28T19:50:33.153Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3616,10 +3574,59 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-07-28T23:00:24.295Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-28T23:00:24.295Z"
+      }
+    },
+    {
+      "ts": "2026-07-28T23:00:24.297Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-28T23:00:24.670Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=Fs80hwRl"
+      }
+    },
+    {
+      "ts": "2026-07-28T23:00:24.750Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-28T23:00:24.787Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-07-27",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "source": "daily_stats"
+      }
+    },
+    {
+      "ts": "2026-07-28T23:00:25.136Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-07-28"
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-07-27",
+    "date": "2026-07-28",
     "trades": 0,
     "wins": 0,
     "losses": 0,
@@ -4146,6 +4153,14 @@
     },
     {
       "date": "2026-07-26",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
+    },
+    {
+      "date": "2026-07-27",
       "trades": 0,
       "wins": 0,
       "losses": 0,
