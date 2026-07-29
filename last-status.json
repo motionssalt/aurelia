@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-29T10:00:27.086Z",
+  "last_cycle": "2026-07-29T10:05:23.513Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,40 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-29T06:50:24.529Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-29T06:55:25.713Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-29T06:55:25.713Z"
-      }
-    },
-    {
-      "ts": "2026-07-29T06:55:25.715Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-29T06:55:26.107Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0Hw5p8tY"
-      }
-    },
-    {
-      "ts": "2026-07-29T06:55:26.406Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-29T06:55:26.510Z",
       "level": "info",
       "msg": "Fetching ForexFactory calendar...",
@@ -3610,6 +3576,40 @@
     },
     {
       "ts": "2026-07-29T10:00:27.086Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-29T10:05:22.483Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-29T10:05:22.483Z"
+      }
+    },
+    {
+      "ts": "2026-07-29T10:05:22.485Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-29T10:05:23.072Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=75cHa431"
+      }
+    },
+    {
+      "ts": "2026-07-29T10:05:23.397Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-29T10:05:23.512Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
