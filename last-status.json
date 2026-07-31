@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-07-31T04:05:22.756Z",
+  "last_cycle": "2026-07-31T04:10:24.821Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-07-31T00:55:24.038Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-31T01:00:27.445Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-31T01:00:27.445Z"
-      }
-    },
-    {
-      "ts": "2026-07-31T01:00:27.448Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-31T01:00:27.952Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=6LbRXMdP"
-      }
-    },
-    {
-      "ts": "2026-07-31T01:00:28.331Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-31T01:00:28.475Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-07-31T01:05:19.317Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-07-31T01:05:19.316Z"
-      }
-    },
-    {
-      "ts": "2026-07-31T01:05:19.319Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-07-31T01:05:19.702Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3610,6 +3556,63 @@
     },
     {
       "ts": "2026-07-31T04:05:22.756Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-31T04:10:23.986Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-07-31T04:10:23.986Z"
+      }
+    },
+    {
+      "ts": "2026-07-31T04:10:23.989Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-31T04:10:24.429Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=YfumqigT"
+      }
+    },
+    {
+      "ts": "2026-07-31T04:10:24.596Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-31T04:10:24.656Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-07-31T04:10:24.819Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 92
+      }
+    },
+    {
+      "ts": "2026-07-31T04:10:24.819Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 92,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-07-31T04:10:24.820Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5349,9 +5352,17 @@
       "previous": "50.2"
     },
     {
+      "title": "BOJ Outlook Report",
+      "country": "JPY",
+      "date": "2026-07-30T23:11:00-04:00",
+      "impact": "High",
+      "forecast": "",
+      "previous": ""
+    },
+    {
       "title": "BOJ Policy Rate",
       "country": "JPY",
-      "date": "2026-07-30T22:50:00-04:00",
+      "date": "2026-07-30T23:11:00-04:00",
       "impact": "High",
       "forecast": "<1.00%",
       "previous": "<1.00%"
@@ -5359,15 +5370,7 @@
     {
       "title": "Monetary Policy Statement",
       "country": "JPY",
-      "date": "2026-07-30T22:50:00-04:00",
-      "impact": "High",
-      "forecast": "",
-      "previous": ""
-    },
-    {
-      "title": "BOJ Outlook Report",
-      "country": "JPY",
-      "date": "2026-07-30T22:51:00-04:00",
+      "date": "2026-07-30T23:11:00-04:00",
       "impact": "High",
       "forecast": "",
       "previous": ""
@@ -5493,9 +5496,9 @@
       "previous": "4.2%"
     }
   ],
-  "_calendar_last_fetch": 1785467421625,
+  "_calendar_last_fetch": 1785471024656,
   "_calendar_fetch_history": [
-    1785467421625
+    1785471024656
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
