@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-01T14:55:24.404Z",
+  "last_cycle": "2026-08-01T15:00:24.759Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-01T11:45:23.953Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-01T11:45:24.217Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 92
-      }
-    },
-    {
-      "ts": "2026-08-01T11:45:24.217Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 92,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-08-01T11:45:24.217Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-01T11:50:19.377Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-01T11:50:19.376Z"
-      }
-    },
-    {
-      "ts": "2026-08-01T11:50:19.379Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-01T11:50:19.778Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=2Tp5oTXd"
-      }
-    },
-    {
-      "ts": "2026-08-01T11:50:19.869Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-01T11:50:19.903Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3610,6 +3553,63 @@
     },
     {
       "ts": "2026-08-01T14:55:24.403Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-01T15:00:23.629Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-01T15:00:23.629Z"
+      }
+    },
+    {
+      "ts": "2026-08-01T15:00:23.631Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-01T15:00:24.104Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=9MAzLRaj"
+      }
+    },
+    {
+      "ts": "2026-08-01T15:00:24.345Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-01T15:00:24.442Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-01T15:00:24.758Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 92
+      }
+    },
+    {
+      "ts": "2026-08-01T15:00:24.758Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 92,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-01T15:00:24.758Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5501,9 +5501,9 @@
       "previous": "4.2%"
     }
   ],
-  "_calendar_last_fetch": 1785592524706,
+  "_calendar_last_fetch": 1785596424442,
   "_calendar_fetch_history": [
-    1785592524706
+    1785596424442
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
