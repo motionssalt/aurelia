@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-03T19:20:26.442Z",
+  "last_cycle": "2026-08-03T19:25:25.557Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-03T16:05:31.536Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T16:10:29.830Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-03T16:10:29.830Z"
-      }
-    },
-    {
-      "ts": "2026-08-03T16:10:29.833Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T16:10:30.324Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=C1Kyif2q"
-      }
-    },
-    {
-      "ts": "2026-08-03T16:10:30.569Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T16:10:30.643Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T16:15:32.253Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-03T16:15:32.253Z"
-      }
-    },
-    {
-      "ts": "2026-08-03T16:15:32.254Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-03T16:15:32.694Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3610,6 +3556,63 @@
     },
     {
       "ts": "2026-08-03T19:20:26.441Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T19:25:24.909Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-03T19:25:24.908Z"
+      }
+    },
+    {
+      "ts": "2026-08-03T19:25:24.911Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T19:25:25.290Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TAuPD4Vg"
+      }
+    },
+    {
+      "ts": "2026-08-03T19:25:25.455Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T19:25:25.519Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T19:25:25.556Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 98
+      }
+    },
+    {
+      "ts": "2026-08-03T19:25:25.556Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 98,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-03T19:25:25.556Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -4951,7 +4954,7 @@
     {
       "title": "Loan Officer Survey",
       "country": "USD",
-      "date": "2026-08-03T14:03:00-04:00",
+      "date": "2026-08-03T14:00:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": ""
@@ -5009,7 +5012,7 @@
       "country": "EUR",
       "date": "2026-08-04T03:00:00-04:00",
       "impact": "Low",
-      "forecast": "-20.3K",
+      "forecast": "-18.4K",
       "previous": "-28.7K"
     },
     {
@@ -5017,7 +5020,7 @@
       "country": "EUR",
       "date": "2026-08-04T04:00:00-04:00",
       "impact": "Low",
-      "forecast": "0.1%",
+      "forecast": "0.3%",
       "previous": "0.2%"
     },
     {
@@ -5041,7 +5044,7 @@
       "country": "CAD",
       "date": "2026-08-04T09:30:00-04:00",
       "impact": "Low",
-      "forecast": "50.2",
+      "forecast": "52.2",
       "previous": "53.0"
     },
     {
@@ -5049,7 +5052,7 @@
       "country": "USD",
       "date": "2026-08-04T10:00:00-04:00",
       "impact": "Medium",
-      "forecast": "7.42M",
+      "forecast": "7.44M",
       "previous": "7.59M"
     },
     {
@@ -5057,7 +5060,7 @@
       "country": "USD",
       "date": "2026-08-04T10:00:00-04:00",
       "impact": "Low",
-      "forecast": "0.0%",
+      "forecast": "0.2%",
       "previous": "-1.3%"
     },
     {
@@ -5161,7 +5164,7 @@
       "country": "EUR",
       "date": "2026-08-05T03:15:00-04:00",
       "impact": "Low",
-      "forecast": "54.8",
+      "forecast": "54.9",
       "previous": "54.2"
     },
     {
@@ -5169,7 +5172,7 @@
       "country": "EUR",
       "date": "2026-08-05T03:45:00-04:00",
       "impact": "Low",
-      "forecast": "51.2",
+      "forecast": "51.0",
       "previous": "50.2"
     },
     {
@@ -5209,7 +5212,7 @@
       "country": "EUR",
       "date": "2026-08-05T05:00:00-04:00",
       "impact": "Low",
-      "forecast": "-0.3%",
+      "forecast": "-0.2%",
       "previous": "0.2%"
     },
     {
@@ -5217,7 +5220,7 @@
       "country": "USD",
       "date": "2026-08-05T08:15:00-04:00",
       "impact": "Medium",
-      "forecast": "71K",
+      "forecast": "68K",
       "previous": "98K"
     },
     {
@@ -5265,7 +5268,7 @@
       "country": "AUD",
       "date": "2026-08-05T21:30:00-04:00",
       "impact": "Low",
-      "forecast": "-1.08B",
+      "forecast": "-1.06B",
       "previous": "-3.02B"
     },
     {
@@ -5353,7 +5356,7 @@
       "country": "USD",
       "date": "2026-08-06T08:30:00-04:00",
       "impact": "Medium",
-      "forecast": "205K",
+      "forecast": "203K",
       "previous": "197K"
     },
     {
@@ -5565,9 +5568,9 @@
       "previous": "4.1%"
     }
   ],
-  "_calendar_last_fetch": 1785781227073,
+  "_calendar_last_fetch": 1785785125519,
   "_calendar_fetch_history": [
-    1785781227073
+    1785785125519
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
