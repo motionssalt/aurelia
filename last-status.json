@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-03T02:35:19.363Z",
+  "last_cycle": "2026-08-03T02:40:22.311Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-02T23:25:20.718Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-02T23:30:33.121Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-02T23:30:33.121Z"
-      }
-    },
-    {
-      "ts": "2026-08-02T23:30:33.124Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-02T23:30:33.594Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=1YuIvUIX"
-      }
-    },
-    {
-      "ts": "2026-08-02T23:30:33.857Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-02T23:30:33.949Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-02T23:30:33.987Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 95
-      }
-    },
-    {
-      "ts": "2026-08-02T23:30:33.987Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 95,
-        "trigger": "scheduled"
-      }
-    },
-    {
       "ts": "2026-08-02T23:30:33.987Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3610,6 +3553,63 @@
     },
     {
       "ts": "2026-08-03T02:35:19.363Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T02:40:21.099Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-03T02:40:21.099Z"
+      }
+    },
+    {
+      "ts": "2026-08-03T02:40:21.101Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T02:40:21.637Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=TJRxf35f"
+      }
+    },
+    {
+      "ts": "2026-08-03T02:40:21.879Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T02:40:21.968Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T02:40:22.310Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 97
+      }
+    },
+    {
+      "ts": "2026-08-03T02:40:22.310Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 97,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-03T02:40:22.310Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5533,6 +5533,14 @@
       "previous": "-0.2B"
     },
     {
+      "title": "FOMC Member Bowman Speaks",
+      "country": "USD",
+      "date": "2026-08-08T12:45:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": ""
+    },
+    {
       "title": "CPI y/y",
       "country": "CNY",
       "date": "2026-08-08T21:30:00-04:00",
@@ -5549,9 +5557,9 @@
       "previous": "4.1%"
     }
   ],
-  "_calendar_last_fetch": 1785720923097,
+  "_calendar_last_fetch": 1785724821968,
   "_calendar_fetch_history": [
-    1785720923097
+    1785724821968
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
