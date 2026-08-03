@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-03T18:15:19.508Z",
+  "last_cycle": "2026-08-03T18:20:27.116Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-03T15:00:22.701Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T15:05:22.814Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-03T15:05:22.814Z"
-      }
-    },
-    {
-      "ts": "2026-08-03T15:05:22.817Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T15:05:23.125Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=lOrU97GY"
-      }
-    },
-    {
-      "ts": "2026-08-03T15:05:23.291Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T15:05:23.339Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T15:10:30.088Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-03T15:10:30.088Z"
-      }
-    },
-    {
-      "ts": "2026-08-03T15:10:30.091Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-03T15:10:30.682Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3610,6 +3556,63 @@
     },
     {
       "ts": "2026-08-03T18:15:19.507Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T18:20:26.090Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-03T18:20:26.090Z"
+      }
+    },
+    {
+      "ts": "2026-08-03T18:20:26.093Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T18:20:26.663Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=dF7ehMZ6"
+      }
+    },
+    {
+      "ts": "2026-08-03T18:20:26.973Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T18:20:27.073Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-03T18:20:27.114Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 98
+      }
+    },
+    {
+      "ts": "2026-08-03T18:20:27.115Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 98,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-03T18:20:27.115Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5125,6 +5128,14 @@
       "previous": ""
     },
     {
+      "title": "FOMC Member Schmid Speaks",
+      "country": "USD",
+      "date": "2026-08-04T20:15:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": ""
+    },
+    {
       "title": "ANZ Commodity Prices m/m",
       "country": "NZD",
       "date": "2026-08-04T21:00:00-04:00",
@@ -5557,9 +5568,9 @@
       "previous": "4.1%"
     }
   ],
-  "_calendar_last_fetch": 1785777621181,
+  "_calendar_last_fetch": 1785781227073,
   "_calendar_fetch_history": [
-    1785777621181
+    1785781227073
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
