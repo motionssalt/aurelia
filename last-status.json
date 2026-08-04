@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T15:40:28.019Z",
+  "last_cycle": "2026-08-04T15:45:36.368Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,26 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T12:25:25.122Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T12:30:19.505Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T12:30:19.505Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T12:30:19.507Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-04T12:30:19.862Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3622,6 +3602,29 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-08-04T15:45:35.224Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T15:45:35.224Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T15:45:35.227Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T15:45:35.816Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "fetch failed",
+        "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15141:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:127:17)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
+      }
     }
   ],
   "daily_stats": {
