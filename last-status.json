@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T16:17:37.043Z",
+  "last_cycle": "2026-08-04T16:20:23.137Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,62 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T13:00:34.854Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T13:00:34.854Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T13:00:34.856Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T13:00:35.402Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0Phgk2Db"
-      }
-    },
-    {
-      "ts": "2026-08-04T13:00:35.727Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T13:00:35.832Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T13:05:25.577Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T13:05:25.577Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T13:05:25.580Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T13:05:25.912Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=XkSYBh4k"
-      }
-    },
-    {
       "ts": "2026-08-04T13:05:26.015Z",
       "level": "network",
       "msg": "Deriv: WebSocket open",
@@ -3628,6 +3572,63 @@
         "error": "otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser",
         "stack": "Error: otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser\n    at getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:138:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
       }
+    },
+    {
+      "ts": "2026-08-04T16:20:22.552Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T16:20:22.552Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T16:20:22.554Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T16:20:22.946Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VZ8RZ13x"
+      }
+    },
+    {
+      "ts": "2026-08-04T16:20:23.031Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T16:20:23.066Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T16:20:23.135Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 98
+      }
+    },
+    {
+      "ts": "2026-08-04T16:20:23.136Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 98,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-04T16:20:23.136Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
@@ -5094,7 +5095,7 @@
     {
       "title": "GDT Price Index",
       "country": "NZD",
-      "date": "2026-08-04T11:20:00-04:00",
+      "date": "2026-08-04T11:14:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "1.5%"
@@ -5588,9 +5589,9 @@
       "previous": "4.1%"
     }
   ],
-  "_calendar_last_fetch": 1785856527893,
+  "_calendar_last_fetch": 1785860423066,
   "_calendar_fetch_history": [
-    1785856527893
+    1785860423066
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
