@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T22:55:26.586Z",
+  "last_cycle": "2026-08-04T23:00:23.726Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,46 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T19:45:29.339Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T19:50:26.709Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T19:50:26.709Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T19:50:26.712Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T19:50:27.147Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=CZLdlEia"
-      }
-    },
-    {
-      "ts": "2026-08-04T19:50:27.353Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T19:50:27.467Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-04T19:55:25.604Z",
       "level": "info",
       "msg": "Tick start",
@@ -3613,10 +3573,59 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-08-04T23:00:22.162Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T23:00:22.162Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T23:00:22.165Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T23:00:23.200Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RiFaN51G"
+      }
+    },
+    {
+      "ts": "2026-08-04T23:00:23.316Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T23:00:23.398Z",
+      "level": "info",
+      "msg": "runDailySummary — reporting",
+      "meta": {
+        "report_date": "2026-08-03",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "source": "daily_stats"
+      }
+    },
+    {
+      "ts": "2026-08-04T23:00:23.725Z",
+      "level": "info",
+      "msg": "daily_stats reset for new UTC day",
+      "meta": {
+        "date": "2026-08-04"
+      }
     }
   ],
   "daily_stats": {
-    "date": "2026-08-03",
+    "date": "2026-08-04",
     "trades": 0,
     "wins": 0,
     "losses": 0,
@@ -4199,6 +4208,14 @@
     },
     {
       "date": "2026-08-02",
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0,
+      "by_symbol": {}
+    },
+    {
+      "date": "2026-08-03",
       "trades": 0,
       "wins": 0,
       "losses": 0,
