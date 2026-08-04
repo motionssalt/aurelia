@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T15:45:36.368Z",
+  "last_cycle": "2026-08-04T15:50:38.509Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,40 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T12:30:19.862Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=nYuV9P9k"
-      }
-    },
-    {
-      "ts": "2026-08-04T12:30:19.984Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T12:30:20.039Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T12:35:24.126Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T12:35:24.125Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T12:35:24.128Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-04T12:35:24.506Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3625,6 +3591,40 @@
         "error": "fetch failed",
         "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15141:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:127:17)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
       }
+    },
+    {
+      "ts": "2026-08-04T15:50:37.556Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T15:50:37.556Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T15:50:37.558Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T15:50:38.051Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=DS57KGEb"
+      }
+    },
+    {
+      "ts": "2026-08-04T15:50:38.417Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T15:50:38.508Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
