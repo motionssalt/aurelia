@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T11:42:30.259Z",
+  "last_cycle": "2026-08-04T11:45:26.746Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,40 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T08:30:30.788Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=s1ZPnbBu"
-      }
-    },
-    {
-      "ts": "2026-08-04T08:30:31.061Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T08:30:31.158Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T08:35:23.007Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T08:35:23.007Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T08:35:23.009Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-04T08:35:23.465Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3616,6 +3582,40 @@
         "error": "otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser",
         "stack": "Error: otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser\n    at getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:138:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
       }
+    },
+    {
+      "ts": "2026-08-04T11:45:25.679Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T11:45:25.678Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T11:45:25.681Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T11:45:26.246Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=VA3Sa05A"
+      }
+    },
+    {
+      "ts": "2026-08-04T11:45:26.614Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T11:45:26.745Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
     }
   ],
   "daily_stats": {
