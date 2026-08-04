@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T01:20:22.396Z",
+  "last_cycle": "2026-08-04T01:25:22.471Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,41 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-03T22:10:20.459Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T22:10:20.525Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T22:15:22.203Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-03T22:15:22.203Z"
-      }
-    },
-    {
-      "ts": "2026-08-03T22:15:22.206Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-03T22:17:27.469Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser",
-        "stack": "Error: otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser\n    at getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:138:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
-      }
-    },
-    {
       "ts": "2026-08-03T22:20:30.634Z",
       "level": "info",
       "msg": "Tick start",
@@ -3620,6 +3585,40 @@
     },
     {
       "ts": "2026-08-04T01:20:22.395Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T01:25:21.610Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T01:25:21.610Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T01:25:21.612Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T01:25:22.071Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=0GxjS7G8"
+      }
+    },
+    {
+      "ts": "2026-08-04T01:25:22.324Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T01:25:22.471Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
