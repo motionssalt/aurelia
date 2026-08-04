@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-04T18:55:39.967Z",
+  "last_cycle": "2026-08-04T19:00:41.056Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,43 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-04T15:45:35.224Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T15:45:35.224Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T15:45:35.227Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-04T15:45:35.816Z",
-      "level": "error",
-      "msg": "Tick failed",
-      "meta": {
-        "error": "fetch failed",
-        "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15141:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:127:17)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
-      }
-    },
-    {
-      "ts": "2026-08-04T15:50:37.556Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-04T15:50:37.556Z"
-      }
-    },
-    {
-      "ts": "2026-08-04T15:50:37.558Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-04T15:50:38.051Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3616,6 +3579,40 @@
     },
     {
       "ts": "2026-08-04T18:55:39.967Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T19:00:39.468Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-04T19:00:39.468Z"
+      }
+    },
+    {
+      "ts": "2026-08-04T19:00:39.470Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T19:00:40.300Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=hWzTBRhu"
+      }
+    },
+    {
+      "ts": "2026-08-04T19:00:40.862Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-04T19:00:41.055Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
