@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-06T10:00:23.421Z",
+  "last_cycle": "2026-08-06T10:05:19.601Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,63 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-06T06:50:29.902Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-06T06:55:31.643Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-06T06:55:31.642Z"
-      }
-    },
-    {
-      "ts": "2026-08-06T06:55:31.645Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-06T06:55:32.263Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=takbC61b"
-      }
-    },
-    {
-      "ts": "2026-08-06T06:55:32.541Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-06T06:55:32.622Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-06T06:55:32.859Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 99
-      }
-    },
-    {
-      "ts": "2026-08-06T06:55:32.859Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 99,
-        "trigger": "scheduled"
-      }
-    },
-    {
       "ts": "2026-08-06T06:55:32.860Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
@@ -3610,6 +3553,63 @@
     },
     {
       "ts": "2026-08-06T10:00:23.421Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-06T10:05:18.955Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-06T10:05:18.955Z"
+      }
+    },
+    {
+      "ts": "2026-08-06T10:05:18.957Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-06T10:05:19.299Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=i1KzDJs1"
+      }
+    },
+    {
+      "ts": "2026-08-06T10:05:19.369Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-06T10:05:19.396Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-06T10:05:19.600Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 99
+      }
+    },
+    {
+      "ts": "2026-08-06T10:05:19.600Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 99,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-06T10:05:19.601Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5341,17 +5341,9 @@
       "previous": "38.4"
     },
     {
-      "title": "Retail Sales m/m",
-      "country": "EUR",
-      "date": "2026-08-06T05:00:00-04:00",
-      "impact": "Low",
-      "forecast": "0.1%",
-      "previous": "0.2%"
-    },
-    {
       "title": "Spanish 10-y Bond Auction",
       "country": "EUR",
-      "date": "2026-08-06T05:03:00-04:00",
+      "date": "2026-08-06T04:41:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "3.40|1.8"
@@ -5359,10 +5351,18 @@
     {
       "title": "French 10-y Bond Auction",
       "country": "EUR",
-      "date": "2026-08-06T05:18:00-04:00",
+      "date": "2026-08-06T04:57:00-04:00",
       "impact": "Low",
       "forecast": "",
       "previous": "3.68|3.3"
+    },
+    {
+      "title": "Retail Sales m/m",
+      "country": "EUR",
+      "date": "2026-08-06T05:00:00-04:00",
+      "impact": "Low",
+      "forecast": "0.1%",
+      "previous": "0.2%"
     },
     {
       "title": "Challenger Job Cuts y/y",
@@ -5589,9 +5589,9 @@
       "previous": "4.1%"
     }
   ],
-  "_calendar_last_fetch": 1786006833957,
+  "_calendar_last_fetch": 1786010719396,
   "_calendar_fetch_history": [
-    1786006833957
+    1786010719396
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
