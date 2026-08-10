@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-10T00:20:24.533Z",
+  "last_cycle": "2026-08-10T00:25:22.382Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,41 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-09T21:15:19.324Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-09T21:15:19.352Z",
-      "level": "info",
-      "msg": "Fetching ForexFactory calendar...",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-09T21:15:19.388Z",
-      "level": "info",
-      "msg": "Calendar fetched",
-      "meta": {
-        "events": 73
-      }
-    },
-    {
-      "ts": "2026-08-09T21:15:19.388Z",
-      "level": "info",
-      "msg": "Calendar refreshed",
-      "meta": {
-        "events": 73,
-        "trigger": "scheduled"
-      }
-    },
-    {
-      "ts": "2026-08-09T21:15:19.389Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-09T21:20:18.068Z",
       "level": "info",
       "msg": "Tick start",
@@ -3620,6 +3585,40 @@
     },
     {
       "ts": "2026-08-10T00:20:24.532Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-10T00:25:21.764Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-10T00:25:21.763Z"
+      }
+    },
+    {
+      "ts": "2026-08-10T00:25:21.766Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-10T00:25:22.070Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=KoB3H9Bc"
+      }
+    },
+    {
+      "ts": "2026-08-10T00:25:22.183Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-10T00:25:22.381Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
