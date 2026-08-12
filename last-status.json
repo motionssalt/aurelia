@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-12T17:10:23.765Z",
+  "last_cycle": "2026-08-12T17:17:24.587Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,26 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-12T14:00:30.919Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-12T14:05:19.546Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-12T14:05:19.545Z"
-      }
-    },
-    {
-      "ts": "2026-08-12T14:05:19.548Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-12T14:05:19.895Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3613,6 +3593,29 @@
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
+    },
+    {
+      "ts": "2026-08-12T17:15:18.808Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-12T17:15:18.808Z"
+      }
+    },
+    {
+      "ts": "2026-08-12T17:15:18.810Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-12T17:17:24.045Z",
+      "level": "error",
+      "msg": "Tick failed",
+      "meta": {
+        "error": "otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser",
+        "stack": "Error: otp 524: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/\",\"title\":\"Error 524: A timeout occurred\",\"status\":524,\"detail\":\"The origin web ser\n    at getOtpUrl (/home/runner/work/aurelia/aurelia/deriv.js:138:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.connect (/home/runner/work/aurelia/aurelia/deriv.js:235:17)\n    at async main (/home/runner/work/aurelia/aurelia/runner.js:1302:16)"
+      }
     }
   ],
   "daily_stats": {
