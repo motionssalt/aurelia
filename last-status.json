@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-13T10:05:27.409Z",
+  "last_cycle": "2026-08-13T10:10:36.654Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-13T06:55:35.060Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T06:55:35.597Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=uKqSXyhg"
-      }
-    },
-    {
-      "ts": "2026-08-13T06:55:35.914Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T06:55:36.014Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T07:00:29.884Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-13T07:00:29.883Z"
-      }
-    },
-    {
-      "ts": "2026-08-13T07:00:29.886Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T07:00:30.434Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g7KiRjR4"
-      }
-    },
-    {
-      "ts": "2026-08-13T07:00:30.613Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-13T07:00:30.678Z",
       "level": "info",
       "msg": "Fetching ForexFactory calendar...",
@@ -3616,6 +3562,63 @@
     },
     {
       "ts": "2026-08-13T10:05:27.409Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T10:10:35.614Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-13T10:10:35.613Z"
+      }
+    },
+    {
+      "ts": "2026-08-13T10:10:35.615Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T10:10:36.084Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=AQdcGmVB"
+      }
+    },
+    {
+      "ts": "2026-08-13T10:10:36.348Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T10:10:36.567Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T10:10:36.653Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 74
+      }
+    },
+    {
+      "ts": "2026-08-13T10:10:36.653Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 74,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-13T10:10:36.654Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5227,22 +5230,6 @@
       "previous": "-0.2%"
     },
     {
-      "title": "M2 Money Supply y/y",
-      "country": "CNY",
-      "date": "2026-08-13T05:03:00-04:00",
-      "impact": "Low",
-      "forecast": "7.9%",
-      "previous": "8.0%"
-    },
-    {
-      "title": "New Loans",
-      "country": "CNY",
-      "date": "2026-08-13T05:03:00-04:00",
-      "impact": "Low",
-      "forecast": "-50B",
-      "previous": "1610B"
-    },
-    {
       "title": "FOMC Member Hammack Speaks",
       "country": "USD",
       "date": "2026-08-13T08:15:00-04:00",
@@ -5395,6 +5382,22 @@
       "previous": "-5.0B"
     },
     {
+      "title": "M2 Money Supply y/y",
+      "country": "CNY",
+      "date": "2026-08-14T05:03:00-04:00",
+      "impact": "Low",
+      "forecast": "7.9%",
+      "previous": "8.0%"
+    },
+    {
+      "title": "New Loans",
+      "country": "CNY",
+      "date": "2026-08-14T05:03:00-04:00",
+      "impact": "Low",
+      "forecast": "-50B",
+      "previous": "1610B"
+    },
+    {
       "title": "Manufacturing Sales m/m",
       "country": "CAD",
       "date": "2026-08-14T08:30:00-04:00",
@@ -5451,9 +5454,9 @@
       "previous": "0.3%"
     }
   ],
-  "_calendar_last_fetch": 1786611928480,
+  "_calendar_last_fetch": 1786615836567,
   "_calendar_fetch_history": [
-    1786611928480
+    1786615836567
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
