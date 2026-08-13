@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-13T09:00:33.487Z",
+  "last_cycle": "2026-08-13T09:05:28.755Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-13T05:50:27.081Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T05:50:27.172Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T05:55:23.746Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-13T05:55:23.746Z"
-      }
-    },
-    {
-      "ts": "2026-08-13T05:55:23.748Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T05:55:24.243Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=wRDrm8u2"
-      }
-    },
-    {
-      "ts": "2026-08-13T05:55:24.465Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T05:55:24.525Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T06:00:26.876Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-13T06:00:26.876Z"
-      }
-    },
-    {
       "ts": "2026-08-13T06:00:26.878Z",
       "level": "network",
       "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
@@ -3613,6 +3559,63 @@
     },
     {
       "ts": "2026-08-13T09:00:33.487Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T09:05:27.616Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-13T09:05:27.616Z"
+      }
+    },
+    {
+      "ts": "2026-08-13T09:05:27.619Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T09:05:28.152Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=RtyfMYWk"
+      }
+    },
+    {
+      "ts": "2026-08-13T09:05:28.384Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T09:05:28.480Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T09:05:28.754Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 74
+      }
+    },
+    {
+      "ts": "2026-08-13T09:05:28.754Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 74,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-13T09:05:28.755Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5216,9 +5219,17 @@
       "previous": "-0.3%"
     },
     {
+      "title": "Industrial Production m/m",
+      "country": "EUR",
+      "date": "2026-08-13T05:00:00-04:00",
+      "impact": "Low",
+      "forecast": "-0.1%",
+      "previous": "-0.2%"
+    },
+    {
       "title": "M2 Money Supply y/y",
       "country": "CNY",
-      "date": "2026-08-13T04:03:00-04:00",
+      "date": "2026-08-13T05:03:00-04:00",
       "impact": "Low",
       "forecast": "7.9%",
       "previous": "8.0%"
@@ -5226,18 +5237,10 @@
     {
       "title": "New Loans",
       "country": "CNY",
-      "date": "2026-08-13T04:03:00-04:00",
+      "date": "2026-08-13T05:03:00-04:00",
       "impact": "Low",
       "forecast": "-50B",
       "previous": "1610B"
-    },
-    {
-      "title": "Industrial Production m/m",
-      "country": "EUR",
-      "date": "2026-08-13T05:00:00-04:00",
-      "impact": "Low",
-      "forecast": "-0.1%",
-      "previous": "-0.2%"
     },
     {
       "title": "FOMC Member Hammack Speaks",
@@ -5448,9 +5451,9 @@
       "previous": "0.3%"
     }
   ],
-  "_calendar_last_fetch": 1786608323693,
+  "_calendar_last_fetch": 1786611928480,
   "_calendar_fetch_history": [
-    1786608323693
+    1786611928480
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
