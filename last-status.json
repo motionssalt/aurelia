@@ -1,5 +1,5 @@
 {
-  "last_cycle": "2026-08-13T06:55:36.014Z",
+  "last_cycle": "2026-08-13T07:00:30.772Z",
   "balance": 9854.47,
   "currency": "USD",
   "account_mode": "demo",
@@ -2248,60 +2248,6 @@
   },
   "logs": [
     {
-      "ts": "2026-08-13T03:45:21.483Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T03:50:24.541Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-13T03:50:24.540Z"
-      }
-    },
-    {
-      "ts": "2026-08-13T03:50:24.543Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T03:50:25.109Z",
-      "level": "network",
-      "msg": "Deriv: opening WebSocket",
-      "meta": {
-        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=5zb33Qbm"
-      }
-    },
-    {
-      "ts": "2026-08-13T03:50:25.381Z",
-      "level": "network",
-      "msg": "Deriv: WebSocket open",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T03:50:25.464Z",
-      "level": "info",
-      "msg": "Cycle not running (config.cycle.running=false)",
-      "meta": {}
-    },
-    {
-      "ts": "2026-08-13T03:55:22.713Z",
-      "level": "info",
-      "msg": "Tick start",
-      "meta": {
-        "ts": "2026-08-13T03:55:22.713Z"
-      }
-    },
-    {
-      "ts": "2026-08-13T03:55:22.715Z",
-      "level": "network",
-      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
-      "meta": {}
-    },
-    {
       "ts": "2026-08-13T03:55:23.239Z",
       "level": "network",
       "msg": "Deriv: opening WebSocket",
@@ -3610,6 +3556,63 @@
     },
     {
       "ts": "2026-08-13T06:55:36.014Z",
+      "level": "info",
+      "msg": "Cycle not running (config.cycle.running=false)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T07:00:29.884Z",
+      "level": "info",
+      "msg": "Tick start",
+      "meta": {
+        "ts": "2026-08-13T07:00:29.883Z"
+      }
+    },
+    {
+      "ts": "2026-08-13T07:00:29.886Z",
+      "level": "network",
+      "msg": "Deriv: requesting OTP for DOT93176227 (demo)",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T07:00:30.434Z",
+      "level": "network",
+      "msg": "Deriv: opening WebSocket",
+      "meta": {
+        "url": "wss://api.derivws.com/trading/v1/options/ws/demo?otp=g7KiRjR4"
+      }
+    },
+    {
+      "ts": "2026-08-13T07:00:30.613Z",
+      "level": "network",
+      "msg": "Deriv: WebSocket open",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T07:00:30.678Z",
+      "level": "info",
+      "msg": "Fetching ForexFactory calendar...",
+      "meta": {}
+    },
+    {
+      "ts": "2026-08-13T07:00:30.770Z",
+      "level": "info",
+      "msg": "Calendar fetched",
+      "meta": {
+        "events": 74
+      }
+    },
+    {
+      "ts": "2026-08-13T07:00:30.771Z",
+      "level": "info",
+      "msg": "Calendar refreshed",
+      "meta": {
+        "events": 74,
+        "trigger": "scheduled"
+      }
+    },
+    {
+      "ts": "2026-08-13T07:00:30.771Z",
       "level": "info",
       "msg": "Cycle not running (config.cycle.running=false)",
       "meta": {}
@@ -5205,14 +5208,6 @@
       "previous": "0.7%"
     },
     {
-      "title": "Foreign Direct Investment ytd/y",
-      "country": "CNY",
-      "date": "2026-08-13T02:02:00-04:00",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "-5.0%"
-    },
-    {
       "title": "PPI m/m",
       "country": "CHF",
       "date": "2026-08-13T02:30:00-04:00",
@@ -5357,6 +5352,14 @@
       "previous": "-0.7%"
     },
     {
+      "title": "Foreign Direct Investment ytd/y",
+      "country": "CNY",
+      "date": "2026-08-14T02:02:00-04:00",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "-5.0%"
+    },
+    {
       "title": "French Final CPI m/m",
       "country": "EUR",
       "date": "2026-08-14T02:45:00-04:00",
@@ -5445,9 +5448,9 @@
       "previous": "0.3%"
     }
   ],
-  "_calendar_last_fetch": 1786600827396,
+  "_calendar_last_fetch": 1786604430677,
   "_calendar_fetch_history": [
-    1786600827396
+    1786604430677
   ],
   "_calendar_last_fetch_trigger": "scheduled"
 }
